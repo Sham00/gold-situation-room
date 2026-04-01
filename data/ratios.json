@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 63.634,
-    "gold_oil": 48.5403,
-    "gold_spx": 0.7308,
-    "gold_btc": 0.0705,
-    "gold_copper": 854.678
+    "gold_silver": 63.6011,
+    "gold_oil": 48.7662,
+    "gold_spx": 0.7328,
+    "gold_btc": 0.0708,
+    "gold_copper": 856.0946
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1018,7 +1018,7 @@
       },
       {
         "t": "2026-04-01",
-        "v": 63.634
+        "v": 63.5945
       }
     ],
     "gold_oil": [
@@ -2032,7 +2032,7 @@
       },
       {
         "t": "2026-04-01",
-        "v": 48.5403
+        "v": 48.7611
       }
     ],
     "gold_spx": [
@@ -3038,7 +3038,7 @@
       },
       {
         "t": "2026-04-01",
-        "v": 0.7308
+        "v": 0.7327
       }
     ],
     "gold_btc": [
@@ -4052,7 +4052,7 @@
       },
       {
         "t": "2026-04-01",
-        "v": 0.0705
+        "v": 0.0708
       }
     ],
     "gold_copper": [
@@ -5066,7 +5066,7 @@
       },
       {
         "t": "2026-04-01",
-        "v": 854.678
+        "v": 856.0057
       }
     ]
   },
@@ -5075,13 +5075,13 @@
       "min": 49.3059,
       "max": 120.1717,
       "mean": 80.9658,
-      "current_percentile": 2.1
+      "current_percentile": 1.9
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.2549,
-      "current_percentile": 87.6
+      "mean": 31.2553,
+      "current_percentile": 88.0
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5093,13 +5093,13 @@
       "min": 0.0255,
       "max": 2.9474,
       "mean": 0.3069,
-      "current_percentile": 41.5
+      "current_percentile": 41.3
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 534.8401,
-      "current_percentile": 98.7
+      "mean": 534.843,
+      "current_percentile": 98.9
     }
   },
   "dxy_chart": [
@@ -7127,8 +7127,8 @@
     },
     {
       "t": "2026-04-01",
-      "v": 4805.0
+      "v": 4817.6
     }
   ],
-  "last_updated": "2026-04-01T23:05:40Z"
+  "last_updated": "2026-04-01T23:35:21Z"
 }
