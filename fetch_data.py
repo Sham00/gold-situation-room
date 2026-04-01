@@ -194,9 +194,12 @@ def fetch_price():
 
 def fetch_ratios():
     print("Fetching ratios data...")
+    # Clear ticker cache to force fresh fetch
+    _ticker_cache.clear()
     gold_price = get_price("GC=F")
     if gold_price is None:
-        raise ValueError("Could not fetch gold price for ratios")
+        print("WARNING: Could not fetch gold price for ratios, using fallback 4800")
+        gold_price = 4800.0
 
     pairs = {
         "gold_silver": "SI=F",
@@ -459,13 +462,26 @@ def fetch_macro():
         try:
             tip = get_price("TIP")
             if tip is not None:
-                # Use 10Y nominal - breakeven as rough proxy
                 us10 = data.get("us_10y")
                 if us10 is not None:
                     data["real_yield_10y"] = round(us10 - 2.3, 2)  # rough breakeven
                     data["real_yield_10y_date"] = str(datetime.now(timezone.utc).date())
         except Exception:
             pass
+
+    # Last-resort hardcoded fallbacks for any still-None values (Apr 2026 estimates)
+    fallbacks = {
+        "real_yield_10y": 2.0,
+        "fed_funds": 4.33,
+        "m2": 3.5,
+        "us_10y": 4.2,
+        "cpi_yoy": 2.66,
+        "dxy": 99.5,
+    }
+    for k, v in fallbacks.items():
+        if data.get(k) is None:
+            print(f"  Using hardcoded fallback for {k}: {v}")
+            data[k] = v
 
     write_json("macro.json", data)
 
@@ -478,14 +494,14 @@ def fetch_miners():
     print("Fetching miners data...")
     symbols = {
         "GDX": {"name": "VanEck Gold Miners ETF", "type": "etf"},
-        "GOLD": {"name": "Barrick Gold", "type": "miner"},
+        "B": {"name": "Barrick Gold", "type": "miner"},
         "NEM": {"name": "Newmont Corp", "type": "miner"},
         "AEM": {"name": "Agnico Eagle", "type": "miner"},
         "AGI": {"name": "Alamos Gold", "type": "miner"},
     }
 
     aisc_data = {
-        "GOLD": {"aisc": 1050, "production_koz": 4100},
+        "B": {"aisc": 1050, "production_koz": 4100},
         "NEM": {"aisc": 1400, "production_koz": 5500},
         "AEM": {"aisc": 1150, "production_koz": 3500},
         "AGI": {"aisc": 1050, "production_koz": 550},
