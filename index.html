@@ -318,6 +318,44 @@
     vertical-align: middle;
   }
 
+  /* Info tooltip */
+  .info-tooltip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #333;
+    color: #888;
+    font-size: 10px;
+    cursor: help;
+    margin-left: 6px;
+    position: relative;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .info-tooltip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #ddd;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: normal;
+    width: 220px;
+    border: 1px solid #333;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 100;
+    line-height: 1.4;
+  }
+  .info-tooltip:hover::after { opacity: 1; }
+
   /* Range marker */
   .range-bar {
     position: relative;
@@ -429,6 +467,8 @@
   <div class="card fade-in" id="ratio-gold_silver" style="animation-delay:0.15s">
     <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Silver</div>
     <div id="ratio-val-gold_silver" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="text-[10px] text-[var(--text2)] mono mt-1">oz of silver per oz of gold</div>
+    <div id="ratio-ctx-gold_silver" class="text-[9px] text-[var(--text2)] mono mt-0.5 opacity-70">Hist avg: 82</div>
     <div class="gauge-container mt-3">
       <div class="gauge-bg">
         <div class="gauge-needle" id="gauge-needle-gold_silver"></div>
@@ -447,6 +487,8 @@
   <div class="card fade-in" id="ratio-gold_oil" style="animation-delay:0.2s">
     <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Oil</div>
     <div id="ratio-val-gold_oil" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="text-[10px] text-[var(--text2)] mono mt-1">barrels of oil per oz of gold</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-0.5 opacity-70">Higher = gold expensive vs oil</div>
     <div class="gauge-container mt-3">
       <div class="gauge-bg">
         <div class="gauge-needle" id="gauge-needle-gold_oil"></div>
@@ -465,6 +507,8 @@
   <div class="card fade-in" id="ratio-gold_spx" style="animation-delay:0.25s">
     <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / S&amp;P 500</div>
     <div id="ratio-val-gold_spx" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="text-[10px] text-[var(--text2)] mono mt-1">oz of gold to buy 1 unit S&amp;P500</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-0.5 opacity-70">Lower = stocks outperforming</div>
     <div class="gauge-container mt-3">
       <div class="gauge-bg">
         <div class="gauge-needle" id="gauge-needle-gold_spx"></div>
@@ -483,6 +527,8 @@
   <div class="card fade-in" id="ratio-gold_btc" style="animation-delay:0.3s">
     <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Bitcoin</div>
     <div id="ratio-val-gold_btc" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="text-[10px] text-[var(--text2)] mono mt-1">oz of gold per 1 Bitcoin</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-0.5 opacity-70">Higher = Bitcoin outperforming gold</div>
     <div class="gauge-container mt-3">
       <div class="gauge-bg">
         <div class="gauge-needle" id="gauge-needle-gold_btc"></div>
@@ -501,6 +547,8 @@
   <div class="card fade-in" id="ratio-gold_copper" style="animation-delay:0.35s">
     <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Copper</div>
     <div id="ratio-val-gold_copper" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="text-[10px] text-[var(--text2)] mono mt-1">lbs of copper per oz of gold</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-0.5 opacity-70">Dr. Copper signal for economy</div>
     <div class="gauge-container mt-3">
       <div class="gauge-bg">
         <div class="gauge-needle" id="gauge-needle-gold_copper"></div>
@@ -515,9 +563,6 @@
       <canvas id="chart-ratio-gold_copper"></canvas>
     </div>
   </div>
-
-  <!-- Empty cell for grid alignment on 3-col -->
-  <div class="hidden lg:block"></div>
 
   <!-- ============================================================ -->
   <!-- SECTION 3: CENTRAL BANK TRACKER -->
@@ -566,6 +611,143 @@
         <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top 15 by Reserves</div>
         <div class="chart-wrap" style="height: 400px;">
           <canvas id="chart-cb-bars"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: GLOBAL GOLD FLOWS -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-gold-flows" style="animation-delay:0.42s">
+    <div class="section-title">Global Gold Flows</div>
+    <div class="text-xs text-[var(--text2)] mono mb-4">Physical gold shipments and trade flows between major countries (2025/2026 est., tonnes/year)</div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Flow visualization -->
+      <div>
+        <svg id="gold-flow-svg" viewBox="0 0 700 440" style="width:100%;height:auto;max-height:440px;">
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#ffd700" opacity="0.5"/>
+            </marker>
+            <style>
+              .flow-line { stroke: #ffd700; stroke-width: 1.5; fill: none; opacity: 0.35; stroke-dasharray: 6 4; animation: flowDash 2s linear infinite; marker-end: url(#arrowhead); }
+              .flow-line-thick { stroke-width: 2.5; opacity: 0.5; }
+              @keyframes flowDash { to { stroke-dashoffset: -20; } }
+              .hub-label { fill: #ddd; font-size: 10px; font-family: 'JetBrains Mono', monospace; text-anchor: middle; }
+              .hub-sublabel { fill: #888; font-size: 8px; font-family: 'JetBrains Mono', monospace; text-anchor: middle; }
+            </style>
+          </defs>
+          <!-- Hubs: positioned on simplified world map layout -->
+          <!-- London -->
+          <circle cx="280" cy="100" r="28" fill="rgba(255,215,0,0.15)" stroke="#ffd700" stroke-width="1.5"/>
+          <text class="hub-label" x="280" y="97">London</text>
+          <text class="hub-sublabel" x="280" y="108">Market Hub</text>
+          <!-- Zurich/Switzerland -->
+          <circle cx="310" cy="180" r="30" fill="rgba(255,215,0,0.2)" stroke="#ffd700" stroke-width="1.5"/>
+          <text class="hub-label" x="310" y="177">Zurich</text>
+          <text class="hub-sublabel" x="310" y="188">Refining Hub</text>
+          <!-- New York -->
+          <circle cx="130" cy="140" r="22" fill="rgba(255,215,0,0.12)" stroke="#ffd700" stroke-width="1"/>
+          <text class="hub-label" x="130" y="137">New York</text>
+          <text class="hub-sublabel" x="130" y="148">200t</text>
+          <!-- Dubai/UAE -->
+          <circle cx="430" cy="230" r="22" fill="rgba(255,170,0,0.15)" stroke="#ffaa00" stroke-width="1"/>
+          <text class="hub-label" x="430" y="227">Dubai</text>
+          <text class="hub-sublabel" x="430" y="238">240t</text>
+          <!-- Shanghai -->
+          <circle cx="580" cy="160" r="26" fill="rgba(255,170,0,0.18)" stroke="#ffaa00" stroke-width="1.5"/>
+          <text class="hub-label" x="580" y="157">Shanghai</text>
+          <text class="hub-sublabel" x="580" y="168">370t dom.</text>
+          <!-- Mumbai/India -->
+          <circle cx="490" cy="280" r="28" fill="rgba(255,170,0,0.2)" stroke="#ffaa00" stroke-width="1.5"/>
+          <text class="hub-label" x="490" y="277">India</text>
+          <text class="hub-sublabel" x="490" y="288">800t imp.</text>
+          <!-- Singapore -->
+          <circle cx="560" cy="310" r="16" fill="rgba(255,215,0,0.1)" stroke="#ffd700" stroke-width="1"/>
+          <text class="hub-label" x="560" y="307">Singapore</text>
+          <text class="hub-sublabel" x="560" y="318">Hub</text>
+          <!-- Tokyo -->
+          <circle cx="640" cy="120" r="14" fill="rgba(255,215,0,0.08)" stroke="#ffd700" stroke-width="0.8"/>
+          <text class="hub-label" x="640" y="117">Tokyo</text>
+          <text class="hub-sublabel" x="640" y="128">Trad.</text>
+          <!-- Australia -->
+          <circle cx="610" cy="380" r="18" fill="rgba(0,255,136,0.12)" stroke="#00ff88" stroke-width="1"/>
+          <text class="hub-label" x="610" y="377">Australia</text>
+          <text class="hub-sublabel" x="610" y="388">Mining</text>
+          <!-- South Africa -->
+          <circle cx="340" cy="380" r="16" fill="rgba(0,255,136,0.1)" stroke="#00ff88" stroke-width="1"/>
+          <text class="hub-label" x="340" y="377">S. Africa</text>
+          <text class="hub-sublabel" x="340" y="388">80t</text>
+          <!-- Russia -->
+          <circle cx="440" cy="80" r="18" fill="rgba(0,255,136,0.1)" stroke="#00ff88" stroke-width="1"/>
+          <text class="hub-label" x="440" y="77">Russia</text>
+          <text class="hub-sublabel" x="440" y="88">100t exp</text>
+
+          <!-- Flow lines (animated dashed) -->
+          <!-- Switzerland -> UK: 400t (thickest) -->
+          <line class="flow-line flow-line-thick" x1="300" y1="165" x2="280" y2="128"/>
+          <!-- Switzerland -> India: 180t -->
+          <line class="flow-line" x1="330" y1="195" x2="470" y2="265"/>
+          <!-- Switzerland -> UAE: 150t -->
+          <line class="flow-line" x1="330" y1="190" x2="415" y2="220"/>
+          <!-- US -> Switzerland: 200t -->
+          <line class="flow-line" x1="150" y1="145" x2="285" y2="175"/>
+          <!-- Australia -> China: 120t -->
+          <line class="flow-line" x1="610" y1="362" x2="585" y2="178"/>
+          <!-- Russia -> UAE: 100t -->
+          <line class="flow-line" x1="440" y1="98" x2="432" y2="210"/>
+          <!-- UAE -> India: 90t -->
+          <line class="flow-line" x1="445" y1="240" x2="475" y2="265"/>
+          <!-- S. Africa -> Switzerland: 80t -->
+          <line class="flow-line" x1="340" y1="364" x2="315" y2="208"/>
+
+          <!-- Legend -->
+          <rect x="10" y="405" width="12" height="12" rx="6" fill="rgba(0,255,136,0.3)" stroke="#00ff88" stroke-width="0.8"/>
+          <text x="28" y="415" fill="#888" font-size="9" font-family="JetBrains Mono, monospace">Producer/Exporter</text>
+          <rect x="160" y="405" width="12" height="12" rx="6" fill="rgba(255,170,0,0.3)" stroke="#ffaa00" stroke-width="0.8"/>
+          <text x="178" y="415" fill="#888" font-size="9" font-family="JetBrains Mono, monospace">Major Importer</text>
+          <rect x="310" y="405" width="12" height="12" rx="6" fill="rgba(255,215,0,0.3)" stroke="#ffd700" stroke-width="0.8"/>
+          <text x="328" y="415" fill="#888" font-size="9" font-family="JetBrains Mono, monospace">Trading Hub</text>
+          <line x1="460" y1="411" x2="500" y2="411" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+          <text x="508" y="415" fill="#888" font-size="9" font-family="JetBrains Mono, monospace">Gold flow</text>
+        </svg>
+      </div>
+
+      <!-- Flow table -->
+      <div class="overflow-x-auto">
+        <table class="heat-table">
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Direction</th>
+              <th>Tonnes/Year</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Switzerland &rarr; UK</td><td style="color:#ffd700;">Export</td><td>400</td><td><span class="badge" style="background:rgba(255,215,0,0.15);color:#ffd700;">Refining &rarr; Market</span></td></tr>
+            <tr><td>US &rarr; Switzerland</td><td style="color:#ffd700;">Export</td><td>200</td><td><span class="badge" style="background:rgba(255,215,0,0.15);color:#ffd700;">Refining</span></td></tr>
+            <tr><td>Switzerland &rarr; India</td><td style="color:#ffaa00;">Export</td><td>180</td><td><span class="badge" style="background:rgba(255,170,0,0.15);color:#ffaa00;">Jewelry demand</span></td></tr>
+            <tr><td>Switzerland &rarr; UAE</td><td style="color:#ffaa00;">Export</td><td>150</td><td><span class="badge" style="background:rgba(255,170,0,0.15);color:#ffaa00;">Trading hub</span></td></tr>
+            <tr><td>Australia &rarr; China</td><td style="color:#00ff88;">Mining export</td><td>120</td><td><span class="badge" style="background:rgba(0,255,136,0.15);color:#00ff88;">Producer</span></td></tr>
+            <tr><td>Russia &rarr; UAE</td><td style="color:#ff8800;">Export</td><td>100</td><td><span class="badge" style="background:rgba(255,136,0,0.15);color:#ff8800;">Sanctions bypass</span></td></tr>
+            <tr><td>UAE &rarr; India</td><td style="color:#ffaa00;">Re-export</td><td>90</td><td><span class="badge" style="background:rgba(255,170,0,0.15);color:#ffaa00;">Jewelry demand</span></td></tr>
+            <tr><td>S. Africa &rarr; Switzerland</td><td style="color:#00ff88;">Mining export</td><td>80</td><td><span class="badge" style="background:rgba(0,255,136,0.15);color:#00ff88;">Producer</span></td></tr>
+          </tbody>
+        </table>
+        <div class="mt-4 grid grid-cols-2 gap-3">
+          <div class="bg-[#0a0a0a] rounded-lg p-3 border border-[var(--card-border)]">
+            <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">China Domestic Mining</div>
+            <div class="text-lg font-bold mono text-[var(--gold)]">370<span class="text-xs text-[var(--text2)] ml-1">t/year</span></div>
+            <div class="text-[9px] text-[var(--text2)] mono">Consumed internally, not exported</div>
+          </div>
+          <div class="bg-[#0a0a0a] rounded-lg p-3 border border-[var(--card-border)]">
+            <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">India Total Imports</div>
+            <div class="text-lg font-bold mono" style="color:#ffaa00;">~800<span class="text-xs text-[var(--text2)] ml-1">t/year</span></div>
+            <div class="text-[9px] text-[var(--text2)] mono">World's largest jewelry consumer</div>
+          </div>
         </div>
       </div>
     </div>
@@ -701,6 +883,22 @@
         <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">GDX / Gold Ratio (Miner Leverage)</div>
         <div class="chart-wrap" style="height: 250px;">
           <canvas id="chart-gdx-ratio"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Production supply charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Global Gold Production by Country (tonnes)</div>
+        <div class="chart-wrap" style="height: 280px;">
+          <canvas id="chart-mining-production"></canvas>
+        </div>
+      </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Miner Annual Production &amp; AISC</div>
+        <div class="chart-wrap" style="height: 280px;">
+          <canvas id="chart-miner-production-bars"></canvas>
         </div>
       </div>
     </div>
@@ -1512,17 +1710,19 @@ function renderNews() {
 
   d.articles.forEach(function(article) {
     var dotColor = '#555';
-    if (bullish.test(article.title)) dotColor = '#00ff88';
-    else if (bearish.test(article.title)) dotColor = '#ff4444';
+    // Use sentiment from data if available, otherwise detect from title
+    var sent = article.sentiment;
+    if (sent === 'positive' || (!sent && bullish.test(article.title))) dotColor = '#00ff88';
+    else if (sent === 'negative' || (!sent && bearish.test(article.title))) dotColor = '#ff4444';
 
-    var sourceBadge = '';
-    if (article.source === 'Kitco') {
-      sourceBadge = '<span class="badge" style="background:rgba(255,215,0,0.15);color:#ffd700;">Kitco</span>';
-    } else if (article.source === 'BullionVault') {
-      sourceBadge = '<span class="badge" style="background:rgba(68,136,255,0.15);color:#4488ff;">BullionVault</span>';
-    } else {
-      sourceBadge = '<span class="badge" style="background:rgba(136,136,136,0.15);color:#888;">' + article.source + '</span>';
-    }
+    var sourceColors = {
+      'Kitco': { bg: 'rgba(255,215,0,0.15)', fg: '#ffd700' },
+      'BullionVault': { bg: 'rgba(68,136,255,0.15)', fg: '#4488ff' },
+      'Mining.com': { bg: 'rgba(0,255,136,0.15)', fg: '#00ff88' },
+      'GoldPrice.org': { bg: 'rgba(255,136,0,0.15)', fg: '#ff8800' },
+    };
+    var sc = sourceColors[article.source] || { bg: 'rgba(136,136,136,0.15)', fg: '#888' };
+    var sourceBadge = '<span class="badge" style="background:' + sc.bg + ';color:' + sc.fg + ';">' + article.source + '</span>';
 
     var div = document.createElement('div');
     div.className = 'flex gap-3 py-3 border-b border-[rgba(255,255,255,0.03)]';
@@ -1548,12 +1748,12 @@ function renderMacro() {
   if (!d) return;
 
   var macroItems = [
-    { key: 'real_yield_10y', label: 'Real Yield 10Y', unit: '%', rangeMin: -2, rangeMax: 3, color: '#ff4444' },
-    { key: 'dxy', label: 'Dollar Index', unit: '', rangeMin: 90, rangeMax: 115, color: '#4488ff' },
-    { key: 'fed_funds', label: 'Fed Funds Rate', unit: '%', rangeMin: 0, rangeMax: 6, color: '#ff8800' },
-    { key: 'cpi_yoy', label: 'CPI YoY', unit: '%', rangeMin: 0, rangeMax: 10, color: '#ff4444', thermo: true },
-    { key: 'm2', label: 'M2 Growth YoY', unit: '%', rangeMin: -5, rangeMax: 30, color: '#00ff88' },
-    { key: 'us_10y', label: 'US 10Y Yield', unit: '%', rangeMin: 0, rangeMax: 5, color: '#ffd700' },
+    { key: 'real_yield_10y', label: 'Real Yield 10Y', unit: '%', rangeMin: -2, rangeMax: 3, color: '#ff4444', tip: 'The return on 10-year US Treasury bonds after subtracting inflation. Gold typically rises when real yields fall below zero, because holding gold has no opportunity cost vs bonds.' },
+    { key: 'dxy', label: 'Dollar Index', unit: '', rangeMin: 90, rangeMax: 115, color: '#4488ff', tip: 'Measures USD strength vs 6 major currencies. Gold moves inversely to the dollar \u2014 a weaker dollar makes gold cheaper for foreign buyers, boosting demand.' },
+    { key: 'cpi_yoy', label: 'CPI YoY', unit: '%', rangeMin: 0, rangeMax: 10, color: '#ff4444', thermo: true, tip: 'Year-over-year change in consumer prices. Gold is traditionally an inflation hedge \u2014 higher inflation often drives demand for gold as a store of value.' },
+    { key: 'fed_funds', label: 'Fed Funds Rate', unit: '%', rangeMin: 0, rangeMax: 6, color: '#ff8800', tip: 'The interest rate the Federal Reserve charges banks overnight. Lower rates reduce the opportunity cost of holding gold (which pays no yield), making gold more attractive.' },
+    { key: 'm2', label: 'M2 Growth YoY', unit: '%', rangeMin: -5, rangeMax: 30, color: '#00ff88', tip: 'Annual growth rate of total money in circulation. Rapid M2 expansion (money printing) historically correlates with gold price increases as currency purchasing power dilutes.' },
+    { key: 'us_10y', label: 'US 10Y Yield', unit: '%', rangeMin: 0, rangeMax: 5, color: '#ffd700', tip: 'Nominal yield on 10-year US Treasuries. Rising nominal yields can pressure gold prices as bonds become more competitive with yield-free gold.' },
   ];
 
   var container = document.getElementById('macro-cards');
@@ -1575,9 +1775,11 @@ function renderMacro() {
     var div = document.createElement('div');
     div.className = 'bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]';
 
+    var tipHtml = item.tip ? '<span class="info-tooltip" data-tip="' + item.tip.replace(/"/g, '&quot;') + '">i</span>' : '';
+
     if (item.thermo) {
       div.innerHTML =
-        '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2">' + item.label + '</div>' +
+        '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2 flex items-center">' + item.label + tipHtml + '</div>' +
         '<div class="flex items-end gap-3">' +
           '<div class="thermo-track">' +
             '<div class="thermo-fill" style="height:' + pct + '%;background:' + item.color + ';"></div>' +
@@ -1590,7 +1792,7 @@ function renderMacro() {
         '<div class="chart-wrap mt-2" style="height:40px;"><canvas id="' + canvasId + '"></canvas></div>';
     } else {
       div.innerHTML =
-        '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2">' + item.label + '</div>' +
+        '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2 flex items-center">' + item.label + tipHtml + '</div>' +
         '<div class="text-xl font-bold mono" style="color:' + item.color + '">' + fmt(val) + item.unit + '</div>' +
         '<div class="text-[9px] text-[var(--text2)] mono mt-1">' + (stat.date || '') + '</div>' +
         '<div class="range-bar mt-3">' +
@@ -1810,6 +2012,119 @@ function renderMiners() {
         }
       }
     });
+  }
+
+  // Mining production stacked area chart
+  if (d.mining_production) {
+    var mp = d.mining_production;
+    var countryColors = {
+      'China': '#ffd700',
+      'Russia': '#ff4444',
+      'Australia': '#00ff88',
+      'Canada': '#4488ff',
+      'USA': '#ff8800',
+    };
+    var countryDatasets = [];
+    Object.keys(mp.top_producers).forEach(function(country) {
+      countryDatasets.push({
+        label: country,
+        data: mp.top_producers[country],
+        backgroundColor: countryColors[country] + '66',
+        borderColor: countryColors[country],
+        borderWidth: 1.5,
+        fill: true,
+        tension: 0.3,
+        pointRadius: 0,
+      });
+    });
+
+    destroyChart('mining-production');
+    var mpCtx = document.getElementById('chart-mining-production');
+    if (mpCtx) {
+      charts['mining-production'] = new Chart(mpCtx.getContext('2d'), {
+        type: 'line',
+        data: {
+          labels: mp.years.map(String),
+          datasets: countryDatasets,
+        },
+        options: {
+          interaction: { intersect: false, mode: 'index' },
+          scales: {
+            x: { grid: { display: false } },
+            y: {
+              stacked: true,
+              grid: { color: 'rgba(255,255,255,0.03)' },
+              ticks: { callback: function(v) { return v + 't'; } }
+            }
+          },
+          plugins: {
+            legend: { display: true, labels: { boxWidth: 10, padding: 10, color: '#888' } },
+            tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + 't'; } } }
+          }
+        }
+      });
+    }
+
+    // Miner production bar chart with AISC labels
+    var minerProdData = [
+      { name: 'Barrick (B)', koz: 4100, aisc: 1050 },
+      { name: 'Newmont (NEM)', koz: 5500, aisc: 1400 },
+      { name: 'Agnico Eagle (AEM)', koz: 3500, aisc: 1150 },
+    ];
+
+    destroyChart('miner-prod-bars');
+    var mpbCtx = document.getElementById('chart-miner-production-bars');
+    if (mpbCtx) {
+      charts['miner-prod-bars'] = new Chart(mpbCtx.getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: minerProdData.map(function(m) { return m.name; }),
+          datasets: [{
+            label: 'Production (koz/year)',
+            data: minerProdData.map(function(m) { return m.koz; }),
+            backgroundColor: ['rgba(255,215,0,0.6)', 'rgba(0,255,136,0.6)', 'rgba(68,136,255,0.6)'],
+            borderColor: ['#ffd700', '#00ff88', '#4488ff'],
+            borderWidth: 1,
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            x: {
+              grid: { color: 'rgba(255,255,255,0.03)' },
+              ticks: { callback: function(v) { return fmtCompact(v) + ' koz'; } }
+            },
+            y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  var m = minerProdData[ctx.dataIndex];
+                  return fmtInt(m.koz) + ' koz/yr | AISC: $' + fmtInt(m.aisc);
+                }
+              }
+            }
+          }
+        },
+        plugins: [{
+          id: 'aiscLabels',
+          afterDraw: function(chart) {
+            var c = chart.ctx;
+            chart.getDatasetMeta(0).data.forEach(function(bar, i) {
+              c.save();
+              c.fillStyle = '#888';
+              c.font = '9px JetBrains Mono, monospace';
+              c.textAlign = 'left';
+              c.fillText('AISC: $' + minerProdData[i].aisc, bar.x + 6, bar.y + 4);
+              c.restore();
+            });
+          }
+        }]
+      });
+    }
   }
 
   // Miners table
