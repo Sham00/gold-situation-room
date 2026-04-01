@@ -1,0 +1,32 @@
+{
+  "miners": {
+    "GDX": {
+      "name": "VanEck Gold Miners ETF",
+      "type": "etf",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'"
+    },
+    "B": {
+      "name": "Barrick Gold",
+      "type": "miner",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'"
+    },
+    "NEM": {
+      "name": "Newmont Corp",
+      "type": "miner",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'"
+    },
+    "AEM": {
+      "name": "Agnico Eagle",
+      "type": "miner",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'"
+    },
+    "AGI": {
+      "name": "Alamos Gold",
+      "type": "miner",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'"
+    }
+  },
+  "gdx_gold_ratio": null,
+  "gdx_gold_ratio_chart": [],
+  "last_updated": "2026-04-01T22:48:53Z"
+}

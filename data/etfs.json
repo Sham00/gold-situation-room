@@ -1,0 +1,36 @@
+{
+  "etfs": {
+    "GLD": {
+      "name": "SPDR Gold Shares",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'",
+      "tonnes_est": 870,
+      "daily_change_est": -0.5
+    },
+    "IAU": {
+      "name": "iShares Gold Trust",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'",
+      "tonnes_est": 460,
+      "daily_change_est": 0.3
+    },
+    "PHYS": {
+      "name": "Sprott Physical Gold",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'",
+      "tonnes_est": 68,
+      "daily_change_est": 0.1
+    },
+    "BAR": {
+      "name": "GraniteShares Gold",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'",
+      "tonnes_est": 18,
+      "daily_change_est": 0.0
+    },
+    "SGOL": {
+      "name": "Aberdeen Physical Gold",
+      "error": "unsupported operand type(s) for -: 'NoneType' and 'NoneType'",
+      "tonnes_est": 42,
+      "daily_change_est": 0.0
+    }
+  },
+  "total_holdings_tonnes_est": 1458,
+  "last_updated": "2026-04-01T22:48:48Z"
+}

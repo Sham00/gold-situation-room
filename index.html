@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Situation Room</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --bg: #0a0a0a;
+    --card-bg: #111111;
+    --card-border: #1a1a1a;
+    --gold: #ffd700;
+    --gold-dim: #b8960f;
+    --green: #00ff88;
+    --red: #ff4444;
+    --blue: #4488ff;
+    --gray: #555555;
+    --text: #ffffff;
+    --text2: #888888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* Cards */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.05);
+  }
+
+  /* Header */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(180deg, var(--card-bg) 0%, rgba(17,17,17,0.95) 100%);
+    border-top: 3px solid var(--gold);
+    border-bottom: 1px solid var(--card-border);
+    backdrop-filter: blur(20px);
+  }
+
+  /* Pill buttons */
+  .pill {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    background: transparent;
+    color: var(--text2);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .pill:hover { border-color: var(--gold); color: var(--gold); }
+  .pill.active {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* Gauge */
+  .gauge-container {
+    width: 140px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .gauge-bg {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 220deg,
+      #00ff88 0deg,
+      #44cc66 40deg,
+      #ffd700 80deg,
+      #ff8800 160deg,
+      #ff4444 240deg,
+      transparent 240deg
+    );
+    position: relative;
+  }
+  .gauge-bg::after {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: var(--card-bg);
+  }
+  .gauge-needle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(to top, transparent, #fff);
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(var(--angle, 0deg));
+    transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2;
+  }
+  .gauge-dot {
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 3;
+  }
+
+  /* Heatmap table */
+  .heat-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+  .heat-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--card-border);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .heat-table td {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .heat-table tr:hover td { background: rgba(255,215,0,0.03); }
+
+  /* Loading spinner */
+  .spinner {
+    width: 24px; height: 24px;
+    border: 2px solid var(--card-border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Pulse */
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .loading-pulse { animation: pulse 1.5s ease-in-out infinite; }
+
+  /* Skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, #1a1a1a 25%, #222 50%, #1a1a1a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 6px;
+  }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  /* Section titles */
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0.3;
+  }
+
+  /* Progress bar */
+  .progress-track {
+    height: 8px;
+    background: #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Thermometer */
+  .thermo-track {
+    width: 16px;
+    height: 80px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .thermo-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 8px;
+    transition: height 1.5s ease;
+  }
+
+  /* News */
+  .news-scroll {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .news-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* Big number */
+  .big-num {
+    font-size: 48px;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1;
+  }
+
+  /* Chart container */
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Mini sparkline canvas */
+  .sparkline-canvas {
+    display: block;
+  }
+
+  /* Grid layout */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+    .full-width { grid-column: 1 / -1; }
+  }
+  @media (min-width: 1200px) {
+    .dashboard-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Fade in */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  /* Mini bar */
+  .mini-bar {
+    display: inline-block;
+    height: 4px;
+    border-radius: 2px;
+    min-width: 2px;
+    vertical-align: middle;
+  }
+
+  /* Range marker */
+  .range-bar {
+    position: relative;
+    height: 6px;
+    background: #1a1a1a;
+    border-radius: 3px;
+    margin-top: 6px;
+  }
+  .range-marker {
+    position: absolute;
+    top: -3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--card-bg);
+    transform: translateX(-50%);
+    transition: left 1.5s ease;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="max-w-[1600px] mx-auto px-5 py-4 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-6">
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-1 mono">Gold Spot XAU/USD</div>
+        <div class="flex items-baseline gap-4">
+          <span id="header-price" class="big-num text-[var(--gold)]">--</span>
+          <span id="header-change" class="text-lg font-bold mono">--</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="text-right">
+        <div class="text-xs text-[var(--text2)] mono">YTD</div>
+        <div id="header-ytd" class="text-sm font-bold mono">--</div>
+      </div>
+      <div class="text-right">
+        <div class="text-xs text-[var(--text2)] mono">ATH</div>
+        <div id="header-ath" class="text-sm font-bold mono">--</div>
+      </div>
+      <div class="text-right">
+        <div class="text-xs text-[var(--text2)] mono">Data as of</div>
+        <div id="header-updated" class="text-sm text-[var(--text2)] mono">--</div>
+      </div>
+      <button id="refresh-btn" onclick="loadAllData()" class="pill flex items-center gap-2" title="Refresh data">&#x1f504; Refresh</button>
+      <div id="header-live-dot" class="w-2 h-2 rounded-full bg-[var(--green)] loading-pulse" title="Auto-refresh every 5m"></div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN DASHBOARD -->
+<main class="dashboard-grid" id="dashboard">
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1: PRICE COMMAND CENTER -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-price" style="animation-delay:0.1s">
+    <div class="section-title">Price Command Center</div>
+
+    <!-- Main chart -->
+    <div class="chart-wrap" style="height: 40vh; min-height: 300px;">
+      <canvas id="chart-price-main"></canvas>
+    </div>
+
+    <!-- Timeframe pills -->
+    <div class="flex flex-wrap gap-2 mt-4 mb-6" id="timeframe-pills">
+      <button class="pill active" data-tf="1d">1D</button>
+      <button class="pill" data-tf="5d">5D</button>
+      <button class="pill" data-tf="1m">1M</button>
+      <button class="pill" data-tf="3m">3M</button>
+      <button class="pill" data-tf="1y">1Y</button>
+      <button class="pill" data-tf="5y">5Y</button>
+      <button class="pill" data-tf="all">All</button>
+    </div>
+
+    <!-- Multi-currency grid -->
+    <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-3 mono">Gold in World Currencies</div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3" id="currency-grid">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- ATH progress bar -->
+    <div class="mt-6">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-xs text-[var(--text2)] mono uppercase tracking-wider">Distance to All-Time High</span>
+        <span id="ath-pct-label" class="text-sm font-bold mono text-[var(--gold)]">--</span>
+      </div>
+      <div class="progress-track">
+        <div id="ath-progress" class="progress-fill" style="width:0%; background: linear-gradient(90deg, var(--gold), #ffec80);"></div>
+      </div>
+      <div class="flex justify-between mt-1">
+        <span class="text-[10px] text-[var(--text2)] mono">$0</span>
+        <span id="ath-value" class="text-[10px] text-[var(--text2)] mono">ATH: --</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2: KEY RATIOS -->
+  <!-- ============================================================ -->
+  <div class="full-width">
+    <div class="section-title" style="padding: 0 0 0 0;">Key Ratios</div>
+  </div>
+
+  <div class="card fade-in" id="ratio-gold_silver" style="animation-delay:0.15s">
+    <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Silver</div>
+    <div id="ratio-val-gold_silver" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="gauge-container mt-3">
+      <div class="gauge-bg">
+        <div class="gauge-needle" id="gauge-needle-gold_silver"></div>
+        <div class="gauge-dot"></div>
+      </div>
+    </div>
+    <div class="flex justify-between text-[10px] text-[var(--text2)] mono mt-1">
+      <span id="ratio-min-gold_silver">Min: --</span>
+      <span id="ratio-max-gold_silver">Max: --</span>
+    </div>
+    <div class="chart-wrap mt-3" style="height:80px;">
+      <canvas id="chart-ratio-gold_silver"></canvas>
+    </div>
+  </div>
+
+  <div class="card fade-in" id="ratio-gold_oil" style="animation-delay:0.2s">
+    <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Oil</div>
+    <div id="ratio-val-gold_oil" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="gauge-container mt-3">
+      <div class="gauge-bg">
+        <div class="gauge-needle" id="gauge-needle-gold_oil"></div>
+        <div class="gauge-dot"></div>
+      </div>
+    </div>
+    <div class="flex justify-between text-[10px] text-[var(--text2)] mono mt-1">
+      <span id="ratio-min-gold_oil">Min: --</span>
+      <span id="ratio-max-gold_oil">Max: --</span>
+    </div>
+    <div class="chart-wrap mt-3" style="height:80px;">
+      <canvas id="chart-ratio-gold_oil"></canvas>
+    </div>
+  </div>
+
+  <div class="card fade-in" id="ratio-gold_spx" style="animation-delay:0.25s">
+    <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / S&amp;P 500</div>
+    <div id="ratio-val-gold_spx" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="gauge-container mt-3">
+      <div class="gauge-bg">
+        <div class="gauge-needle" id="gauge-needle-gold_spx"></div>
+        <div class="gauge-dot"></div>
+      </div>
+    </div>
+    <div class="flex justify-between text-[10px] text-[var(--text2)] mono mt-1">
+      <span id="ratio-min-gold_spx">Min: --</span>
+      <span id="ratio-max-gold_spx">Max: --</span>
+    </div>
+    <div class="chart-wrap mt-3" style="height:80px;">
+      <canvas id="chart-ratio-gold_spx"></canvas>
+    </div>
+  </div>
+
+  <div class="card fade-in" id="ratio-gold_btc" style="animation-delay:0.3s">
+    <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Bitcoin</div>
+    <div id="ratio-val-gold_btc" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="gauge-container mt-3">
+      <div class="gauge-bg">
+        <div class="gauge-needle" id="gauge-needle-gold_btc"></div>
+        <div class="gauge-dot"></div>
+      </div>
+    </div>
+    <div class="flex justify-between text-[10px] text-[var(--text2)] mono mt-1">
+      <span id="ratio-min-gold_btc">Min: --</span>
+      <span id="ratio-max-gold_btc">Max: --</span>
+    </div>
+    <div class="chart-wrap mt-3" style="height:80px;">
+      <canvas id="chart-ratio-gold_btc"></canvas>
+    </div>
+  </div>
+
+  <div class="card fade-in" id="ratio-gold_copper" style="animation-delay:0.35s">
+    <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold / Copper</div>
+    <div id="ratio-val-gold_copper" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+    <div class="gauge-container mt-3">
+      <div class="gauge-bg">
+        <div class="gauge-needle" id="gauge-needle-gold_copper"></div>
+        <div class="gauge-dot"></div>
+      </div>
+    </div>
+    <div class="flex justify-between text-[10px] text-[var(--text2)] mono mt-1">
+      <span id="ratio-min-gold_copper">Min: --</span>
+      <span id="ratio-max-gold_copper">Max: --</span>
+    </div>
+    <div class="chart-wrap mt-3" style="height:80px;">
+      <canvas id="chart-ratio-gold_copper"></canvas>
+    </div>
+  </div>
+
+  <!-- Empty cell for grid alignment on 3-col -->
+  <div class="hidden lg:block"></div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3: CENTRAL BANK TRACKER -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-cb" style="animation-delay:0.4s">
+    <div class="section-title">Central Bank Tracker</div>
+
+    <!-- Net pace big number -->
+    <div class="flex flex-wrap gap-8 mb-6">
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Net Global Buying Pace</div>
+        <div class="flex items-baseline gap-3">
+          <span id="cb-pace" class="text-4xl font-bold mono text-[var(--gold)]">--</span>
+          <span class="text-sm text-[var(--text2)] mono">tonnes / month</span>
+          <span id="cb-pace-arrow" class="text-2xl">--</span>
+        </div>
+      </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">YTD Total Buying</div>
+        <span id="cb-ytd-total" class="text-2xl font-bold mono text-[var(--green)]">--</span>
+        <span class="text-sm text-[var(--text2)] mono ml-1">tonnes</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Table -->
+      <div class="lg:col-span-2 overflow-x-auto">
+        <table class="heat-table" id="cb-table">
+          <thead>
+            <tr>
+              <th>Country</th>
+              <th>Reserves (t)</th>
+              <th>Monthly &Delta;</th>
+              <th>YTD &Delta;</th>
+              <th>% of Reserves</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="cb-table-body">
+            <tr><td colspan="6" class="text-center py-8"><div class="spinner mx-auto"></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Bar chart -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top 15 by Reserves</div>
+        <div class="chart-wrap" style="height: 400px;">
+          <canvas id="chart-cb-bars"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4: ETF FLOWS -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-etf" style="animation-delay:0.45s">
+    <div class="section-title">ETF Flows &amp; Holdings</div>
+
+    <div class="flex flex-wrap gap-6 mb-6">
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Total ETF Holdings (Est.)</div>
+        <span id="etf-total" class="text-3xl font-bold mono text-[var(--gold)]">--</span>
+        <span class="text-sm text-[var(--text2)] mono ml-1">tonnes</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Overlaid area chart -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">1Y Price (GLD + IAU + PHYS)</div>
+        <div class="chart-wrap" style="height: 280px;">
+          <canvas id="chart-etf-overlay"></canvas>
+        </div>
+      </div>
+      <!-- ETF detail cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="etf-cards">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 5: COT POSITIONING -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-cot" style="animation-delay:0.5s">
+    <div class="section-title">COT Positioning (Managed Money)</div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Net Position</div>
+        <div id="cot-net" class="text-3xl font-bold mono text-[var(--green)]">--</div>
+      </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Longs</div>
+        <div id="cot-longs" class="text-xl font-bold mono text-[var(--green)]">--</div>
+      </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Shorts</div>
+        <div id="cot-shorts" class="text-xl font-bold mono text-[var(--red)]">--</div>
+      </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Open Interest</div>
+        <div id="cot-oi" class="text-xl font-bold mono">--</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <!-- COT history chart -->
+      <div class="lg:col-span-3">
+        <div class="chart-wrap" style="height: 250px;">
+          <canvas id="chart-cot-history"></canvas>
+        </div>
+      </div>
+      <!-- Percentile gauge -->
+      <div class="flex flex-col items-center justify-center">
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-3">Net Percentile</div>
+        <div class="gauge-container">
+          <div class="gauge-bg">
+            <div class="gauge-needle" id="gauge-needle-cot"></div>
+            <div class="gauge-dot"></div>
+          </div>
+        </div>
+        <div id="cot-percentile-val" class="text-2xl font-bold mono text-[var(--gold)] mt-2">--</div>
+        <div id="cot-percentile-label" class="text-xs mono mt-1">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 6: NEWS FEED + SECTION 7: MACRO CONTEXT -->
+  <!-- ============================================================ -->
+  <section class="card fade-in" id="sec-news" style="animation-delay:0.55s">
+    <div class="section-title">News Feed</div>
+    <div class="news-scroll" id="news-list">
+      <div class="flex justify-center py-8"><div class="spinner"></div></div>
+    </div>
+  </section>
+
+  <section class="card fade-in" style="animation-delay:0.6s; grid-column: span 2;" id="sec-macro">
+    <div class="section-title">Macro Context</div>
+
+    <!-- Macro stat cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6" id="macro-cards">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- Dual-axis correlation charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold vs Real Yields (inverted)</div>
+        <div class="chart-wrap" style="height: 250px;">
+          <canvas id="chart-macro-yields"></canvas>
+        </div>
+      </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold vs DXY (inverted)</div>
+        <div class="chart-wrap" style="height: 250px;">
+          <canvas id="chart-macro-dxy"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 8: MINING SNAPSHOT -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-miners" style="animation-delay:0.65s">
+    <div class="section-title">Mining Snapshot</div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <!-- AISC bar chart -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">All-In Sustaining Cost vs Gold Price</div>
+        <div class="chart-wrap" style="height: 250px;">
+          <canvas id="chart-miners-aisc"></canvas>
+        </div>
+      </div>
+      <!-- GDX/Gold ratio -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">GDX / Gold Ratio (Miner Leverage)</div>
+        <div class="chart-wrap" style="height: 250px;">
+          <canvas id="chart-gdx-ratio"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Miners table -->
+    <div class="overflow-x-auto">
+      <table class="heat-table" id="miners-table">
+        <thead>
+          <tr>
+            <th>Miner</th>
+            <th>Price</th>
+            <th>Change %</th>
+            <th>AISC</th>
+            <th>Margin</th>
+            <th>Production (koz)</th>
+            <th>6M Chart</th>
+          </tr>
+        </thead>
+        <tbody id="miners-table-body">
+          <tr><td colspan="7" class="text-center py-8"><div class="spinner mx-auto"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 9: HISTORICAL CONTEXT -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-historical" style="animation-delay:0.7s">
+    <div class="section-title">Historical Context</div>
+
+    <!-- Timeline chart -->
+    <div class="chart-wrap" style="height: 300px;">
+      <canvas id="chart-historical-timeline"></canvas>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+      <!-- Decade returns -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Avg. Annual Return by Decade</div>
+        <div class="chart-wrap" style="height: 220px;">
+          <canvas id="chart-decade-returns"></canvas>
+        </div>
+      </div>
+      <!-- Event timeline cards -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Key Events</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="event-cards">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="text-center py-6 text-xs text-[var(--text2)] mono border-t border-[var(--card-border)]">
+  Gold Situation Room &mdash; Data refreshes automatically &mdash; Not financial advice
+</footer>
+
+<script>
+// =====================================================================
+// GOLD SITUATION ROOM -- Main Application
+// =====================================================================
+
+// Chart.js global defaults
+Chart.defaults.color = '#888888';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.05)';
+Chart.defaults.font.family = "'JetBrains Mono', monospace";
+Chart.defaults.font.size = 11;
+Chart.defaults.animation.duration = 1000;
+Chart.defaults.animation.easing = 'easeInOutQuart';
+Chart.defaults.responsive = true;
+Chart.defaults.maintainAspectRatio = false;
+Chart.defaults.plugins.tooltip.backgroundColor = '#1a1a1a';
+Chart.defaults.plugins.tooltip.borderColor = '#ffd700';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.titleColor = '#ffffff';
+Chart.defaults.plugins.tooltip.bodyColor = '#ffffff';
+Chart.defaults.plugins.tooltip.padding = 10;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.legend.display = false;
+
+// Store all chart instances for cleanup
+const charts = {};
+
+// Store fetched data
+let DATA = {};
+
+// =====================================================================
+// UTILITY FUNCTIONS
+// =====================================================================
+
+function fmt(n, decimals) {
+  if (n == null || isNaN(n)) return '--';
+  if (decimals === undefined) decimals = 2;
+  return Number(n).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+}
+
+function fmtInt(n) {
+  if (n == null || isNaN(n)) return '--';
+  return Number(n).toLocaleString('en-US', { maximumFractionDigits: 0 });
+}
+
+function fmtCompact(n) {
+  if (n == null || isNaN(n)) return '--';
+  if (Math.abs(n) >= 1e12) return (n / 1e12).toFixed(1) + 'T';
+  if (Math.abs(n) >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+  if (Math.abs(n) >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if (Math.abs(n) >= 1e3) return (n / 1e3).toFixed(1) + 'K';
+  return n.toFixed(0);
+}
+
+function colorForChange(val) {
+  if (val > 0) return '#00ff88';
+  if (val < 0) return '#ff4444';
+  return '#888888';
+}
+
+function relativeTime(dateStr) {
+  if (!dateStr) return '';
+  try {
+    var d = new Date(dateStr);
+    var now = new Date();
+    var diff = (now - d) / 1000;
+    if (diff < 60) return 'just now';
+    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+    if (diff < 604800) return Math.floor(diff / 86400) + 'd ago';
+    return d.toLocaleDateString();
+  } catch(e) { return dateStr; }
+}
+
+function gaugeAngle(value, min, max) {
+  if (value == null || min == null || max == null || max === min) return 0;
+  var pct = Math.max(0, Math.min(1, (value - min) / (max - min)));
+  return -110 + (pct * 220);
+}
+
+function destroyChart(id) {
+  if (charts[id]) { charts[id].destroy(); delete charts[id]; }
+}
+
+function goldGradient(ctx, chartArea) {
+  if (!chartArea) return '#ffd700';
+  var gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+  gradient.addColorStop(0, 'rgba(255, 215, 0, 0.4)');
+  gradient.addColorStop(0.5, 'rgba(255, 215, 0, 0.1)');
+  gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
+  return gradient;
+}
+
+function parseChartData(arr) {
+  if (!arr || !arr.length) return { labels: [], values: [] };
+  return {
+    labels: arr.map(function(p) { return p.t; }),
+    values: arr.map(function(p) { return p.v; })
+  };
+}
+
+// =====================================================================
+// ANIMATED COUNTER
+// =====================================================================
+
+function animateCounter(el, targetVal, duration, prefix, decimals) {
+  if (duration === undefined) duration = 1500;
+  if (prefix === undefined) prefix = '$';
+  if (decimals === undefined) decimals = 2;
+  var start = performance.now();
+  function step(now) {
+    var elapsed = now - start;
+    var progress = Math.min(elapsed / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 4);
+    var current = targetVal * eased;
+    el.textContent = prefix + fmt(current, decimals);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// =====================================================================
+// SPARKLINE FACTORY
+// =====================================================================
+
+function createSparkline(canvasEl, data, color, fill, width, height) {
+  if (color === undefined) color = '#ffd700';
+  if (fill === undefined) fill = false;
+  if (width === undefined) width = 100;
+  if (height === undefined) height = 30;
+
+  var ctx = canvasEl.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  canvasEl.width = width * dpr;
+  canvasEl.height = height * dpr;
+  canvasEl.style.width = width + 'px';
+  canvasEl.style.height = height + 'px';
+  ctx.scale(dpr, dpr);
+
+  if (!data || data.length < 2) return;
+
+  var values = data.map(function(d) { return typeof d === 'object' ? d.v : d; });
+  var min = Math.min.apply(null, values);
+  var max = Math.max.apply(null, values);
+  var range = max - min || 1;
+  var padding = 2;
+  var w = width - padding * 2;
+  var h = height - padding * 2;
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.beginPath();
+  values.forEach(function(v, i) {
+    var x = padding + (i / (values.length - 1)) * w;
+    var y = padding + h - ((v - min) / range) * h;
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  if (fill) {
+    ctx.lineTo(padding + w, padding + h);
+    ctx.lineTo(padding, padding + h);
+    ctx.closePath();
+    var gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, color + '4d');
+    gradient.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = gradient;
+    ctx.fill();
+  }
+}
+
+// =====================================================================
+// DATA FETCHING
+// =====================================================================
+
+function fetchEndpoint(url) {
+  var bustUrl = url + '?t=' + Date.now();
+  return fetch(bustUrl).then(function(resp) {
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    return resp.json();
+  }).catch(function(e) {
+    console.warn('Failed to fetch ' + url + ':', e);
+    return null;
+  });
+}
+
+function loadAllData() {
+  var endpoints = [
+    { key: 'price', url: 'data/price.json' },
+    { key: 'ratios', url: 'data/ratios.json' },
+    { key: 'centralBanks', url: 'data/central_banks.json' },
+    { key: 'etfs', url: 'data/etfs.json' },
+    { key: 'cot', url: 'data/cot.json' },
+    { key: 'news', url: 'data/news.json' },
+    { key: 'macro', url: 'data/macro.json' },
+    { key: 'miners', url: 'data/miners.json' },
+    { key: 'historical', url: 'data/historical.json' },
+  ];
+
+  Promise.allSettled(
+    endpoints.map(function(ep) { return fetchEndpoint(ep.url); })
+  ).then(function(results) {
+    endpoints.forEach(function(ep, i) {
+      var result = results[i];
+      if (result.status === 'fulfilled' && result.value && !result.value.error) {
+        DATA[ep.key] = result.value;
+      } else {
+        DATA[ep.key] = null;
+      }
+    });
+    renderAll();
+  });
+}
+
+// =====================================================================
+// RENDER FUNCTIONS
+// =====================================================================
+
+function renderAll() {
+  renderHeader();
+  renderPriceSection();
+  renderRatios();
+  renderCentralBanks();
+  renderETFs();
+  renderCOT();
+  renderNews();
+  renderMacro();
+  renderMiners();
+  renderHistorical();
+}
+
+// --- HEADER ---
+function renderHeader() {
+  var d = DATA.price;
+  if (!d) return;
+
+  var priceEl = document.getElementById('header-price');
+  animateCounter(priceEl, d.price, 1500, '$');
+
+  var changeEl = document.getElementById('header-change');
+  var sign = d.change >= 0 ? '+' : '';
+  changeEl.textContent = sign + '$' + fmt(d.change) + ' (' + sign + fmt(d.change_pct) + '%)';
+  changeEl.style.color = colorForChange(d.change);
+
+  var ytdEl = document.getElementById('header-ytd');
+  ytdEl.textContent = (d.ytd_change_pct >= 0 ? '+' : '') + fmt(d.ytd_change_pct) + '%';
+  ytdEl.style.color = colorForChange(d.ytd_change_pct);
+
+  var athEl = document.getElementById('header-ath');
+  athEl.textContent = '$' + fmt(d.ath);
+
+  var updatedEl = document.getElementById('header-updated');
+  updatedEl.textContent = d.last_updated ? relativeTime(d.last_updated) : 'just now';
+}
+
+// --- PRICE SECTION ---
+function renderPriceSection() {
+  var d = DATA.price;
+  if (!d) {
+    document.getElementById('sec-price').innerHTML = '<div class="section-title">Price Command Center</div><div class="text-center py-12 text-[var(--text2)]">Price data unavailable</div>';
+    return;
+  }
+
+  renderPriceChart('1d');
+
+  document.querySelectorAll('#timeframe-pills .pill').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#timeframe-pills .pill').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderPriceChart(btn.dataset.tf);
+    });
+  });
+
+  renderCurrencyGrid();
+
+  var pctToATH = 100 - (d.pct_below_ath || 0);
+  document.getElementById('ath-progress').style.width = pctToATH + '%';
+  document.getElementById('ath-pct-label').textContent = d.pct_below_ath > 0
+    ? fmt(d.pct_below_ath) + '% below ATH'
+    : 'AT ALL-TIME HIGH';
+  document.getElementById('ath-value').textContent = 'ATH: $' + fmt(d.ath);
+  if (d.pct_below_ath <= 0) {
+    document.getElementById('ath-pct-label').style.color = '#00ff88';
+  }
+}
+
+function renderPriceChart(timeframe) {
+  var d = DATA.price;
+  if (!d || !d.charts) return;
+
+  var chartData = d.charts[timeframe] || [];
+  var parsed = parseChartData(chartData);
+  if (!parsed.values.length) return;
+
+  destroyChart('price-main');
+
+  var ctx = document.getElementById('chart-price-main').getContext('2d');
+  charts['price-main'] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: parsed.labels,
+      datasets: [{
+        data: parsed.values,
+        borderColor: '#ffd700',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointHitRadius: 10,
+        fill: true,
+        backgroundColor: function(context) {
+          var chart = context.chart;
+          return goldGradient(chart.ctx, chart.chartArea);
+        },
+        tension: 0.3,
+      }]
+    },
+    options: {
+      interaction: { intersect: false, mode: 'index' },
+      scales: {
+        x: {
+          display: true,
+          grid: { display: false },
+          ticks: {
+            maxTicksLimit: 8,
+            callback: function(val, idx) {
+              var label = this.getLabelForValue(val);
+              if (!label) return '';
+              try {
+                var date = new Date(label);
+                if (timeframe === '1d' || timeframe === '5d') {
+                  return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                }
+                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+              } catch(e) { return ''; }
+            }
+          }
+        },
+        y: {
+          position: 'right',
+          grid: { color: 'rgba(255,255,255,0.03)' },
+          ticks: { callback: function(v) { return '$' + fmt(v, 0); } }
+        }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: { label: function(ctx) { return '$' + fmt(ctx.parsed.y); } }
+        }
+      }
+    }
+  });
+}
+
+function renderCurrencyGrid() {
+  var d = DATA.price;
+  if (!d || !d.currencies) return;
+
+  var grid = document.getElementById('currency-grid');
+  grid.innerHTML = '';
+
+  var ccySymbols = { USD: '$', EUR: '\u20AC', GBP: '\u00A3', JPY: '\u00A5', CNY: '\u00A5', AUD: 'A$', CHF: 'CHF ', INR: '\u20B9' };
+
+  Object.keys(d.currencies).forEach(function(ccy) {
+    var val = d.currencies[ccy];
+    var div = document.createElement('div');
+    div.className = 'bg-[#0a0a0a] rounded-lg p-3 border border-[var(--card-border)]';
+
+    var sparkData = (d.currency_sparklines && d.currency_sparklines[ccy]) ? d.currency_sparklines[ccy] : [];
+    var canvasId = 'spark-ccy-' + ccy;
+
+    div.innerHTML =
+      '<div class="flex items-center justify-between mb-1">' +
+        '<span class="text-[10px] text-[var(--text2)] mono">' + ccy + '</span>' +
+        '<canvas id="' + canvasId + '" class="sparkline-canvas" width="50" height="20"></canvas>' +
+      '</div>' +
+      '<div class="text-sm font-bold mono">' + (ccySymbols[ccy] || '') + (val != null ? fmtInt(val) : '--') + '</div>';
+    grid.appendChild(div);
+
+    requestAnimationFrame(function() {
+      var canvas = document.getElementById(canvasId);
+      if (canvas && sparkData.length) {
+        createSparkline(canvas, sparkData, '#ffd700', false, 50, 20);
+      }
+    });
+  });
+}
+
+// --- RATIOS ---
+function renderRatios() {
+  var d = DATA.ratios;
+  if (!d) return;
+
+  var ratioNames = ['gold_silver', 'gold_oil', 'gold_spx', 'gold_btc', 'gold_copper'];
+
+  ratioNames.forEach(function(name) {
+    var val = d.ratios ? d.ratios[name] : null;
+    var range = d.ratio_ranges ? d.ratio_ranges[name] : null;
+    var chartData = d.ratio_charts ? d.ratio_charts[name] : null;
+
+    var valEl = document.getElementById('ratio-val-' + name);
+    if (valEl) valEl.textContent = val != null ? fmt(val, name === 'gold_btc' ? 4 : 2) : '--';
+
+    var minEl = document.getElementById('ratio-min-' + name);
+    var maxEl = document.getElementById('ratio-max-' + name);
+    if (range) {
+      if (minEl) minEl.textContent = 'Min: ' + fmt(range.min, 2);
+      if (maxEl) maxEl.textContent = 'Max: ' + fmt(range.max, 2);
+
+      var needle = document.getElementById('gauge-needle-' + name);
+      if (needle) {
+        var angle = gaugeAngle(val, range.min, range.max);
+        needle.style.setProperty('--angle', angle + 'deg');
+      }
+    }
+
+    if (chartData && chartData.length) {
+      var parsed = parseChartData(chartData);
+      destroyChart('ratio-' + name);
+
+      var canvasEl = document.getElementById('chart-ratio-' + name);
+      if (canvasEl) {
+        var ctx = canvasEl.getContext('2d');
+        charts['ratio-' + name] = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: parsed.labels,
+            datasets: [{
+              data: parsed.values,
+              borderColor: '#ffd700',
+              borderWidth: 1.5,
+              pointRadius: 0,
+              fill: true,
+              backgroundColor: 'rgba(255,215,0,0.08)',
+              tension: 0.3,
+            }]
+          },
+          options: {
+            scales: { x: { display: false }, y: { display: false } },
+            plugins: {
+              tooltip: { callbacks: { label: function(ctx) { return fmt(ctx.parsed.y, 2); } } }
+            }
+          }
+        });
+      }
+    }
+  });
+}
+
+// --- CENTRAL BANKS ---
+function renderCentralBanks() {
+  var d = DATA.centralBanks;
+  if (!d) {
+    document.getElementById('cb-table-body').innerHTML = '<tr><td colspan="6" class="text-center py-4 text-[var(--text2)]">Data unavailable</td></tr>';
+    return;
+  }
+
+  document.getElementById('cb-pace').textContent = fmt(d.net_monthly_pace_tonnes, 1);
+  document.getElementById('cb-pace-arrow').innerHTML = '<span style="color:#00ff88">&#9650;</span>';
+  document.getElementById('cb-ytd-total').textContent = fmtInt(d.total_cb_buying_ytd);
+
+  var tbody = document.getElementById('cb-table-body');
+  tbody.innerHTML = '';
+
+  var maxReserves = 0;
+  d.reserves.forEach(function(r) { if (r.reserves_tonnes > maxReserves) maxReserves = r.reserves_tonnes; });
+
+  d.reserves.forEach(function(r) {
+    var tr = document.createElement('tr');
+
+    var changeColor = '#555';
+    var changeBg = 'transparent';
+    if (r.last_month_change > 10) { changeColor = '#00ff88'; changeBg = 'rgba(0,255,136,0.15)'; }
+    else if (r.last_month_change > 0) { changeColor = '#00ff88'; changeBg = 'rgba(0,255,136,0.08)'; }
+    else if (r.last_month_change < 0) { changeColor = '#ff4444'; changeBg = 'rgba(255,68,68,0.12)'; }
+
+    var statusHtml = '';
+    if (r.status === 'buying') statusHtml = '<span class="badge" style="background:rgba(0,255,136,0.15);color:#00ff88;">BUYING</span>';
+    else if (r.status === 'selling') statusHtml = '<span class="badge" style="background:rgba(255,68,68,0.15);color:#ff4444;">SELLING</span>';
+    else statusHtml = '<span class="badge" style="background:rgba(136,136,136,0.15);color:#888;">HOLD</span>';
+
+    var reserveIntensity = Math.max(0.03, r.reserves_tonnes / maxReserves * 0.15);
+    var barWidth = (r.reserves_tonnes / maxReserves * 60).toFixed(0);
+
+    tr.innerHTML =
+      '<td style="font-weight:600;">' + r.country + '</td>' +
+      '<td style="background:rgba(255,215,0,' + reserveIntensity.toFixed(3) + ');">' +
+        fmtInt(r.reserves_tonnes) +
+        '<div class="mini-bar" style="width:' + barWidth + 'px;background:#ffd700;margin-left:6px;"></div>' +
+      '</td>' +
+      '<td style="color:' + changeColor + ';background:' + changeBg + ';">' +
+        (r.last_month_change > 0 ? '+' : '') + r.last_month_change + 't' +
+      '</td>' +
+      '<td style="color:' + (r.change_ytd > 0 ? '#00ff88' : r.change_ytd < 0 ? '#ff4444' : '#888') + ';">' +
+        (r.change_ytd > 0 ? '+' : '') + r.change_ytd + 't' +
+      '</td>' +
+      '<td>' + fmt(r.pct_of_reserves, 1) + '%</td>' +
+      '<td>' + statusHtml + '</td>';
+    tbody.appendChild(tr);
+  });
+
+  // Bar chart
+  var top15 = d.reserves.slice(0, 15);
+  destroyChart('cb-bars');
+  var ctx = document.getElementById('chart-cb-bars').getContext('2d');
+  charts['cb-bars'] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: top15.map(function(r) { return r.country; }),
+      datasets: [{
+        data: top15.map(function(r) { return r.reserves_tonnes; }),
+        backgroundColor: 'rgba(255,215,0,0.6)',
+        borderColor: '#ffd700',
+        borderWidth: 1,
+        borderRadius: 3,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.03)' },
+          ticks: { callback: function(v) { return fmtCompact(v) + 't'; } }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { font: { size: 10 } }
+        }
+      },
+      plugins: {
+        tooltip: { callbacks: { label: function(ctx) { return fmtInt(ctx.parsed.x) + ' tonnes'; } } }
+      }
+    }
+  });
+}
+
+// --- ETFs ---
+function renderETFs() {
+  var d = DATA.etfs;
+  if (!d) return;
+
+  document.getElementById('etf-total').textContent = fmtInt(d.total_holdings_tonnes_est);
+
+  // Overlay chart
+  var overlaySymbols = ['GLD', 'IAU', 'PHYS'];
+  var colors = ['#ffd700', '#4488ff', '#00ff88'];
+  var bgColors = ['rgba(255,215,0,0.06)', 'rgba(68,136,255,0.06)', 'rgba(0,255,136,0.06)'];
+  var datasets = [];
+  var refLabels = [];
+
+  overlaySymbols.forEach(function(sym, i) {
+    var etf = d.etfs ? d.etfs[sym] : null;
+    if (etf && etf.chart_1y && etf.chart_1y.length) {
+      var parsed = parseChartData(etf.chart_1y);
+      if (i === 0) refLabels = parsed.labels;
+      datasets.push({
+        label: sym,
+        data: parsed.values,
+        borderColor: colors[i],
+        borderWidth: 1.5,
+        pointRadius: 0,
+        fill: true,
+        backgroundColor: bgColors[i],
+        tension: 0.3,
+      });
+    }
+  });
+
+  if (refLabels.length && datasets.length) {
+    destroyChart('etf-overlay');
+    var ctx = document.getElementById('chart-etf-overlay').getContext('2d');
+    charts['etf-overlay'] = new Chart(ctx, {
+      type: 'line',
+      data: { labels: refLabels, datasets: datasets },
+      options: {
+        interaction: { intersect: false, mode: 'index' },
+        plugins: {
+          legend: { display: true, labels: { boxWidth: 10, padding: 15, color: '#888' } },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': $' + fmt(ctx.parsed.y); } } }
+        },
+        scales: {
+          x: {
+            display: true,
+            grid: { display: false },
+            ticks: {
+              maxTicksLimit: 6,
+              callback: function(val) {
+                var label = this.getLabelForValue(val);
+                try { return new Date(label).toLocaleDateString('en-US', { month: 'short' }); } catch(e) { return ''; }
+              }
+            }
+          },
+          y: {
+            position: 'right',
+            grid: { color: 'rgba(255,255,255,0.03)' },
+            ticks: { callback: function(v) { return '$' + fmt(v, 0); } }
+          }
+        }
+      }
+    });
+  }
+
+  // ETF cards
+  var cardsContainer = document.getElementById('etf-cards');
+  cardsContainer.innerHTML = '';
+
+  Object.keys(d.etfs || {}).forEach(function(sym) {
+    var etf = d.etfs[sym];
+    if (etf.error) return;
+
+    var card = document.createElement('div');
+    card.className = 'bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]';
+
+    var changeColor = colorForChange(etf.change_pct || 0);
+    var dailyChange = etf.daily_change_est || 0;
+    var dailyColor = colorForChange(dailyChange);
+    var dailyArrow = dailyChange > 0 ? '\u25B2' : dailyChange < 0 ? '\u25BC' : '\u25CF';
+
+    var rangeHtml = '';
+    if (etf.chart_1y && etf.chart_1y.length > 10) {
+      var vals = etf.chart_1y.map(function(p) { return p.v; });
+      var min1y = Math.min.apply(null, vals);
+      var max1y = Math.max.apply(null, vals);
+      var pct = max1y > min1y ? ((etf.price - min1y) / (max1y - min1y)) * 100 : 50;
+      rangeHtml =
+        '<div class="range-bar mt-2">' +
+          '<div class="range-marker" style="left:' + pct.toFixed(1) + '%"></div>' +
+        '</div>' +
+        '<div class="flex justify-between text-[9px] text-[var(--text2)] mono mt-1">' +
+          '<span>$' + fmt(min1y, 0) + '</span>' +
+          '<span>1Y Range</span>' +
+          '<span>$' + fmt(max1y, 0) + '</span>' +
+        '</div>';
+    }
+
+    card.innerHTML =
+      '<div class="flex items-center justify-between mb-2">' +
+        '<span class="text-sm font-bold mono">' + sym + '</span>' +
+        '<span class="text-[10px] text-[var(--text2)]">' + (etf.name || '') + '</span>' +
+      '</div>' +
+      '<div class="text-xl font-bold mono">$' + fmt(etf.price) + '</div>' +
+      '<div class="text-xs mono mt-1" style="color:' + changeColor + '">' +
+        (etf.change_pct >= 0 ? '+' : '') + fmt(etf.change_pct) + '%' +
+      '</div>' +
+      (etf.tonnes_est ?
+        '<div class="flex items-center gap-2 mt-2">' +
+          '<span class="text-xs text-[var(--text2)] mono">' + fmtInt(etf.tonnes_est) + 't</span>' +
+          '<span class="text-xs mono" style="color:' + dailyColor + '">' + dailyArrow + ' ' + Math.abs(dailyChange) + 't/day</span>' +
+        '</div>' : '') +
+      rangeHtml;
+    cardsContainer.appendChild(card);
+  });
+}
+
+// --- COT ---
+function renderCOT() {
+  var d = DATA.cot;
+  if (!d) return;
+
+  document.getElementById('cot-net').textContent = fmtInt(d.gold_managed_money_net);
+  document.getElementById('cot-longs').textContent = fmtInt(d.gold_managed_money_long);
+  document.getElementById('cot-shorts').textContent = fmtInt(d.gold_managed_money_short);
+  document.getElementById('cot-oi').textContent = fmtInt(d.gold_open_interest);
+
+  var pctVal = d.net_percentile;
+  if (pctVal != null) {
+    document.getElementById('cot-percentile-val').textContent = fmt(pctVal, 0) + '%';
+    var needle = document.getElementById('gauge-needle-cot');
+    if (needle) {
+      var angle = gaugeAngle(pctVal, 0, 100);
+      needle.style.setProperty('--angle', angle + 'deg');
+    }
+
+    var label = document.getElementById('cot-percentile-label');
+    if (pctVal > 90) {
+      label.textContent = 'EXTREME LONG';
+      label.style.color = '#ff4444';
+    } else if (pctVal < 10) {
+      label.textContent = 'EXTREME SHORT';
+      label.style.color = '#ff4444';
+    } else if (pctVal > 70) {
+      label.textContent = 'Stretched Long';
+      label.style.color = '#ff8800';
+    } else if (pctVal < 30) {
+      label.textContent = 'Stretched Short';
+      label.style.color = '#ff8800';
+    } else {
+      label.textContent = 'Neutral';
+      label.style.color = '#888888';
+    }
+  }
+
+  if (d.history && d.history.length) {
+    destroyChart('cot-history');
+    var ctx = document.getElementById('chart-cot-history').getContext('2d');
+    var labels = d.history.map(function(p) { return p.t; });
+    var values = d.history.map(function(p) { return p.v; });
+
+    charts['cot-history'] = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: values.map(function(v) { return v >= 0 ? 'rgba(0,255,136,0.6)' : 'rgba(255,68,68,0.6)'; }),
+          borderColor: values.map(function(v) { return v >= 0 ? '#00ff88' : '#ff4444'; }),
+          borderWidth: 1,
+          borderRadius: 2,
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              maxTicksLimit: 8,
+              callback: function(val) {
+                var label = this.getLabelForValue(val);
+                try { return new Date(label).toLocaleDateString('en-US', { month: 'short' }); } catch(e) { return ''; }
+              }
+            }
+          },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.03)' },
+            ticks: { callback: function(v) { return fmtCompact(v); } }
+          }
+        },
+        plugins: {
+          tooltip: { callbacks: { label: function(ctx) { return 'Net: ' + fmtInt(ctx.parsed.y) + ' contracts'; } } }
+        }
+      }
+    });
+  }
+}
+
+// --- NEWS ---
+function renderNews() {
+  var d = DATA.news;
+  var container = document.getElementById('news-list');
+
+  if (!d || !d.articles || !d.articles.length) {
+    container.innerHTML = '<div class="text-center py-8 text-[var(--text2)]">No news available</div>';
+    return;
+  }
+
+  var bullish = /record|surge|buying|inflows|rally|high|soar|gain|bull|\bup\b/i;
+  var bearish = /selling|drop|crash|outflows|fall|decline|bear|loss|\bdown\b|plunge/i;
+
+  container.innerHTML = '';
+
+  d.articles.forEach(function(article) {
+    var dotColor = '#555';
+    if (bullish.test(article.title)) dotColor = '#00ff88';
+    else if (bearish.test(article.title)) dotColor = '#ff4444';
+
+    var sourceBadge = '';
+    if (article.source === 'Kitco') {
+      sourceBadge = '<span class="badge" style="background:rgba(255,215,0,0.15);color:#ffd700;">Kitco</span>';
+    } else if (article.source === 'BullionVault') {
+      sourceBadge = '<span class="badge" style="background:rgba(68,136,255,0.15);color:#4488ff;">BullionVault</span>';
+    } else {
+      sourceBadge = '<span class="badge" style="background:rgba(136,136,136,0.15);color:#888;">' + article.source + '</span>';
+    }
+
+    var div = document.createElement('div');
+    div.className = 'flex gap-3 py-3 border-b border-[rgba(255,255,255,0.03)]';
+    div.innerHTML =
+      '<div class="news-dot" style="background:' + dotColor + '"></div>' +
+      '<div class="flex-1 min-w-0">' +
+        '<a href="' + article.link + '" target="_blank" rel="noopener noreferrer"' +
+           ' class="text-sm text-[var(--text)] hover:text-[var(--gold)] transition-colors block truncate">' +
+          article.title +
+        '</a>' +
+        '<div class="flex items-center gap-2 mt-1">' +
+          sourceBadge +
+          '<span class="text-[10px] text-[var(--text2)] mono">' + relativeTime(article.published) + '</span>' +
+        '</div>' +
+      '</div>';
+    container.appendChild(div);
+  });
+}
+
+// --- MACRO ---
+function renderMacro() {
+  var d = DATA.macro;
+  if (!d) return;
+
+  var macroItems = [
+    { key: 'real_yield_10y', label: 'Real Yield 10Y', unit: '%', rangeMin: -2, rangeMax: 3, color: '#ff4444' },
+    { key: 'dxy', label: 'Dollar Index', unit: '', rangeMin: 90, rangeMax: 115, color: '#4488ff' },
+    { key: 'fed_funds', label: 'Fed Funds Rate', unit: '%', rangeMin: 0, rangeMax: 6, color: '#ff8800' },
+    { key: 'cpi_yoy', label: 'CPI YoY', unit: '%', rangeMin: 0, rangeMax: 10, color: '#ff4444', thermo: true },
+    { key: 'm2', label: 'M2 Growth YoY', unit: '%', rangeMin: -5, rangeMax: 30, color: '#00ff88' },
+    { key: 'us_10y', label: 'US 10Y Yield', unit: '%', rangeMin: 0, rangeMax: 5, color: '#ffd700' },
+  ];
+
+  var container = document.getElementById('macro-cards');
+  container.innerHTML = '';
+
+  macroItems.forEach(function(item) {
+    var stat = d[item.key];
+    if (!stat || stat.error) return;
+
+    var val = stat.value;
+    var pct = Math.max(0, Math.min(100, ((val - item.rangeMin) / (item.rangeMax - item.rangeMin)) * 100));
+
+    var chartArr = d[item.key + '_chart'] || [];
+    var canvasId = 'spark-macro-' + item.key;
+
+    var div = document.createElement('div');
+    div.className = 'bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]';
+
+    if (item.thermo) {
+      div.innerHTML =
+        '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2">' + item.label + '</div>' +
+        '<div class="flex items-end gap-3">' +
+          '<div class="thermo-track">' +
+            '<div class="thermo-fill" style="height:' + pct + '%;background:' + item.color + ';"></div>' +
+          '</div>' +
+          '<div>' +
+            '<div class="text-xl font-bold mono" style="color:' + item.color + '">' + fmt(val) + item.unit + '</div>' +
+            '<div class="text-[9px] text-[var(--text2)] mono mt-1">' + (stat.date || '') + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="chart-wrap mt-2" style="height:40px;"><canvas id="' + canvasId + '"></canvas></div>';
+    } else {
+      div.innerHTML =
+        '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2">' + item.label + '</div>' +
+        '<div class="text-xl font-bold mono" style="color:' + item.color + '">' + fmt(val) + item.unit + '</div>' +
+        '<div class="text-[9px] text-[var(--text2)] mono mt-1">' + (stat.date || '') + '</div>' +
+        '<div class="range-bar mt-3">' +
+          '<div class="range-marker" style="left:' + pct + '%;background:' + item.color + ';"></div>' +
+        '</div>' +
+        '<div class="flex justify-between text-[8px] text-[var(--text2)] mono mt-1">' +
+          '<span>' + item.rangeMin + item.unit + '</span>' +
+          '<span>' + item.rangeMax + item.unit + '</span>' +
+        '</div>' +
+        '<div class="chart-wrap mt-2" style="height:40px;"><canvas id="' + canvasId + '"></canvas></div>';
+    }
+
+    container.appendChild(div);
+
+    requestAnimationFrame(function() {
+      var canvas = document.getElementById(canvasId);
+      if (canvas && chartArr.length) {
+        createSparkline(canvas, chartArr, item.color, true, canvas.parentElement.offsetWidth || 120, 40);
+      }
+    });
+  });
+
+  // Dual-axis: Gold vs Real Yields (inverted)
+  var goldChart = d.gold_1y_chart || (DATA.ratios ? DATA.ratios.gold_1y_chart : null) || [];
+  var yieldsChart = d.real_yield_10y_chart || [];
+  renderDualAxisChart('chart-macro-yields', 'macro-yields', goldChart, yieldsChart, 'Gold', 'Real Yield (inv.)', '#ffd700', '#ff4444', false, true);
+
+  // Dual-axis: Gold vs DXY (inverted)
+  var dxyChart = d.dxy_chart || (DATA.ratios ? DATA.ratios.dxy_chart : null) || [];
+  renderDualAxisChart('chart-macro-dxy', 'macro-dxy', goldChart, dxyChart, 'Gold', 'DXY (inv.)', '#ffd700', '#4488ff', false, true);
+}
+
+function renderDualAxisChart(canvasId, chartKey, data1, data2, label1, label2, color1, color2, invert1, invert2) {
+  var parsed1 = parseChartData(data1);
+  var parsed2 = parseChartData(data2);
+
+  var len = Math.min(parsed1.labels.length, parsed2.labels.length);
+  if (len < 5) return;
+
+  var l1 = parsed1.labels.slice(-len);
+  var v1 = parsed1.values.slice(-len);
+  var v2 = parsed2.values.slice(-len);
+
+  destroyChart(chartKey);
+  var canvasEl = document.getElementById(canvasId);
+  if (!canvasEl) return;
+  var ctx = canvasEl.getContext('2d');
+
+  charts[chartKey] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: l1,
+      datasets: [
+        {
+          label: label1,
+          data: invert1 ? v1.map(function(v) { return -v; }) : v1,
+          borderColor: color1,
+          borderWidth: 2,
+          pointRadius: 0,
+          yAxisID: 'y1',
+          tension: 0.3,
+        },
+        {
+          label: label2,
+          data: invert2 ? v2.map(function(v) { return -v; }) : v2,
+          borderColor: color2,
+          borderWidth: 1.5,
+          pointRadius: 0,
+          borderDash: [4, 2],
+          yAxisID: 'y2',
+          tension: 0.3,
+        }
+      ]
+    },
+    options: {
+      interaction: { intersect: false, mode: 'index' },
+      plugins: {
+        legend: { display: true, labels: { boxWidth: 10, padding: 10, color: '#888' } },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              var isInverted = (ctx.datasetIndex === 0 && invert1) || (ctx.datasetIndex === 1 && invert2);
+              var val = isInverted ? -ctx.parsed.y : ctx.parsed.y;
+              return ctx.dataset.label + ': ' + fmt(val);
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: {
+            maxTicksLimit: 6,
+            callback: function(val) {
+              var label = this.getLabelForValue(val);
+              try { return new Date(label).toLocaleDateString('en-US', { month: 'short' }); } catch(e) { return ''; }
+            }
+          }
+        },
+        y1: {
+          position: 'left',
+          grid: { color: 'rgba(255,255,255,0.03)' },
+          ticks: { color: color1, callback: function(v) { return invert1 ? fmt(-v, 0) : '$' + fmt(v, 0); } }
+        },
+        y2: {
+          position: 'right',
+          grid: { display: false },
+          ticks: { color: color2, callback: function(v) { return invert2 ? fmt(-v, 1) : fmt(v, 1); } }
+        }
+      }
+    }
+  });
+}
+
+// --- MINERS ---
+function renderMiners() {
+  var d = DATA.miners;
+  if (!d) return;
+
+  var minerKeys = Object.keys(d.miners || {}).filter(function(k) { return d.miners[k].aisc && !d.miners[k].error; });
+  if (minerKeys.length) {
+    destroyChart('miners-aisc');
+    var ctx = document.getElementById('chart-miners-aisc').getContext('2d');
+    var goldPrice = DATA.price ? DATA.price.price : 3000;
+
+    charts['miners-aisc'] = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: minerKeys.map(function(k) { return d.miners[k].name || k; }),
+        datasets: [{
+          label: 'AISC',
+          data: minerKeys.map(function(k) { return d.miners[k].aisc; }),
+          backgroundColor: 'rgba(255,215,0,0.6)',
+          borderColor: '#ffd700',
+          borderWidth: 1,
+          borderRadius: 4,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        scales: {
+          x: {
+            grid: { color: 'rgba(255,255,255,0.03)' },
+            ticks: { callback: function(v) { return '$' + fmtInt(v); } }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { font: { size: 10 } }
+          }
+        },
+        plugins: {
+          tooltip: { callbacks: { label: function(ctx) { return 'AISC: $' + fmtInt(ctx.parsed.x); } } }
+        }
+      },
+      plugins: [{
+        id: 'goldPriceLine',
+        afterDraw: function(chart) {
+          var xScale = chart.scales.x;
+          var yScale = chart.scales.y;
+          var c = chart.ctx;
+          var x = xScale.getPixelForValue(goldPrice);
+          if (x >= xScale.left && x <= xScale.right) {
+            c.save();
+            c.strokeStyle = '#ffd700';
+            c.lineWidth = 2;
+            c.setLineDash([6, 4]);
+            c.beginPath();
+            c.moveTo(x, yScale.top);
+            c.lineTo(x, yScale.bottom);
+            c.stroke();
+            c.fillStyle = '#ffd700';
+            c.font = '10px JetBrains Mono, monospace';
+            c.fillText('Gold: $' + fmtInt(goldPrice), x + 4, yScale.top + 12);
+            c.restore();
+          }
+        }
+      }]
+    });
+  }
+
+  // GDX/Gold ratio chart
+  if (d.gdx_gold_ratio_chart && d.gdx_gold_ratio_chart.length) {
+    var parsed = parseChartData(d.gdx_gold_ratio_chart);
+    destroyChart('gdx-ratio');
+    var ctx2 = document.getElementById('chart-gdx-ratio').getContext('2d');
+    charts['gdx-ratio'] = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: parsed.labels,
+        datasets: [{
+          data: parsed.values,
+          borderColor: '#ffd700',
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: true,
+          backgroundColor: 'rgba(255,215,0,0.08)',
+          tension: 0.3,
+        }]
+      },
+      options: {
+        interaction: { intersect: false, mode: 'index' },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              maxTicksLimit: 6,
+              callback: function(val) {
+                try { return new Date(this.getLabelForValue(val)).toLocaleDateString('en-US', { month: 'short' }); } catch(e) { return ''; }
+              }
+            }
+          },
+          y: {
+            position: 'right',
+            grid: { color: 'rgba(255,255,255,0.03)' },
+            ticks: { callback: function(v) { return v.toFixed(4); } }
+          }
+        }
+      }
+    });
+  }
+
+  // Miners table
+  var tbody = document.getElementById('miners-table-body');
+  tbody.innerHTML = '';
+
+  Object.keys(d.miners || {}).forEach(function(sym) {
+    var m = d.miners[sym];
+    if (m.error || m.type === 'etf') return;
+
+    var tr = document.createElement('tr');
+    var changeColor = colorForChange(m.change_pct);
+    var marginColor = m.margin != null
+      ? 'rgba(0,255,136,' + Math.min(1, Math.max(0.2, m.margin / 2000)).toFixed(2) + ')'
+      : '#888';
+
+    var sparkId = 'spark-miner-' + sym;
+
+    tr.innerHTML =
+      '<td style="font-weight:600;">' + (m.name || sym) + ' <span class="text-[10px] text-[var(--text2)]">' + sym + '</span></td>' +
+      '<td>$' + fmt(m.price) + '</td>' +
+      '<td style="color:' + changeColor + '">' + (m.change_pct >= 0 ? '+' : '') + fmt(m.change_pct) + '%</td>' +
+      '<td>$' + (m.aisc != null ? fmtInt(m.aisc) : '--') + '</td>' +
+      '<td style="color:' + marginColor + ';font-weight:600;">$' + (m.margin != null ? fmtInt(m.margin) : '--') + '</td>' +
+      '<td>' + (m.production_koz != null ? fmtInt(m.production_koz) : '--') + '</td>' +
+      '<td><canvas id="' + sparkId + '" width="80" height="25"></canvas></td>';
+    tbody.appendChild(tr);
+
+    requestAnimationFrame(function() {
+      var canvas = document.getElementById(sparkId);
+      var sparkData = m.sparkline_6m || m.sparkline || [];
+      if (canvas && sparkData.length) {
+        createSparkline(canvas, sparkData, changeColor === '#00ff88' ? '#00ff88' : '#ffd700', false, 80, 25);
+      }
+    });
+  });
+}
+
+// --- HISTORICAL ---
+function renderHistorical() {
+  var d = DATA.historical;
+  if (!d) return;
+
+  if (d.timeline_chart && d.timeline_chart.length) {
+    var parsed = parseChartData(d.timeline_chart);
+    var events = d.events || [];
+
+    destroyChart('historical-timeline');
+    var ctx = document.getElementById('chart-historical-timeline').getContext('2d');
+
+    charts['historical-timeline'] = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: parsed.labels,
+        datasets: [{
+          data: parsed.values,
+          borderColor: '#ffd700',
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: true,
+          backgroundColor: function(context) {
+            var chart = context.chart;
+            return goldGradient(chart.ctx, chart.chartArea);
+          },
+          tension: 0.3,
+        }]
+      },
+      options: {
+        interaction: { intersect: false, mode: 'index' },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              maxTicksLimit: 10,
+              callback: function(val) {
+                try { return new Date(this.getLabelForValue(val)).getFullYear(); } catch(e) { return ''; }
+              }
+            }
+          },
+          y: {
+            position: 'right',
+            grid: { color: 'rgba(255,255,255,0.03)' },
+            ticks: { callback: function(v) { return '$' + fmtCompact(v); } }
+          }
+        },
+        plugins: {
+          tooltip: { callbacks: { label: function(ctx) { return '$' + fmt(ctx.parsed.y); } } }
+        }
+      },
+      plugins: [{
+        id: 'eventAnnotations',
+        afterDraw: function(chart) {
+          var xScale = chart.scales.x;
+          var yScale = chart.scales.y;
+          var c = chart.ctx;
+          var labels = parsed.labels;
+
+          events.forEach(function(evt, i) {
+            var evtYear = evt.year;
+            var closestIdx = -1;
+            var closestDiff = Infinity;
+            labels.forEach(function(label, idx) {
+              try {
+                var diff = Math.abs(new Date(label).getFullYear() - evtYear);
+                if (diff < closestDiff) { closestDiff = diff; closestIdx = idx; }
+              } catch(e) {}
+            });
+
+            if (closestIdx >= 0 && closestDiff <= 2) {
+              var x = xScale.getPixelForValue(closestIdx);
+              if (x >= xScale.left && x <= xScale.right) {
+                c.save();
+                c.strokeStyle = 'rgba(255,215,0,0.3)';
+                c.lineWidth = 1;
+                c.setLineDash([3, 3]);
+                c.beginPath();
+                c.moveTo(x, yScale.top);
+                c.lineTo(x, yScale.bottom);
+                c.stroke();
+                c.fillStyle = 'rgba(255,215,0,0.7)';
+                c.font = '9px JetBrains Mono, monospace';
+                c.textAlign = 'center';
+                c.fillText(evt.event, x, yScale.top + 10 + (i % 3) * 12);
+                c.restore();
+              }
+            }
+          });
+        }
+      }]
+    });
+  }
+
+  // Decade returns
+  if (d.decade_returns && d.decade_returns.length) {
+    destroyChart('decade-returns');
+    var ctx2 = document.getElementById('chart-decade-returns').getContext('2d');
+    charts['decade-returns'] = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: d.decade_returns.map(function(dr) { return dr.decade; }),
+        datasets: [{
+          data: d.decade_returns.map(function(dr) { return dr.avg_annual_return; }),
+          backgroundColor: d.decade_returns.map(function(dr) { return dr.avg_annual_return >= 0 ? 'rgba(0,255,136,0.6)' : 'rgba(255,68,68,0.6)'; }),
+          borderColor: d.decade_returns.map(function(dr) { return dr.avg_annual_return >= 0 ? '#00ff88' : '#ff4444'; }),
+          borderWidth: 1,
+          borderRadius: 4,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        scales: {
+          x: {
+            grid: { color: 'rgba(255,255,255,0.03)' },
+            ticks: { callback: function(v) { return v + '%'; } }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { font: { size: 10 } }
+          }
+        },
+        plugins: {
+          tooltip: { callbacks: { label: function(ctx) { return fmt(ctx.parsed.x, 1) + '% avg annual'; } } }
+        }
+      }
+    });
+  }
+
+  // Event cards
+  var evtContainer = document.getElementById('event-cards');
+  evtContainer.innerHTML = '';
+  (d.events || []).forEach(function(evt) {
+    var card = document.createElement('div');
+    card.className = 'bg-[#0a0a0a] rounded-lg px-3 py-2 border border-[var(--card-border)] flex items-center gap-3';
+    card.innerHTML =
+      '<div class="text-lg font-bold mono text-[var(--gold)]">' + evt.year + '</div>' +
+      '<div class="flex-1">' +
+        '<div class="text-xs text-[var(--text)]">' + evt.event + '</div>' +
+        '<div class="text-[10px] text-[var(--text2)] mono">$' + fmtInt(evt.price) + '</div>' +
+      '</div>';
+    evtContainer.appendChild(card);
+  });
+}
+
+// =====================================================================
+// AUTO-REFRESH (reload all JSON every 5 minutes)
+// =====================================================================
+
+setInterval(function() {
+  loadAllData();
+}, 300000);
+
+// =====================================================================
+// INIT
+// =====================================================================
+
+loadAllData();
+</script>
+</body>
+</html>
