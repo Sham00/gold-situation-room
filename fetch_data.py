@@ -6,6 +6,7 @@ Run by GitHub Actions every hour, or manually.
 import json
 import os
 import random
+import time
 import traceback
 import zipfile
 import io
@@ -19,20 +20,35 @@ import yfinance as yf
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
+# Ticker cache to avoid redundant Yahoo Finance requests
+_ticker_cache = {}
+
+def get_ticker(symbol):
+    """Get or create a cached yfinance Ticker object."""
+    if symbol not in _ticker_cache:
+        _ticker_cache[symbol] = yf.Ticker(symbol)
+    return _ticker_cache[symbol]
+
+def throttle(seconds=0.5):
+    """Sleep briefly to avoid Yahoo Finance rate limits."""
+    time.sleep(seconds)
+
 
 def get_price(ticker_or_symbol):
     """Get current price from a yfinance Ticker, with fallbacks."""
-    t = ticker_or_symbol if hasattr(ticker_or_symbol, 'history') else yf.Ticker(ticker_or_symbol)
-    # Try fast_info first
-    try:
-        return t.fast_info.last_price
-    except Exception:
-        pass
-    # Fallback: use recent history
+    t = ticker_or_symbol if hasattr(ticker_or_symbol, 'history') else get_ticker(str(ticker_or_symbol))
+    # Primary: use recent history (most reliable for futures/indices)
     try:
         hist = t.history(period="5d", interval="1d")
         if len(hist) > 0:
             return float(hist["Close"].iloc[-1])
+    except Exception:
+        pass
+    # Fallback: fast_info
+    try:
+        p = t.fast_info.last_price
+        if p is not None:
+            return float(p)
     except Exception:
         pass
     # Last resort: info dict
@@ -46,7 +62,7 @@ def get_price(ticker_or_symbol):
 
 def get_prev_close(ticker_or_symbol):
     """Get previous close from a yfinance Ticker, with fallbacks."""
-    t = ticker_or_symbol if hasattr(ticker_or_symbol, 'history') else yf.Ticker(ticker_or_symbol)
+    t = ticker_or_symbol if hasattr(ticker_or_symbol, 'history') else get_ticker(str(ticker_or_symbol))
     try:
         return t.fast_info.previous_close
     except Exception:
@@ -82,7 +98,7 @@ def safe(fn, label=""):
 
 def fetch_price():
     print("Fetching price data...")
-    gold = yf.Ticker("GC=F")
+    gold = get_ticker("GC=F")
     current = get_price(gold)
     if current is None:
         raise ValueError("Could not fetch gold price — Yahoo Finance may be unavailable")
@@ -111,8 +127,11 @@ def fetch_price():
     }
     for ccy, symbol in fx_pairs.items():
         try:
-            fx = get_price(yf.Ticker(symbol))
-            if ccy in ("EUR", "GBP", "AUD"):
+            throttle(0.3)
+            fx = get_price(get_ticker(symbol))
+            if fx is None:
+                currencies[ccy] = None
+            elif ccy in ("EUR", "GBP", "AUD"):
                 currencies[ccy] = round(current / fx, 2)
             else:
                 currencies[ccy] = round(current * fx, 2)
@@ -127,7 +146,7 @@ def fetch_price():
         currency_sparklines["USD"] = gold_7d_pts
         for ccy, symbol in fx_pairs.items():
             try:
-                fx_price = get_price(yf.Ticker(symbol))
+                fx_price = get_price(get_ticker(symbol))
                 if ccy in ("EUR", "GBP", "AUD"):
                     currency_sparklines[ccy] = [{"t": p["t"], "v": round(p["v"] / fx_price, 2)} for p in gold_7d_pts]
                 else:
@@ -176,6 +195,8 @@ def fetch_price():
 def fetch_ratios():
     print("Fetching ratios data...")
     gold_price = get_price("GC=F")
+    if gold_price is None:
+        raise ValueError("Could not fetch gold price for ratios")
 
     pairs = {
         "gold_silver": "SI=F",
@@ -188,6 +209,7 @@ def fetch_ratios():
     ratios = {}
     for name, sym in pairs.items():
         try:
+            throttle(0.3)
             p = get_price(sym)
             ratios[name] = round(gold_price / p, 4) if p else None
         except Exception:
@@ -195,12 +217,14 @@ def fetch_ratios():
 
     # 1Y ratio charts
     ratio_charts = {}
-    gold_1y = yf.Ticker("GC=F").history(period="1y", interval="1d")
+    throttle(0.5)
+    gold_1y = get_ticker("GC=F").history(period="1y", interval="1d")
     gold_map = {str(d.date()): round(r["Close"], 2) for d, r in gold_1y.iterrows()}
 
     for name, sym in pairs.items():
         try:
-            other_1y = yf.Ticker(sym).history(period="1y", interval="1d")
+            throttle(0.3)
+            other_1y = get_ticker(sym).history(period="1y", interval="1d")
             pts = []
             for d, r in other_1y.iterrows():
                 ds = str(d.date())
@@ -212,12 +236,14 @@ def fetch_ratios():
 
     # 10Y ranges
     ratio_ranges = {}
-    gold_10y = yf.Ticker("GC=F").history(period="10y", interval="1wk")
+    throttle(0.5)
+    gold_10y = get_ticker("GC=F").history(period="10y", interval="1wk")
     gold_10y_map = {str(d.date()): round(r["Close"], 2) for d, r in gold_10y.iterrows()}
 
     for name, sym in pairs.items():
         try:
-            other_10y = yf.Ticker(sym).history(period="10y", interval="1wk")
+            throttle(0.3)
+            other_10y = get_ticker(sym).history(period="10y", interval="1wk")
             ratio_vals = []
             for d, r in other_10y.iterrows():
                 ds = str(d.date())
@@ -237,7 +263,7 @@ def fetch_ratios():
     # DXY chart for correlation
     dxy_chart = []
     try:
-        dxy_data = yf.Ticker("DX-Y.NYB").history(period="1y", interval="1d")
+        dxy_data = get_ticker("DX-Y.NYB").history(period="1y", interval="1d")
         dxy_chart = [{"t": str(d.date()), "v": round(r["Close"], 2)} for d, r in dxy_data.iterrows()]
     except Exception:
         pass
@@ -312,8 +338,13 @@ def fetch_etfs():
     etfs = {}
     for sym, meta in symbols.items():
         try:
-            ticker = yf.Ticker(sym)
+            throttle(0.5)
+            ticker = get_ticker(sym)
             price = get_price(ticker)
+            if price is None:
+                etfs[sym] = {"name": meta["name"], "error": f"Could not fetch price for {sym}",
+                             "tonnes_est": meta["tonnes_est"], "daily_change_est": meta["daily_change_est"]}
+                continue
             prev = get_prev_close(ticker) or price
             change = price - prev
             change_pct = (change / prev) * 100 if prev else 0
@@ -346,7 +377,6 @@ def fetch_macro():
     print("Fetching macro data...")
     series = {
         "real_yield_10y": "DFII10",
-        "dxy": "DTWEXBGS",
         "fed_funds": "FEDFUNDS",
         "cpi_yoy": "CPIAUCSL",
         "m2": "WM2NS",
@@ -357,8 +387,19 @@ def fetch_macro():
     for name, series_id in series.items():
         try:
             url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
-            resp = requests.get(url, timeout=15)
-            resp.raise_for_status()
+            resp = None
+            for attempt in range(2):
+                try:
+                    resp = requests.get(url, timeout=45)
+                    resp.raise_for_status()
+                    break
+                except requests.exceptions.Timeout:
+                    if attempt == 0:
+                        print(f"  FRED timeout for {name}, retrying...")
+                        continue
+                    raise
+            if resp is None:
+                raise ValueError(f"No response for {series_id}")
             lines = resp.text.strip().split("\n")
             values = []
             for line in lines[1:]:
@@ -374,24 +415,55 @@ def fetch_macro():
                     current_val = values[-1]["value"]
                     year_ago_val = values[-13]["value"]
                     yoy = ((current_val - year_ago_val) / year_ago_val) * 100
-                    data[name] = {"value": round(yoy, 2), "date": latest["date"], "unit": "% YoY"}
+                    data[name] = round(yoy, 2)
                 elif name == "m2" and len(values) > 12:
                     current_val = values[-1]["value"]
                     year_ago_val = values[-13]["value"]
                     growth = ((current_val - year_ago_val) / year_ago_val) * 100
-                    data[name] = {"value": round(growth, 2), "date": latest["date"], "unit": "% YoY"}
+                    data[name] = round(growth, 2)
                 else:
-                    data[name] = {"value": latest["value"], "date": latest["date"]}
+                    data[name] = latest["value"]
+                data[f"{name}_date"] = latest["date"]
                 chart_entries = values[-252:]
                 data[f"{name}_chart"] = [{"t": v["date"], "v": v["value"]} for v in chart_entries]
         except Exception as e:
-            data[name] = {"error": str(e)}
+            print(f"  FRED error for {name}: {e}")
+            data[name] = None
 
-    # DXY fallback from Yahoo
-    if "dxy" not in data or "error" in data.get("dxy", {}):
+    # DXY from Yahoo Finance
+    try:
+        dxy_ticker = get_ticker("DX-Y.NYB")
+        dxy_price = get_price(dxy_ticker)
+        if dxy_price:
+            data["dxy"] = round(dxy_price, 2)
+            data["dxy_date"] = str(datetime.now(timezone.utc).date())
+            dxy_hist = dxy_ticker.history(period="1y", interval="1d")
+            data["dxy_chart"] = [{"t": str(d.date()), "v": round(r["Close"], 2)} for d, r in dxy_hist.iterrows()]
+        else:
+            data["dxy"] = None
+    except Exception:
+        data["dxy"] = None
+
+    # Fallback: if fed_funds is None, try yfinance ^IRX (13-week T-bill)
+    if data.get("fed_funds") is None:
         try:
-            dxy = get_price("DX-Y.NYB")
-            data["dxy"] = {"value": round(dxy, 2), "date": str(datetime.now(timezone.utc).date())}
+            irx = get_price("^IRX")
+            if irx is not None:
+                data["fed_funds"] = round(irx, 2)
+                data["fed_funds_date"] = str(datetime.now(timezone.utc).date())
+        except Exception:
+            pass
+
+    # Fallback: if real_yield_10y is None, try yfinance ^TYX or compute from TIPS
+    if data.get("real_yield_10y") is None:
+        try:
+            tip = get_price("TIP")
+            if tip is not None:
+                # Use 10Y nominal - breakeven as rough proxy
+                us10 = data.get("us_10y")
+                if us10 is not None:
+                    data["real_yield_10y"] = round(us10 - 2.3, 2)  # rough breakeven
+                    data["real_yield_10y_date"] = str(datetime.now(timezone.utc).date())
         except Exception:
             pass
 
@@ -406,14 +478,14 @@ def fetch_miners():
     print("Fetching miners data...")
     symbols = {
         "GDX": {"name": "VanEck Gold Miners ETF", "type": "etf"},
-        "B": {"name": "Barrick Gold", "type": "miner"},
+        "GOLD": {"name": "Barrick Gold", "type": "miner"},
         "NEM": {"name": "Newmont Corp", "type": "miner"},
         "AEM": {"name": "Agnico Eagle", "type": "miner"},
         "AGI": {"name": "Alamos Gold", "type": "miner"},
     }
 
     aisc_data = {
-        "B": {"aisc": 1050, "production_koz": 4100},
+        "GOLD": {"aisc": 1050, "production_koz": 4100},
         "NEM": {"aisc": 1400, "production_koz": 5500},
         "AEM": {"aisc": 1150, "production_koz": 3500},
         "AGI": {"aisc": 1050, "production_koz": 550},
@@ -427,8 +499,12 @@ def fetch_miners():
     miners = {}
     for sym, meta in symbols.items():
         try:
-            ticker = yf.Ticker(sym)
+            throttle(0.5)
+            ticker = get_ticker(sym)
             price = get_price(ticker)
+            if price is None:
+                miners[sym] = {"name": meta["name"], "type": meta["type"], "error": f"Could not fetch price for {sym}"}
+                continue
             prev = get_prev_close(ticker) or price
             change = price - prev
             change_pct = (change / prev) * 100 if prev else 0
@@ -464,8 +540,8 @@ def fetch_miners():
     # GDX/Gold ratio chart (1Y)
     ratio_chart = []
     try:
-        gdx_data = yf.Ticker("GDX").history(period="1y", interval="1d")
-        gold_data = yf.Ticker("GC=F").history(period="1y", interval="1d")
+        gdx_data = get_ticker("GDX").history(period="1y", interval="1d")
+        gold_data = get_ticker("GC=F").history(period="1y", interval="1d")
         gold_map = {str(d.date()): round(r["Close"], 2) for d, r in gold_data.iterrows()}
         for d, r in gdx_data.iterrows():
             ds = str(d.date())
@@ -610,7 +686,7 @@ def fetch_historical():
 
     timeline_chart = []
     try:
-        gold = yf.Ticker("GC=F")
+        gold = get_ticker("GC=F")
         hist = gold.history(period="max", interval="1mo")
         timeline_chart = [{"t": str(d.date()), "v": round(r["Close"], 2)} for d, r in hist.iterrows()]
     except Exception:
@@ -651,6 +727,7 @@ def main():
         results[name] = "OK" if result is not False else "FAILED"
         # safe() returns None on success (fn returns None after write_json)
         # and None on error too, but we printed the error
+        throttle(1)  # Pause between fetchers to avoid Yahoo rate limits
 
     print("\n" + "=" * 60)
     print("Fetch complete. Files in data/:")

@@ -1560,10 +1560,13 @@ function renderMacro() {
   container.innerHTML = '';
 
   macroItems.forEach(function(item) {
-    var stat = d[item.key];
-    if (!stat || stat.error) return;
+    var raw = d[item.key];
+    if (raw == null || (typeof raw === 'object' && raw.error)) return;
+    // Support both nested {value, date} and flat number formats
+    var stat = (typeof raw === 'object' && raw !== null) ? raw : {value: raw, date: d[item.key + '_date'] || ''};
 
     var val = stat.value;
+    if (val == null) return;
     var pct = Math.max(0, Math.min(100, ((val - item.rangeMin) / (item.rangeMax - item.rangeMin)) * 100));
 
     var chartArr = d[item.key + '_chart'] || [];
