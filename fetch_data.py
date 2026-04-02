@@ -478,11 +478,42 @@ def fetch_central_banks():
     # Source: Google News RSS (CB-keyword filtered) + WGC news feed
     # Freshness: hourly. Keywords: turkey, central bank, gold reserve, tonnes, WGC, IMF
     cb_news = []
-    cb_kw = ["turkey", "central bank", "gold reserve", "gold reserves", "imf", "wgc",
-             "tonnes", "reserve bank", "pboc", "rbi india", "nbp poland", "buying gold",
-             "selling gold", "china gold", "india gold", "poland gold", "de-dollarization"]
+    # Tier 1 — Largest active movers (>50t/year or major recent activity)
+    cb_country_tier1 = [
+        "turkey", "turkish central bank", "tcmb",        # Net seller in 2023, big buyer 2022/24
+        "china", "pboc", "people's bank of china",        # World's largest accumulator since 2022
+        "india", "reserve bank of india", "rbi",          # Steady buyer 100+ t/year
+        "poland", "nbp", "national bank of poland",       # Aggressive buyer 100t in 2023
+        "singapore", "mas",                               # Surprise buyer 2021-2023
+    ]
+    # Tier 2 — Significant but smaller or irregular
+    cb_country_tier2 = [
+        "russia",                                         # Sanctioned, opaque — any news is signal
+        "kazakhstan", "uzbekistan",                       # Central Asian buyers
+        "czech republic", "czech national bank",          # European diversifier
+        "hungary", "mnb",                                 # Tripled reserves 2021
+        "iraq", "central bank of iraq",                   # Recent buyer
+        "philippines", "bsp",                             # Active 2024
+        "qatar", "qatar central bank",                    # GCC accumulator
+        "saudi arabia", "sama",                           # Opaque but large reserves
+        "egypt", "central bank of egypt",                 # Devaluation hedge buyer
+    ]
+    # Tier 3 — Wild cards / geopolitical signals
+    cb_country_tier3 = [
+        "iran",                                           # Sanctions buyer — proxy for de-dollarization
+        "venezuela",                                      # Seller under duress
+        "germany", "bundesbank",                          # Repatriation news = geopolitical signal
+        "imf",                                            # IMF gold sales are major market events
+        "bis", "bank for international settlements",      # Swap lines signal
+    ]
+    cb_kw = cb_country_tier1 + cb_country_tier2 + cb_country_tier3 + [
+        "central bank", "gold reserve", "gold reserves", "wgc",
+        "tonnes", "reserve bank", "buying gold", "selling gold", "de-dollarization",
+    ]
     cb_feeds = [
         ("Google News CB", "https://news.google.com/rss/search?q=central+bank+gold+reserves+buying+selling&hl=en-US&gl=US&ceid=US:en"),
+        ("Google News Turkey Gold", "https://news.google.com/rss/search?q=turkey+central+bank+gold+TCMB+reserves&hl=en-US&gl=US&ceid=US:en"),
+        ("Google News PBOC Gold", "https://news.google.com/rss/search?q=PBOC+china+gold+reserves+central+bank&hl=en-US&gl=US&ceid=US:en"),
         ("Reuters CB", "https://feeds.reuters.com/reuters/businessNews"),
         ("WGC News", "https://www.gold.org/goldhub/gold-news/rss"),
     ]
@@ -1429,33 +1460,68 @@ def fetch_market_intelligence():
         "cb_buying": ["bought gold", "buying gold", "gold purchase", "gold reserves increase", "added gold"],
         "cb_selling": ["sold gold", "selling gold", "gold sales", "gold reserves drop", "sold tonnes"],
     }
-    cb_country_kw = ["turkey", "china", "russia", "india", "poland", "central bank gold"]
-    try:
-        gnews_cb = _fp.parse(
-            "https://news.google.com/rss/search?q=central+bank+gold+buy+sell+reserves&hl=en-US&gl=US&ceid=US:en",
-            request_headers=headers_mi
-        )
-        for entry in gnews_cb.entries[:20]:
-            title = entry.get("title", "")
-            tl = title.lower()
-            if not any(k in tl for k in cb_country_kw):
-                continue
-            alert_type = None
-            for atype, kws in cb_scan_kw.items():
-                if any(k in tl for k in kws):
-                    alert_type = atype
-                    break
-            if alert_type:
-                alerts.append({
-                    "type": alert_type,
-                    "headline": title,
-                    "detail": entry.get("summary", "")[:200],
-                    "significance": "high",
-                    "ts": entry.get("published", now_str),
-                    "link": entry.get("link", ""),
-                })
-    except Exception as e:
-        print(f"  MI CB scan error: {e}")
+    # Tier 1 — Largest active movers (>50t/year or major recent activity)
+    cb_country_tier1 = [
+        "turkey", "turkish central bank", "tcmb",
+        "china", "pboc", "people's bank of china",
+        "india", "reserve bank of india", "rbi",
+        "poland", "nbp", "national bank of poland",
+        "singapore", "mas",
+    ]
+    # Tier 2 — Significant but smaller or irregular
+    cb_country_tier2 = [
+        "russia",
+        "kazakhstan", "uzbekistan",
+        "czech republic", "czech national bank",
+        "hungary", "mnb",
+        "iraq", "central bank of iraq",
+        "philippines", "bsp",
+        "qatar", "qatar central bank",
+        "saudi arabia", "sama",
+        "egypt", "central bank of egypt",
+    ]
+    # Tier 3 — Wild cards / geopolitical signals
+    cb_country_tier3 = [
+        "iran",
+        "venezuela",
+        "germany", "bundesbank",
+        "imf",
+        "bis", "bank for international settlements",
+    ]
+    cb_country_kw = cb_country_tier1 + cb_country_tier2 + cb_country_tier3 + ["central bank gold"]
+    mi_cb_feeds = [
+        ("Google News CB", "https://news.google.com/rss/search?q=central+bank+gold+buy+sell+reserves&hl=en-US&gl=US&ceid=US:en"),
+        ("Google News Turkey Gold", "https://news.google.com/rss/search?q=turkey+central+bank+gold+TCMB+reserves&hl=en-US&gl=US&ceid=US:en"),
+        ("Google News PBOC Gold", "https://news.google.com/rss/search?q=PBOC+china+gold+reserves+central+bank&hl=en-US&gl=US&ceid=US:en"),
+    ]
+    seen_mi_cb = set()
+    for mi_src, mi_url in mi_cb_feeds:
+        try:
+            gnews_cb = _fp.parse(mi_url, request_headers=headers_mi)
+            for entry in gnews_cb.entries[:20]:
+                title = entry.get("title", "")
+                tl = title.lower()
+                if not any(k in tl for k in cb_country_kw):
+                    continue
+                if title in seen_mi_cb:
+                    continue
+                seen_mi_cb.add(title)
+                alert_type = None
+                for atype, kws in cb_scan_kw.items():
+                    if any(k in tl for k in kws):
+                        alert_type = atype
+                        break
+                if alert_type:
+                    alerts.append({
+                        "type": alert_type,
+                        "headline": title,
+                        "detail": entry.get("summary", "")[:200],
+                        "significance": "high",
+                        "ts": entry.get("published", now_str),
+                        "link": entry.get("link", ""),
+                    })
+        except Exception as e:
+            print(f"  MI CB scan error ({mi_src}): {e}")
 
     # 2. ETF flow events: scan Google News for large ETF flow days (>10 tonnes)
     try:
