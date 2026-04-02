@@ -699,24 +699,31 @@ def fetch_news():
         return "neutral"
 
     feeds = [
+        # Gold-specific feeds (no keyword filter needed)
         ("Kitco", "https://feeds.kitco.com/MarketNuggets.rss"),
         ("Kitco News", "https://www.kitco.com/rss/KitcoRSS_News.xml"),
         ("BullionVault", "https://www.bullionvault.com/gold-news/rss.do"),
-        ("Mining.com", "https://www.mining.com/feed/"),
         ("GoldPrice.org", "https://goldprice.org/rss.xml"),
+        # Google News Gold (highly reliable, always has fresh articles)
+        ("Google News", "https://news.google.com/rss/search?q=gold+price+OR+gold+market+OR+XAU&hl=en-US&gl=US&ceid=US:en"),
+        # General mining/commodity feeds (keyword-filtered below)
+        ("Mining.com", "https://www.mining.com/feed/"),
         ("Reuters Commodities", "https://www.reutersagency.com/feed/?best-topics=commodities&post_type=best"),
         ("Investing.com Gold", "https://www.investing.com/rss/news_301.rss"),
     ]
+
+    GOLD_KEYWORDS = ["gold", "mining", "precious", "bullion", "metal", "silver", "commodity", "reserve", "xau"]
+    GENERAL_FEEDS = {"Mining.com", "Reuters Commodities", "Investing.com Gold"}
 
     articles = []
     for source, url in feeds:
         try:
             feed = feedparser.parse(url, request_headers=headers)
-            for entry in feed.entries[:15]:
+            for entry in feed.entries[:20]:
                 title = entry.get("title", "")
-                # For general feeds, filter for gold-related articles
-                if source in ("Mining.com", "Reuters Commodities", "Investing.com Gold"):
-                    if not any(k in title.lower() for k in ["gold", "mining", "precious", "bullion", "metal", "silver", "commodity", "reserve"]):
+                # Filter general feeds to gold-related articles only
+                if source in GENERAL_FEEDS:
+                    if not any(k in title.lower() for k in GOLD_KEYWORDS):
                         continue
                 pub = entry.get("published", entry.get("updated", ""))
                 articles.append({
