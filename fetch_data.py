@@ -112,12 +112,39 @@ def fetch_price():
     ytd_start = ytd_hist["Close"].iloc[0] if len(ytd_hist) > 0 else current
     ytd_change_pct = ((current - ytd_start) / ytd_start) * 100
 
-    # ATH (10-year daily history for accuracy)
+    # ATH (10-year daily history for accuracy) + technical indicators
     ath_hist = gold.history(period="10y", interval="1d")
     ath = float(ath_hist["Close"].max()) if len(ath_hist) > 0 else current
     if current > ath:
         ath = current
     pct_below_ath = ((ath - current) / ath) * 100 if ath else 0
+
+    # MA50, MA200, RSI(14) from daily history
+    ma50 = None
+    ma200 = None
+    rsi = None
+    ma50_signal = None  # 'above' | 'below'
+    ma200_signal = None
+    try:
+        closes = ath_hist["Close"]
+        if len(closes) >= 200:
+            ma50 = round(float(closes.iloc[-50:].mean()), 2)
+            ma200 = round(float(closes.iloc[-200:].mean()), 2)
+            ma50_signal = "above" if current > ma50 else "below"
+            ma200_signal = "above" if current > ma200 else "below"
+        elif len(closes) >= 50:
+            ma50 = round(float(closes.iloc[-50:].mean()), 2)
+            ma50_signal = "above" if current > ma50 else "below"
+        # RSI(14)
+        if len(closes) >= 15:
+            delta = closes.diff()
+            gain = delta.clip(lower=0).rolling(14).mean()
+            loss = (-delta.clip(upper=0)).rolling(14).mean()
+            rs = gain / loss.replace(0, float('nan'))
+            rsi_series = 100 - (100 / (1 + rs))
+            rsi = round(float(rsi_series.iloc[-1]), 1)
+    except Exception as e:
+        print(f"  MA/RSI calc failed: {e}")
 
     # Multi-currency via forex
     currencies = {"USD": round(current, 2)}
@@ -214,6 +241,11 @@ def fetch_price():
         "charts": charts,
         "lbma": lbma,
         "contango": contango,
+        "ma50": ma50,
+        "ma200": ma200,
+        "ma50_signal": ma50_signal,
+        "ma200_signal": ma200_signal,
+        "rsi": rsi,
     })
 
 

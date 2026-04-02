@@ -459,6 +459,34 @@
         <span id="ath-value" class="text-[10px] text-[var(--text2)] mono">ATH: --</span>
       </div>
     </div>
+
+    <!-- Technical Indicators: MA50 / MA200 / RSI -->
+    <div class="mt-6">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-3 mono">Technical Indicators <span class="info-tooltip" data-tip="Moving averages and RSI calculated from daily COMEX closing prices. MA50/MA200 crossovers are widely-watched trend signals. RSI above 70 = overbought, below 30 = oversold.">ℹ</span></div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- MA50 -->
+        <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+          <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">50-Day MA <span class="info-tooltip" data-tip="50-day simple moving average. Price above MA50 suggests short-term uptrend.">ℹ</span></div>
+          <div class="text-xl font-bold mono" id="ma50-val">--</div>
+          <div class="text-xs mt-1" id="ma50-signal" style="color: var(--text2)">--</div>
+        </div>
+        <!-- MA200 -->
+        <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+          <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">200-Day MA <span class="info-tooltip" data-tip="200-day simple moving average. The 'Golden Cross' (MA50 crosses above MA200) is a major bullish signal. 'Death Cross' is bearish.">ℹ</span></div>
+          <div class="text-xl font-bold mono" id="ma200-val">--</div>
+          <div class="text-xs mt-1" id="ma200-signal" style="color: var(--text2)">--</div>
+        </div>
+        <!-- RSI -->
+        <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+          <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">RSI (14) <span class="info-tooltip" data-tip="Relative Strength Index over 14 days. Above 70 = overbought (potential pullback). Below 30 = oversold (potential bounce). Gold has historically sustained RSI>70 in strong bull markets.">ℹ</span></div>
+          <div class="text-xl font-bold mono" id="rsi-val">--</div>
+          <div class="text-xs mt-1" id="rsi-signal" style="color: var(--text2)">--</div>
+          <div class="progress-track mt-2" style="height: 4px;">
+            <div id="rsi-bar" class="progress-fill" style="width:0%; background: var(--gold);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ============================================================ -->
@@ -1296,6 +1324,79 @@ function renderPriceSection() {
   document.getElementById('ath-value').textContent = 'ATH: $' + fmt(d.ath);
   if (d.pct_below_ath <= 0) {
     document.getElementById('ath-pct-label').style.color = '#00ff88';
+  }
+
+  // Technical indicators: MA50, MA200, RSI
+  if (d.ma50 != null) {
+    document.getElementById('ma50-val').textContent = '$' + fmt(d.ma50);
+    var ma50diff = d.price - d.ma50;
+    var ma50pct = ((ma50diff / d.ma50) * 100).toFixed(1);
+    var ma50El = document.getElementById('ma50-signal');
+    if (d.ma50_signal === 'above') {
+      ma50El.textContent = '+' + ma50pct + '% above MA50 ↑';
+      ma50El.style.color = '#00ff88';
+    } else {
+      ma50El.textContent = ma50pct + '% below MA50 ↓';
+      ma50El.style.color = '#ff4444';
+    }
+  }
+  if (d.ma200 != null) {
+    document.getElementById('ma200-val').textContent = '$' + fmt(d.ma200);
+    var ma200diff = d.price - d.ma200;
+    var ma200pct = ((ma200diff / d.ma200) * 100).toFixed(1);
+    var ma200El = document.getElementById('ma200-signal');
+    if (d.ma200_signal === 'above') {
+      ma200El.textContent = '+' + ma200pct + '% above MA200 ↑';
+      ma200El.style.color = '#00ff88';
+    } else {
+      ma200El.textContent = ma200pct + '% below MA200 ↓';
+      ma200El.style.color = '#ff4444';
+    }
+    // Golden/Death cross signal
+    if (d.ma50 != null) {
+      var crossEl = document.createElement('div');
+      crossEl.className = 'text-[10px] mt-1 mono';
+      if (d.ma50 > d.ma200) {
+        crossEl.textContent = '✦ Golden Cross (Bullish)';
+        crossEl.style.color = '#ffd700';
+      } else {
+        crossEl.textContent = '✦ Death Cross (Bearish)';
+        crossEl.style.color = '#ff8800';
+      }
+      var ma200card = document.getElementById('ma200-signal');
+      if (ma200card && !ma200card.nextElementSibling) {
+        ma200card.parentNode.appendChild(crossEl);
+      }
+    }
+  }
+  if (d.rsi != null) {
+    var rsiEl = document.getElementById('rsi-val');
+    var rsiSig = document.getElementById('rsi-signal');
+    var rsiBar = document.getElementById('rsi-bar');
+    rsiEl.textContent = d.rsi.toFixed(1);
+    var rsiBarPct = Math.min(100, d.rsi);
+    if (rsiBar) rsiBar.style.width = rsiBarPct + '%';
+    if (d.rsi >= 70) {
+      rsiEl.style.color = '#ff4444';
+      rsiSig.textContent = 'Overbought — caution';
+      rsiSig.style.color = '#ff4444';
+      if (rsiBar) rsiBar.style.background = '#ff4444';
+    } else if (d.rsi <= 30) {
+      rsiEl.style.color = '#00ff88';
+      rsiSig.textContent = 'Oversold — potential buy';
+      rsiSig.style.color = '#00ff88';
+      if (rsiBar) rsiBar.style.background = '#00ff88';
+    } else if (d.rsi >= 55) {
+      rsiEl.style.color = '#ffd700';
+      rsiSig.textContent = 'Bullish momentum';
+      rsiSig.style.color = '#ffd700';
+      if (rsiBar) rsiBar.style.background = 'var(--gold)';
+    } else {
+      rsiEl.style.color = '#888';
+      rsiSig.textContent = 'Neutral zone';
+      rsiSig.style.color = '#888';
+      if (rsiBar) rsiBar.style.background = '#555';
+    }
   }
 }
 
