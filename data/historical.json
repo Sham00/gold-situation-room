@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4622.0
+      "price": 4705.0
     }
   ],
   "decade_returns": [
@@ -1247,8 +1247,88 @@
     },
     {
       "t": "2026-04-01",
-      "v": 4622.3
+      "v": 4704.7
     }
   ],
-  "last_updated": "2026-04-02T13:48:57Z"
+  "seasonal_monthly": [
+    {
+      "month": "Jan",
+      "avg_return": 2.47,
+      "positive_pct": 55.0,
+      "n": 22
+    },
+    {
+      "month": "Feb",
+      "avg_return": 2.6,
+      "positive_pct": 68.0,
+      "n": 22
+    },
+    {
+      "month": "Mar",
+      "avg_return": 0.91,
+      "positive_pct": 50.0,
+      "n": 22
+    },
+    {
+      "month": "Apr",
+      "avg_return": 0.96,
+      "positive_pct": 64.0,
+      "n": 22
+    },
+    {
+      "month": "May",
+      "avg_return": 1.31,
+      "positive_pct": 62.0,
+      "n": 21
+    },
+    {
+      "month": "Jun",
+      "avg_return": -1.56,
+      "positive_pct": 38.0,
+      "n": 21
+    },
+    {
+      "month": "Jul",
+      "avg_return": 1.44,
+      "positive_pct": 67.0,
+      "n": 21
+    },
+    {
+      "month": "Aug",
+      "avg_return": 1.78,
+      "positive_pct": 68.0,
+      "n": 22
+    },
+    {
+      "month": "Sep",
+      "avg_return": 1.36,
+      "positive_pct": 50.0,
+      "n": 22
+    },
+    {
+      "month": "Oct",
+      "avg_return": 0.11,
+      "positive_pct": 50.0,
+      "n": 22
+    },
+    {
+      "month": "Nov",
+      "avg_return": 1.66,
+      "positive_pct": 52.0,
+      "n": 23
+    },
+    {
+      "month": "Dec",
+      "avg_return": 1.29,
+      "positive_pct": 73.0,
+      "n": 22
+    }
+  ],
+  "data_quality": {
+    "source": "yfinance GC=F monthly (post-2000) + London PM Fix historical data (pre-2000, hardcoded)",
+    "freshness": "monthly (timeline) / static (seasonality based on all available history)",
+    "reliability": "live (recent) / hardcoded (pre-2000)",
+    "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history."
+  },
+  "last_updated": "2026-04-02T14:49:11Z"
 }

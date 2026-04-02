@@ -259,6 +259,43 @@ def fetch_price():
         contango["back"] = round(current + contango["basis"], 2)
         contango["estimated"] = True
 
+    # Contango/Backwardation history: 1Y daily basis (front vs Dec 2026 futures)
+    # Source: yfinance GC=F vs GCZ26.CMX daily closes. Positive = contango (normal for gold).
+    # Freshness: daily. Falls back to carry-rate estimate (3% annual / ~0.25% month) if GCZ26 unavailable.
+    contango_history = []
+    try:
+        gc_1y = get_ticker("GC=F").history(period="1y", interval="1d")
+        gcz_1y = None
+        try:
+            gcz_1y = get_ticker("GCZ26.CMX").history(period="1y", interval="1d")
+        except Exception:
+            pass
+
+        if gcz_1y is not None and not gcz_1y.empty:
+            # Build map of Dec contract closes by date
+            gcz_map = {str(d.date()): round(r["Close"], 2) for d, r in gcz_1y.iterrows()}
+            for d, r in gc_1y.iterrows():
+                ds = str(d.date())
+                front_px = round(r["Close"], 2)
+                if ds in gcz_map and gcz_map[ds] and front_px > 0:
+                    basis = round(gcz_map[ds] - front_px, 2)
+                    contango_history.append({"t": ds, "v": basis})
+        else:
+            # Fallback: estimate basis = front × annual_carry_rate × days_to_dec / 365
+            # Carry rate approximated at 3% annualized (typical gold contango)
+            import datetime as _dt
+            dec_expiry = _dt.date(2026, 12, 29)
+            for d, r in gc_1y.iterrows():
+                ds = str(d.date())
+                front_px = round(r["Close"], 2)
+                days_to_dec = (dec_expiry - d.date()).days
+                if days_to_dec > 0 and front_px > 0:
+                    carry_rate = 0.03  # ~3% annualized
+                    basis = round(front_px * carry_rate * days_to_dec / 365, 2)
+                    contango_history.append({"t": ds, "v": basis})
+    except Exception as e:
+        print(f"  Contango history error: {e}")
+
     write_json("price.json", {
         "price": round(current, 2),
         "prev_close": round(prev_close, 2),
@@ -272,6 +309,7 @@ def fetch_price():
         "charts": charts,
         "lbma": lbma,
         "contango": contango,
+        "contango_history": contango_history,
         "ma50": ma50,
         "ma200": ma200,
         "ma50_signal": ma50_signal,
@@ -280,6 +318,12 @@ def fetch_price():
         "ma50_series": ma50_series,
         "ma200_series": ma200_series,
         "rsi_series": rsi_series_data,
+        "data_quality": {
+            "source": "yfinance GC=F (COMEX front-month continuous contract)",
+            "freshness": "hourly",
+            "reliability": "live",
+            "notes": "COMEX front-month continuous contract. LBMA fix is estimated from COMEX settlement.",
+        },
     })
 
 
@@ -374,6 +418,12 @@ def fetch_ratios():
         "ratio_ranges": ratio_ranges,
         "dxy_chart": dxy_chart,
         "gold_1y_chart": gold_1y_chart,
+        "data_quality": {
+            "source": "yfinance (GC=F, SI=F, CL=F, ^GSPC, BTC-USD, HG=F, DX-Y.NYB)",
+            "freshness": "daily",
+            "reliability": "live",
+            "notes": "All ratios computed from daily closing prices via yfinance.",
+        },
     })
 
 
@@ -424,6 +474,50 @@ def fetch_central_banks():
     }
     pace_vs_avg = round(cb_annual["2026_annualized"] / cb_annual["10Y_average"], 1)
 
+    # Central bank intelligence: scan RSS feeds for CB buying/selling events
+    # Source: Google News RSS (CB-keyword filtered) + WGC news feed
+    # Freshness: hourly. Keywords: turkey, central bank, gold reserve, tonnes, WGC, IMF
+    cb_news = []
+    cb_kw = ["turkey", "central bank", "gold reserve", "gold reserves", "imf", "wgc",
+             "tonnes", "reserve bank", "pboc", "rbi india", "nbp poland", "buying gold",
+             "selling gold", "china gold", "india gold", "poland gold", "de-dollarization"]
+    cb_feeds = [
+        ("Google News CB", "https://news.google.com/rss/search?q=central+bank+gold+reserves+buying+selling&hl=en-US&gl=US&ceid=US:en"),
+        ("Reuters CB", "https://feeds.reuters.com/reuters/businessNews"),
+        ("WGC News", "https://www.gold.org/goldhub/gold-news/rss"),
+    ]
+    headers_cb = {"User-Agent": "Mozilla/5.0 (compatible; GoldBot/1.0)"}
+    pos_kw = ["buying", "purchase", "increase", "reserve", "inflows", "strong demand", "add"]
+    neg_kw = ["selling", "sold", "reduce", "decrease", "outflows", "divest", "cut"]
+    try:
+        import feedparser as _fp
+        seen_cb = set()
+        for src, url in cb_feeds:
+            try:
+                feed = _fp.parse(url, request_headers=headers_cb)
+                for entry in feed.entries[:30]:
+                    title = entry.get("title", "")
+                    tl = title.lower()
+                    if not any(k in tl for k in cb_kw):
+                        continue
+                    if title in seen_cb:
+                        continue
+                    seen_cb.add(title)
+                    sent = "positive" if any(k in tl for k in pos_kw) else ("negative" if any(k in tl for k in neg_kw) else "neutral")
+                    cb_news.append({
+                        "title": title,
+                        "link": entry.get("link", ""),
+                        "source": src,
+                        "published": entry.get("published", entry.get("updated", "")),
+                        "sentiment": sent,
+                    })
+            except Exception as e:
+                print(f"  CB news feed {src} error: {e}")
+        cb_news.sort(key=lambda x: x.get("published", ""), reverse=True)
+        cb_news = cb_news[:5]
+    except Exception as e:
+        print(f"  CB news scan error: {e}")
+
     write_json("central_banks.json", {
         "reserves": reserves,
         "net_monthly_pace_tonnes": net_monthly_pace,
@@ -431,6 +525,13 @@ def fetch_central_banks():
         "cb_annual": cb_annual,
         "pace_vs_avg": pace_vs_avg,
         "source": "WGC / IMF IFS (compiled estimates, updated quarterly)",
+        "cb_news": cb_news,
+        "data_quality": {
+            "source": "hardcoded estimates based on WGC quarterly reports",
+            "freshness": "quarterly",
+            "reliability": "estimate",
+            "notes": "World Gold Council publishes quarterly. Monthly changes are estimates.",
+        },
     })
 
 
@@ -479,7 +580,16 @@ def fetch_etfs():
                          "tonnes_est": meta["tonnes_est"], "daily_change_est": meta["daily_change_est"]}
 
     total_tonnes = sum(s["tonnes_est"] for s in symbols.values())
-    write_json("etfs.json", {"etfs": etfs, "total_holdings_tonnes_est": total_tonnes})
+    write_json("etfs.json", {
+        "etfs": etfs,
+        "total_holdings_tonnes_est": total_tonnes,
+        "data_quality": {
+            "source": "yfinance ETF prices (GLD, IAU, PHYS, BAR, SGOL). Tonnes estimated from AUM/gold price.",
+            "freshness": "daily",
+            "reliability": "estimate",
+            "notes": "Actual fund holdings from custodian reports lag 1 day. Daily tonne changes are estimates based on price movement.",
+        },
+    })
 
 
 # ---------------------------------------------------------------------------
@@ -657,6 +767,36 @@ def fetch_macro():
             print(f"  gold_1y_chart fetch failed: {e}")
             data["gold_1y_chart"] = []
 
+    # FOMC meeting dates (2026 schedule)
+    fomc_dates_2026 = [
+        "2026-01-28",
+        "2026-03-18",
+        "2026-05-06",
+        "2026-06-17",
+        "2026-07-29",
+        "2026-09-16",
+        "2026-10-28",
+        "2026-12-09",
+    ]
+    from datetime import date as date_type
+    today = date_type.today()
+    upcoming = [d for d in fomc_dates_2026 if d >= str(today)]
+    if upcoming:
+        next_fomc_str = upcoming[0]
+        next_fomc = date_type.fromisoformat(next_fomc_str)
+        days_to_fomc = (next_fomc - today).days
+        data["next_fomc_date"] = next_fomc_str
+        data["days_to_fomc"] = days_to_fomc
+    else:
+        data["next_fomc_date"] = None
+        data["days_to_fomc"] = None
+
+    data["data_quality"] = {
+        "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
+        "freshness": "daily",
+        "reliability": "live",
+        "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule).",
+    }
     write_json("macro.json", data)
 
 
@@ -668,17 +808,22 @@ def fetch_miners():
     print("Fetching miners data...")
     symbols = {
         "GDX": {"name": "VanEck Gold Miners ETF", "type": "etf"},
-        "B": {"name": "Barrick Gold", "type": "miner"},
+        "GDXJ": {"name": "VanEck Junior Gold Miners ETF", "type": "etf"},
+        "GOLD": {"name": "Barrick Gold", "type": "miner"},
         "NEM": {"name": "Newmont Corp", "type": "miner"},
         "AEM": {"name": "Agnico Eagle", "type": "miner"},
         "AGI": {"name": "Alamos Gold", "type": "miner"},
+        "WPM": {"name": "Wheaton Precious Metals", "type": "miner"},
+        "FNV": {"name": "Franco-Nevada", "type": "miner"},
     }
 
     aisc_data = {
-        "B": {"aisc": 1050, "production_koz": 4100},
+        "GOLD": {"aisc": 1050, "production_koz": 4100},
         "NEM": {"aisc": 1400, "production_koz": 5500},
         "AEM": {"aisc": 1150, "production_koz": 3500},
         "AGI": {"aisc": 1050, "production_koz": 550},
+        "WPM": {"aisc": 450, "production_koz": 800},   # streaming company, lower AISC
+        "FNV": {"aisc": 400, "production_koz": 720},   # royalty/streaming, minimal AISC
     }
 
     try:
@@ -781,6 +926,12 @@ def fetch_miners():
         "gdx_gold_ratio": gdx_gold_ratio,
         "gdx_gold_ratio_chart": ratio_chart,
         "mining_production": mining_production,
+        "data_quality": {
+            "source": "yfinance (GDX, GDXJ, GOLD, NEM, AEM, AGI, WPM, FNV). AISC: hardcoded from company reports.",
+            "freshness": "daily",
+            "reliability": "live (prices) / estimate (AISC, production)",
+            "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly.",
+        },
     })
 
 
@@ -933,6 +1084,12 @@ def fetch_news():
         "bear_count": bear_count,
         "neutral_count": total - bull_count - bear_count,
         "bull_pct": bull_pct,
+        "data_quality": {
+            "source": "RSS feeds: Kitco, BullionVault, GoldPrice.org, Google News, Mining.com, Reuters, Investing.com",
+            "freshness": "hourly",
+            "reliability": "live",
+            "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis.",
+        },
     })
 
 
@@ -1077,6 +1234,12 @@ def fetch_cot():
     else:
         cot["net_percentile"] = 50.0
 
+    cot["data_quality"] = {
+        "source": "CFTC Commitment of Traders (cftc.gov) — COMEX Gold Futures disaggregated report",
+        "freshness": "weekly (published Fridays for prior Tuesday data)",
+        "reliability": "live",
+        "notes": "COT data lags 3-4 days. Percentile computed vs trailing 3Y history.",
+    }
     write_json("cot.json", cot)
 
 
@@ -1143,10 +1306,44 @@ def fetch_historical():
         # If yfinance fails entirely, use just the pre-2000 data
         timeline_chart = [{"t": t, "v": v} for t, v in pre_2000_data]
 
+    # Gold seasonality: average monthly return by month (using all available yfinance data)
+    seasonal_monthly = []
+    try:
+        gold_monthly = get_ticker("GC=F").history(period="max", interval="1mo")
+        month_returns = {i: [] for i in range(1, 13)}
+        prev_close = None
+        for d, r in gold_monthly.iterrows():
+            close = r["Close"]
+            if prev_close and prev_close > 0:
+                pct = (close - prev_close) / prev_close * 100
+                month_returns[d.month].append(pct)
+            prev_close = close
+        MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        for m in range(1, 13):
+            returns = month_returns[m]
+            if returns:
+                avg = round(sum(returns) / len(returns), 2)
+                pos = sum(1 for v in returns if v > 0)
+                seasonal_monthly.append({
+                    "month": MONTH_NAMES[m-1],
+                    "avg_return": avg,
+                    "positive_pct": round(pos / len(returns) * 100, 0),
+                    "n": len(returns),
+                })
+    except Exception as e:
+        print(f"  Seasonality warning: {e}")
+
     write_json("historical.json", {
         "events": events,
         "decade_returns": decade_returns,
         "timeline_chart": timeline_chart,
+        "seasonal_monthly": seasonal_monthly,
+        "data_quality": {
+            "source": "yfinance GC=F monthly (post-2000) + London PM Fix historical data (pre-2000, hardcoded)",
+            "freshness": "monthly (timeline) / static (seasonality based on all available history)",
+            "reliability": "live (recent) / hardcoded (pre-2000)",
+            "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history.",
+        },
     })
 
 
@@ -1203,7 +1400,131 @@ def fetch_crisis_assets():
         except Exception as e:
             print(f"  Crisis asset error for {name}: {e}")
 
-    write_json("crisis_assets.json", {"assets": result})
+    write_json("crisis_assets.json", {
+        "assets": result,
+        "data_quality": {
+            "source": "yfinance (GC=F, BTC-USD, SI=F, TLT, ^VIX, DX-Y.NYB) — YTD normalized to 100",
+            "freshness": "daily",
+            "reliability": "live",
+            "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison.",
+        },
+    })
+
+
+# ---------------------------------------------------------------------------
+# Market Intelligence — scans RSS for CB buying/selling events, large ETF flows,
+# lease rate spikes, and backwardation signals.
+# Source: Google News RSS + existing data files. Freshness: hourly.
+# ---------------------------------------------------------------------------
+
+def fetch_market_intelligence():
+    print("Fetching market intelligence...")
+    import feedparser as _fp
+    alerts = []
+    headers_mi = {"User-Agent": "Mozilla/5.0 (compatible; GoldBot/1.0)"}
+    now_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    # 1. Scan RSS for CB buying/selling events (Turkey, China, Russia, India, Poland)
+    cb_scan_kw = {
+        "cb_buying": ["bought gold", "buying gold", "gold purchase", "gold reserves increase", "added gold"],
+        "cb_selling": ["sold gold", "selling gold", "gold sales", "gold reserves drop", "sold tonnes"],
+    }
+    cb_country_kw = ["turkey", "china", "russia", "india", "poland", "central bank gold"]
+    try:
+        gnews_cb = _fp.parse(
+            "https://news.google.com/rss/search?q=central+bank+gold+buy+sell+reserves&hl=en-US&gl=US&ceid=US:en",
+            request_headers=headers_mi
+        )
+        for entry in gnews_cb.entries[:20]:
+            title = entry.get("title", "")
+            tl = title.lower()
+            if not any(k in tl for k in cb_country_kw):
+                continue
+            alert_type = None
+            for atype, kws in cb_scan_kw.items():
+                if any(k in tl for k in kws):
+                    alert_type = atype
+                    break
+            if alert_type:
+                alerts.append({
+                    "type": alert_type,
+                    "headline": title,
+                    "detail": entry.get("summary", "")[:200],
+                    "significance": "high",
+                    "ts": entry.get("published", now_str),
+                    "link": entry.get("link", ""),
+                })
+    except Exception as e:
+        print(f"  MI CB scan error: {e}")
+
+    # 2. ETF flow events: scan Google News for large ETF flow days (>10 tonnes)
+    try:
+        gnews_etf = _fp.parse(
+            "https://news.google.com/rss/search?q=gold+ETF+inflows+outflows+tonnes&hl=en-US&gl=US&ceid=US:en",
+            request_headers=headers_mi
+        )
+        for entry in gnews_etf.entries[:10]:
+            title = entry.get("title", "")
+            tl = title.lower()
+            alert_type = None
+            if any(k in tl for k in ["inflows", "buying", "surge", "record"]):
+                alert_type = "etf_inflow"
+            elif any(k in tl for k in ["outflows", "selling", "redemptions"]):
+                alert_type = "etf_outflow"
+            if alert_type and any(k in tl for k in ["gold etf", "gld", "iau", "gold fund"]):
+                alerts.append({
+                    "type": alert_type,
+                    "headline": title,
+                    "detail": "",
+                    "significance": "medium",
+                    "ts": entry.get("published", now_str),
+                    "link": entry.get("link", ""),
+                })
+    except Exception as e:
+        print(f"  MI ETF scan error: {e}")
+
+    # 3. Check existing price.json for backwardation signal
+    try:
+        import json, os
+        price_path = os.path.join(os.path.dirname(__file__), "data", "price.json")
+        with open(price_path) as f:
+            pd = json.load(f)
+        ct = pd.get("contango", {})
+        if ct.get("curve_state") == "BACKWARDATION":
+            alerts.append({
+                "type": "backwardation",
+                "headline": f"GOLD IN BACKWARDATION: Spot ${ct.get('front','?')} > Dec 2026 ${ct.get('back','?')}",
+                "detail": "Physical gold in backwardation signals strong immediate demand exceeding near-term supply. Historically bullish.",
+                "significance": "high",
+                "ts": now_str,
+                "link": "",
+            })
+        # Lease rate spike
+        lease_rate = pd.get("lease_rate")
+        if lease_rate and lease_rate > 2.0:
+            alerts.append({
+                "type": "lease_spike",
+                "headline": f"LEASE RATE SPIKE: Gold lease rate at {lease_rate:.2f}% — physical tightness signal",
+                "detail": "Lease rates above 2% indicate severe physical gold scarcity in the lending market.",
+                "significance": "high",
+                "ts": now_str,
+                "link": "",
+            })
+    except Exception as e:
+        print(f"  MI signal scan error: {e}")
+
+    # Deduplicate and cap at 10 alerts
+    seen_headlines = set()
+    unique_alerts = []
+    for a in alerts:
+        if a["headline"] not in seen_headlines:
+            seen_headlines.add(a["headline"])
+            unique_alerts.append(a)
+
+    write_json("market_intel.json", {
+        "alerts": unique_alerts[:10],
+        "last_scan": now_str,
+    })
 
 
 # ---------------------------------------------------------------------------
@@ -1227,6 +1548,7 @@ def main():
         ("cot", fetch_cot),
         ("historical", fetch_historical),
         ("crisis_assets", fetch_crisis_assets),
+        ("market_intel", fetch_market_intelligence),
     ]
 
     results = {}

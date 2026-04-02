@@ -2,9 +2,9 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 422.33,
-      "change": -17.07,
-      "change_pct": -3.88,
+      "price": 429.8,
+      "change": -9.6,
+      "change_pct": -2.19,
       "tonnes_est": 870,
       "daily_change_est": -0.5,
       "chart_1y": [
@@ -1014,15 +1014,15 @@
         },
         {
           "t": "2026-04-02",
-          "v": 422.33
+          "v": 429.8
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 86.52,
-      "change": -3.44,
-      "change_pct": -3.82,
+      "price": 88.03,
+      "change": -1.93,
+      "change_pct": -2.15,
       "tonnes_est": 460,
       "daily_change_est": 0.3,
       "chart_1y": [
@@ -2032,15 +2032,15 @@
         },
         {
           "t": "2026-04-02",
-          "v": 86.52
+          "v": 88.03
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 34.82,
-      "change": -1.52,
-      "change_pct": -4.18,
+      "price": 35.42,
+      "change": -0.92,
+      "change_pct": -2.52,
       "tonnes_est": 68,
       "daily_change_est": 0.1,
       "chart_1y": [
@@ -3050,15 +3050,15 @@
         },
         {
           "t": "2026-04-02",
-          "v": 34.82
+          "v": 35.42
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 45.2,
-      "change": -2.04,
-      "change_pct": -4.32,
+      "price": 46.08,
+      "change": -1.16,
+      "change_pct": -2.46,
       "tonnes_est": 18,
       "daily_change_est": 0.0,
       "chart_1y": [
@@ -4068,15 +4068,15 @@
         },
         {
           "t": "2026-04-02",
-          "v": 45.2
+          "v": 46.08
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 43.8,
-      "change": -1.66,
-      "change_pct": -3.65,
+      "price": 44.56,
+      "change": -0.9,
+      "change_pct": -1.97,
       "tonnes_est": 42,
       "daily_change_est": 0.0,
       "chart_1y": [
@@ -5086,11 +5086,17 @@
         },
         {
           "t": "2026-04-02",
-          "v": 43.8
+          "v": 44.56
         }
       ]
     }
   },
   "total_holdings_tonnes_est": 1458,
-  "last_updated": "2026-04-02T13:41:45Z"
+  "data_quality": {
+    "source": "yfinance ETF prices (GLD, IAU, PHYS, BAR, SGOL). Tonnes estimated from AUM/gold price.",
+    "freshness": "daily",
+    "reliability": "estimate",
+    "notes": "Actual fund holdings from custodian reports lag 1 day. Daily tonne changes are estimates based on price movement."
+  },
+  "last_updated": "2026-04-02T14:39:33Z"
 }

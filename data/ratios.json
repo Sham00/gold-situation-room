@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 65.6865,
-    "gold_oil": 41.3362,
-    "gold_spx": 0.7149,
+    "gold_silver": 65.3231,
+    "gold_oil": 42.2693,
+    "gold_spx": 0.7132,
     "gold_btc": 0.0703,
-    "gold_copper": 834.6219
+    "gold_copper": 839.6348
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1018,7 +1018,7 @@
       },
       {
         "t": "2026-04-02",
-        "v": 65.6912
+        "v": 65.3245
       }
     ],
     "gold_oil": [
@@ -2032,7 +2032,7 @@
       },
       {
         "t": "2026-04-02",
-        "v": 41.3252
+        "v": 42.255
       }
     ],
     "gold_spx": [
@@ -3042,7 +3042,7 @@
       },
       {
         "t": "2026-04-02",
-        "v": 0.7148
+        "v": 0.7132
       }
     ],
     "gold_btc": [
@@ -5070,7 +5070,7 @@
       },
       {
         "t": "2026-04-02",
-        "v": 834.5468
+        "v": 839.6527
       }
     ]
   },
@@ -5078,14 +5078,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.9693,
-      "current_percentile": 3.1
+      "mean": 80.9685,
+      "current_percentile": 2.9
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.2373,
-      "current_percentile": 82.0
+      "mean": 31.239,
+      "current_percentile": 82.2
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5097,13 +5097,13 @@
       "min": 0.0255,
       "max": 2.9474,
       "mean": 0.3019,
-      "current_percentile": 41.2
+      "current_percentile": 41.4
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 534.7435,
-      "current_percentile": 98.1
+      "mean": 534.752,
+      "current_percentile": 98.3
     }
   },
   "dxy_chart": [
@@ -6117,7 +6117,7 @@
     },
     {
       "t": "2026-04-02",
-      "v": 100.1
+      "v": 100.07
     }
   ],
   "gold_1y_chart": [
@@ -7131,8 +7131,14 @@
     },
     {
       "t": "2026-04-02",
-      "v": 4630.9
+      "v": 4690.3
     }
   ],
-  "last_updated": "2026-04-02T13:41:39Z"
+  "data_quality": {
+    "source": "yfinance (GC=F, SI=F, CL=F, ^GSPC, BTC-USD, HG=F, DX-Y.NYB)",
+    "freshness": "daily",
+    "reliability": "live",
+    "notes": "All ratios computed from daily closing prices via yfinance."
+  },
+  "last_updated": "2026-04-02T14:39:25Z"
 }

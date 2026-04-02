@@ -480,5 +480,11 @@
     }
   ],
   "net_percentile": 31.1,
-  "last_updated": "2026-04-02T13:48:56Z"
+  "data_quality": {
+    "source": "CFTC Commitment of Traders (cftc.gov) \u2014 COMEX Gold Futures disaggregated report",
+    "freshness": "weekly (published Fridays for prior Tuesday data)",
+    "reliability": "live",
+    "notes": "COT data lags 3-4 days. Percentile computed vs trailing 3Y history."
+  },
+  "last_updated": "2026-04-02T14:49:10Z"
 }

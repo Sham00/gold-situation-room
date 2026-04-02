@@ -711,8 +711,16 @@
     #news-list.mobile-expanded > div.flex:nth-child(n+7) { display: flex; }
     .mobile-news-more { display: flex !important; }
 
-    /* Prevent macro section from spanning 2 cols (Tailwind inline span) */
-    #sec-macro { grid-column: span 1 !important; }
+    /* Prevent macro/news/lease-rate from spanning 2 cols or being narrower than viewport */
+    #sec-news, #sec-macro, #sec-lease-rate {
+      grid-column: 1 / -1 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      box-sizing: border-box !important;
+    }
+    /* Override inline style="grid-column: span 2" on sec-macro */
+    #sec-macro[style] { grid-column: 1 / -1 !important; }
 
     /* Info tooltips: constrain to viewport on mobile */
     .info-tooltip::after {
@@ -1131,6 +1139,20 @@
   </div>
 </header>
 
+<!-- Market Alerts Strip (shown only when alerts are non-empty) -->
+<div id="market-alerts-strip" style="display:none; background:rgba(255,170,0,0.08); border-bottom:1px solid rgba(255,170,0,0.25); padding:0;">
+  <div class="max-w-[1600px] mx-auto px-5 py-2">
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <div class="flex items-center gap-2">
+        <span style="color:#ffaa00;font-size:13px;">⚠</span>
+        <span class="text-[10px] mono" style="color:#ffaa00;letter-spacing:0.1em;font-weight:600;">MARKET ALERTS</span>
+      </div>
+      <div id="market-alerts-list" class="flex-1 flex flex-col gap-1 min-w-0"></div>
+      <button onclick="document.getElementById('market-alerts-strip').style.display='none'" style="background:none;border:none;color:#888;font-size:14px;cursor:pointer;flex-shrink:0;" title="Dismiss alerts">✕</button>
+    </div>
+  </div>
+</div>
+
 <!-- MAIN DASHBOARD -->
 <main class="dashboard-grid" id="dashboard">
 
@@ -1155,8 +1177,10 @@
           <!-- Strongly Bullish: +54° to +90° -->
           <path d="M 174.6 47.7 A 90 90 0 0 1 200 110" stroke="#00ff88" stroke-width="18" fill="none" stroke-linecap="round"/>
           <!-- Labels -->
-          <text x="36" y="120" fill="#ff3333" font-size="7" font-family="monospace" text-anchor="middle">BEAR</text>
-          <text x="184" y="120" fill="#00ff88" font-size="7" font-family="monospace" text-anchor="middle">BULL</text>
+          <text x="36" y="115" fill="#ff3333" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">−10</text>
+          <text x="36" y="124" fill="#ff3333" font-size="6" font-family="monospace" text-anchor="middle">Bearish</text>
+          <text x="184" y="115" fill="#00ff88" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">+10</text>
+          <text x="184" y="124" fill="#00ff88" font-size="6" font-family="monospace" text-anchor="middle">Bullish</text>
           <text x="110" y="18" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">Neutral</text>
         </svg>
         <div class="signal-needle" id="composite-needle"></div>
@@ -1165,6 +1189,11 @@
       <div style="flex:1; min-width: 200px;">
         <div class="signal-label" id="composite-label" style="color: #555; font-size: 1rem; letter-spacing: 0.1em;">Awaiting data…</div>
         <div class="text-xs mono mt-1" id="composite-score-text" style="color:#444;">Score: loading</div>
+        <div id="composite-how" class="text-[10px] mono mt-2" style="color:#555;line-height:1.5;">
+          Score = RSI momentum + Real yields + USD strength + ETF flows + COT positioning
+          <br>Range: −10 (Max Bearish) to +10 (Max Bullish)
+        </div>
+        <div id="composite-updated" class="text-[9px] mono mt-1" style="color:#444;"></div>
         <div id="composite-interpretation" class="text-[11px] mono mt-2" style="color:#888;line-height:1.6;"></div>
         <div class="signal-factor mt-4" id="composite-factors">
           <!-- Filled by JS -->
@@ -1294,7 +1323,7 @@
   <!-- SECTION 3: CENTRAL BANK TRACKER -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-cb" style="animation-delay:0.4s">
-    <div class="section-title">Central Bank Tracker <span class="info-tooltip" data-tip="Central banks are the largest holders of gold globally. Since 2022, they have been buying at record pace — over 1,000 tonnes/year — driven by de-dollarization.">ℹ</span><span class="freshness-badge freshness-quarterly">● Quarterly</span></div>
+    <div class="section-title">Central Bank Tracker <span class="info-tooltip" data-tip="Central banks are the largest holders of gold globally. Since 2022, they have been buying at record pace — over 1,000 tonnes/year — driven by de-dollarization.">ℹ</span><span class="freshness-badge freshness-quarterly" title="Central bank reserve data is quarterly from World Gold Council. Monthly changes are estimates.">● Quarterly</span></div>
 
     <!-- CB PACE indicator -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -1326,6 +1355,12 @@
       <div class="chart-wrap" style="height: 200px;">
         <canvas id="chart-cb-annual"></canvas>
       </div>
+    </div>
+
+    <!-- Central Bank Intelligence: live CB news feed -->
+    <div id="cb-intelligence" class="mb-6 pt-4 border-t border-[var(--card-border)]" style="display:none;">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Central Bank Intelligence <span class="info-tooltip" data-tip="Live central bank news — Turkey, China, India buying/selling events from Reuters and World Gold Council feeds.">ℹ</span></div>
+      <div id="cb-news-list" class="space-y-1"><!-- filled by JS --></div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -1593,6 +1628,15 @@
           <div id="cot-percentile-bar" class="progress-fill" style="width:0%;background:var(--gold);"></div>
         </div>
       </div>
+    </div>
+
+    <!-- Contango/Backwardation History Chart -->
+    <div class="mt-6 pt-4 border-t border-[var(--card-border)]">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">COMEX Gold Basis History (Front vs Dec 2026) <span class="info-tooltip" data-tip="Positive = Contango (normal). Negative = Backwardation (physical scarcity signal — historically bullish). Basis spikes above $50 signal futures market stress.">ℹ</span></div>
+      <div class="chart-wrap" style="height: 180px;">
+        <canvas id="chart-contango-history"></canvas>
+      </div>
+      <div class="text-[9px] mono mt-1" style="color:#555;">Positive = Contango (carry cost) · Negative = Backwardation (physical demand premium) · Green line = backwardation</div>
     </div>
   </section>
 
@@ -2120,6 +2164,7 @@ function loadAllData() {
     { key: 'miners', url: 'data/miners.json' },
     { key: 'historical', url: 'data/historical.json' },
     { key: 'crisisAssets', url: 'data/crisis_assets.json' },
+    { key: 'marketIntel', url: 'data/market_intel.json' },
   ];
 
   // Show loading states immediately
@@ -2169,6 +2214,30 @@ function showGlobalErrorBanner() {
 // RENDER FUNCTIONS
 // =====================================================================
 
+function renderMarketAlerts() {
+  var d = DATA.marketIntel;
+  var strip = document.getElementById('market-alerts-strip');
+  var list = document.getElementById('market-alerts-list');
+  if (!strip || !list) return;
+  if (!d || !d.alerts || !d.alerts.length) { strip.style.display = 'none'; return; }
+  var typeColors = {
+    cb_buying: '#00ff88', cb_selling: '#ff4444', etf_inflow: '#00ff88',
+    etf_outflow: '#ff4444', lease_spike: '#ffaa00', backwardation: '#ffd700',
+  };
+  list.innerHTML = d.alerts.slice(0, 3).map(function(a) {
+    var color = typeColors[a.type] || '#ffaa00';
+    var ts = '';
+    try { ts = a.ts ? new Date(a.ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''; } catch(e) {}
+    var tag = a.type.replace('_', ' ').toUpperCase();
+    return '<div class="flex items-start gap-2">' +
+      '<span class="text-[9px] mono px-1 rounded" style="background:rgba(255,170,0,0.15);color:' + color + ';white-space:nowrap;flex-shrink:0;">' + tag + '</span>' +
+      '<span class="text-[10px] mono" style="color:#ddd;">' + a.headline + '</span>' +
+      (ts ? '<span class="text-[9px] mono" style="color:#555;flex-shrink:0;">' + ts + '</span>' : '') +
+      '</div>';
+  }).join('');
+  strip.style.display = '';
+}
+
 function renderAll() {
   renderHeader();
   renderPriceSection();
@@ -2185,6 +2254,7 @@ function renderAll() {
   renderCrisisAssets();
   renderHistorical();
   renderCompositeSignal();
+  renderMarketAlerts();
   updateFreshnessBadges();
 
   // After all renders: clear shimmer from charts that got drawn,
@@ -2292,11 +2362,11 @@ function renderCompositeSignal() {
 
   // Determine label and color
   var signalLabel, signalColor;
-  if (clampedScore >= 6)       { signalLabel = '▲▲ Strongly Bullish'; signalColor = '#00ff88'; }
-  else if (clampedScore >= 2)  { signalLabel = '▲ Bullish'; signalColor = '#88dd44'; }
-  else if (clampedScore >= -2) { signalLabel = '— Neutral'; signalColor = '#888888'; }
-  else if (clampedScore >= -6) { signalLabel = '▼ Bearish'; signalColor = '#ff8844'; }
-  else                         { signalLabel = '▼▼ Strongly Bearish'; signalColor = '#ff3333'; }
+  if (clampedScore >= 6)       { signalLabel = 'STRONGLY BULLISH'; signalColor = '#00ff88'; }
+  else if (clampedScore >= 2)  { signalLabel = 'BULLISH'; signalColor = '#88dd44'; }
+  else if (clampedScore >= -2) { signalLabel = 'NEUTRAL'; signalColor = '#888888'; }
+  else if (clampedScore >= -6) { signalLabel = 'BEARISH'; signalColor = '#ff8844'; }
+  else                         { signalLabel = 'STRONGLY BEARISH'; signalColor = '#ff3333'; }
 
   // Set label
   var labelEl = document.getElementById('composite-label');
@@ -2304,6 +2374,14 @@ function renderCompositeSignal() {
 
   var scoreEl = document.getElementById('composite-score-text');
   if (scoreEl) scoreEl.textContent = 'Score: ' + (clampedScore >= 0 ? '+' : '') + clampedScore.toFixed(1) + ' / 10';
+
+  var updEl = document.getElementById('composite-updated');
+  if (updEl && price.last_updated) {
+    try {
+      var lu = new Date(price.last_updated);
+      updEl.textContent = 'Updated: ' + lu.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' + lu.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    } catch(e) { updEl.textContent = 'Updated: ' + price.last_updated; }
+  }
 
   // Contextual interpretation
   var interpEl = document.getElementById('composite-interpretation');
@@ -3090,6 +3168,25 @@ function renderCentralBanks() {
       }
     }
   });
+
+  // CB Intelligence news feed
+  var cbNewsList = document.getElementById('cb-news-list');
+  var cbIntel = document.getElementById('cb-intelligence');
+  if (cbNewsList && d.cb_news && d.cb_news.length) {
+    cbIntel.style.display = '';
+    cbNewsList.innerHTML = d.cb_news.slice(0, 3).map(function(item) {
+      var dotColor = item.sentiment === 'positive' ? '#00ff88' : item.sentiment === 'negative' ? '#ff4444' : '#ffd700';
+      var pub = '';
+      try { pub = item.published ? new Date(item.published).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''; } catch(e) {}
+      return '<a href="' + (item.link || '#') + '" target="_blank" rel="noopener" class="flex items-start gap-2 py-1 hover:opacity-80" style="text-decoration:none;">' +
+        '<span style="color:' + dotColor + ';font-size:10px;margin-top:2px;flex-shrink:0;">●</span>' +
+        '<div class="flex-1 min-w-0">' +
+          '<div class="text-xs mono" style="color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + item.title + '</div>' +
+          '<div class="text-[9px] mono" style="color:#555;">' + item.source + (pub ? ' · ' + pub : '') + '</div>' +
+        '</div>' +
+      '</a>';
+    }).join('');
+  }
 }
 
 // --- ETFs ---
@@ -3302,6 +3399,97 @@ function renderCOT() {
         }
       }
     });
+  }
+
+  // Contango/Backwardation history chart
+  var ctHistory = DATA.price ? DATA.price.contango_history : null;
+  if (ctHistory && ctHistory.length) {
+    try {
+      destroyChart('contango-history');
+      var ctxCH = document.getElementById('chart-contango-history');
+      if (ctxCH) {
+        var chLabels = ctHistory.map(function(p) { return p.t; });
+        var chValues = ctHistory.map(function(p) { return p.v; });
+        charts['contango-history'] = new Chart(ctxCH.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: chLabels,
+            datasets: [{
+              data: chValues,
+              borderColor: chValues.map(function(v) { return v < 0 ? '#00ff88' : '#ffd700'; })[Math.floor(chValues.length / 2)] || '#ffd700',
+              segment: {
+                borderColor: function(ctx) { return ctx.p0.parsed.y < 0 ? '#00ff88' : '#ffd700'; }
+              },
+              borderWidth: 2,
+              pointRadius: 0,
+              fill: false,
+              tension: 0.2,
+            }]
+          },
+          options: {
+            interaction: { intersect: false, mode: 'index' },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: {
+                  maxTicksLimit: 8,
+                  callback: function(val) {
+                    try { return new Date(this.getLabelForValue(val)).toLocaleDateString('en-US', { month: 'short' }); } catch(e) { return ''; }
+                  }
+                }
+              },
+              y: {
+                position: 'right',
+                grid: { color: 'rgba(255,255,255,0.03)' },
+                ticks: { callback: function(v) { return '$' + v.toFixed(0); } }
+              }
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function(ctx) {
+                    var v = ctx.parsed.y;
+                    return (v >= 0 ? 'Contango: +$' : 'Backwardation: $') + fmt(v, 2);
+                  }
+                }
+              }
+            }
+          },
+          plugins: [{
+            id: 'zeroLine',
+            afterDraw: function(chart) {
+              var yScale = chart.scales.y;
+              var xScale = chart.scales.x;
+              var y = yScale.getPixelForValue(0);
+              var c = chart.ctx;
+              c.save();
+              c.strokeStyle = 'rgba(255,255,255,0.25)';
+              c.lineWidth = 1;
+              c.setLineDash([4, 4]);
+              c.beginPath();
+              c.moveTo(xScale.left, y);
+              c.lineTo(xScale.right, y);
+              c.stroke();
+              // Annotation for $50 stress level
+              var y50 = yScale.getPixelForValue(50);
+              if (y50 >= yScale.top && y50 <= yScale.bottom) {
+                c.strokeStyle = 'rgba(255,136,0,0.35)';
+                c.setLineDash([3, 5]);
+                c.beginPath();
+                c.moveTo(xScale.left, y50);
+                c.lineTo(xScale.right, y50);
+                c.stroke();
+                c.fillStyle = 'rgba(255,136,0,0.7)';
+                c.font = '9px JetBrains Mono, monospace';
+                c.fillText('$50 stress', xScale.left + 4, y50 - 3);
+              }
+              c.restore();
+            }
+          }]
+        });
+      }
+    } catch(e) { console.warn('Contango history chart error:', e); }
   }
 }
 
@@ -3733,13 +3921,18 @@ function renderMiners() {
     // GDXJ/GDX sparkline ratio chart
     if (gdxjData.sparkline && gdxData.sparkline && gdxjData.sparkline.length && gdxData.sparkline.length) {
       // Build ratio series by aligning dates
+      // Normalize dates to YYYY-MM-DD (first 10 chars) to avoid format mismatches
       var gdxjMap = {};
-      gdxjData.sparkline.forEach(function(pt) { gdxjMap[pt.t] = pt.v; });
+      gdxjData.sparkline.forEach(function(pt) {
+        var key = String(pt.t).substring(0, 10);
+        gdxjMap[key] = pt.v;
+      });
       var ratioLabels = [], ratioValues = [];
       gdxData.sparkline.forEach(function(pt) {
-        if (gdxjMap[pt.t] && pt.v > 0) {
-          ratioLabels.push(pt.t);
-          ratioValues.push(parseFloat((gdxjMap[pt.t] / pt.v).toFixed(4)));
+        var key = String(pt.t).substring(0, 10);
+        if (gdxjMap[key] != null && pt.v > 0) {
+          ratioLabels.push(key);
+          ratioValues.push(parseFloat((gdxjMap[key] / pt.v).toFixed(4)));
         }
       });
       if (ratioLabels.length > 5) {
@@ -4343,53 +4536,56 @@ function renderHistorical() {
   }
 
   // Seasonality chart
-  if (d.seasonal_monthly && d.seasonal_monthly.length) {
-    destroyChart('seasonality');
-    var ctxS = document.getElementById('chart-seasonality');
-    if (ctxS) {
-      var sLabels = d.seasonal_monthly.map(function(s) { return s.month; });
-      var sValues = d.seasonal_monthly.map(function(s) { return s.avg_return; });
-      var sBgColors = sValues.map(function(v) { return v >= 0 ? 'rgba(0,255,136,0.65)' : 'rgba(255,68,68,0.65)'; });
-      var sBorderColors = sValues.map(function(v) { return v >= 0 ? '#00ff88' : '#ff4444'; });
-      charts['seasonality'] = new Chart(ctxS.getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: sLabels,
-          datasets: [{
-            label: 'Avg Monthly Return',
-            data: sValues,
-            backgroundColor: sBgColors,
-            borderColor: sBorderColors,
-            borderWidth: 1,
-            borderRadius: 3,
-          }]
-        },
-        options: {
-          scales: {
-            x: { grid: { display: false } },
-            y: {
-              grid: { color: 'rgba(255,255,255,0.03)' },
-              ticks: { callback: function(v) { return v.toFixed(1) + '%'; } }
-            }
+  try {
+    var smData = d.seasonal_monthly;
+    if (smData && smData.length) {
+      destroyChart('seasonality');
+      var ctxS = document.getElementById('chart-seasonality');
+      if (ctxS) {
+        var sLabels = smData.map(function(s) { return s.month; });
+        var sValues = smData.map(function(s) { return parseFloat(s.avg_return) || 0; });
+        var sBgColors = sValues.map(function(v) { return v >= 0 ? 'rgba(0,255,136,0.65)' : 'rgba(255,68,68,0.65)'; });
+        var sBorderColors = sValues.map(function(v) { return v >= 0 ? '#00ff88' : '#ff4444'; });
+        charts['seasonality'] = new Chart(ctxS.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: sLabels,
+            datasets: [{
+              label: 'Avg Monthly Return',
+              data: sValues,
+              backgroundColor: sBgColors,
+              borderColor: sBorderColors,
+              borderWidth: 1,
+              borderRadius: 3,
+            }]
           },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: function(ctx) {
-                  var s = d.seasonal_monthly[ctx.dataIndex];
-                  return [
-                    (ctx.parsed.y >= 0 ? '+' : '') + fmt(ctx.parsed.y, 2) + '% avg return',
-                    s.positive_pct + '% of years positive (' + s.n + ' years)',
-                  ];
+          options: {
+            scales: {
+              x: { grid: { display: false } },
+              y: {
+                grid: { color: 'rgba(255,255,255,0.03)' },
+                ticks: { callback: function(v) { return v.toFixed(1) + '%'; } }
+              }
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function(ctx) {
+                    var s = smData[ctx.dataIndex];
+                    return [
+                      (ctx.parsed.y >= 0 ? '+' : '') + fmt(ctx.parsed.y, 2) + '% avg return',
+                      s.positive_pct + '% of years positive (' + s.n + ' years)',
+                    ];
+                  }
                 }
               }
             }
           }
-        }
-      });
+        });
+      }
     }
-  }
+  } catch(e) { console.warn('Seasonality chart error:', e); }
 
   // Event cards
   var evtContainer = document.getElementById('event-cards');
