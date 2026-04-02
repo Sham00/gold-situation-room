@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#ffd700"/>
+  
+  <!-- Gold bar icon -->
+  <rect x="80" y="200" width="120" height="70" rx="8" fill="#ffd700"/>
+  <rect x="90" y="210" width="100" height="50" rx="4" fill="#b8960f" opacity="0.5"/>
+  <text x="140" y="245" font-family="Arial" font-size="28" font-weight="bold" fill="#0a0a0a" text-anchor="middle">Au</text>
+  
+  <!-- Title -->
+  <text x="80" y="150" font-family="Arial" font-size="36" font-weight="bold" fill="#888888" letter-spacing="4">GOLD SITUATION ROOM</text>
+  
+  <!-- Price -->
+  <text x="80" y="350" font-family="Arial" font-size="96" font-weight="900" fill="#ffd700">$4,714</text>
+  
+  <!-- Change -->
+  <text x="85" y="420" font-family="Arial" font-size="48" fill="#00ff88">▲ +0.16%</text>
+  
+  <!-- Tagline -->
+  <text x="80" y="530" font-family="Arial" font-size="28" fill="#555555">Real-time gold intelligence · sham00.github.io/gold-situation-room</text>
+  
+  <!-- Decorative lines -->
+  <line x1="80" y1="460" x2="800" y2="460" stroke="#1a1a1a" stroke-width="2"/>
+</svg>

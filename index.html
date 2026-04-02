@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gold Situation Room</title>
+<meta name="description" content="Real-time gold price dashboard with ratios, macro indicators, crisis asset comparisons, and market news. The ultimate gold situation room.">
+<meta property="og:title" content="Gold Situation Room 🟡">
+<meta property="og:description" content="Real-time gold price, ratios (Gold/Silver, Gold/Oil, Gold/BTC), macro indicators, and market news — all in one dashboard.">
+<meta property="og:url" content="https://sham00.github.io/gold-situation-room/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://sham00.github.io/gold-situation-room/og-preview.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gold Situation Room 🟡">
+<meta name="twitter:description" content="Real-time gold price dashboard with ratios, macro indicators, and market intelligence.">
+<meta name="twitter:image" content="https://sham00.github.io/gold-situation-room/og-preview.svg">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
@@ -1228,6 +1238,10 @@ function renderHeader() {
 
   var priceEl = document.getElementById('header-price');
   animateCounter(priceEl, d.price, 1500, '$');
+
+  // Update page title with current gold price
+  var sign = d.change >= 0 ? '▲' : '▼';
+  document.title = '🟡 Gold $' + fmtInt(d.price) + ' ' + sign + ' | Situation Room';
 
   var changeEl = document.getElementById('header-change');
   var sign = d.change >= 0 ? '+' : '';
