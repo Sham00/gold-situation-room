@@ -3925,6 +3925,26 @@ function renderAnalystTargets() {
     var rangeStr = (t.target_low != null && t.target_high != null)
       ? '$' + fmtInt(t.target_low) + ' – $' + fmtInt(t.target_high)
       : 'No numeric target';
+
+    // Upside/downside vs current price
+    var upsideBadge = '';
+    if (t.target_low != null && t.target_high != null) {
+      var targetMid = (t.target_low + t.target_high) / 2;
+      var upsidePct = ((targetMid - currentPrice) / currentPrice * 100).toFixed(1);
+      var isExceeded = currentPrice > t.target_high;
+      var isInRange = currentPrice >= t.target_low && currentPrice <= t.target_high;
+      if (isExceeded) {
+        upsideBadge = '<span style="font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(255,170,0,0.15);border:1px solid #ffaa00;color:#ffaa00;font-family:JetBrains Mono,monospace;white-space:nowrap;margin-left:4px;">⚡ TARGET HIT</span>';
+        accentColor = '#ffaa00';
+        bgBorder = 'border-[rgba(255,170,0,0.25)]';
+      } else if (isInRange) {
+        upsideBadge = '<span style="font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(0,200,255,0.12);border:1px solid #00c8ff;color:#00c8ff;font-family:JetBrains Mono,monospace;white-space:nowrap;margin-left:4px;">📍 IN RANGE</span>';
+      } else {
+        var upPct = ((t.target_high - currentPrice) / currentPrice * 100).toFixed(1);
+        upsideBadge = '<span style="font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.3);color:#00ff88;font-family:JetBrains Mono,monospace;white-space:nowrap;margin-left:4px;">↑ ' + upPct + '% upside</span>';
+      }
+    }
+
     cards += '<div class="bg-[#0a0a0a] rounded-lg p-4 border ' + bgBorder + ' flex flex-col gap-2">' +
       '<div class="flex items-start gap-3">' +
         '<div style="width:36px;height:36px;border-radius:50%;background:rgba(' + (isTether ? '153,102,255' : '255,215,0') + ',0.15);border:1px solid ' + accentColor + ';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:JetBrains Mono,monospace;font-weight:700;font-size:14px;color:' + accentColor + ';">' + avatar + '</div>' +
@@ -3934,7 +3954,10 @@ function renderAnalystTargets() {
         '</div>' +
         '<span style="font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(' + (t.sentiment === 'BULLISH' ? '0,255,136' : t.sentiment === 'BEARISH' ? '255,68,68' : '136,136,136') + ',0.12);border:1px solid ' + sentimentColor + ';color:' + sentimentColor + ';font-family:JetBrains Mono,monospace;white-space:nowrap;">' + (t.sentiment || 'N/A') + '</span>' +
       '</div>' +
-      '<div class="text-base font-bold mono" style="color:' + accentColor + ';">' + rangeStr + '</div>' +
+      '<div class="flex items-center flex-wrap gap-1">' +
+        '<span class="text-base font-bold mono" style="color:' + accentColor + ';">' + rangeStr + '</span>' +
+        upsideBadge +
+      '</div>' +
       '<div class="text-[10px] text-[var(--text2)] mono">' + (t.target_date || '') + ' · ' + (t.data_source || '') + '</div>' +
       '<div class="text-[10px] text-[var(--text2)] leading-relaxed">' + (t.rationale || '') + '</div>' +
     '</div>';
