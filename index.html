@@ -482,10 +482,56 @@
   /* ---- Touch improvements (all mobile < 768px) ---- */
   @media (max-width: 767px) {
 
-    /* CRITICAL: prevent any element from causing horizontal page overflow */
+    /* CRITICAL FIX: force all grid children to actually fit within viewport.
+       overflow-x:hidden only HIDES overflow — it doesn't fix element widths.
+       min-width:0 on grid items allows them to shrink below content size.
+       Without this, sections render at 702px on a 393px screen. */
     html, body {
       overflow-x: hidden;
       max-width: 100%;
+    }
+    .dashboard-grid {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+    /* Every direct child of the grid MUST have min-width:0 to actually constrain */
+    .dashboard-grid > * {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    /* All descendants: constrain width, allow box model to work */
+    .dashboard-grid > * > * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .dashboard-grid > * > * > * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    /* Canvas elements: must fill container not overflow */
+    canvas {
+      max-width: 100% !important;
+    }
+    /* SVGs: constrain */
+    svg {
+      max-width: 100% !important;
+    }
+    /* Tables: never wider than container */
+    table {
+      max-width: 100% !important;
+      table-layout: auto !important;
+    }
+    /* Flex containers: wrap and constrain */
+    .flex { min-width: 0 !important; }
+    /* Text: allow wrapping */
+    .section-title { word-break: break-word !important; }
+    /* The ratio-cards-grid has inline style with minmax(280px) — override */
+    #ratio-cards-grid {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
     }
 
     /* Remove tap flash on interactive elements */
