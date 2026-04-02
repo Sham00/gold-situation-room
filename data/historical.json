@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4694.0
+      "price": 4699.0
     }
   ],
   "decade_returns": [
@@ -1247,7 +1247,7 @@
     },
     {
       "t": "2026-04-01",
-      "v": 4694.1
+      "v": 4698.7
     }
   ],
   "seasonal_monthly": [
@@ -1271,7 +1271,7 @@
     },
     {
       "month": "Apr",
-      "avg_return": 0.95,
+      "avg_return": 0.96,
       "positive_pct": 64.0,
       "n": 22
     },
@@ -1330,5 +1330,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history."
   },
-  "last_updated": "2026-04-02T19:06:44Z"
+  "last_updated": "2026-04-02T20:26:51Z"
 }

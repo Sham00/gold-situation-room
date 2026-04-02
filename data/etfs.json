@@ -2,16 +2,12 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 429.67,
-      "change": -9.73,
-      "change_pct": -2.21,
+      "price": 429.34,
+      "change": -10.06,
+      "change_pct": -2.29,
       "tonnes_est": 870,
       "daily_change_est": -0.5,
       "chart_1y": [
-        {
-          "t": "2025-04-02",
-          "v": 288.16
-        },
         {
           "t": "2025-04-03",
           "v": 286.42
@@ -1014,22 +1010,18 @@
         },
         {
           "t": "2026-04-02",
-          "v": 429.67
+          "v": 429.34
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 88.02,
-      "change": -1.94,
-      "change_pct": -2.16,
+      "price": 87.94,
+      "change": -2.02,
+      "change_pct": -2.25,
       "tonnes_est": 460,
       "daily_change_est": 0.3,
       "chart_1y": [
-        {
-          "t": "2025-04-02",
-          "v": 58.95
-        },
         {
           "t": "2025-04-03",
           "v": 58.6
@@ -2032,22 +2024,18 @@
         },
         {
           "t": "2026-04-02",
-          "v": 88.02
+          "v": 87.94
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 35.4,
-      "change": -0.93,
-      "change_pct": -2.55,
+      "price": 35.39,
+      "change": -0.94,
+      "change_pct": -2.59,
       "tonnes_est": 68,
       "daily_change_est": 0.1,
       "chart_1y": [
-        {
-          "t": "2025-04-02",
-          "v": 24.19
-        },
         {
           "t": "2025-04-03",
           "v": 24.05
@@ -3050,22 +3038,18 @@
         },
         {
           "t": "2026-04-02",
-          "v": 35.4
+          "v": 35.39
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 45.98,
-      "change": -1.26,
-      "change_pct": -2.67,
+      "price": 46.03,
+      "change": -1.21,
+      "change_pct": -2.56,
       "tonnes_est": 18,
       "daily_change_est": 0.0,
       "chart_1y": [
-        {
-          "t": "2025-04-02",
-          "v": 30.83
-        },
         {
           "t": "2025-04-03",
           "v": 30.64
@@ -4068,22 +4052,18 @@
         },
         {
           "t": "2026-04-02",
-          "v": 45.98
+          "v": 46.03
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 44.54,
-      "change": -0.92,
-      "change_pct": -2.01,
+      "price": 44.51,
+      "change": -0.95,
+      "change_pct": -2.09,
       "tonnes_est": 42,
       "daily_change_est": 0.0,
       "chart_1y": [
-        {
-          "t": "2025-04-02",
-          "v": 29.81
-        },
         {
           "t": "2025-04-03",
           "v": 29.64
@@ -5086,7 +5066,7 @@
         },
         {
           "t": "2026-04-02",
-          "v": 44.54
+          "v": 44.51
         }
       ]
     }
@@ -5098,5 +5078,5 @@
     "reliability": "estimate",
     "notes": "Actual fund holdings from custodian reports lag 1 day. Daily tonne changes are estimates based on price movement."
   },
-  "last_updated": "2026-04-02T19:06:25Z"
+  "last_updated": "2026-04-02T20:26:27Z"
 }
