@@ -683,12 +683,35 @@ def fetch_miners():
             change = price - prev
             change_pct = (change / prev) * 100 if prev else 0
 
+            # YTD return
+            ytd_pct = None
+            try:
+                ytd_hist = ticker.history(start="2026-01-01", interval="1d")
+                if not ytd_hist.empty:
+                    start_price = ytd_hist["Close"].iloc[0]
+                    if start_price:
+                        ytd_pct = round((price - start_price) / start_price * 100, 2)
+            except Exception:
+                pass
+
+            # Market cap from info
+            market_cap = None
+            try:
+                info = ticker.info
+                mc = info.get("marketCap")
+                if mc:
+                    market_cap = mc
+            except Exception:
+                pass
+
             miners[sym] = {
                 "name": meta["name"],
                 "type": meta["type"],
                 "price": round(price, 2),
                 "change": round(change, 2),
                 "change_pct": round(change_pct, 2),
+                "ytd_pct": ytd_pct,
+                "market_cap": market_cap,
             }
 
             if sym in aisc_data:

@@ -536,6 +536,7 @@
       <div style="flex:1; min-width: 200px;">
         <div class="signal-label" id="composite-label" style="color: #888;">— —</div>
         <div class="text-xs mono text-[var(--text2)] mt-1" id="composite-score-text">Score: —</div>
+        <div id="composite-interpretation" class="text-[11px] mono mt-2" style="color:#888;line-height:1.6;"></div>
         <div class="signal-factor mt-4" id="composite-factors">
           <!-- Filled by JS -->
         </div>
@@ -978,7 +979,7 @@
         <canvas id="chart-comex-vault"></canvas>
       </div>
     </div>
-    <div class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: 2026-03-31 | Source: COMEX daily vault reports (compiled)</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: 2026-04-01 | Source: COMEX daily vault reports (compiled)</div>
   </section>
 
   <!-- ============================================================ -->
@@ -990,7 +991,7 @@
       <canvas id="chart-lease-rate"></canvas>
     </div>
     <div id="lease-rate-alert" class="text-xs mono mt-2" style="display:none;color:#ff4444;font-weight:600;">ALERT: Lease rate elevated — physical tightness detected</div>
-    <div class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: 2026-04-01 | Rates approximate (subscription sources required for live data)</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: 2026-04-02 | Rates approximate (subscription sources required for live data)</div>
   </section>
 
   <!-- ============================================================ -->
@@ -1098,6 +1099,8 @@
             <th>Miner</th>
             <th>Price</th>
             <th>Change %</th>
+            <th>YTD %</th>
+            <th>Mkt Cap</th>
             <th>AISC</th>
             <th>Margin</th>
             <th>Production (koz)</th>
@@ -1105,7 +1108,7 @@
           </tr>
         </thead>
         <tbody id="miners-table-body">
-          <tr><td colspan="7" class="text-center py-8"><div class="spinner mx-auto"></div></td></tr>
+          <tr><td colspan="9" class="text-center py-8"><div class="spinner mx-auto"></div></td></tr>
         </tbody>
       </table>
     </div>
@@ -1489,6 +1492,33 @@ function renderCompositeSignal() {
   var scoreEl = document.getElementById('composite-score-text');
   if (scoreEl) scoreEl.textContent = 'Score: ' + (clampedScore >= 0 ? '+' : '') + clampedScore.toFixed(1) + ' / 10';
 
+  // Contextual interpretation
+  var interpEl = document.getElementById('composite-interpretation');
+  if (interpEl) {
+    var rsiOB = (rsi != null && rsi > 72);
+    var negReal = (macro.real_yield_10y != null && macro.real_yield_10y < 0);
+    var cotCrowded = (cot && cot.net_percentile != null && cot.net_percentile > 85);
+    var dxyWeak = (macro.dxy != null && macro.dxy < 99);
+
+    var lines = [];
+    if (clampedScore >= 6) {
+      lines.push('Multiple tailwinds aligned. Structural bull case intact.');
+    } else if (clampedScore >= 2) {
+      lines.push('Bull trend intact. Watch for overbought conditions.');
+    } else if (clampedScore >= -2) {
+      lines.push('Mixed signals. No clear directional edge.');
+    } else {
+      lines.push('Headwinds dominant. Caution on new longs.');
+    }
+    if (rsiOB) lines.push('RSI elevated — short-term pullback risk.');
+    if (negReal) lines.push('Negative real yields: strongest bull catalyst active.');
+    if (dxyWeak && macro.dxy != null) lines.push('Dollar weak — foreign buyer demand enhanced.');
+    if (cotCrowded) lines.push('COT: speculative longs crowded — correction risk.');
+
+    interpEl.innerHTML = lines.map(function(l) { return '<span style="display:block;margin-bottom:2px;">' + l + '</span>'; }).join('');
+    interpEl.style.color = clampedScore >= 2 ? '#88dd44' : clampedScore <= -2 ? '#ff8844' : '#888';
+  }
+
   // Rotate needle: score -10 = -90deg, 0 = 0deg, +10 = +90deg
   var needleDeg = clampedScore * 9; // 9 degrees per point
   var needle = document.getElementById('composite-needle');
@@ -1829,11 +1859,50 @@ function renderRatios() {
   if (!d) return;
 
   var RATIO_META = {
-    gold_silver: { label: 'Gold / Silver', unit: 'oz of silver per oz gold', avg: 82, cheapBelow: 70, expAbove: 90 },
-    gold_oil:    { label: 'Gold / Oil', unit: 'barrels of oil per oz gold', avg: 25, cheapBelow: 20, expAbove: 35 },
-    gold_spx:    { label: 'Gold / S&P 500', unit: 'S&P500 units per oz gold', avg: 0.9, cheapBelow: null, expAbove: null },
-    gold_btc:    { label: 'Gold / Bitcoin', unit: 'oz gold per BTC (inverted)', avg: null, cheapBelow: null, expAbove: null, invert: true },
-    gold_copper: { label: 'Gold / Copper', unit: 'lbs copper per oz gold', avg: 550, cheapBelow: null, expAbove: null },
+    gold_silver: {
+      label: 'Gold / Silver', unit: 'oz of silver per oz gold', avg: 82, cheapBelow: 70, expAbove: 90,
+      signal: function(val, pctile) {
+        if (val != null && val < 65) return { text: '▼ Silver sharply outperforming — late-bull signal', color: '#ffd700' };
+        if (val != null && val < 75) return { text: '▼ Silver outperforming — watch for catch-up', color: '#88dd44' };
+        if (val != null && val > 95) return { text: '▲ Silver deeply oversold vs gold', color: '#00ff88' };
+        if (val != null && val > 85) return { text: '▲ Silver cheap — potential mean reversion', color: '#88dd44' };
+        return { text: '→ Within historical range', color: '#888' };
+      }
+    },
+    gold_oil: {
+      label: 'Gold / Oil', unit: 'barrels of oil per oz gold', avg: 25, cheapBelow: 20, expAbove: 35,
+      signal: function(val, pctile) {
+        if (pctile != null && pctile > 90) return { text: '⚠ Extreme — oil historically cheap vs gold', color: '#ff8844' };
+        if (pctile != null && pctile > 75) return { text: '↑ Elevated — gold expensive vs energy sector', color: '#ffd700' };
+        if (pctile != null && pctile < 20) return { text: '▼ Low — energy premium, gold lagging oil', color: '#888' };
+        return { text: '→ Moderate', color: '#888' };
+      }
+    },
+    gold_spx: {
+      label: 'Gold / S&P 500', unit: 'S&P500 units per oz gold', avg: 0.9, cheapBelow: null, expAbove: null,
+      signal: function(val, pctile) {
+        if (pctile != null && pctile > 70) return { text: '⬆ Gold outperforming stocks — risk-off bid', color: '#00ff88' };
+        if (pctile != null && pctile < 30) return { text: '⬇ Stocks outperforming — risk-on environment', color: '#ff8844' };
+        return { text: '→ Neutral relative performance', color: '#888' };
+      }
+    },
+    gold_btc: {
+      label: 'Gold / Bitcoin', unit: 'oz gold per BTC (inverted)', avg: null, cheapBelow: null, expAbove: null, invert: true,
+      signal: function(val, pctile) {
+        if (pctile != null && pctile > 70) return { text: '⬆ Gold outperforming BTC', color: '#ffd700' };
+        if (pctile != null && pctile < 30) return { text: '⬇ BTC outperforming gold', color: '#ff8800' };
+        return { text: '→ BTC and gold tracking closely', color: '#888' };
+      }
+    },
+    gold_copper: {
+      label: 'Gold / Copper', unit: 'lbs copper per oz gold', avg: 550, cheapBelow: null, expAbove: null,
+      signal: function(val, pctile) {
+        if (pctile != null && pctile > 85) return { text: '⚠ Elevated — copper weakness signals slowdown risk', color: '#ff8844' };
+        if (pctile != null && pctile > 70) return { text: '↑ Above avg — some recession fear priced in', color: '#ffd700' };
+        if (pctile != null && pctile < 25) return { text: '▼ Low — copper strength, risk appetite high', color: '#00ff88' };
+        return { text: '→ Moderate fear premium', color: '#888' };
+      }
+    },
   };
 
   var grid = document.getElementById('ratio-cards-grid');
@@ -1866,6 +1935,8 @@ function renderRatios() {
 
     var canvasId = 'chart-ratio-' + name;
 
+    var sig = meta.signal ? meta.signal(displayVal, pctile) : null;
+
     var card = document.createElement('div');
     card.className = 'card';
     card.innerHTML =
@@ -1875,6 +1946,7 @@ function renderRatios() {
         '<span class="text-[10px] text-[var(--text2)] mono">' + meta.unit + '</span>' +
       '</div>' +
       (pctile != null ? '<span class="pct-pill ' + pctClass + ' mt-2">' + fmt(pctile, 0) + 'th percentile</span>' : '') +
+      (sig ? '<div class="text-[11px] mt-2 mono" style="color:' + sig.color + '">' + sig.text + '</div>' : '') +
       '<div class="progress-track mt-3"><div class="progress-fill" style="width:' + progressPct.toFixed(1) + '%;background:' +
         (pctClass === 'cheap' ? '#00ff88' : pctClass === 'expensive' ? '#ff4444' : '#ffd700') + ';"></div></div>' +
       '<div class="flex justify-between text-[9px] text-[var(--text2)] mono mt-1">' +
@@ -2784,10 +2856,18 @@ function renderMiners() {
 
     var sparkId = 'spark-miner-' + sym;
 
+    var ytdColor = m.ytd_pct != null ? colorForChange(m.ytd_pct) : '#888';
+    var mcapStr = '--';
+    if (m.market_cap) {
+      var mc = m.market_cap;
+      mcapStr = mc >= 1e9 ? '$' + (mc / 1e9).toFixed(1) + 'B' : mc >= 1e6 ? '$' + (mc / 1e6).toFixed(0) + 'M' : '$' + fmtInt(mc);
+    }
     tr.innerHTML =
       '<td style="font-weight:600;">' + (m.name || sym) + ' <span class="text-[10px] text-[var(--text2)]">' + sym + '</span></td>' +
       '<td>$' + fmt(m.price) + '</td>' +
       '<td style="color:' + changeColor + '">' + (m.change_pct >= 0 ? '+' : '') + fmt(m.change_pct) + '%</td>' +
+      '<td style="color:' + ytdColor + ';font-weight:600;">' + (m.ytd_pct != null ? (m.ytd_pct >= 0 ? '+' : '') + fmt(m.ytd_pct) + '%' : '--') + '</td>' +
+      '<td class="text-[var(--text2)]">' + mcapStr + '</td>' +
       '<td>$' + (m.aisc != null ? fmtInt(m.aisc) : '--') + '</td>' +
       '<td style="color:' + marginColor + ';font-weight:600;">$' + (m.margin != null ? fmtInt(m.margin) : '--') + '</td>' +
       '<td>' + (m.production_koz != null ? fmtInt(m.production_koz) : '--') + '</td>' +
