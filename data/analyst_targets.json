@@ -1,0 +1,96 @@
+{
+  "targets": [
+    {
+      "institution": "Goldman Sachs",
+      "analyst": "Lina Thomas, Daan Struyven",
+      "target_low": 4600,
+      "target_high": 5055,
+      "target_date": "end-2026",
+      "rationale": "Persistent central bank buying, Fed pivot signaling (expected Q2), geopolitical risk premium. Revised end-Apr target to $4,600.",
+      "sentiment": "BULLISH",
+      "data_source": "Goldman Sachs Research (Mar 2026)"
+    },
+    {
+      "institution": "JPMorgan",
+      "analyst": "Natasha Kaneva",
+      "target_low": 4500,
+      "target_high": 5055,
+      "target_date": "2026",
+      "rationale": "De-dollarization trend, EM central bank demand, gold as geopolitical hedge.",
+      "sentiment": "BULLISH",
+      "data_source": "JPMorgan Commodities Research (Q1 2026)"
+    },
+    {
+      "institution": "Morgan Stanley",
+      "analyst": "Amy Gower",
+      "target_low": 4500,
+      "target_high": 5700,
+      "target_date": "2026",
+      "rationale": "Bull-case target of $5,700. Real rate decline and USD weakness support gold versus historical correlations.",
+      "sentiment": "BULLISH",
+      "data_source": "Morgan Stanley Research (Q1 2026)"
+    },
+    {
+      "institution": "Bank of America",
+      "analyst": "Michael Widmer",
+      "target_low": 4000,
+      "target_high": 5000,
+      "target_date": "2026",
+      "rationale": "Fed easing cycle, USD weakness, demand from emerging market central banks.",
+      "sentiment": "BULLISH",
+      "data_source": "BofA Global Research (2026)"
+    },
+    {
+      "institution": "Citigroup",
+      "analyst": "Aakash Doshi",
+      "target_low": 4200,
+      "target_high": 4800,
+      "target_date": "2026",
+      "rationale": "Strong physical demand, momentum from CB buying, safe-haven bid.",
+      "sentiment": "BULLISH",
+      "data_source": "Citi Research (2026)"
+    },
+    {
+      "institution": "UBS",
+      "analyst": "Giovanni Staunovo",
+      "target_low": 4000,
+      "target_high": 4800,
+      "target_date": "2026",
+      "rationale": "CB buying supports floor; investor flows remain key upside driver.",
+      "sentiment": "BULLISH",
+      "data_source": "UBS Commodities (2026)"
+    },
+    {
+      "institution": "Deutsche Bank",
+      "analyst": "Michael Hsueh",
+      "target_low": 3800,
+      "target_high": 4500,
+      "target_date": "2026",
+      "rationale": "Geopolitical tailwinds and CB demand; hawkish Fed risk as downside.",
+      "sentiment": "NEUTRAL",
+      "data_source": "Deutsche Bank Research (2026)"
+    },
+    {
+      "institution": "Wells Fargo",
+      "analyst": "John LaForge",
+      "target_low": 4000,
+      "target_high": 5000,
+      "target_date": "2026",
+      "rationale": "Commodity supercycle thesis; gold remains preferred hard asset.",
+      "sentiment": "BULLISH",
+      "data_source": "Wells Fargo Investment Institute (2026)"
+    }
+  ],
+  "consensus_low": 3800,
+  "consensus_high": 5700,
+  "consensus_mid": 4594,
+  "upside_pct": -2.2,
+  "most_bullish": "Morgan Stanley",
+  "current_price": 4697.4,
+  "news_snippets": [],
+  "data_quality": {
+    "source": "Updated analyst targets Apr 2026 (Goldman, JPMorgan, Morgan Stanley, BofA, Citi, UBS, Deutsche, Wells Fargo)",
+    "confidence": "high"
+  },
+  "last_updated": "2026-04-02T20:48Z"
+}

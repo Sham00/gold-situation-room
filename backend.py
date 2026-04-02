@@ -40,6 +40,7 @@ TTL = {
     "news": 300,
     "cot": 86400,
     "historical": 86400,
+    "analyst_targets": 3600,
 }
 
 
@@ -624,6 +625,72 @@ def fetch_historical_data():
     return {"events": events, "decade_returns": decade_returns, "timeline_chart": timeline_chart}
 
 
+def fetch_analyst_targets_data():
+    """Analyst gold price targets from major banks (hardcoded, RSS-enriched).
+    Reads from data/analyst_targets.json if available (written by fetch_data.py),
+    else returns hardcoded targets inline.
+    """
+    data_path = Path(__file__).parent / "data" / "analyst_targets.json"
+    if data_path.exists():
+        try:
+            return json.loads(data_path.read_text())
+        except Exception:
+            pass
+
+    # Inline fallback: same hardcoded targets as fetch_data.py
+    targets = [
+        {"institution": "Goldman Sachs", "analyst": "Lina Thomas, Daan Struyven",
+         "target_low": 3700, "target_high": 4000, "target_date": "end-2026",
+         "rationale": "Central bank buying above historical trend, Fed rate cuts, geopolitical risk premium.",
+         "sentiment": "BULLISH", "data_source": "Goldman Sachs Research (Jan 2026)"},
+        {"institution": "JPMorgan", "analyst": "Natasha Kaneva",
+         "target_low": 3000, "target_high": 3500, "target_date": "mid-2026",
+         "rationale": "De-dollarization trend, emerging market CB demand.",
+         "sentiment": "BULLISH", "data_source": "JPMorgan Commodities Research (Q1 2026)"},
+        {"institution": "Bank of America", "analyst": "Michael Widmer",
+         "target_low": 3000, "target_high": 3500, "target_date": "2026",
+         "rationale": "Fed easing cycle, USD weakness, CB demand.",
+         "sentiment": "BULLISH", "data_source": "BofA Global Research (2026)"},
+        {"institution": "Citigroup", "analyst": "Aakash Doshi",
+         "target_low": 3000, "target_high": 3200, "target_date": "near-term",
+         "rationale": "Strong physical demand, CB buying momentum.",
+         "sentiment": "BULLISH", "data_source": "Citi Research (2026)"},
+        {"institution": "UBS", "analyst": "Giovanni Staunovo",
+         "target_low": 2900, "target_high": 3200, "target_date": "2026",
+         "rationale": "CB buying supports floor; investor flows key upside driver.",
+         "sentiment": "BULLISH", "data_source": "UBS Commodities (2026)"},
+        {"institution": "Deutsche Bank", "analyst": "Michael Hsueh",
+         "target_low": 2800, "target_high": 3100, "target_date": "2026",
+         "rationale": "Geopolitical tailwinds and CB demand offset hawkish Fed risk.",
+         "sentiment": "NEUTRAL", "data_source": "Deutsche Bank Research (2026)"},
+        {"institution": "Wells Fargo", "analyst": "John LaForge",
+         "target_low": 2700, "target_high": 3000, "target_date": "2026",
+         "rationale": "Commodity supercycle thesis; gold preferred hard asset.",
+         "sentiment": "NEUTRAL", "data_source": "Wells Fargo Investment Institute (2026)"},
+        {"institution": "Morgan Stanley", "analyst": "Amy Gower",
+         "target_low": 3000, "target_high": 3200, "target_date": "2026",
+         "rationale": "Real rate decline and USD weakness support gold.",
+         "sentiment": "BULLISH", "data_source": "Morgan Stanley Research (2026)"},
+        {"institution": "Tether / Paolo Ardoino", "analyst": "Paolo Ardoino",
+         "target_low": None, "target_high": None, "target_date": "ongoing",
+         "rationale": "XAUT tracks spot gold. Ardoino bullish on gold as reserve asset alongside BTC.",
+         "sentiment": "BULLISH", "data_source": "Tether / Ardoino public statements (2026)"},
+    ]
+    numeric = [t for t in targets if t["target_low"] is not None]
+    consensus_mid = round(sum((t["target_low"] + t["target_high"]) / 2 for t in numeric) / len(numeric)) if numeric else 3200
+    return {
+        "targets": targets,
+        "consensus_low": min(t["target_low"] for t in numeric) if numeric else 2700,
+        "consensus_high": max(t["target_high"] for t in numeric) if numeric else 4000,
+        "consensus_mid": consensus_mid,
+        "upside_pct": None,
+        "most_bullish": "Goldman Sachs",
+        "current_price": None,
+        "news_snippets": [],
+        "data_quality": {"source": "hardcoded published analyst targets (early 2026)", "freshness": "quarterly"},
+    }
+
+
 # ---------------------------------------------------------------------------
 # API Endpoints
 # ---------------------------------------------------------------------------
@@ -727,6 +794,17 @@ async def get_historical():
     return data or {"error": "Historical data unavailable"}
 
 
+@app.get("/api/analyst-targets")
+async def get_analyst_targets():
+    cached = _read_cache("analyst_targets", TTL["analyst_targets"])
+    if cached:
+        return cached
+    data = _safe(fetch_analyst_targets_data, {"error": "Failed to fetch analyst targets"})
+    if data and "error" not in data:
+        _write_cache("analyst_targets", data)
+    return data or {"error": "Analyst targets unavailable"}
+
+
 @app.get("/api/all")
 async def get_all():
     """All data in one call for initial page load."""
@@ -740,6 +818,7 @@ async def get_all():
         "news": ("news", fetch_news_data),
         "cot": ("cot", fetch_cot_data),
         "historical": ("historical", fetch_historical_data),
+        "analyst_targets": ("analyst_targets", fetch_analyst_targets_data),
     }
     result = {}
     for key, (cache_key, fetcher) in sections.items():

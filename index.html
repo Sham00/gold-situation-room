@@ -1607,6 +1607,45 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- SECTION 4b: ANALYST PRICE TARGETS -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-analyst-targets" style="animation-delay:0.45s">
+    <div class="section-title">Analyst Price Targets <span class="info-tooltip" data-tip="Price targets from major investment banks and institutions for gold in 2026. Consensus range = average of published low/high targets. Upside % vs current spot price.">ℹ</span><span class="freshness-badge" style="background:rgba(255,215,0,0.15);color:#ffd700;border:1px solid rgba(255,215,0,0.3);">● Quarterly</span></div>
+
+    <!-- Consensus summary bar -->
+    <div id="analyst-consensus-bar" class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+      <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Consensus Range</div>
+        <div id="analyst-range" class="text-xl font-bold mono text-[var(--gold)]">-- — --</div>
+      </div>
+      <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Consensus Mid</div>
+        <div id="analyst-mid" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
+      </div>
+      <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Upside vs Spot</div>
+        <div id="analyst-upside" class="text-2xl font-bold mono text-[var(--green)]">--</div>
+      </div>
+      <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Most Bullish</div>
+        <div id="analyst-bullish" class="text-sm font-bold mono text-[var(--gold)] leading-tight">--</div>
+      </div>
+    </div>
+
+    <!-- Horizontal range chart -->
+    <div class="mb-6">
+      <div class="chart-wrap chart-loading" style="height:220px;">
+        <canvas id="chart-analyst-ranges"></canvas>
+      </div>
+    </div>
+
+    <!-- Institution cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="analyst-cards">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- SECTION 5: COT POSITIONING -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-cot" style="animation-delay:0.5s">
@@ -1904,6 +1943,16 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- SECTION: WALL STREET PRICE TARGETS -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-bank-targets" style="animation-delay:0.68s">
+    <div class="section-title">Wall Street Price Targets — 2026 <span class="info-tooltip" data-tip="Consensus gold price forecasts from major banks and research institutions. Tier: Bull (top 40%), Base (middle), Bear (bottom 20%). Current gold price shown as vertical reference.">ℹ</span><span class="freshness-badge freshness-estimate">Quarterly</span></div>
+    <div id="bank-targets-content">
+      <div class="text-xs mono text-[var(--text2)]">Loading…</div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- SECTION 9: HISTORICAL CONTEXT -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-historical" style="animation-delay:0.7s">
@@ -2196,6 +2245,7 @@ function loadAllData() {
     { key: 'ratios', url: 'data/ratios.json' },
     { key: 'centralBanks', url: 'data/central_banks.json' },
     { key: 'etfs', url: 'data/etfs.json' },
+    { key: 'analystTargets', url: 'data/analyst_targets.json' },
     { key: 'cot', url: 'data/cot.json' },
     { key: 'news', url: 'data/news.json' },
     { key: 'macro', url: 'data/macro.json' },
@@ -2203,6 +2253,7 @@ function loadAllData() {
     { key: 'historical', url: 'data/historical.json' },
     { key: 'crisisAssets', url: 'data/crisis_assets.json' },
     { key: 'marketIntel', url: 'data/market_intel.json' },
+    { key: 'bankTargets', url: 'data/bank_targets.json' },
   ];
 
   // Show loading states immediately
@@ -2283,6 +2334,7 @@ function renderAll() {
   renderRatios();
   renderCentralBanks();
   renderETFs();
+  renderAnalystTargets();
   renderCOT();
   renderComexVault();
   renderLeaseRate();
@@ -2291,6 +2343,7 @@ function renderAll() {
   renderMiners();
   renderCrisisAssets();
   renderHistorical();
+  renderBankTargets();
   renderCompositeSignal();
   renderMarketAlerts();
   updateFreshnessBadges();
@@ -3595,6 +3648,143 @@ function renderETFs() {
   });
 }
 
+// --- Analyst Price Targets ---
+function renderAnalystTargets() {
+  var d = DATA.analystTargets;
+  if (!d || !d.targets) return;
+
+  var currentPrice = (DATA.price && DATA.price.price) ? DATA.price.price : (d.current_price || 3100);
+
+  // Summary bar
+  var low = d.consensus_low, high = d.consensus_high, mid = d.consensus_mid;
+  var upside = (mid && currentPrice) ? ((mid - currentPrice) / currentPrice * 100).toFixed(1) : d.upside_pct;
+  document.getElementById('analyst-range').textContent = low && high ? '$' + fmtInt(low) + ' – $' + fmtInt(high) : '--';
+  document.getElementById('analyst-mid').textContent = mid ? '$' + fmtInt(mid) : '--';
+  var upsideEl = document.getElementById('analyst-upside');
+  if (upside != null && !isNaN(upside)) {
+    upsideEl.textContent = (upside > 0 ? '+' : '') + upside + '%';
+    upsideEl.style.color = upside > 0 ? 'var(--green)' : 'var(--red)';
+  }
+  document.getElementById('analyst-bullish').textContent = d.most_bullish || '--';
+
+  // Range chart (horizontal bars)
+  var numeric = (d.targets || []).filter(function(t) { return t.target_low != null; });
+  destroyChart('chart-analyst-ranges');
+  if (numeric.length > 0) {
+    var ctx = document.getElementById('chart-analyst-ranges');
+    if (ctx) {
+      var labels = numeric.map(function(t) { return t.institution; });
+      var minVals = numeric.map(function(t) { return t.target_low; });
+      var maxVals = numeric.map(function(t) { return t.target_high - t.target_low; });
+      charts['chart-analyst-ranges'] = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Range Start',
+              data: minVals,
+              backgroundColor: 'transparent',
+              stack: 'stack',
+            },
+            {
+              label: 'Target Range',
+              data: maxVals,
+              backgroundColor: 'rgba(255,215,0,0.35)',
+              borderColor: '#ffd700',
+              borderWidth: 1,
+              borderRadius: 3,
+              stack: 'stack',
+            }
+          ]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  var t = numeric[ctx.dataIndex];
+                  if (!t) return '';
+                  return '$' + fmtInt(t.target_low) + ' – $' + fmtInt(t.target_high);
+                },
+                title: function(ctx) { return ctx[0].label; }
+              }
+            },
+            annotation: {
+              annotations: {
+                spotLine: {
+                  type: 'line',
+                  scaleID: 'x',
+                  value: currentPrice,
+                  borderColor: '#ffd700',
+                  borderWidth: 2,
+                  borderDash: [6, 3],
+                  label: {
+                    display: true,
+                    content: 'Spot $' + fmtInt(currentPrice),
+                    color: '#ffd700',
+                    font: { family: 'JetBrains Mono, monospace', size: 10 },
+                    position: 'end',
+                    backgroundColor: 'rgba(0,0,0,0.7)',
+                  }
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              stacked: true,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: { color: '#888', font: { family: 'JetBrains Mono, monospace', size: 10 },
+                callback: function(v) { return '$' + fmtInt(v); }
+              },
+              min: Math.max(0, Math.min.apply(null, minVals) - 200),
+            },
+            y: {
+              stacked: true,
+              grid: { display: false },
+              ticks: { color: '#ccc', font: { family: 'JetBrains Mono, monospace', size: 10 } }
+            }
+          }
+        }
+      });
+      clearChartLoading('chart-analyst-ranges');
+    }
+  }
+
+  // Institution cards
+  var cards = '';
+  (d.targets || []).forEach(function(t) {
+    var isTether = t.institution.toLowerCase().indexOf('tether') !== -1;
+    var accentColor = isTether ? '#9966ff' : '#ffd700';
+    var bgBorder = isTether ? 'border-[rgba(153,102,255,0.3)]' : 'border-[var(--card-border)]';
+    var avatar = (t.institution || 'X')[0].toUpperCase();
+    var sentimentColor = t.sentiment === 'BULLISH' ? '#00ff88' : (t.sentiment === 'BEARISH' ? '#ff4444' : '#888');
+    var rangeStr = (t.target_low != null && t.target_high != null)
+      ? '$' + fmtInt(t.target_low) + ' – $' + fmtInt(t.target_high)
+      : 'No numeric target';
+    cards += '<div class="bg-[#0a0a0a] rounded-lg p-4 border ' + bgBorder + ' flex flex-col gap-2">' +
+      '<div class="flex items-start gap-3">' +
+        '<div style="width:36px;height:36px;border-radius:50%;background:rgba(' + (isTether ? '153,102,255' : '255,215,0') + ',0.15);border:1px solid ' + accentColor + ';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:JetBrains Mono,monospace;font-weight:700;font-size:14px;color:' + accentColor + ';">' + avatar + '</div>' +
+        '<div class="flex-1 min-w-0">' +
+          '<div class="text-xs font-bold mono" style="color:' + accentColor + ';">' + (t.institution || '') + '</div>' +
+          '<div class="text-[10px] text-[var(--text2)] mono truncate">' + (t.analyst || '') + '</div>' +
+        '</div>' +
+        '<span style="font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(' + (t.sentiment === 'BULLISH' ? '0,255,136' : t.sentiment === 'BEARISH' ? '255,68,68' : '136,136,136') + ',0.12);border:1px solid ' + sentimentColor + ';color:' + sentimentColor + ';font-family:JetBrains Mono,monospace;white-space:nowrap;">' + (t.sentiment || 'N/A') + '</span>' +
+      '</div>' +
+      '<div class="text-base font-bold mono" style="color:' + accentColor + ';">' + rangeStr + '</div>' +
+      '<div class="text-[10px] text-[var(--text2)] mono">' + (t.target_date || '') + ' · ' + (t.data_source || '') + '</div>' +
+      '<div class="text-[10px] text-[var(--text2)] leading-relaxed">' + (t.rationale || '') + '</div>' +
+    '</div>';
+  });
+  var cardsEl = document.getElementById('analyst-cards');
+  if (cardsEl) cardsEl.innerHTML = cards || makeEmptyState('🏦', 'No analyst targets available', false);
+}
+
 // --- COT ---
 function renderCOT() {
   var d = DATA.cot;
@@ -4694,6 +4884,86 @@ function renderCrisisAssets() {
   }
 }
 
+// --- BANK TARGETS ---
+function renderBankTargets() {
+  var d = DATA.bankTargets;
+  var container = document.getElementById('bank-targets-content');
+  if (!container) return;
+  if (!d || !d.targets || !d.targets.length) {
+    container.innerHTML = '<div class="text-xs mono text-[var(--text2)]">Data unavailable</div>';
+    return;
+  }
+
+  var currentPrice = DATA.price ? DATA.price.price : null;
+  var targets = d.targets;
+  var median = d.consensus_median;
+  var avg = d.consensus_avg;
+
+  var tierColor = { bull: '#00ff88', base: '#ffd700', bear: '#ff6666' };
+  var tierLabel = { bull: 'Bull', base: 'Base', bear: 'Bear' };
+
+  // Consensus summary row
+  var upside = currentPrice && median ? (((median - currentPrice) / currentPrice) * 100).toFixed(1) : null;
+  var html = '<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">';
+  html += '<div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">';
+  html += '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Median Target</div>';
+  html += '<div class="text-2xl font-bold mono text-[var(--gold)]">$' + fmt(median, 0) + '</div>';
+  if (upside) {
+    var upsideColor = parseFloat(upside) > 0 ? 'var(--green)' : 'var(--red)';
+    html += '<div class="text-xs mono mt-1" style="color:' + upsideColor + '">' + (parseFloat(upside) > 0 ? '+' : '') + upside + '% from spot</div>';
+  }
+  html += '</div>';
+  html += '<div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">';
+  html += '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Avg Target (' + d.count + ' banks)</div>';
+  html += '<div class="text-2xl font-bold mono text-[var(--gold)]">$' + fmt(avg, 0) + '</div>';
+  html += '</div>';
+  html += '<div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">';
+  html += '<div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Range</div>';
+  var lo = targets[targets.length - 1].target;
+  var hi = targets[0].target;
+  html += '<div class="text-2xl font-bold mono" style="color:#ccc">$' + fmtCompact(lo) + ' – $' + fmtCompact(hi) + '</div>';
+  html += '</div>';
+  html += '</div>';
+
+  // Target bar chart (horizontal bars)
+  html += '<div class="space-y-1">';
+  var maxTarget = targets[0].target;
+  targets.forEach(function(t) {
+    var pct = Math.round((t.target / maxTarget) * 100);
+    var color = tierColor[t.tier] || '#ffd700';
+    var isAboveSpot = currentPrice ? t.target > currentPrice : true;
+    var upsidePct = currentPrice ? (((t.target - currentPrice) / currentPrice) * 100).toFixed(1) : null;
+    html += '<div class="flex items-center gap-2" style="min-height:28px;">';
+    html += '<div class="text-[10px] mono text-right" style="color:#888;width:160px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + t.institution + '</div>';
+    html += '<div class="flex-1 relative" style="height:18px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden;">';
+    html += '<div style="width:' + pct + '%;height:100%;background:' + color + ';opacity:0.75;border-radius:3px;"></div>';
+    html += '</div>';
+    html += '<div class="text-[10px] font-bold mono" style="color:' + color + ';width:52px;flex-shrink:0;">$' + fmtCompact(t.target) + '</div>';
+    html += '<div class="text-[9px] mono" style="color:#555;width:70px;flex-shrink:0;">' + t.timeframe + '</div>';
+    if (upsidePct !== null) {
+      var upColor = parseFloat(upsidePct) > 0 ? 'var(--green)' : 'var(--red)';
+      html += '<div class="text-[9px] mono" style="color:' + upColor + ';width:50px;flex-shrink:0;">' + (parseFloat(upsidePct) > 0 ? '+' : '') + upsidePct + '%</div>';
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+
+  // Current price marker note
+  if (currentPrice) {
+    html += '<div class="text-[9px] mono mt-3 pt-3 border-t border-[var(--card-border)]" style="color:#555;">Spot: $' + fmt(currentPrice, 0) + ' · Last verified: ' + (d.last_verified || 'N/A') + ' · Targets updated when banks issue new research</div>';
+  }
+
+  // Legend
+  html += '<div class="flex gap-4 mt-3">';
+  ['bull', 'base', 'bear'].forEach(function(tier) {
+    html += '<div class="flex items-center gap-1"><div style="width:10px;height:10px;border-radius:2px;background:' + tierColor[tier] + ';opacity:0.75;"></div>';
+    html += '<span class="text-[9px] mono" style="color:#666;">' + tierLabel[tier] + '</span></div>';
+  });
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
 // --- HISTORICAL ---
 function renderHistorical() {
   var d = DATA.historical;
@@ -5063,6 +5333,7 @@ function renderDataQualityModal() {
     { section: 'Central Bank Reserves', freq: 'Quarterly (WGC)', source: 'World Gold Council Q4 2025 reports', reliability: 'estimate' },
     { section: 'Central Bank News', freq: 'Hourly', source: 'Google News RSS (CB keyword filter)', reliability: 'live' },
     { section: 'ETF Holdings', freq: 'Daily', source: 'yfinance prices + AUM tonne estimate', reliability: 'estimate' },
+    { section: 'Analyst Price Targets', freq: 'Quarterly', source: 'Published bank research notes + Google News RSS', reliability: 'estimate' },
     { section: 'COT Positioning', freq: 'Weekly (Fri, Tue data)', source: 'CFTC disaggregated futures report', reliability: 'live' },
     { section: 'COMEX Vault', freq: 'Monthly', source: 'COMEX vault reports (compiled)', reliability: 'estimate' },
     { section: 'Gold Lease Rate', freq: 'Static', source: 'Market estimates (LBMA requires subscription)', reliability: 'estimate' },

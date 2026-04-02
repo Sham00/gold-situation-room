@@ -2,10 +2,11 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 429.34,
-      "change": -10.06,
-      "change_pct": -2.29,
-      "tonnes_est": 870,
+      "price": 429.41,
+      "change": -9.99,
+      "change_pct": -2.27,
+      "tonnes_est": 740.1,
+      "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -0.5,
       "chart_1y": [
         {
@@ -1010,7 +1011,7 @@
         },
         {
           "t": "2026-04-02",
-          "v": 429.34
+          "v": 429.41
         }
       ]
     },
@@ -1019,7 +1020,8 @@
       "price": 87.94,
       "change": -2.02,
       "change_pct": -2.25,
-      "tonnes_est": 460,
+      "tonnes_est": 564.9,
+      "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 0.3,
       "chart_1y": [
         {
@@ -2033,7 +2035,8 @@
       "price": 35.39,
       "change": -0.94,
       "change_pct": -2.59,
-      "tonnes_est": 68,
+      "tonnes_est": 111.4,
+      "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 0.1,
       "chart_1y": [
         {
@@ -3048,6 +3051,7 @@
       "change": -1.21,
       "change_pct": -2.56,
       "tonnes_est": 18,
+      "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.0,
       "chart_1y": [
         {
@@ -4062,6 +4066,7 @@
       "change": -0.95,
       "change_pct": -2.09,
       "tonnes_est": 42,
+      "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.0,
       "chart_1y": [
         {
@@ -5071,12 +5076,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1458,
+  "total_holdings_tonnes_est": 1476.4,
   "data_quality": {
-    "source": "yfinance ETF prices (GLD, IAU, PHYS, BAR, SGOL). Tonnes estimated from AUM/gold price.",
+    "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
-    "notes": "Actual fund holdings from custodian reports lag 1 day. Daily tonne changes are estimates based on price movement."
+    "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-04-02T20:26:27Z"
+  "last_updated": "2026-04-02T20:48:34Z"
 }

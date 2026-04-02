@@ -1,7 +1,7 @@
 {
   "assets": {
     "Gold": {
-      "ytd_pct": 8.93,
+      "ytd_pct": 8.89,
       "color": "#ffd700",
       "chart": [
         {
@@ -254,12 +254,12 @@
         },
         {
           "t": "2026-04-02",
-          "v": 108.93
+          "v": 108.89
         }
       ]
     },
     "Bitcoin": {
-      "ytd_pct": -24.59,
+      "ytd_pct": -24.48,
       "color": "#ff8800",
       "chart": [
         {
@@ -628,12 +628,12 @@
         },
         {
           "t": "2026-04-02",
-          "v": 75.41
+          "v": 75.52
         }
       ]
     },
     "Silver": {
-      "ytd_pct": 3.36,
+      "ytd_pct": 3.62,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -886,7 +886,7 @@
         },
         {
           "t": "2026-04-02",
-          "v": 103.36
+          "v": 103.62
         }
       ]
     },
@@ -1149,7 +1149,7 @@
       ]
     },
     "VIX": {
-      "ytd_pct": 65.27,
+      "ytd_pct": 64.51,
       "color": "#ff4444",
       "chart": [
         {
@@ -1402,12 +1402,12 @@
         },
         {
           "t": "2026-04-02",
-          "v": 165.27
+          "v": 164.51
         }
       ]
     },
     "DXY": {
-      "ytd_pct": 1.63,
+      "ytd_pct": 1.62,
       "color": "#aa44ff",
       "chart": [
         {
@@ -1660,7 +1660,7 @@
         },
         {
           "t": "2026-04-02",
-          "v": 101.63
+          "v": 101.62
         }
       ]
     }
@@ -1671,5 +1671,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison."
   },
-  "last_updated": "2026-04-02T20:26:55Z"
+  "last_updated": "2026-04-02T20:49:01Z"
 }

@@ -43,33 +43,33 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4699.0
+      "price": 4698.0
     }
   ],
   "decade_returns": [
     {
       "decade": "1970s",
-      "avg_annual_return": 30.7
+      "avg_annual_return": 33.5
     },
     {
       "decade": "1980s",
-      "avg_annual_return": -3.6
+      "avg_annual_return": -4.9
     },
     {
       "decade": "1990s",
-      "avg_annual_return": -4.1
+      "avg_annual_return": -3.8
     },
     {
       "decade": "2000s",
-      "avg_annual_return": 14.2
+      "avg_annual_return": 14.6
     },
     {
       "decade": "2010s",
-      "avg_annual_return": 3.4
+      "avg_annual_return": 3.9
     },
     {
       "decade": "2020s (so far)",
-      "avg_annual_return": 15.8
+      "avg_annual_return": 19.9
     }
   ],
   "timeline_chart": [
@@ -1247,7 +1247,7 @@
     },
     {
       "t": "2026-04-01",
-      "v": 4698.7
+      "v": 4697.9
     }
   ],
   "seasonal_monthly": [
@@ -1330,5 +1330,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history."
   },
-  "last_updated": "2026-04-02T20:26:51Z"
+  "last_updated": "2026-04-02T20:48:56Z"
 }
