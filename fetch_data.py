@@ -2785,6 +2785,67 @@ def fetch_market_intelligence():
     except Exception as e:
         print(f"  MI signal scan error: {e}")
 
+    # 5. Dynamic technical signals from price.json
+    try:
+        import json, os
+        price_path = os.path.join(os.path.dirname(__file__), "data", "price.json")
+        with open(price_path) as f:
+            pd_tech = json.load(f)
+        
+        rsi = pd_tech.get("rsi")
+        ma50_signal = pd_tech.get("ma50_signal")
+        ma200_signal = pd_tech.get("ma200_signal")
+        current_price = pd_tech.get("price")
+        ma50 = pd_tech.get("ma50")
+        ma200 = pd_tech.get("ma200")
+        ytd_pct = pd_tech.get("ytd_change_pct")
+
+        # RSI oversold/overbought signals
+        if rsi is not None:
+            if rsi < 35:
+                alerts.append({
+                    "type": "rsi_oversold",
+                    "headline": f"📉 RSI OVERSOLD: Gold RSI at {rsi:.1f} — historically strong mean-reversion buy zone",
+                    "detail": f"RSI below 35 has historically preceded gold bounces. Current RSI: {rsi:.1f}",
+                    "significance": "high",
+                    "ts": now_str,
+                    "link": "",
+                })
+            elif rsi > 75:
+                alerts.append({
+                    "type": "rsi_overbought",
+                    "headline": f"📈 RSI OVERBOUGHT: Gold RSI at {rsi:.1f} — caution zone for short-term pullback risk",
+                    "detail": f"RSI above 75 signals short-term overextension. Current RSI: {rsi:.1f}",
+                    "significance": "medium",
+                    "ts": now_str,
+                    "link": "",
+                })
+
+        # MA crossover signals
+        if ma50_signal == "below" and ma50 and current_price:
+            alerts.append({
+                "type": "ma50_break",
+                "headline": f"⚠️ BELOW 50-DAY MA: Gold at ${current_price:,.0f} trading under 50-DMA (${ma50:,.0f}) — watch for support",
+                "detail": "Price below 50-day moving average can signal short-term bearish momentum.",
+                "significance": "medium",
+                "ts": now_str,
+                "link": "",
+            })
+        
+        # YTD correction signals
+        if ytd_pct is not None and ytd_pct < -10:
+            alerts.append({
+                "type": "ytd_correction",
+                "headline": f"📊 YTD CORRECTION: Gold down {abs(ytd_pct):.1f}% YTD — positioning for potential reversal",
+                "detail": f"Gold has corrected {abs(ytd_pct):.1f}% YTD. Historical corrections of this magnitude have often preceded renewed buying.",
+                "significance": "high",
+                "ts": now_str,
+                "link": "",
+            })
+
+    except Exception as e:
+        print(f"  MI tech signals error: {e}")
+
     # Deduplicate, filter stale (>30 days), and cap at 10 alerts
     seen_headlines = set()
     unique_alerts = []

@@ -2347,12 +2347,14 @@ function renderMarketAlerts() {
   var typeColors = {
     cb_buying: '#00ff88', cb_selling: '#ff4444', etf_inflow: '#00ff88',
     etf_outflow: '#ff4444', lease_spike: '#ffaa00', backwardation: '#ffd700',
-    tariff_catalyst: '#ffd700',
+    tariff_catalyst: '#ffd700', rsi_oversold: '#4488ff', rsi_overbought: '#ff8844',
+    ma50_break: '#ff8844', ytd_correction: '#ff8844',
   };
   var typeLabels = {
     cb_buying: 'CB BUYING', cb_selling: 'CB SELLING', etf_inflow: 'ETF INFLOW',
     etf_outflow: 'ETF OUTFLOW', lease_spike: 'LEASE SPIKE', backwardation: 'BACKWARDATION',
-    tariff_catalyst: '⚡ TARIFF',
+    tariff_catalyst: '⚡ TARIFF', rsi_oversold: '📉 RSI', rsi_overbought: '📈 RSI',
+    ma50_break: '⚠️ MA50', ytd_correction: '📊 YTD',
   };
   list.innerHTML = d.alerts.slice(0, 5).map(function(a) {
     var color = typeColors[a.type] || '#ffaa00';
