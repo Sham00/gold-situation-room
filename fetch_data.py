@@ -506,7 +506,7 @@ def _fetch_imf_raw():
         f"/CompactData/IFS/M.{codes}.RAFAGOLD_USD"
     )
     print(f"  IMF API request: {url[:100]}...")
-    r = requests.get(url, timeout=30, headers={"Accept": "application/json"})
+    r = requests.get(url, timeout=60, headers={"Accept": "application/json"})
     r.raise_for_status()
     data = r.json()
 
@@ -625,6 +625,525 @@ def fetch_imf_cb_reserves():
     except Exception as e:
         print(f"  IMF cache write error: {e}")
 
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Trading Economics scraper — single-request, parse HTML table
+# ---------------------------------------------------------------------------
+
+# Maps Trading Economics country names → our dashboard names (where different)
+_TE_NAME_MAP = {
+    "United States": "United States",
+    "Germany": "Germany",
+    "Italy": "Italy",
+    "France": "France",
+    "Russia": "Russia",
+    "China": "China",
+    "Switzerland": "Switzerland",
+    "India": "India",
+    "Japan": "Japan",
+    "Turkey": "Turkey",
+    "Netherlands": "Netherlands",
+    "Poland": "Poland",
+    "Uzbekistan": "Uzbekistan",
+    "United Kingdom": "United Kingdom",
+    "Kazakhstan": "Kazakhstan",
+    "Singapore": "Singapore",
+    "Brazil": "Brazil",
+    "South Africa": "South Africa",
+    "Australia": "Australia",
+    "Czech Republic": "Czech Republic",
+}
+
+def _parse_te_reference_date(ref_str):
+    """
+    Convert 'Dec/25' → '2025-12', 'Sep/25' → '2025-09', etc.
+    Returns 'YYYY-MM' string or None on failure.
+    """
+    import calendar
+    month_abbr = {m.lower(): f"{i:02d}" for i, m in enumerate(calendar.month_abbr) if m}
+    try:
+        parts = ref_str.strip().split("/")
+        if len(parts) != 2:
+            return None
+        mon_str, yr_str = parts
+        mon = month_abbr.get(mon_str.lower())
+        if not mon:
+            return None
+        year = int(yr_str)
+        year = 2000 + year if year < 100 else year
+        return f"{year}-{mon}"
+    except Exception:
+        return None
+
+
+def fetch_trading_economics_cb():
+    """
+    Scrape Trading Economics gold reserves table.
+    Returns dict: country_name → {reserves_tonnes, as_of_date}.
+    Returns {} on failure.
+    """
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print("  [TE] BeautifulSoup not available")
+        return {}
+    try:
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+        }
+        r = requests.get(
+            "https://tradingeconomics.com/country-list/gold-reserves",
+            timeout=15,
+            headers=headers,
+        )
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "html.parser")
+        table = soup.find("table")
+        if not table:
+            print("  [TE] No table found in response")
+            return {}
+
+        result = {}
+        our_countries = set(_TE_NAME_MAP.keys())
+        for row in table.find_all("tr")[1:]:  # skip header
+            cells = [td.get_text(strip=True) for td in row.find_all("td")]
+            if len(cells) < 4:
+                continue
+            country_raw, last_val, _prev, ref_str = cells[0], cells[1], cells[2], cells[3]
+            if country_raw not in our_countries:
+                continue
+            try:
+                tonnes = float(last_val.replace(",", ""))
+            except (ValueError, TypeError):
+                continue
+            as_of = _parse_te_reference_date(ref_str)
+            result[_TE_NAME_MAP[country_raw]] = {
+                "reserves_tonnes": round(tonnes, 1),
+                "as_of_date": as_of or "",
+            }
+
+        print(f"  [TE] Got data for {len(result)} countries")
+        return result
+    except Exception as e:
+        print(f"  [TE] Error: {e}")
+        return {}
+
+
+# ---------------------------------------------------------------------------
+# Multi-source CB reserve pipeline
+# ---------------------------------------------------------------------------
+
+def fetch_central_banks_multi_source():
+    """
+    # Source results from run on 2026-04-02:
+    # {
+    #   "United States": "Trading Economics (2025-12)",
+    #   "Germany": "Trading Economics (2025-12)",
+    #   "Italy": "Trading Economics (2025-12)",
+    #   "France": "Trading Economics (2025-12)",
+    #   "Russia": "Trading Economics (2025-12)",
+    #   "China": "Trading Economics (2025-12)",
+    #   "Switzerland": "Trading Economics (2025-12)",
+    #   "India": "Trading Economics (2025-12)",
+    #   "Japan": "Trading Economics (2025-12)",
+    #   "Turkey": "Trading Economics (2025-12)",
+    #   "Netherlands": "Trading Economics (2025-12)",
+    #   "Poland": "Trading Economics (2025-12)",
+    #   "Uzbekistan": "Trading Economics (2025-12)",
+    #   "Kazakhstan": "Trading Economics (2025-12)",
+    #   "United Kingdom": "Trading Economics (2025-12)",
+    #   "Singapore": "Trading Economics (2025-12)",
+    #   "Brazil": "Trading Economics (2025-12)",
+    #   "South Africa": "Trading Economics (2025-12)",
+    #   "Australia": "Trading Economics (2025-12)",
+    #   "Czech Republic": "Trading Economics (2025-12)"
+    # }
+    # IMF IFS API: times out on this network (ConnectTimeout). TE: 20/20 countries.
+    # WGC: HTTP 404. Macrotrends: data loaded via AJAX (no static embed).
+
+    Multi-source CB reserve data pipeline. Tries sources in priority order
+    and picks the most recent data per country:
+      1. IMF IFS API  (gives history, may timeout)
+      2. Trading Economics HTML scrape  (fast, all 20 countries, current data)
+      3. WGC page (attempted, often 403/404)
+      4. Hardcoded fallback
+
+    Selection: most recent as_of_date wins.
+    Tiebreak priority: IMF > Trading Economics > hardcoded.
+    Returns the same structure as fetch_central_banks() writes to central_banks.json,
+    but also returns it as a value (for the test harness).
+    """
+    import concurrent.futures
+
+    print("Fetching central bank data (multi-source)...")
+
+    # --- Run sources concurrently ---
+    imf_result = {}
+    te_result = {}
+
+    def _run_imf():
+        try:
+            data = fetch_imf_cb_reserves()
+            return data or {}
+        except Exception as e:
+            print(f"  [IMF] fetch error: {e}")
+            return {}
+
+    def _run_te():
+        return fetch_trading_economics_cb()
+
+    def _run_wgc():
+        """Attempt WGC page — expected to 403/404 but worth trying."""
+        try:
+            r = requests.get(
+                "https://www.gold.org/goldhub/data/gold-reserves",
+                timeout=10,
+                headers={"User-Agent": "Mozilla/5.0 (compatible; GoldBot/1.0)"},
+            )
+            if r.status_code == 200:
+                print("  [WGC] Got 200 — but no parser implemented (JS-rendered)")
+            else:
+                print(f"  [WGC] HTTP {r.status_code} — skipping")
+        except Exception as e:
+            print(f"  [WGC] Error: {e}")
+        return {}
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+        fut_imf = pool.submit(_run_imf)
+        fut_te = pool.submit(_run_te)
+        fut_wgc = pool.submit(_run_wgc)
+        imf_result = fut_imf.result()
+        te_result = fut_te.result()
+        fut_wgc.result()  # discard — just for the log
+
+    if imf_result:
+        print(f"  [IMF LIVE] Got data for {len(imf_result)} countries")
+    else:
+        print("  [IMF] API unavailable — relying on Trading Economics + hardcoded")
+
+    # --- Hardcoded base reserves (fallback / pct_of_reserves source) ---
+    _hardcoded = [
+        {"country": "United States", "reserves_tonnes": 8133, "pct_of_reserves": 71.3, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Germany", "reserves_tonnes": 3352, "pct_of_reserves": 68.7, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Italy", "reserves_tonnes": 2452, "pct_of_reserves": 65.5, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "France", "reserves_tonnes": 2437, "pct_of_reserves": 67.2, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Russia", "reserves_tonnes": 2335, "pct_of_reserves": 28.1, "change_ytd": -36, "last_month_change": -12, "status": "selling", "as_of_date": "2025-12"},
+        {"country": "China", "reserves_tonnes": 2280, "pct_of_reserves": 5.4, "change_ytd": 15, "last_month_change": 5, "status": "buying", "as_of_date": "2025-12"},
+        {"country": "Switzerland", "reserves_tonnes": 1040, "pct_of_reserves": 6.1, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "India", "reserves_tonnes": 876, "pct_of_reserves": 10.2, "change_ytd": 15, "last_month_change": 5, "status": "buying", "as_of_date": "2025-12"},
+        {"country": "Japan", "reserves_tonnes": 846, "pct_of_reserves": 4.6, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Netherlands", "reserves_tonnes": 612, "pct_of_reserves": 59.2, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Turkey", "reserves_tonnes": 613, "pct_of_reserves": 34.1, "change_ytd": -28, "last_month_change": -27, "status": "selling", "as_of_date": "2025-12"},
+        {"country": "Poland", "reserves_tonnes": 420, "pct_of_reserves": 16.4, "change_ytd": 0, "last_month_change": 0, "status": "sell_watch", "as_of_date": "2025-12"},
+        {"country": "Uzbekistan", "reserves_tonnes": 380, "pct_of_reserves": 72.1, "change_ytd": 10, "last_month_change": 2, "status": "buying", "as_of_date": "2025-12"},
+        {"country": "United Kingdom", "reserves_tonnes": 310, "pct_of_reserves": 10.5, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Kazakhstan", "reserves_tonnes": 295, "pct_of_reserves": 68.2, "change_ytd": 24, "last_month_change": 8, "status": "buying", "as_of_date": "2025-12"},
+        {"country": "Singapore", "reserves_tonnes": 225, "pct_of_reserves": 4.5, "change_ytd": 3, "last_month_change": 1, "status": "buying", "as_of_date": "2025-12"},
+        {"country": "Brazil", "reserves_tonnes": 130, "pct_of_reserves": 2.8, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "South Africa", "reserves_tonnes": 125, "pct_of_reserves": 13.1, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Australia", "reserves_tonnes": 80, "pct_of_reserves": 6.2, "change_ytd": 0, "last_month_change": 0, "status": "unchanged", "as_of_date": "2025-12"},
+        {"country": "Czech Republic", "reserves_tonnes": 45, "pct_of_reserves": 3.9, "change_ytd": 6, "last_month_change": 2, "status": "buying", "as_of_date": "2025-12"},
+    ]
+
+    _pct = {r["country"]: r["pct_of_reserves"] for r in _hardcoded}
+    reserves = []
+
+    # Selection: for each country, pick best available source by most recent date.
+    # Tiebreak: IMF > TE > hardcoded.
+    for base in _hardcoded:
+        country = base["country"]
+        chosen = dict(base)  # start with hardcoded
+        chosen["data_source"] = "hardcoded"
+
+        imf = imf_result.get(country)
+        te = te_result.get(country)
+
+        # Build candidate list: (as_of_date, priority, data_dict, source_name)
+        # Priority: lower = preferred on tie (0=IMF, 1=TE, 2=hardcoded)
+        candidates = [("2025-12", 2, base, "hardcoded")]
+
+        if te:
+            candidates.append((te["as_of_date"] or "2025-12", 1, te, "Trading Economics"))
+
+        if imf:
+            imf_hist = imf.get("history", [])
+            imf_date = imf_hist[-1]["date"] if imf_hist else "2000-01"
+            candidates.append((imf_date, 0, imf, "IMF IFS API"))
+
+        # Pick best: most recent date (desc), then lowest priority number on tie (asc)
+        candidates.sort(key=lambda x: (x[0].replace("-", ""), -x[1]), reverse=True)
+        best_date, best_prio, best_data, best_source = candidates[0]
+
+        # Build merged entry
+        entry = {
+            "country": country,
+            "pct_of_reserves": _pct.get(country, base["pct_of_reserves"]),
+            "data_source": f"{best_source} ({best_date})",
+            "as_of_date": best_date,
+        }
+
+        if best_source == "IMF IFS API":
+            entry["reserves_tonnes"] = best_data["reserves_tonnes"]
+            entry["last_month_change"] = best_data["last_month_change"]
+            entry["change_ytd"] = best_data["change_ytd"]
+            entry["status"] = best_data["status"]
+            entry["_imf_history"] = best_data.get("history")
+        elif best_source == "Trading Economics":
+            entry["reserves_tonnes"] = best_data["reserves_tonnes"]
+            # Compute changes vs hardcoded for TE (TE gives no change data)
+            hc = base
+            entry["last_month_change"] = round(best_data["reserves_tonnes"] - hc["reserves_tonnes"], 1)
+            entry["change_ytd"] = hc["change_ytd"]  # keep hardcoded YTD estimate
+            # Derive status from delta
+            delta = entry["last_month_change"]
+            if delta < -20:
+                entry["status"] = "sell_watch"
+            elif delta < -2:
+                entry["status"] = "selling"
+            elif delta > 2:
+                entry["status"] = "buying"
+            else:
+                entry["status"] = hc["status"]  # preserve hardcoded status when change is small
+        else:  # hardcoded
+            entry["reserves_tonnes"] = base["reserves_tonnes"]
+            entry["last_month_change"] = base["last_month_change"]
+            entry["change_ytd"] = base["change_ytd"]
+            entry["status"] = base["status"]
+
+        reserves.append(entry)
+
+    reserves.sort(key=lambda x: x["reserves_tonnes"], reverse=True)
+
+    # --- History arrays ---
+    _months = ["{:04d}-{:02d}".format(2022 + i // 12, (i % 12) + 1) for i in range(52)]
+    _annotations = {
+        "China": [
+            {"date": "2022-07", "label": "PBOC accelerates buying"},
+            {"date": "2024-05", "label": "PBOC pauses gold buying"},
+            {"date": "2024-12", "label": "PBOC resumes buying"},
+        ],
+        "India": [
+            {"date": "2023-06", "label": "RBI repatriates overseas gold"},
+            {"date": "2024-01", "label": "India surpasses 800t"},
+        ],
+        "Turkey": [
+            {"date": "2023-01", "label": "TCMB begins selling (fiscal pressure)"},
+            {"date": "2023-06", "label": "40t sold in 2 months"},
+            {"date": "2023-07", "label": "Buyback program begins"},
+            {"date": "2024-04", "label": "Turkey recovery high"},
+            {"date": "2026-02", "label": "Renewed selling — defense budget"},
+        ],
+        "Poland": [
+            {"date": "2022-06", "label": "NBP 100t target announced"},
+            {"date": "2023-09", "label": "Poland hits 300t milestone"},
+            {"date": "2024-04", "label": "NBP reaches 400t milestone"},
+            {"date": "2026-02", "label": "NBP proposes $13B gold sale"},
+        ],
+        "Russia": [
+            {"date": "2022-03", "label": "Western sanctions freeze $300B reserves"},
+        ],
+        "Kazakhstan": [
+            {"date": "2023-01", "label": "NBK mandated accumulation programme"},
+        ],
+        "Czech Republic": [
+            {"date": "2022-01", "label": "CNB begins gold accumulation"},
+            {"date": "2024-01", "label": "Reaches 40t milestone"},
+        ],
+        "Singapore": [
+            {"date": "2022-04", "label": "MAS steady accumulation"},
+            {"date": "2024-06", "label": "Singapore surpasses 220t"},
+        ],
+    }
+    _deltas = {
+        "United States":  [0.0] * 52,
+        "Germany":        [0.0] * 52,
+        "Italy":          [0.0] * 52,
+        "France":         [0.0] * 52,
+        "Switzerland":    [0.0] * 52,
+        "Japan":          [0.0] * 52,
+        "Netherlands":    [0.0] * 52,
+        "United Kingdom": [0.0] * 52,
+        "Brazil":         [0.0] * 52,
+        "South Africa":   [0.0] * 52,
+        "Australia":      [0.0] * 52,
+        "Russia":    [2.0] * 12 + [0.33] * 40,
+        "China":     [8.0] * 28 + [0.0] * 7 + [5.6] * 17,
+        "India":     [2.0] * 12 + [3.0] * 12 + [3.0] * 12 + [1.25] * 16,
+        "Turkey":    [7.0] * 12 + [-25.0] * 6 + [15.0] * 6 + [6.0] * 12 + [-2.0] * 12 + [-1.25] * 4,
+        "Poland":    [5.0] * 12 + [8.0] * 12 + [3.0] * 12 + [0.0] * 16,
+        "Uzbekistan": [
+            1.5, -0.5, 1.5, -0.5, 1.5, -0.5, 1.5, -0.5, 1.5, -0.5, 1.5, -0.5,
+            -1.0,  2.0, -2.0,  3.0, -2.0,  2.0, -1.0,  3.0, -2.0,  2.0, -1.0,  2.0,
+             2.0, -1.0,  2.0, -1.0,  2.0, -1.0,  2.0, -1.0,  2.0, -1.0,  2.0, -1.0,
+             1.0,  0.0,  1.0, -1.0,  1.0,  0.0,  1.0, -1.0,  1.0,  0.0,  1.0, -1.0,
+             1.0,  0.0,  1.0, -1.0,
+        ],
+        "Kazakhstan":    [0.48] * 52,
+        "Singapore":     [2.0] * 12 + [2.0] * 12 + [1.5] * 12 + [0.3] * 16,
+        "Czech Republic": [1.5] * 12 + [0.8] * 12 + [0.4] * 12 + [0.0] * 16,
+    }
+    _starts = {
+        "United States": 8133.0, "Germany": 3352.0, "Italy": 2452.0, "France": 2437.0,
+        "Switzerland": 1040.0, "Japan": 846.0, "Netherlands": 612.0,
+        "United Kingdom": 310.0, "Brazil": 130.0, "South Africa": 125.0, "Australia": 80.0,
+        "Russia": 2298.0, "China": 1960.0, "India": 760.0, "Turkey": 546.0,
+        "Poland": 228.0, "Uzbekistan": 358.0, "Kazakhstan": 270.0,
+        "Singapore": 154.0, "Czech Republic": 12.0,
+    }
+    for r in reserves:
+        country = r["country"]
+        imf_hist = r.pop("_imf_history", None)
+        if imf_hist:
+            r["history"] = imf_hist
+        else:
+            deltas = _deltas.get(country, [0.0] * 52)
+            start = _starts.get(country, float(r["reserves_tonnes"]))
+            pts = []
+            v = start
+            for i in range(52):
+                pts.append({"date": _months[i], "tonnes": round(v, 1)})
+                if i < len(deltas):
+                    v += deltas[i]
+            r["history"] = pts
+        r["annotations"] = _annotations.get(country, [])
+
+    # --- Summary log ---
+    print("  Source summary:")
+    for r in reserves:
+        print(f"    {r['country']}: {r['data_source']}")
+
+    # --- CB annual / pace stats ---
+    total_ytd_buying = sum(r["change_ytd"] for r in reserves if r["change_ytd"] > 0)
+    months_elapsed = max(1, datetime.now(timezone.utc).month)
+    net_monthly_pace = round(total_ytd_buying / months_elapsed, 1)
+    cb_annual = {
+        "10Y_average": 500,
+        "2020": 255, "2021": 450, "2022": 1082, "2023": 1037, "2024": 1045, "2025": 980,
+        "2026_annualized": round(total_ytd_buying / months_elapsed * 12),
+    }
+    pace_vs_avg = round(cb_annual["2026_annualized"] / cb_annual["10Y_average"], 1)
+
+    # --- CB news (same logic as before) ---
+    cb_news = []
+    cb_kw = [
+        "turkey", "turkish central bank", "tcmb",
+        "china", "pboc", "people's bank of china",
+        "india", "reserve bank of india", "rbi",
+        "poland", "nbp", "national bank of poland",
+        "singapore", "mas",
+        "russia", "kazakhstan", "uzbekistan",
+        "czech republic", "czech national bank",
+        "hungary", "mnb", "iraq", "central bank of iraq",
+        "philippines", "bsp", "qatar", "qatar central bank",
+        "saudi arabia", "sama", "egypt", "central bank of egypt",
+        "iran", "venezuela", "germany", "bundesbank",
+        "imf", "bis", "bank for international settlements",
+        "central bank", "gold reserve", "gold reserves", "wgc",
+        "tonnes", "reserve bank", "buying gold", "selling gold", "de-dollarization",
+    ]
+    cb_feeds = [
+        ("Google News CB", "https://news.google.com/rss/search?q=central+bank+gold+reserves+buying+selling&hl=en-US&gl=US&ceid=US:en"),
+        ("Google News Turkey Gold", "https://news.google.com/rss/search?q=turkey+central+bank+gold+TCMB+reserves&hl=en-US&gl=US&ceid=US:en"),
+        ("Google News PBOC Gold", "https://news.google.com/rss/search?q=PBOC+china+gold+reserves+central+bank&hl=en-US&gl=US&ceid=US:en"),
+        ("Reuters CB", "https://feeds.reuters.com/reuters/businessNews"),
+        ("WGC News", "https://www.gold.org/goldhub/gold-news/rss"),
+    ]
+    headers_cb = {"User-Agent": "Mozilla/5.0 (compatible; GoldBot/1.0)"}
+    pos_kw = ["buying", "purchase", "increase", "reserve", "inflows", "strong demand", "add"]
+    neg_kw = ["selling", "sold", "reduce", "decrease", "outflows", "divest", "cut"]
+    try:
+        import feedparser as _fp
+        seen_cb = set()
+        for src, url in cb_feeds:
+            try:
+                feed = _fp.parse(url, request_headers=headers_cb)
+                for entry in feed.entries[:30]:
+                    title = entry.get("title", "")
+                    tl = title.lower()
+                    if not any(k in tl for k in cb_kw):
+                        continue
+                    if title in seen_cb:
+                        continue
+                    seen_cb.add(title)
+                    sent = "positive" if any(k in tl for k in pos_kw) else ("negative" if any(k in tl for k in neg_kw) else "neutral")
+                    cb_news.append({
+                        "title": title,
+                        "link": entry.get("link", ""),
+                        "source": src,
+                        "published": entry.get("published", entry.get("updated", "")),
+                        "sentiment": sent,
+                    })
+            except Exception as e:
+                print(f"  CB news feed {src} error: {e}")
+        cb_news.sort(key=lambda x: x.get("published", ""), reverse=True)
+        cb_news = cb_news[:5]
+    except Exception as e:
+        print(f"  CB news scan error: {e}")
+
+    # Determine overall source label for data_quality block
+    sources_used = set()
+    for r in reserves:
+        ds = r.get("data_source", "")
+        if "IMF" in ds:
+            sources_used.add("IMF IFS API")
+        elif "Trading Economics" in ds:
+            sources_used.add("Trading Economics")
+        else:
+            sources_used.add("hardcoded")
+
+    if "IMF IFS API" in sources_used:
+        source_str = "IMF IFS API live + Trading Economics (multi-source)"
+        dq = {
+            "source": "IMF IFS API (RAFAGOLD_USD) + Trading Economics scrape",
+            "freshness": "monthly",
+            "reliability": "official+live",
+            "notes": (
+                "Multi-source pipeline: IMF IFS API preferred for history, "
+                "Trading Economics for current spot data. "
+                "pct_of_reserves from WGC hardcoded estimates. "
+                "data_source field per country shows which source won."
+            ),
+        }
+    elif "Trading Economics" in sources_used:
+        source_str = "Trading Economics (multi-source, IMF unavailable)"
+        dq = {
+            "source": "Trading Economics HTML scrape",
+            "freshness": "monthly",
+            "reliability": "live",
+            "notes": (
+                "IMF API unavailable. Using Trading Economics current data. "
+                "History arrays from hardcoded WGC/IMF estimates. "
+                "pct_of_reserves from WGC hardcoded estimates."
+            ),
+        }
+    else:
+        source_str = "hardcoded WGC estimates (all live sources unavailable)"
+        dq = {
+            "source": "hardcoded estimates based on WGC quarterly reports",
+            "freshness": "quarterly",
+            "reliability": "estimate",
+            "notes": "All live sources unavailable. Data from WGC quarterly reports.",
+        }
+
+    result = {
+        "reserves": reserves,
+        "net_monthly_pace_tonnes": net_monthly_pace,
+        "total_cb_buying_ytd": total_ytd_buying,
+        "cb_annual": cb_annual,
+        "pace_vs_avg": pace_vs_avg,
+        "source": source_str,
+        "cb_news": cb_news,
+        "data_quality": dq,
+    }
+    write_json("central_banks.json", result)
     return result
 
 
@@ -1952,7 +2471,7 @@ def main():
     fetchers = [
         ("price", fetch_price),
         ("ratios", fetch_ratios),
-        ("central_banks", fetch_central_banks),
+        ("central_banks", fetch_central_banks_multi_source),
         ("etfs", fetch_etfs),
         ("macro", fetch_macro),
         ("miners", fetch_miners),
