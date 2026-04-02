@@ -2347,15 +2347,23 @@ function renderMarketAlerts() {
   var typeColors = {
     cb_buying: '#00ff88', cb_selling: '#ff4444', etf_inflow: '#00ff88',
     etf_outflow: '#ff4444', lease_spike: '#ffaa00', backwardation: '#ffd700',
+    tariff_catalyst: '#ffd700',
   };
-  list.innerHTML = d.alerts.slice(0, 3).map(function(a) {
+  var typeLabels = {
+    cb_buying: 'CB BUYING', cb_selling: 'CB SELLING', etf_inflow: 'ETF INFLOW',
+    etf_outflow: 'ETF OUTFLOW', lease_spike: 'LEASE SPIKE', backwardation: 'BACKWARDATION',
+    tariff_catalyst: '⚡ TARIFF',
+  };
+  list.innerHTML = d.alerts.slice(0, 5).map(function(a) {
     var color = typeColors[a.type] || '#ffaa00';
+    var isCritical = a.significance === 'critical';
     var ts = '';
     try { ts = a.ts ? new Date(a.ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''; } catch(e) {}
-    var tag = a.type.replace('_', ' ').toUpperCase();
-    return '<div class="flex items-start gap-2">' +
+    var tag = typeLabels[a.type] || a.type.replace(/_/g, ' ').toUpperCase();
+    var criticalStyle = isCritical ? 'border-left:2px solid #ffd700;padding-left:6px;background:rgba(255,215,0,0.04);border-radius:3px;' : '';
+    return '<div class="flex items-start gap-2" style="' + criticalStyle + '">' +
       '<span class="text-[9px] mono px-1 rounded" style="background:rgba(255,170,0,0.15);color:' + color + ';white-space:nowrap;flex-shrink:0;">' + tag + '</span>' +
-      '<span class="text-[10px] mono" style="color:#ddd;">' + a.headline + '</span>' +
+      '<span class="text-[10px] mono" style="color:' + (isCritical ? '#fff' : '#ddd') + ';">' + a.headline + '</span>' +
       (ts ? '<span class="text-[9px] mono" style="color:#555;flex-shrink:0;">' + ts + '</span>' : '') +
       '</div>';
   }).join('');
@@ -2609,6 +2617,7 @@ function renderHeader() {
 function renderKeyStatsBanner() {
   var p = DATA.price;
   var at = DATA.analystTargets;
+  var bt = DATA.bankTargets;
   if (!p) return;
 
   var price = p.price;
@@ -2619,7 +2628,8 @@ function renderKeyStatsBanner() {
   var athDate = p.ath_date;
   var daysSince = p.days_since_ath;
   var pctBelow = p.pct_below_ath;
-  var consensusMid = at && at.consensus_mid ? at.consensus_mid : null;
+  // Prefer bank_targets consensus_median (more complete, 19 banks), fall back to analyst_targets
+  var consensusMid = (bt && bt.consensus_median) ? bt.consensus_median : (at && at.consensus_mid ? at.consensus_mid : null);
 
   var ksPrice = document.getElementById('ks-price');
   var ksChange = document.getElementById('ks-change');

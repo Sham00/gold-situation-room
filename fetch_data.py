@@ -2722,7 +2722,40 @@ def fetch_market_intelligence():
     except Exception as e:
         print(f"  MI ETF scan error: {e}")
 
-    # 3. Check existing price.json for backwardation signal
+    # 3. Scan for tariff / trade war / macro catalysts (major gold drivers)
+    try:
+        tariff_feeds = [
+            "https://news.google.com/rss/search?q=gold+tariff+trade+war+safe+haven&hl=en-US&gl=US&ceid=US:en",
+            "https://news.google.com/rss/search?q=gold+price+tariff+dollar+inflation&hl=en-US&gl=US&ceid=US:en",
+            "https://news.google.com/rss/search?q=gold+liberation+day+tariff+performance&hl=en-US&gl=US&ceid=US:en",
+        ]
+        tariff_kw = ["tariff", "trade war", "liberation day", "reciprocal tariff", "import duty", "trade policy", "precious metals", "safe-haven", "safe haven"]
+        gold_kw = ["gold", "xau", "bullion", "precious metal", "safe haven", "precious metals"]
+        seen_tariff = set()
+        for tariff_url in tariff_feeds:
+            tariff_feed = _fp.parse(tariff_url, request_headers=headers_mi)
+            for entry in tariff_feed.entries[:15]:
+                title = entry.get("title", "")
+                tl = title.lower()
+                if not any(k in tl for k in tariff_kw):
+                    continue
+                if not any(k in tl for k in gold_kw):
+                    continue
+                if title in seen_tariff:
+                    continue
+                seen_tariff.add(title)
+                alerts.append({
+                    "type": "tariff_catalyst",
+                    "headline": title,
+                    "detail": "",
+                    "significance": "high",
+                    "ts": entry.get("published", now_str),
+                    "link": entry.get("link", ""),
+                })
+    except Exception as e:
+        print(f"  MI tariff scan error: {e}")
+
+    # 4. Check existing price.json for backwardation signal
     try:
         import json, os
         price_path = os.path.join(os.path.dirname(__file__), "data", "price.json")
@@ -2773,6 +2806,28 @@ def fetch_market_intelligence():
             except Exception:
                 pass  # Keep alerts with unparseable timestamps
             unique_alerts.append(a)
+
+    # Inject pinned catalysts: static high-importance events that should always show
+    pinned_alerts = []
+    from datetime import timezone as _tz
+    _now = datetime.now(timezone.utc)
+    # Liberation Day tariffs (Apr 2 2026) — major gold catalyst
+    liberation_day = datetime(2026, 4, 2, tzinfo=timezone.utc)
+    days_since_ld = (_now - liberation_day).days
+    if days_since_ld <= 14:  # Show for 2 weeks
+        pinned_alerts.append({
+            "type": "tariff_catalyst",
+            "headline": f"⚡ LIBERATION DAY: Trump announces sweeping reciprocal tariffs (Apr 2) — gold surges as flight-to-safety demand spikes",
+            "detail": "10% baseline tariff on all imports + higher country-specific rates. Gold rally reflects dollar weakness and safe-haven demand.",
+            "significance": "critical",
+            "ts": "Wed, 02 Apr 2026 20:00:00 GMT",
+            "link": "https://www.whitehouse.gov/presidential-actions/",
+        })
+    # Prepend pinned alerts (deduplicated with existing)
+    existing_headlines = {a["headline"] for a in unique_alerts}
+    for pa in pinned_alerts:
+        if pa["headline"] not in existing_headlines:
+            unique_alerts.insert(0, pa)
 
     write_json("market_intel.json", {
         "alerts": unique_alerts[:10],
