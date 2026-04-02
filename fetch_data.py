@@ -428,11 +428,221 @@ def fetch_ratios():
 
 
 # ---------------------------------------------------------------------------
+# IMF IFS API — live central bank gold reserve data
+# ---------------------------------------------------------------------------
+
+# IMF country code → dashboard country name
+_IMF_COUNTRIES = {
+    "US": "United States",
+    "DE": "Germany",
+    "IT": "Italy",
+    "FR": "France",
+    "RU": "Russia",
+    "CN": "China",
+    "CH": "Switzerland",
+    "IN": "India",
+    "JP": "Japan",
+    "NL": "Netherlands",
+    "TR": "Turkey",
+    "PL": "Poland",
+    "UZ": "Uzbekistan",
+    "GB": "United Kingdom",
+    "KZ": "Kazakhstan",
+    "SG": "Singapore",
+    "BR": "Brazil",
+    "ZA": "South Africa",
+    "AU": "Australia",
+    "CZ": "Czech Republic",
+}
+
+_IMF_CACHE_FILE = DATA_DIR / "imf_cache.json"
+_IMF_CACHE_TTL = 21600  # 6 hours
+
+
+def _get_spot_gold_price():
+    """Read gold price from data/price.json or return a reasonable fallback."""
+    try:
+        price_path = DATA_DIR / "price.json"
+        if price_path.exists():
+            pdata = json.loads(price_path.read_text())
+            p = pdata.get("price") or pdata.get("current_price")
+            if p:
+                return float(p)
+    except Exception:
+        pass
+    return 3100.0  # fallback USD/troy oz
+
+
+def _parse_imf_series(series_raw):
+    """
+    Parse a single IMF CompactData Series object (dict) into a list of
+    {date: 'YYYY-MM', value: float} sorted ascending.
+    """
+    obs = series_raw.get("Obs", [])
+    if isinstance(obs, dict):
+        obs = [obs]
+    points = []
+    for o in obs:
+        t = o.get("@TIME_PERIOD", "")
+        v = o.get("@OBS_VALUE")
+        if t and v is not None:
+            try:
+                points.append({"date": t, "value": float(v)})
+            except (ValueError, TypeError):
+                pass
+    points.sort(key=lambda x: x["date"])
+    return points
+
+
+def _fetch_imf_raw():
+    """
+    Fetch RAFAGOLD_USD (gold reserves in millions USD) for all countries
+    from IMF IFS CompactData. Returns dict: imf_code → list of {date, value}.
+    Raises on any error (caller handles fallback).
+    """
+    codes = "+".join(_IMF_COUNTRIES.keys())
+    url = (
+        f"https://dataservices.imf.org/REST/SDMX_JSON.svc"
+        f"/CompactData/IFS/M.{codes}.RAFAGOLD_USD"
+    )
+    print(f"  IMF API request: {url[:100]}...")
+    r = requests.get(url, timeout=30, headers={"Accept": "application/json"})
+    r.raise_for_status()
+    data = r.json()
+
+    ds = data.get("CompactData", {}).get("DataSet", {})
+    series = ds.get("Series")
+    if series is None:
+        raise ValueError("No Series in IMF response")
+    if isinstance(series, dict):
+        series = [series]
+
+    result = {}
+    for s in series:
+        code = s.get("@REF_AREA", "")
+        if code in _IMF_COUNTRIES:
+            result[code] = _parse_imf_series(s)
+    return result
+
+
+def fetch_imf_cb_reserves():
+    """
+    Fetch live IMF IFS gold reserve data. Returns dict:
+      country_name → {reserves_tonnes, history, last_month_change, change_ytd, status}
+    Returns None if IMF API is unreachable (triggers fallback).
+
+    Caches result for 6 hours in data/imf_cache.json.
+    """
+    # Check cache
+    try:
+        if _IMF_CACHE_FILE.exists():
+            cached = json.loads(_IMF_CACHE_FILE.read_text())
+            age = time.time() - cached.get("_cached_at", 0)
+            if age < _IMF_CACHE_TTL:
+                print(f"  IMF cache hit (age {int(age/60)}m)")
+                return cached.get("data")
+    except Exception:
+        pass
+
+    try:
+        raw = _fetch_imf_raw()
+    except Exception as e:
+        print(f"  IMF API unavailable: {e}")
+        return None
+
+    if not raw:
+        print("  IMF API returned no data")
+        return None
+
+    spot = _get_spot_gold_price()
+    print(f"  Spot gold for USD→tonnes conversion: ${spot:.0f}/oz")
+    TROY_OZ_PER_TONNE = 32150.7
+
+    now_year = datetime.now(timezone.utc).year
+    jan_str = f"{now_year}-01"
+
+    result = {}
+    for code, country_name in _IMF_COUNTRIES.items():
+        pts = raw.get(code, [])
+        if not pts:
+            print(f"  IMF: no data for {country_name} ({code})")
+            continue
+
+        # Convert millions USD → tonnes using spot price
+        history = []
+        for p in pts:
+            tonnes = (p["value"] * 1e6) / (spot * TROY_OZ_PER_TONNE)
+            history.append({"date": p["date"], "tonnes": round(tonnes, 1)})
+
+        if not history:
+            continue
+
+        latest = history[-1]["tonnes"]
+
+        # last_month_change
+        if len(history) >= 2:
+            last_month_change = round(history[-1]["tonnes"] - history[-2]["tonnes"], 1)
+        else:
+            last_month_change = 0.0
+
+        # change_ytd: compare to last point of previous year
+        prev_year_pts = [h for h in history if h["date"] < jan_str]
+        if prev_year_pts:
+            change_ytd = round(latest - prev_year_pts[-1]["tonnes"], 1)
+        else:
+            change_ytd = 0.0
+
+        # Status
+        if last_month_change < -20:
+            status = "sell_watch"
+        elif last_month_change < -2:
+            status = "selling"
+        elif last_month_change > 2:
+            status = "buying"
+        else:
+            status = "unchanged"
+
+        result[country_name] = {
+            "reserves_tonnes": round(latest, 1),
+            "history": history,
+            "last_month_change": last_month_change,
+            "change_ytd": change_ytd,
+            "status": status,
+        }
+
+    if not result:
+        print("  IMF API returned empty result after parsing")
+        return None
+
+    print(f"  IMF API: got data for {len(result)} countries")
+
+    # Save cache
+    try:
+        _IMF_CACHE_FILE.write_text(json.dumps({
+            "_cached_at": time.time(),
+            "data": result,
+        }))
+    except Exception as e:
+        print(f"  IMF cache write error: {e}")
+
+    return result
+
+
+# ---------------------------------------------------------------------------
 # Central Banks (hardcoded WGC/IMF data, updated quarterly)
 # ---------------------------------------------------------------------------
 
 def fetch_central_banks():
     print("Fetching central bank data...")
+
+    # --- Try IMF IFS live data first ---
+    imf_data = fetch_imf_cb_reserves()
+    using_imf = imf_data is not None
+    if using_imf:
+        print(f"  [IMF LIVE] Using live IMF data for {len(imf_data)} countries")
+    else:
+        print("  [FALLBACK] IMF API unavailable — using hardcoded WGC estimates")
+
     reserves = [
         {"country": "United States", "reserves_tonnes": 8133, "pct_of_reserves": 71.3, "change_ytd": 0, "last_month_change": 0, "status": "unchanged"},
         {"country": "Germany", "reserves_tonnes": 3352, "pct_of_reserves": 68.7, "change_ytd": 0, "last_month_change": 0, "status": "unchanged"},
@@ -455,6 +665,21 @@ def fetch_central_banks():
         {"country": "Australia", "reserves_tonnes": 80, "pct_of_reserves": 6.2, "change_ytd": 0, "last_month_change": 0, "status": "unchanged"},
         {"country": "Czech Republic", "reserves_tonnes": 45, "pct_of_reserves": 3.9, "change_ytd": 6, "last_month_change": 2, "status": "buying"},
     ]
+
+    # Apply IMF live data — overrides tonnes, changes, status; keeps pct_of_reserves hardcoded
+    if using_imf:
+        for r in reserves:
+            imf = imf_data.get(r["country"])
+            if imf:
+                old = r["reserves_tonnes"]
+                r["reserves_tonnes"] = imf["reserves_tonnes"]
+                r["last_month_change"] = imf["last_month_change"]
+                r["change_ytd"] = imf["change_ytd"]
+                r["status"] = imf["status"]
+                r["_imf_history"] = imf["history"]  # temp — used below
+                print(f"  IMF override {r['country']}: {old}t → {imf['reserves_tonnes']}t "
+                      f"(Δmonth={imf['last_month_change']:+.1f}t, status={imf['status']})")
+
     reserves.sort(key=lambda x: x["reserves_tonnes"], reverse=True)
 
     total_ytd_buying = sum(r["change_ytd"] for r in reserves if r["change_ytd"] > 0)
@@ -637,16 +862,43 @@ def fetch_central_banks():
     }
     for r in reserves:
         country = r["country"]
-        deltas = _deltas.get(country, [0.0] * 52)
-        start = _starts.get(country, float(r["reserves_tonnes"]))
-        pts = []
-        v = start
-        for i in range(52):
-            pts.append({"date": _months[i], "tonnes": round(v, 1)})
-            if i < len(deltas):
-                v += deltas[i]
-        r["history"] = pts
+        # Use IMF history if available, else build from hardcoded deltas
+        imf_hist = r.pop("_imf_history", None)
+        if imf_hist:
+            r["history"] = imf_hist
+        else:
+            deltas = _deltas.get(country, [0.0] * 52)
+            start = _starts.get(country, float(r["reserves_tonnes"]))
+            pts = []
+            v = start
+            for i in range(52):
+                pts.append({"date": _months[i], "tonnes": round(v, 1)})
+                if i < len(deltas):
+                    v += deltas[i]
+            r["history"] = pts
         r["annotations"] = _annotations.get(country, [])
+
+    if using_imf:
+        dq = {
+            "source": "IMF IFS API (RAFAGOLD_USD series, live)",
+            "freshness": "monthly",
+            "reliability": "official",
+            "notes": (
+                "Live data from IMF International Financial Statistics. "
+                "Tonnes derived from RAFAGOLD_USD (millions USD) ÷ (spot price × 32150.7 troy oz/t). "
+                "pct_of_reserves and annotations from WGC hardcoded estimates."
+            ),
+            "imf_countries_loaded": len(imf_data),
+        }
+        source_str = "IMF IFS API live (RAFAGOLD_USD)"
+    else:
+        dq = {
+            "source": "hardcoded estimates based on WGC quarterly reports",
+            "freshness": "quarterly",
+            "reliability": "estimate",
+            "notes": "IMF API unavailable. World Gold Council publishes quarterly. Monthly changes are estimates.",
+        }
+        source_str = "WGC / IMF IFS (compiled estimates, updated quarterly)"
 
     write_json("central_banks.json", {
         "reserves": reserves,
@@ -654,14 +906,9 @@ def fetch_central_banks():
         "total_cb_buying_ytd": total_ytd_buying,
         "cb_annual": cb_annual,
         "pace_vs_avg": pace_vs_avg,
-        "source": "WGC / IMF IFS (compiled estimates, updated quarterly)",
+        "source": source_str,
         "cb_news": cb_news,
-        "data_quality": {
-            "source": "hardcoded estimates based on WGC quarterly reports",
-            "freshness": "quarterly",
-            "reliability": "estimate",
-            "notes": "World Gold Council publishes quarterly. Monthly changes are estimates.",
-        },
+        "data_quality": dq,
     })
 
 

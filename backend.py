@@ -33,7 +33,7 @@ YF_HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}
 TTL = {
     "price": 60,
     "ratios": 300,
-    "central_banks": 86400,
+    "central_banks": 21600,
     "etfs": 3600,
     "macro": 3600,
     "miners": 300,
