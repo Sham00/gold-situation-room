@@ -123,9 +123,26 @@ def fetch_price():
     # ATH (10-year daily history for accuracy) + technical indicators
     ath_hist = gold.history(period="10y", interval="1d")
     ath = float(ath_hist["Close"].max()) if len(ath_hist) > 0 else current
+    ath_date = None
+    if len(ath_hist) > 0:
+        ath_idx = ath_hist["Close"].idxmax()
+        try:
+            ath_date = str(ath_idx.date())
+        except Exception:
+            ath_date = str(ath_idx)[:10]
     if current > ath:
         ath = current
+        ath_date = datetime.now().strftime("%Y-%m-%d")
     pct_below_ath = ((ath - current) / ath) * 100 if ath else 0
+    # Days since ATH
+    days_since_ath = None
+    if ath_date:
+        try:
+            from datetime import date as _date
+            delta = _date.today() - _date.fromisoformat(ath_date)
+            days_since_ath = delta.days
+        except Exception:
+            pass
 
     # MA50, MA200, RSI(14) from daily history + rolling series for 1Y chart overlay
     ma50 = None
@@ -303,6 +320,8 @@ def fetch_price():
         "change_pct": round(change_pct, 2),
         "ytd_change_pct": round(ytd_change_pct, 2),
         "ath": round(ath, 2),
+        "ath_date": ath_date,
+        "days_since_ath": days_since_ath,
         "pct_below_ath": round(pct_below_ath, 2),
         "currencies": currencies,
         "currency_sparklines": currency_sparklines,

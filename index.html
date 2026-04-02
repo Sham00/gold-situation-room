@@ -1191,6 +1191,41 @@
   </div>
 </div>
 
+<!-- KEY STATS BANNER -->
+<div id="key-stats-banner" style="background:rgba(255,215,0,0.04); border-bottom:1px solid rgba(255,215,0,0.1); padding:0;">
+  <div class="max-w-[1600px] mx-auto px-5 py-2">
+    <div class="flex items-center justify-between gap-4 flex-wrap" style="font-family:'JetBrains Mono',monospace;">
+      <div class="flex items-center gap-1">
+        <span style="color:#ffd700;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;">🟡 GOLD</span>
+        <span id="ks-price" style="color:#ffd700;font-size:18px;font-weight:700;letter-spacing:.02em;">--</span>
+        <span id="ks-change" style="font-size:11px;margin-left:4px;">--</span>
+      </div>
+      <div class="flex items-center gap-4 flex-wrap" style="font-size:11px;color:#888;">
+        <div class="flex items-center gap-1">
+          <span style="color:#555;font-size:9px;text-transform:uppercase;letter-spacing:.08em;">YTD</span>
+          <span id="ks-ytd" style="font-weight:600;">--</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span style="color:#555;font-size:9px;text-transform:uppercase;letter-spacing:.08em;">ATH</span>
+          <span id="ks-ath" style="font-weight:600;">--</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span style="color:#555;font-size:9px;text-transform:uppercase;letter-spacing:.08em;">vs ATH</span>
+          <span id="ks-pct-ath" style="font-weight:600;">--</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span style="color:#555;font-size:9px;text-transform:uppercase;letter-spacing:.08em;">Days Since ATH</span>
+          <span id="ks-days-ath" style="font-weight:600;">--</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span style="color:#555;font-size:9px;text-transform:uppercase;letter-spacing:.08em;">Consensus Target</span>
+          <span id="ks-target" style="font-weight:600;color:#ffd700;">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- MAIN DASHBOARD -->
 <main class="dashboard-grid" id="dashboard">
 
@@ -2347,6 +2382,7 @@ function renderAll() {
   renderCompositeSignal();
   renderMarketAlerts();
   updateFreshnessBadges();
+  renderKeyStatsBanner();
 
   // After all renders: clear shimmer from charts that got drawn,
   // keep shimmer on charts that are still empty (data unavailable)
@@ -2569,6 +2605,70 @@ function renderHeader() {
 // --- DYNAMIC FRESHNESS BADGES ---
 // After all data loads, update freshness badges based on actual last_updated timestamps.
 // Sections with hourly data are marked stale if > 3h old.
+// --- KEY STATS BANNER ---
+function renderKeyStatsBanner() {
+  var p = DATA.price;
+  var at = DATA.analystTargets;
+  if (!p) return;
+
+  var price = p.price;
+  var change = p.change;
+  var changePct = p.change_pct;
+  var ytd = p.ytd_change_pct;
+  var ath = p.ath;
+  var athDate = p.ath_date;
+  var daysSince = p.days_since_ath;
+  var pctBelow = p.pct_below_ath;
+  var consensusMid = at && at.consensus_mid ? at.consensus_mid : null;
+
+  var ksPrice = document.getElementById('ks-price');
+  var ksChange = document.getElementById('ks-change');
+  var ksYtd = document.getElementById('ks-ytd');
+  var ksAth = document.getElementById('ks-ath');
+  var ksPctAth = document.getElementById('ks-pct-ath');
+  var ksDaysAth = document.getElementById('ks-days-ath');
+  var ksTarget = document.getElementById('ks-target');
+
+  if (ksPrice && price) ksPrice.textContent = '$' + price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+  if (ksChange && change != null) {
+    var chgColor = change >= 0 ? '#00ff88' : '#ff4444';
+    var chgSign = change >= 0 ? '+' : '';
+    ksChange.innerHTML = '<span style="color:' + chgColor + ';">' + chgSign + change.toFixed(2) + ' (' + chgSign + changePct.toFixed(2) + '%)</span>';
+  }
+
+  if (ksYtd && ytd != null) {
+    var ytdColor = ytd >= 0 ? '#00ff88' : '#ff4444';
+    var ytdSign = ytd >= 0 ? '+' : '';
+    ksYtd.innerHTML = '<span style="color:' + ytdColor + ';">' + ytdSign + ytd.toFixed(1) + '%</span>';
+  }
+
+  if (ksAth && ath) {
+    var athStr = '$' + ath.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+    if (athDate) athStr += ' (' + athDate.substring(0, 7) + ')';
+    ksAth.textContent = athStr;
+    ksAth.style.color = '#ffd700';
+  }
+
+  if (ksPctAth && pctBelow != null) {
+    var distColor = pctBelow <= 2 ? '#00ff88' : pctBelow <= 10 ? '#ffd700' : '#ff8844';
+    var distSign = pctBelow <= 0 ? '🏆 ATH' : '-' + pctBelow.toFixed(1) + '%';
+    ksPctAth.innerHTML = '<span style="color:' + distColor + ';">' + distSign + '</span>';
+  }
+
+  if (ksDaysAth && daysSince != null) {
+    ksDaysAth.textContent = daysSince === 0 ? 'Today!' : daysSince + 'd ago';
+    ksDaysAth.style.color = daysSince <= 7 ? '#00ff88' : '#888';
+  }
+
+  if (ksTarget && consensusMid) {
+    var upside = price ? ((consensusMid - price) / price * 100).toFixed(1) : null;
+    var targetStr = '$' + consensusMid.toLocaleString('en-US');
+    if (upside) targetStr += ' (' + (upside > 0 ? '+' : '') + upside + '% upside)';
+    ksTarget.textContent = targetStr;
+  }
+}
+
 function updateFreshnessBadges() {
   // Collect all last_updated timestamps from loaded data
   var timestamps = [DATA.price, DATA.ratios, DATA.macro, DATA.etfs, DATA.news, DATA.cot, DATA.crisisAssets, DATA.miners].map(function(d) {

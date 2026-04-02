@@ -176,10 +176,10 @@
       "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 19.4,
+  "sentiment_score": 22.6,
   "bull_count": 9,
-  "bear_count": 3,
-  "neutral_count": 19,
+  "bear_count": 2,
+  "neutral_count": 20,
   "bull_pct": 29.0,
   "data_quality": {
     "source": "RSS feeds: Kitco, BullionVault, GoldPrice.org, Google News, Mining.com, Reuters, Investing.com",
@@ -187,5 +187,5 @@
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-02T21:12:54Z"
+  "last_updated": "2026-04-02T21:19:33Z"
 }
