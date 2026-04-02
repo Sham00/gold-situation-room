@@ -10,10 +10,13 @@
 <meta property="og:url" content="https://sham00.github.io/gold-situation-room/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://sham00.github.io/gold-situation-room/og-preview.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gold Situation Room 🟡">
 <meta name="twitter:description" content="Real-time gold price dashboard with ratios, macro indicators, and market intelligence.">
 <meta name="twitter:image" content="https://sham00.github.io/gold-situation-room/og-preview.svg">
+<meta name="twitter:image:alt" content="Gold Situation Room dashboard preview">
 <meta name="theme-color" content="#ffd700">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://sham00.github.io/gold-situation-room/">
@@ -258,8 +261,13 @@
 
   /* News */
   .news-scroll {
-    max-height: 500px;
+    max-height: 520px;
     overflow-y: auto;
+  }
+  @media (max-width: 767px) {
+    .news-scroll {
+      max-height: none;
+    }
   }
   .news-dot {
     width: 8px;
@@ -2529,12 +2537,12 @@ function renderMacro() {
   });
 
   // Dual-axis: Gold vs Real Yields (inverted)
-  var goldChart = d.gold_1y_chart || (DATA.ratios ? DATA.ratios.gold_1y_chart : null) || [];
+  var goldChart = (d.gold_1y_chart && d.gold_1y_chart.length) ? d.gold_1y_chart : ((DATA.ratios && DATA.ratios.gold_1y_chart && DATA.ratios.gold_1y_chart.length) ? DATA.ratios.gold_1y_chart : []);
   var yieldsChart = d.real_yield_10y_chart || [];
   renderDualAxisChart('chart-macro-yields', 'macro-yields', goldChart, yieldsChart, 'Gold', 'Real Yield (inv.)', '#ffd700', '#ff4444', false, true);
 
   // Dual-axis: Gold vs DXY (inverted)
-  var dxyChart = d.dxy_chart || (DATA.ratios ? DATA.ratios.dxy_chart : null) || [];
+  var dxyChart = (d.dxy_chart && d.dxy_chart.length) ? d.dxy_chart : ((DATA.ratios && DATA.ratios.dxy_chart && DATA.ratios.dxy_chart.length) ? DATA.ratios.dxy_chart : []);
   renderDualAxisChart('chart-macro-dxy', 'macro-dxy', goldChart, dxyChart, 'Gold', 'DXY (inv.)', '#ffd700', '#4488ff', false, true);
 }
 
@@ -3054,7 +3062,7 @@ function renderCrisisAssets() {
           },
           y: {
             grid: { color: 'rgba(255,255,255,0.03)' },
-            title: { display: true, text: 'Jan 1 = 100', color: '#555', font: { size: 9 } },
+            title: { display: true, text: 'Jan 1 2026 = 100', color: '#666', font: { size: 10 } },
             ticks: { callback: function(v) { return v.toFixed(0); } }
           }
         },
@@ -3081,10 +3089,14 @@ function renderCrisisAssets() {
           var c = chart.ctx;
           var y = yScale.getPixelForValue(100);
           c.save();
-          c.strokeStyle = 'rgba(255,255,255,0.2)';
+          c.strokeStyle = 'rgba(255,255,255,0.25)';
           c.lineWidth = 1;
           c.setLineDash([4, 4]);
           c.beginPath(); c.moveTo(xScale.left, y); c.lineTo(xScale.right, y); c.stroke();
+          c.setLineDash([]);
+          c.fillStyle = 'rgba(255,255,255,0.3)';
+          c.font = '9px JetBrains Mono, monospace';
+          c.fillText('Jan 1 baseline', xScale.left + 4, y - 3);
           c.restore();
         }
       }]

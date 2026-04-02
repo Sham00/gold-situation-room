@@ -641,6 +641,22 @@ def fetch_macro():
             data_sources[k] = "estimate"
 
     data["data_sources"] = data_sources
+
+    # Always include gold_1y_chart in macro.json for the dual-axis correlation charts
+    if not data.get("gold_1y_chart"):
+        try:
+            throttle(0.3)
+            gold_1y_hist = get_ticker("GC=F").history(period="1y", interval="1d")
+            if not gold_1y_hist.empty:
+                data["gold_1y_chart"] = [
+                    {"t": str(d.date()), "v": round(float(r["Close"]), 2)}
+                    for d, r in gold_1y_hist.iterrows()
+                ]
+                print(f"  gold_1y_chart added to macro ({len(data['gold_1y_chart'])} points)")
+        except Exception as e:
+            print(f"  gold_1y_chart fetch failed: {e}")
+            data["gold_1y_chart"] = []
+
     write_json("macro.json", data)
 
 
