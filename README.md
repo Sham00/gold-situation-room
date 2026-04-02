@@ -1,70 +1,49 @@
 # 🟡 Gold Situation Room
 
-**Live gold market intelligence dashboard** — price, ratios, central bank flows, ETF positioning, COT data, macro context, and mining stocks in one place.
+**The most comprehensive free gold market dashboard on the web.**
 
-🔗 **Live site:** https://sham00.github.io/gold-situation-room/
+Real-time price, central bank flows, COT positioning, ETF data, macro context, mining stocks, and market intelligence — all in one place, updated hourly.
+
+🔗 **[→ Open the Dashboard](https://sham00.github.io/gold-situation-room/)**
 
 ---
 
-## What's Inside
+## What You Get
 
-| Section | Data | Updates |
-|---|---|---|
-| **Spot Price** | COMEX GC=F live price, YTD, ATH, multi-currency | Hourly |
-| **Market Signal** | Composite bull/bear score from 5 factors (RSI, real yields, DXY, ETF flows, COT) | Hourly |
-| **Key Ratios** | Gold/Silver, Gold/Oil, Gold/S&P500, Gold/BTC, Gold/Copper with 10Y percentiles | Daily |
-| **Central Bank Tracker** | 20 CBs tracked — reserves, monthly change, buy/sell status with live news | Hourly news / Quarterly reserves |
-| **ETF Flows** | GLD, IAU, PHYS, BAR, SGOL — price, tonne estimates, daily flow | Daily |
-| **COT Positioning** | CFTC managed money longs/shorts, net percentile vs 5Y range | Weekly |
-| **COMEX Vault** | Registered vs eligible inventory, cover ratio | Monthly |
-| **Gold Lease Rate** | 1M/3M/6M/12M term structure | Estimate |
-| **News Feed** | Real-time headlines with sentiment scoring (Kitco, BullionVault, Reuters) | Hourly |
-| **Macro Context** | Real yields, DXY, CPI, Fed Funds, M2 growth — dual-axis vs gold | Daily |
-| **Mining Snapshot** | GDX/GDXJ/majors — price, AISC, margin, production, miner leverage | Daily |
-| **Crisis Assets** | YTD performance: Gold vs BTC vs Silver vs TLT vs DXY | Daily |
-| **Historical Context** | 50+ year price history, decade returns, seasonality | Monthly/Static |
+| Section | What It Shows |
+|---|---|
+| **Live Spot Price** | COMEX XAU/USD, YTD performance, ATH distance, price in 8 currencies |
+| **Market Signal** | Composite bull/bear score from 5 factors — RSI, real yields, DXY, ETF flows, COT |
+| **Key Ratios** | Gold/Silver, Gold/Oil, Gold/S&P500, Gold/BTC, Gold/Copper — with 10-year percentiles |
+| **Central Bank Tracker** | 20 central banks tracked — reserves, monthly changes, buy/sell/sell-watch status + live CB news feed |
+| **Market Alerts** | Auto-detected events: CB selling, large ETF flows, backwardation, lease rate spikes |
+| **ETF Flows** | GLD, IAU, PHYS, BAR, SGOL — price, estimated holdings, daily flow direction |
+| **COT Positioning** | CFTC managed money longs/shorts/net — with 5-year percentile and futures curve state |
+| **COMEX Vault** | Registered vs eligible inventory, cover ratio |
+| **Gold Lease Rate** | 1M/3M/6M/12M term structure |
+| **News Feed** | Hourly headlines from Kitco, BullionVault, Reuters, Mining.com — with sentiment scoring |
+| **Macro Context** | Real yields, DXY, CPI, Fed Funds, M2 — dual-axis correlation charts vs gold |
+| **Mining Snapshot** | GDX, GDXJ, majors — AISC, margin, production, junior/senior leverage ratio |
+| **Crisis Asset Performance** | YTD: Gold vs BTC vs Silver vs Bonds vs USD — rebased to 100 |
+| **Historical Context** | 50+ year price history, decade returns, seasonal patterns |
+
+---
 
 ## Data Transparency
 
-All data is labeled with source, update frequency, and reliability. Click **📋 Data Quality** in the header for the full breakdown.
+Every data point is labeled with its source, update frequency, and reliability level. Click **📋 Data Quality** in the dashboard header for the full breakdown.
 
-**Key data sources:** yfinance (prices), CFTC (COT), World Gold Council (CB reserves), RSS feeds (news)
+| Reliability | Meaning |
+|---|---|
+| 🟢 LIVE | Real-time or same-day data from authoritative sources |
+| 🟡 ESTIMATE | Derived, proxied, or lagged data — labeled clearly |
+| 📚 ARCHIVAL | Historical/static dataset |
+| ∑ CALCULATED | Derived from other data series |
 
-**Known limitations:** CB data lags 3-6 months; lease rates are estimates; LBMA fix is COMEX-proxied.
+**Key sources:** [yfinance](https://github.com/ranaroussi/yfinance) (prices), [CFTC](https://www.cftc.gov) (COT), [World Gold Council](https://www.gold.org) (CB reserves), RSS feeds (news)
 
-See [docs/data-methodology.md](docs/data-methodology.md) for the complete methodology.
+Full methodology: [docs/data-methodology.md](docs/data-methodology.md)
 
-## Tech Stack
+---
 
-- **Static site** — HTML/CSS/JS + Chart.js + Tailwind CDN
-- **Data pipeline** — Python (yfinance, feedparser, requests)
-- **Hosting** — GitHub Pages
-- **Updates** — GitHub Actions (hourly cron)
-
-## Run Locally
-
-```bash
-git clone https://github.com/Sham00/gold-situation-room
-cd gold-situation-room
-pip install -r requirements.txt
-python fetch_data.py   # regenerate data/
-open index.html        # view in browser
-```
-
-## Deploy to GitHub Pages
-
-1. Push to GitHub
-2. **Settings > Pages** → Source: `main` branch, `/ (root)`
-3. **Settings > Actions > General** → Workflow permissions: Read and write
-4. Run **Actions > Fetch Gold Data** once to populate `data/`
-5. Live at `https://<username>.github.io/<repo>/`
-
-## Architecture
-
-```
-index.html          Static single-page dashboard (reads data/*.json)
-fetch_data.py       Python script that fetches all market data
-data/*.json         Pre-fetched JSON data files (auto-updated hourly)
-docs/               Methodology and data source documentation
-.github/workflows/  GitHub Actions workflow for data pipeline
-```
+*Not financial advice. Data has known limitations — see methodology docs.*
