@@ -1659,6 +1659,25 @@
         </div>
       </div>
     </div>
+
+    <!-- FOMC Countdown -->
+    <div class="mt-6 pt-4 border-t border-[var(--card-border)]">
+      <div class="flex items-center gap-4 flex-wrap">
+        <div class="flex items-center gap-3 bg-[#0d0d0d] border border-[var(--card-border)] rounded-lg px-4 py-3">
+          <div class="text-2xl">🏛️</div>
+          <div>
+            <div class="text-[10px] text-[var(--text2)] uppercase tracking-widest mono">Next FOMC Meeting</div>
+            <div class="flex items-center gap-2 mt-0.5">
+              <span id="fomc-date" class="text-sm font-bold mono text-[var(--gold)]">--</span>
+              <span class="text-[10px] text-[var(--text2)] mono">·</span>
+              <span id="fomc-days" class="text-sm font-bold mono">--</span>
+              <span class="text-xs text-[var(--text2)] mono">days away</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-[10px] text-[var(--text2)] mono max-w-xs">Gold typically moves 0.5–2% in the 48h surrounding FOMC decisions. Rate cuts are bullish; hawkish surprises are bearish.</div>
+      </div>
+    </div>
   </section>
 
   <!-- ============================================================ -->
@@ -3428,6 +3447,29 @@ function renderMacro() {
   // Dual-axis: Gold vs DXY (inverted)
   var dxyChart = (d.dxy_chart && d.dxy_chart.length) ? d.dxy_chart : ((DATA.ratios && DATA.ratios.dxy_chart && DATA.ratios.dxy_chart.length) ? DATA.ratios.dxy_chart : []);
   renderDualAxisChart('chart-macro-dxy', 'macro-dxy', goldChart, dxyChart, 'Gold', 'DXY (inv.)', '#ffd700', '#4488ff', false, true);
+
+  // FOMC countdown
+  var fomcDateEl = document.getElementById('fomc-date');
+  var fomcDaysEl = document.getElementById('fomc-days');
+  if (fomcDateEl && d.next_fomc_date) {
+    try {
+      var fomcDate = new Date(d.next_fomc_date + 'T12:00:00');
+      fomcDateEl.textContent = fomcDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    } catch(e) {
+      fomcDateEl.textContent = d.next_fomc_date;
+    }
+  }
+  if (fomcDaysEl && d.days_to_fomc != null) {
+    var days = d.days_to_fomc;
+    fomcDaysEl.textContent = days;
+    if (days <= 7) {
+      fomcDaysEl.style.color = '#ff4444'; // red — imminent
+    } else if (days <= 21) {
+      fomcDaysEl.style.color = '#ff8800'; // orange — approaching
+    } else {
+      fomcDaysEl.style.color = '#00ff88'; // green — far away
+    }
+  }
 }
 
 function renderDualAxisChart(canvasId, chartKey, data1, data2, label1, label2, color1, color2, invert1, invert2) {
