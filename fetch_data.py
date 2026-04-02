@@ -905,57 +905,136 @@ def fetch_cot():
     print("Fetching COT data...")
     year = datetime.now(timezone.utc).year
 
+    # Fallback defaults (in case parsing fails)
     cot = {
-        "report_date": "2026-03-25",
-        "gold_managed_money_long": 186432,
-        "gold_managed_money_short": 32156,
-        "gold_managed_money_net": 154276,
-        "gold_commercial_long": 142567,
-        "gold_commercial_short": 289134,
-        "gold_commercial_net": -146567,
-        "gold_open_interest": 534892,
+        "report_date": "2026-03-24",
+        "gold_managed_money_long": 119562,
+        "gold_managed_money_short": 27941,
+        "gold_managed_money_net": 91621,
+        "gold_commercial_long": 12761,
+        "gold_commercial_short": 34977,
+        "gold_commercial_net": -22216,
+        "gold_open_interest": 403925,
         "source": "CFTC Commitments of Traders",
     }
 
-    # Try to fetch real CFTC data
-    try:
-        cot_url = f"https://www.cftc.gov/files/dea/history/fut_disagg_txt_{year}.zip"
-        resp = requests.get(cot_url, timeout=30, headers={"User-Agent": "Mozilla/5.0"})
-        if resp.status_code == 200:
-            with zipfile.ZipFile(io.BytesIO(resp.content)) as zf:
-                for name in zf.namelist():
-                    if name.endswith(".txt"):
-                        content = zf.read(name).decode("utf-8", errors="ignore")
-                        lines = content.strip().split("\n")
-                        if len(lines) > 1:
-                            header = lines[0].split(",")
-                            # Find gold rows
-                            gold_rows = [l for l in lines[1:] if "GOLD" in l.upper() and "COMEX" in l.upper()]
-                            if gold_rows:
-                                last_row = gold_rows[-1].split(",")
-                                # Try to extract managed money positions
-                                cot["source_status"] = f"Parsed {len(gold_rows)} GOLD rows from CFTC"
-                                print(f"  Found {len(gold_rows)} GOLD rows in CFTC data")
-            cot["source_status"] = cot.get("source_status", "CFTC ZIP downloaded but no gold rows found")
-    except Exception as e:
-        cot["source_status"] = f"Using hardcoded estimates ({e})"
+    def _parse_cftc_zip(content_bytes):
+        """Parse a CFTC disaggregated futures ZIP, return list of gold rows as dicts.
+        
+        Filters to contract code 088691 (COMEX 100-oz Gold Futures) only.
+        Code 088695 is E-mini Gold (smaller contract) — excluded.
+        The text filter uses 'COMMODITY EXCHANGE' because 'COMEX' doesn't appear in the row.
+        """
+        rows = []
+        with zipfile.ZipFile(io.BytesIO(content_bytes)) as zf:
+            for name in zf.namelist():
+                content = zf.read(name).decode("utf-8", errors="ignore")
+                lines = content.strip().split("\n")
+                if len(lines) < 2:
+                    continue
+                header = [h.strip().strip('"') for h in lines[0].split(",")]
+                # Find column index for contract code
+                try:
+                    code_idx = header.index("CFTC_Contract_Market_Code")
+                except ValueError:
+                    code_idx = 3  # fallback position
+                for line in lines[1:]:
+                    if "GOLD" in line.upper() and "COMMODITY EXCHANGE" in line.upper():
+                        parts = [v.strip().strip('"') for v in line.split(",")]
+                        # Only include 100-oz COMEX gold (code 088691), not E-mini (088695)
+                        row_code = parts[code_idx].strip() if code_idx < len(parts) else ""
+                        if row_code and row_code != "088691":
+                            continue
+                        hmap = {h: v.replace(" ", "") for h, v in zip(header, parts)}
+                        rows.append(hmap)
+        return rows
 
-    # 52-week history (seeded for consistency)
-    random.seed(42)
-    base = 140000
-    cot_history = []
-    for i in range(52):
-        week_date = (datetime.now(timezone.utc) - timedelta(weeks=52 - i)).strftime("%Y-%m-%d")
-        val = base + random.randint(-20000, 25000)
-        base = val
-        cot_history.append({"t": week_date, "v": val})
-    cot["history"] = cot_history
+    def _safe_int(v):
+        try:
+            return int(v.replace(",", "").replace(" ", ""))
+        except Exception:
+            return 0
+
+    try:
+        # Fetch current year + previous 2 years for robust history
+        all_gold_rows = []
+        for yr in [year - 2, year - 1, year]:
+            url = f"https://www.cftc.gov/files/dea/history/fut_disagg_txt_{yr}.zip"
+            resp = requests.get(url, timeout=30, headers={"User-Agent": "Mozilla/5.0"})
+            if resp.status_code == 200:
+                rows = _parse_cftc_zip(resp.content)
+                all_gold_rows.extend(rows)
+                print(f"  CFTC {yr}: found {len(rows)} gold rows")
+
+        if all_gold_rows:
+            # Sort by date descending; deduplicate by date
+            seen_dates = set()
+            unique_rows = []
+            for row in all_gold_rows:
+                d = row.get("Report_Date_as_YYYY-MM-DD", "")
+                if d and d not in seen_dates:
+                    seen_dates.add(d)
+                    unique_rows.append(row)
+            unique_rows.sort(key=lambda r: r.get("Report_Date_as_YYYY-MM-DD", ""), reverse=True)
+
+            # Most recent row → current snapshot
+            latest = unique_rows[0]
+            mm_long = _safe_int(latest.get("M_Money_Positions_Long_All", "0"))
+            mm_short = _safe_int(latest.get("M_Money_Positions_Short_All", "0"))
+            prod_long = _safe_int(latest.get("Prod_Merc_Positions_Long_All", "0"))
+            prod_short = _safe_int(latest.get("Prod_Merc_Positions_Short_All", "0"))
+            oi = _safe_int(latest.get("Open_Interest_All", "0"))
+
+            cot.update({
+                "report_date": latest.get("Report_Date_as_YYYY-MM-DD", cot["report_date"]),
+                "gold_managed_money_long": mm_long,
+                "gold_managed_money_short": mm_short,
+                "gold_managed_money_net": mm_long - mm_short,
+                "gold_commercial_long": prod_long,
+                "gold_commercial_short": prod_short,
+                "gold_commercial_net": prod_long - prod_short,
+                "gold_open_interest": oi,
+                "source_status": f"Live CFTC data — {len(unique_rows)} weeks parsed",
+            })
+            print(f"  COT snapshot: date={cot['report_date']} MM_net={cot['gold_managed_money_net']:,} OI={oi:,}")
+
+            # Build history from real data (sorted oldest → newest)
+            history_rows = sorted(unique_rows, key=lambda r: r.get("Report_Date_as_YYYY-MM-DD", ""))
+            cot_history = []
+            for row in history_rows:
+                d = row.get("Report_Date_as_YYYY-MM-DD", "")
+                ml = _safe_int(row.get("M_Money_Positions_Long_All", "0"))
+                ms = _safe_int(row.get("M_Money_Positions_Short_All", "0"))
+                net = ml - ms
+                if d and net != 0:
+                    cot_history.append({"t": d, "v": net})
+            cot["history"] = cot_history
+        else:
+            cot["source_status"] = "CFTC ZIPs downloaded but no gold rows found"
+            # Fall back to seeded random history
+            raise ValueError("No gold rows found in CFTC data")
+
+    except Exception as e:
+        cot["source_status"] = f"Using fallback estimates ({e})"
+        # 52-week history (seeded for consistency)
+        random.seed(42)
+        base = 140000
+        cot_history = []
+        for i in range(52):
+            week_date = (datetime.now(timezone.utc) - timedelta(weeks=52 - i)).strftime("%Y-%m-%d")
+            val = base + random.randint(-20000, 25000)
+            base = val
+            cot_history.append({"t": week_date, "v": val})
+        cot["history"] = cot_history
 
     # Net percentile
-    hist_vals = [h["v"] for h in cot_history]
-    mn, mx = min(hist_vals), max(hist_vals)
-    if mx > mn:
-        cot["net_percentile"] = round((cot["gold_managed_money_net"] - mn) / (mx - mn) * 100, 1)
+    hist_vals = [h["v"] for h in cot.get("history", [])]
+    if hist_vals:
+        mn, mx = min(hist_vals), max(hist_vals)
+        if mx > mn:
+            cot["net_percentile"] = round((cot["gold_managed_money_net"] - mn) / (mx - mn) * 100, 1)
+        else:
+            cot["net_percentile"] = 50.0
     else:
         cot["net_percentile"] = 50.0
 

@@ -14,6 +14,9 @@
 <meta name="twitter:title" content="Gold Situation Room 🟡">
 <meta name="twitter:description" content="Real-time gold price dashboard with ratios, macro indicators, and market intelligence.">
 <meta name="twitter:image" content="https://sham00.github.io/gold-situation-room/og-preview.svg">
+<meta name="theme-color" content="#ffd700">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sham00.github.io/gold-situation-room/">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
@@ -1009,6 +1012,12 @@
         <span>BEARISH</span>
         <span id="sentiment-score" class="text-sm font-bold">--</span>
         <span>BULLISH</span>
+      </div>
+      <!-- Bull/Bear/Neutral counts -->
+      <div id="sentiment-counts" class="flex items-center gap-3 mt-3 pt-3 border-t border-[var(--card-border)]" style="display:none!important">
+        <span class="text-[10px] mono" style="color:#00ff88">▲ <span id="bull-count">0</span> bullish</span>
+        <span class="text-[10px] mono" style="color:#ff4444">▼ <span id="bear-count">0</span> bearish</span>
+        <span class="text-[10px] mono" style="color:#888">● <span id="neutral-count">0</span> neutral</span>
       </div>
     </div>
 
@@ -2292,6 +2301,18 @@ function renderNews() {
     if (pctEl) pctEl.textContent = d.bull_pct != null ? d.bull_pct + '% of headlines bullish' : '';
   }
 
+  // Bull/Bear/Neutral counts
+  var countsEl = document.getElementById('sentiment-counts');
+  if (countsEl && (d.bull_count != null || d.bear_count != null)) {
+    countsEl.style.cssText = 'display:flex!important';
+    var bc = document.getElementById('bull-count');
+    var brc = document.getElementById('bear-count');
+    var nc = document.getElementById('neutral-count');
+    if (bc) bc.textContent = d.bull_count || 0;
+    if (brc) brc.textContent = d.bear_count || 0;
+    if (nc) nc.textContent = d.neutral_count || 0;
+  }
+
   var bullish = /record|surge|buying|inflows|rally|high|soar|gain|bull|\bup\b/i;
   var bearish = /selling|drop|crash|outflows|fall|decline|bear|loss|\bdown\b|plunge/i;
 
@@ -2896,22 +2917,38 @@ function renderCrisisAssets() {
   var assetNames = Object.keys(d.assets);
   if (!assetNames.length) return;
 
-  // Build datasets
-  var datasets = [];
+  // Build date-aligned datasets (each asset may start on different dates due to BTC trading 7 days)
+  var dateMap = {}; // date string -> index in refLabels
   var refLabels = [];
-  assetNames.forEach(function(name, i) {
+
+  // Collect all unique dates, sorted
+  assetNames.forEach(function(name) {
     var asset = d.assets[name];
     if (!asset.chart || !asset.chart.length) return;
-    var parsed = parseChartData(asset.chart);
-    if (i === 0 || parsed.labels.length > refLabels.length) refLabels = parsed.labels;
+    asset.chart.forEach(function(pt) { if (!dateMap[pt.t]) dateMap[pt.t] = true; });
+  });
+  refLabels = Object.keys(dateMap).sort();
+  refLabels.forEach(function(dt, i) { dateMap[dt] = i; });
+
+  var datasets = [];
+  assetNames.forEach(function(name) {
+    var asset = d.assets[name];
+    if (!asset.chart || !asset.chart.length) return;
+    // Build sparse array aligned to refLabels
+    var values = new Array(refLabels.length).fill(null);
+    asset.chart.forEach(function(pt) {
+      var idx = dateMap[pt.t];
+      if (idx !== undefined) values[idx] = pt.v;
+    });
     datasets.push({
       label: name + ' (' + (asset.ytd_pct >= 0 ? '+' : '') + fmt(asset.ytd_pct, 1) + '%)',
-      data: parsed.values,
+      data: values,
       borderColor: asset.color,
       borderWidth: 2,
       pointRadius: 0,
       tension: 0.3,
       fill: false,
+      spanGaps: true,
     });
   });
 
@@ -2937,6 +2974,7 @@ function renderCrisisAssets() {
           },
           y: {
             grid: { color: 'rgba(255,255,255,0.03)' },
+            title: { display: true, text: 'Jan 1 = 100', color: '#555', font: { size: 9 } },
             ticks: { callback: function(v) { return v.toFixed(0); } }
           }
         },
@@ -2944,7 +2982,13 @@ function renderCrisisAssets() {
           legend: { display: true, labels: { boxWidth: 10, padding: 10, color: '#888' } },
           tooltip: {
             callbacks: {
-              label: function(ctx) { return ctx.dataset.label.split(' (')[0] + ': ' + fmt(ctx.parsed.y, 1); }
+              title: function(items) {
+                try { return new Date(items[0].label + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); } catch(e) { return items[0].label; }
+              },
+              label: function(ctx) {
+                if (ctx.parsed.y == null) return null;
+                return '  ' + ctx.dataset.label.split(' (')[0] + ': ' + fmt(ctx.parsed.y, 1);
+              }
             }
           }
         }
