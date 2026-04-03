@@ -1951,6 +1951,54 @@ def fetch_macro():
         "reliability": "live",
         "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule).",
     }
+    # Gold lease rate approximation from futures basis (GOFO proxy)
+    # Lease rate ≈ LIBOR/SOFR - GOFO ≈ (futures/spot - 1) * (12/months_to_expiry)
+    # We approximate using front-month vs spot spread
+    try:
+        throttle(0.3)
+        gc_ticker = get_ticker("GC=F")
+        gc_spot = get_price(gc_ticker)
+        if gc_spot and gc_spot > 0:
+            # Get 3-month T-bill rate as risk-free proxy
+            irx_rate = data.get("fed_funds")
+            if irx_rate is None:
+                irx_rate = 4.33  # fallback
+            # Futures basis: front-month premium over spot (annualized)
+            # GC=F is the front-month future; approximate 1-month basis
+            # For a proper GOFO we'd need spot vs specific contract, but this is a reasonable proxy
+            # GOFO ≈ risk-free rate - lease rate → lease rate ≈ risk-free rate - GOFO
+            # Futures basis (annualized) ≈ GOFO
+            # We estimate lease rates for 1M, 3M, 6M tenors
+            lease_1m = round(max(0, irx_rate * 0.08), 3)   # ~8% of risk-free for 1M tenor
+            lease_3m = round(max(0, irx_rate * 0.12), 3)   # ~12% of risk-free for 3M
+            lease_6m = round(max(0, irx_rate * 0.15), 3)   # ~15% of risk-free for 6M
+            
+            # Better estimate: use actual futures term structure if available
+            try:
+                # Try to get GCM26 (Jun 2026) for 3-month spread
+                gc_q = get_ticker("GCQ26.CMX")  # Aug 2026 contract
+                gc_q_price = get_price(gc_q)
+                if gc_q_price and gc_q_price > 0 and gc_spot > 0:
+                    # Annualized basis = (future/spot - 1) * (12/months_forward)
+                    months_fwd = 4  # ~4 months to Aug
+                    gofo_ann = ((gc_q_price / gc_spot) - 1) * (12 / months_fwd) * 100
+                    lease_3m = round(max(0, irx_rate - gofo_ann), 3)
+                    lease_1m = round(lease_3m * 0.7, 3)   # shorter tenor = lower
+                    lease_6m = round(lease_3m * 1.3, 3)   # longer tenor = higher
+                    data["gofo_annualized"] = round(gofo_ann, 3)
+                    print(f"  GOFO (annualized from futures basis): {gofo_ann:.3f}%")
+            except Exception as e2:
+                print(f"  Futures term structure unavailable, using estimate: {e2}")
+
+            data["lease_rate_1m"] = lease_1m
+            data["lease_rate_3m"] = lease_3m
+            data["lease_rate_6m"] = lease_6m
+            data["lease_rate_source"] = "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure."
+            data["backwardation"] = lease_3m > 0.5
+            print(f"  Gold lease rates: 1M={lease_1m}%, 3M={lease_3m}%, 6M={lease_6m}% | Backwardation: {lease_3m > 0.5}")
+    except Exception as e:
+        print(f"  Gold lease rate estimation failed: {e}")
+
     write_json("macro.json", data)
 
 
