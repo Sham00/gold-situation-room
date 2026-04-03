@@ -1137,6 +1137,128 @@
     body { overflow-x: hidden; }
   }
   /* ===== END MOBILE OPTIMIZATION ===== */
+
+  /* ===== PRICE ALERTS ===== */
+  #price-alert-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+  }
+  #price-alert-modal.open { display: flex; }
+  .alert-modal-box {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px;
+    width: 380px;
+    max-width: 95vw;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  }
+  .alert-modal-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  .alert-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .alert-input-row label {
+    font-size: 11px;
+    color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    width: 100px;
+    flex-shrink: 0;
+  }
+  .alert-input-row input[type="number"] {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 8px 12px;
+    outline: none;
+  }
+  .alert-input-row input[type="number"]:focus {
+    border-color: var(--gold);
+  }
+  .alert-btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .alert-save-btn {
+    flex: 1;
+    background: var(--gold);
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+  }
+  .alert-clear-btn {
+    background: rgba(255,68,68,0.15);
+    color: #ff4444;
+    border: 1px solid rgba(255,68,68,0.3);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+  }
+  .alert-cancel-btn {
+    background: rgba(255,255,255,0.06);
+    color: var(--text2);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+  }
+  #price-alert-banner {
+    display: none;
+    background: rgba(255,215,0,0.12);
+    border-bottom: 1px solid rgba(255,215,0,0.35);
+    padding: 8px 20px;
+  }
+  .alert-banner-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .alert-active-list {
+    font-size: 11px;
+    color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 12px;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    line-height: 1.8;
+  }
+  /* ===== END PRICE ALERTS ===== */
 </style>
 </head>
 <body>
@@ -1173,10 +1295,54 @@
       <button onclick="toggleDataModal()" class="pill flex items-center gap-2" title="Data sources &amp; methodology" id="data-quality-btn">
         📋 Data Quality
       </button>
+      <button onclick="openAlertModal()" class="pill flex items-center gap-2" title="Set price alerts" id="price-alerts-btn">
+        🔔 <span id="alert-btn-label">Alerts</span>
+      </button>
       <div id="header-live-dot" class="w-2 h-2 rounded-full bg-[var(--green)] loading-pulse" title="Auto-refresh every 5m"></div>
     </div>
   </div>
 </header>
+
+<!-- PRICE ALERT BANNER (user-set thresholds) -->
+<div id="price-alert-banner">
+  <div class="alert-banner-inner">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:18px;">🔔</span>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:#ffd700;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;">PRICE ALERT TRIGGERED</div>
+        <div id="alert-banner-text" style="font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;"></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="openAlertModal()" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:5px 12px;font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;cursor:pointer;">Edit Alerts</button>
+      <button onclick="document.getElementById('price-alert-banner').style.display='none'" style="background:none;border:none;color:#888;font-size:16px;cursor:pointer;">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE ALERT MODAL -->
+<div id="price-alert-modal" role="dialog" aria-modal="true" aria-label="Price Alerts">
+  <div class="alert-modal-box">
+    <div class="alert-modal-title">🔔 Price Alerts</div>
+    <div style="font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;margin-bottom:18px;line-height:1.6;">
+      Set upper and/or lower price thresholds. Alerts are stored locally in your browser and checked on every page load.
+    </div>
+    <div class="alert-input-row">
+      <label>Upper Limit</label>
+      <input type="number" id="alert-upper" placeholder="e.g. 3200" step="10" min="0">
+    </div>
+    <div class="alert-input-row">
+      <label>Lower Limit</label>
+      <input type="number" id="alert-lower" placeholder="e.g. 2800" step="10" min="0">
+    </div>
+    <div id="alert-active-display" class="alert-active-list" style="display:none;"></div>
+    <div class="alert-btn-row">
+      <button class="alert-save-btn" onclick="saveAlerts()">Save Alerts</button>
+      <button class="alert-clear-btn" onclick="clearAlerts()">Clear</button>
+      <button class="alert-cancel-btn" onclick="closeAlertModal()">Cancel</button>
+    </div>
+  </div>
+</div>
 
 <!-- Market Alerts Strip (shown only when alerts are non-empty) -->
 <div id="market-alerts-strip" style="display:none; background:rgba(255,170,0,0.08); border-bottom:1px solid rgba(255,170,0,0.25); padding:0;">
@@ -6365,9 +6531,136 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     var modal = document.getElementById('data-quality-modal');
     if (modal) modal.style.display = 'none';
+    closeAlertModal();
   }
 });
 </script>
+
+<!-- ===== PRICE ALERT SYSTEM ===== -->
+<script>
+(function() {
+  var STORAGE_KEY = 'gold_price_alerts_v1';
+  var currentGoldPrice = null;
+
+  function loadAlerts() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveAlertsToStorage(a) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(a)); } catch(e) {}
+  }
+
+  function updateAlertButton() {
+    var a = loadAlerts();
+    var count = (a.upper ? 1 : 0) + (a.lower ? 1 : 0);
+    var lbl = document.getElementById('alert-btn-label');
+    if (lbl) {
+      lbl.textContent = count > 0 ? 'Alerts (' + count + ')' : 'Alerts';
+    }
+  }
+
+  function checkAlerts(price) {
+    if (!price) return;
+    currentGoldPrice = price;
+    var a = loadAlerts();
+    var triggered = [];
+    if (a.upper && price >= a.upper) {
+      triggered.push('Gold ≥ $' + a.upper.toLocaleString() + ' (current: $' + price.toLocaleString() + ')');
+    }
+    if (a.lower && price <= a.lower) {
+      triggered.push('Gold ≤ $' + a.lower.toLocaleString() + ' (current: $' + price.toLocaleString() + ')');
+    }
+    var banner = document.getElementById('price-alert-banner');
+    var bannerText = document.getElementById('alert-banner-text');
+    if (triggered.length > 0 && banner && bannerText) {
+      bannerText.textContent = triggered.join(' · ');
+      banner.style.display = 'block';
+    }
+  }
+
+  // Hook into the existing price data loading
+  var _origLoadAllData = window.loadAllData;
+  // We'll hook into the price fetch by polling for price element changes
+  // and also expose checkAlerts globally
+  window._checkPriceAlerts = checkAlerts;
+
+  // Observe header price changes to trigger alert checks
+  var priceEl = document.getElementById('header-price');
+  if (priceEl && 'MutationObserver' in window) {
+    var priceObserver = new MutationObserver(function() {
+      var raw = priceEl.textContent.replace(/[^0-9.]/g, '');
+      var p = parseFloat(raw);
+      if (p > 100) checkAlerts(p);
+    });
+    priceObserver.observe(priceEl, { childList: true, subtree: true, characterData: true });
+  }
+
+  window.openAlertModal = function() {
+    var a = loadAlerts();
+    var upper = document.getElementById('alert-upper');
+    var lower = document.getElementById('alert-lower');
+    if (upper) upper.value = a.upper || '';
+    if (lower) lower.value = a.lower || '';
+    var display = document.getElementById('alert-active-display');
+    if (display) {
+      var lines = [];
+      if (a.upper) lines.push('🔴 Alert if price ≥ $' + a.upper.toLocaleString());
+      if (a.lower) lines.push('🟢 Alert if price ≤ $' + a.lower.toLocaleString());
+      if (currentGoldPrice) lines.push('📍 Current price: $' + currentGoldPrice.toLocaleString());
+      if (lines.length) {
+        display.innerHTML = lines.join('<br>');
+        display.style.display = 'block';
+      } else {
+        display.style.display = 'none';
+      }
+    }
+    var modal = document.getElementById('price-alert-modal');
+    if (modal) modal.classList.add('open');
+  };
+
+  window.closeAlertModal = function() {
+    var modal = document.getElementById('price-alert-modal');
+    if (modal) modal.classList.remove('open');
+  };
+
+  window.saveAlerts = function() {
+    var upper = parseFloat(document.getElementById('alert-upper').value) || null;
+    var lower = parseFloat(document.getElementById('alert-lower').value) || null;
+    if (upper && lower && upper <= lower) {
+      alert('Upper limit must be greater than lower limit.');
+      return;
+    }
+    var a = {};
+    if (upper) a.upper = upper;
+    if (lower) a.lower = lower;
+    saveAlertsToStorage(a);
+    updateAlertButton();
+    closeAlertModal();
+    if (currentGoldPrice) checkAlerts(currentGoldPrice);
+  };
+
+  window.clearAlerts = function() {
+    saveAlertsToStorage({});
+    updateAlertButton();
+    document.getElementById('price-alert-banner').style.display = 'none';
+    closeAlertModal();
+  };
+
+  // Initialize button label on load
+  updateAlertButton();
+
+  // Close modal on backdrop click
+  var modal = document.getElementById('price-alert-modal');
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeAlertModal();
+    });
+  }
+})();
+</script>
+<!-- ===== END PRICE ALERT SYSTEM ===== -->
 
 <!-- More menu sheet -->
 <div id="more-menu-sheet" style="display:none;position:fixed;bottom:56px;left:0;right:0;background:#111;border-top:1px solid #222;z-index:899;padding:8px 0;">
