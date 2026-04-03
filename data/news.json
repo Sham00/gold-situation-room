@@ -92,13 +92,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News",
-      "title": "3 gold price questions investors should ask this April - CBS News",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5DLTF6c1U0SGFPYWpXVTVSaUhfeVFmb19sQVlicjdpYkxqUktfbkhIZzBKWnFpemtuWVRpU0l3STlZQ18zY29TRHhWVkN5Mkh5eUR3cU15SmFzanFTRmFEWGZ0Y2I0b1RoaHMtQ2RHSUVxY1g5Vm81a210SQ?oc=5",
-      "published": "Tue, 31 Mar 2026 19:18:36 GMT",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Mining.com",
       "title": "Moonshot puts global metals scramble on display",
       "link": "https://www.mining.com/moonshot-puts-global-metals-scramble-on-display/",
@@ -128,7 +121,7 @@
     },
     {
       "source": "Google News",
-      "title": "Gold (XAU/USD) Price Forecast for Today, Tomorrow, Next Week, and the Next 30 Days - LiteFinance",
+      "title": "Gold (XAU/USD) Price Forecast for Today, Tomorrow, Next Week, and the Next 30 Days - litefinance.org",
       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ1BXeVdPR08tTmQ4MHdZMkloUzlsNjRjSE5VVmxyeVRrdDZqbDI3Tm5VVUdfYTdZM0dOYjkzVFBuMGhJUzZEM3E0RDBkc0RTUXd2VFdMdm5uenpPXzJobUNvRklvRkt0S0pfYkZ0UWRXaWRDc09MR1pBUkVDRXN2Y2FINkVmUDBlRkZHNGhzZkNyNk5LUzZrM2VUV1pVOV9N?oc=5",
       "published": "Thu, 02 Apr 2026 23:14:33 GMT",
       "sentiment": "positive"
@@ -174,12 +167,19 @@
       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSFVEcDEyTlljQjA1ZWhfVVFab3otTEJfVFVDeG9JV2Jua2RURVN1Qjd4NnZYb0ZEYnNNLU1nN1ptRmJqa3hiM3lXRzNTWkZWMnpqSFZjdFJzU3Y5b0VkLTdWZ00xSHFrUi1mRXNaZ2Y1Uy1zak1FT1RSMDk3bUdHQ3hSTmVvdnV1WmFjUG5RNTU1aXVqTGg4b1lNTTNFcmdWM3phcXZ3?oc=5",
       "published": "Thu, 02 Apr 2026 20:22:53 GMT",
       "sentiment": "neutral"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold Snaps Its Weekly Losing Streak",
+      "link": "https://finance.yahoo.com/m/3a30bc9a-a824-3da5-952d-5cf86111cdfc/gold-snaps-its-weekly-losing.html?.tsrc=rss",
+      "published": "Thu, 02 Apr 2026 20:10:00 +0000",
+      "sentiment": "negative"
     }
   ],
-  "sentiment_score": 52.2,
+  "sentiment_score": 50.7,
   "bull_count": 40,
-  "bear_count": 5,
-  "neutral_count": 22,
+  "bear_count": 6,
+  "neutral_count": 21,
   "bull_pct": 59.7,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, FXStreet, Mining.com, Reuters, Investing.com",
@@ -187,5 +187,5 @@
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-03T02:46:22Z"
+  "last_updated": "2026-04-03T02:52:33Z"
 }
