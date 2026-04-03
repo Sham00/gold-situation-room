@@ -1318,6 +1318,21 @@
       </div>
     </div>
 
+    <!-- 52-Week Range -->
+    <div class="mt-6" id="range-52w-section" style="display:none;">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-xs text-[var(--text2)] mono uppercase tracking-wider">52-Week Range <span class="info-tooltip" data-tip="The highest and lowest closing prices over the past 52 weeks. Shows where the current price sits within the annual trading range.">ℹ</span></span>
+        <span id="range-52w-pct-label" class="text-sm font-bold mono" style="color:var(--text2)">--</span>
+      </div>
+      <div class="progress-track">
+        <div id="range-52w-progress" class="progress-fill" style="width:0%; background: linear-gradient(90deg, #4488ff, #00ff88, #ffd700);"></div>
+      </div>
+      <div class="flex justify-between mt-1">
+        <span id="range-52w-low" class="text-[10px] text-[var(--text2)] mono">52W Low: --</span>
+        <span id="range-52w-high" class="text-[10px] text-[var(--text2)] mono">52W High: --</span>
+      </div>
+    </div>
+
     <!-- Technical Indicators: MA50 / MA200 / RSI -->
     <div class="mt-6">
       <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-3 mono">Technical Indicators <span class="info-tooltip" data-tip="Moving averages and RSI calculated from daily COMEX closing prices. MA50/MA200 crossovers are widely-watched trend signals. RSI above 70 = overbought, below 30 = oversold.">ℹ</span></div>
@@ -2837,6 +2852,29 @@ function renderPriceSection() {
   document.getElementById('ath-value').textContent = 'ATH: $' + fmt(d.ath);
   if (d.pct_below_ath <= 0) {
     document.getElementById('ath-pct-label').style.color = '#00ff88';
+  }
+
+  // 52-Week Range
+  if (d.high_52w != null && d.low_52w != null) {
+    var rangeSection = document.getElementById('range-52w-section');
+    if (rangeSection) rangeSection.style.display = '';
+    var rangePct = d.high_52w > d.low_52w
+      ? ((d.price - d.low_52w) / (d.high_52w - d.low_52w)) * 100
+      : 50;
+    rangePct = Math.max(0, Math.min(100, rangePct));
+    document.getElementById('range-52w-progress').style.width = rangePct.toFixed(1) + '%';
+    document.getElementById('range-52w-low').textContent = '52W Low: $' + fmt(d.low_52w) + (d.low_52w_date ? ' (' + d.low_52w_date.substring(5) + ')' : '');
+    document.getElementById('range-52w-high').textContent = '52W High: $' + fmt(d.high_52w) + (d.high_52w_date ? ' (' + d.high_52w_date.substring(5) + ')' : '');
+    var pctFrom52High = ((d.price - d.high_52w) / d.high_52w) * 100;
+    var pctFrom52Low = ((d.price - d.low_52w) / d.low_52w) * 100;
+    var rangeLabel = document.getElementById('range-52w-pct-label');
+    if (pctFrom52High < -0.5) {
+      rangeLabel.textContent = fmt(Math.abs(pctFrom52High), 1) + '% off 52W high';
+      rangeLabel.style.color = '#ff8800';
+    } else {
+      rangeLabel.textContent = '+' + fmt(pctFrom52Low, 1) + '% from 52W low';
+      rangeLabel.style.color = '#00ff88';
+    }
   }
 
   // Technical indicators: MA50, MA200, RSI

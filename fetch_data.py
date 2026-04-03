@@ -134,6 +134,22 @@ def fetch_price():
         ath = current
         ath_date = datetime.now().strftime("%Y-%m-%d")
     pct_below_ath = ((ath - current) / ath) * 100 if ath else 0
+    # 52-week high/low from 1-year history
+    high_52w = None
+    low_52w = None
+    high_52w_date = None
+    low_52w_date = None
+    try:
+        one_year_hist = gold.history(period="1y", interval="1d")
+        if len(one_year_hist) > 0:
+            high_52w = round(float(one_year_hist["Close"].max()), 2)
+            low_52w = round(float(one_year_hist["Close"].min()), 2)
+            high_idx = one_year_hist["Close"].idxmax()
+            low_idx = one_year_hist["Close"].idxmin()
+            high_52w_date = str(high_idx.date())
+            low_52w_date = str(low_idx.date())
+    except Exception as e:
+        print(f"  52-week high/low calc failed: {e}")
     # Days since ATH
     days_since_ath = None
     if ath_date:
@@ -323,6 +339,10 @@ def fetch_price():
         "ath_date": ath_date,
         "days_since_ath": days_since_ath,
         "pct_below_ath": round(pct_below_ath, 2),
+        "high_52w": high_52w,
+        "low_52w": low_52w,
+        "high_52w_date": high_52w_date,
+        "low_52w_date": low_52w_date,
         "currencies": currencies,
         "currency_sparklines": currency_sparklines,
         "charts": charts,
@@ -2129,13 +2149,14 @@ def fetch_news():
         return "neutral"
 
     feeds = [
-        # Gold-specific feeds (no keyword filter needed)
-        ("Kitco", "https://feeds.kitco.com/MarketNuggets.rss"),
-        ("Kitco News", "https://www.kitco.com/rss/KitcoRSS_News.xml"),
-        ("BullionVault", "https://www.bullionvault.com/gold-news/rss.do"),
-        ("GoldPrice.org", "https://goldprice.org/rss.xml"),
-        # Google News Gold (highly reliable, always has fresh articles)
+        # Yahoo Finance GC=F gold futures headlines (reliable, 20 fresh articles)
+        ("Yahoo Finance Gold", "https://feeds.finance.yahoo.com/rss/2.0/headline?s=GC%3DF&region=US&lang=en-US"),
+        # Google News Gold — primary broad sweep
         ("Google News", "https://news.google.com/rss/search?q=gold+price+OR+gold+market+OR+XAU&hl=en-US&gl=US&ceid=US:en"),
+        # Google News Gold — investment/ETF/central bank angle for deeper coverage
+        ("Google News Gold Investment", "https://news.google.com/rss/search?q=gold+investment+OR+gold+ETF+OR+central+bank+gold&hl=en-US&gl=US&ceid=US:en"),
+        # FXStreet commodities (filtered to gold)
+        ("FXStreet", "https://www.fxstreet.com/rss/news?category=commodities&subcategory=gold"),
         # General mining/commodity feeds (keyword-filtered below)
         ("Mining.com", "https://www.mining.com/feed/"),
         ("Reuters Commodities", "https://www.reutersagency.com/feed/?best-topics=commodities&post_type=best"),
@@ -2143,7 +2164,7 @@ def fetch_news():
     ]
 
     GOLD_KEYWORDS = ["gold", "mining", "precious", "bullion", "metal", "silver", "commodity", "reserve", "xau"]
-    GENERAL_FEEDS = {"Mining.com", "Reuters Commodities", "Investing.com Gold"}
+    GENERAL_FEEDS = {"Mining.com", "Reuters Commodities", "Investing.com Gold", "FXStreet", "Yahoo Finance Gold"}
 
     articles = []
     for source, url in feeds:
@@ -2247,7 +2268,7 @@ def fetch_news():
         "neutral_count": total - bull_count - bear_count,
         "bull_pct": bull_pct,
         "data_quality": {
-            "source": "RSS feeds: Kitco, BullionVault, GoldPrice.org, Google News, Mining.com, Reuters, Investing.com",
+            "source": "RSS feeds: Yahoo Finance Gold, Google News, FXStreet, Mining.com, Reuters, Investing.com",
             "freshness": "hourly",
             "reliability": "live",
             "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis.",
