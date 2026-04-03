@@ -41,6 +41,7 @@ TTL = {
     "cot": 86400,
     "historical": 86400,
     "analyst_targets": 3600,
+    "tariffs": 3600,
 }
 
 
@@ -691,6 +692,39 @@ def fetch_analyst_targets_data():
     }
 
 
+def fetch_tariffs_data():
+    """Trade war & tariff impact data. Reads from data/tariffs.json (written by fetch_data.py)."""
+    data_path = Path(__file__).parent / "data" / "tariffs.json"
+    if data_path.exists():
+        try:
+            return json.loads(data_path.read_text())
+        except Exception:
+            pass
+    # Minimal fallback so the frontend doesn't break
+    return {
+        "news": [],
+        "dxy_signal": "NEUTRAL",
+        "dxy_30d_change_pct": 0.0,
+        "dxy_now": None,
+        "dxy_1y": [],
+        "gold_1y": [],
+        "bullion_status": {
+            "status": "EXEMPT",
+            "hs_code": "7108",
+            "reason": "Gold bullion exempt from Section 301, 232, and Section 122 tariffs under HTS 7108",
+            "last_confirmed": "2026-04",
+            "indirect_impacts": [],
+        },
+        "tariff_events": [],
+        "current_regime": {
+            "name": "10% Universal Tariff (Section 122)",
+            "date": "2026-02-20",
+            "status": "ACTIVE",
+            "description": "Blanket 10% import duty on virtually all goods entering the US",
+        },
+    }
+
+
 # ---------------------------------------------------------------------------
 # API Endpoints
 # ---------------------------------------------------------------------------
@@ -805,6 +839,17 @@ async def get_analyst_targets():
     return data or {"error": "Analyst targets unavailable"}
 
 
+@app.get("/api/tariffs")
+async def get_tariffs():
+    cached = _read_cache("tariffs", TTL["tariffs"])
+    if cached:
+        return cached
+    data = _safe(fetch_tariffs_data, {"error": "Failed to fetch tariffs data"})
+    if data and "error" not in data:
+        _write_cache("tariffs", data)
+    return data or {"error": "Tariffs data unavailable"}
+
+
 @app.get("/api/all")
 async def get_all():
     """All data in one call for initial page load."""
@@ -819,6 +864,7 @@ async def get_all():
         "cot": ("cot", fetch_cot_data),
         "historical": ("historical", fetch_historical_data),
         "analyst_targets": ("analyst_targets", fetch_analyst_targets_data),
+        "tariffs": ("tariffs", fetch_tariffs_data),
     }
     result = {}
     for key, (cache_key, fetcher) in sections.items():

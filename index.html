@@ -1681,6 +1681,61 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- SECTION 4c: TRADE WAR & TARIFF IMPACT -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-tariffs" style="animation-delay:0.47s">
+    <div class="section-title">Trade War &amp; Tariff Impact <span class="info-tooltip" data-tip="Gold bullion is exempt from US tariffs under HTS 7108, but trade war uncertainty drives dollar weakness which is bullish for gold. DXY 30-day change is the key signal to watch.">ℹ</span><span class="freshness-badge freshness-live">● Hourly</span></div>
+
+    <!-- Top row: 3 status cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <!-- Card 1: Gold Tariff Status -->
+      <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold Tariff Status</div>
+        <div id="tariff-status-badge" class="inline-block px-3 py-1 rounded text-sm font-bold mono mb-2" style="background:rgba(0,255,136,0.15);color:#00ff88;border:1px solid rgba(0,255,136,0.3);">EXEMPT</div>
+        <div class="text-[10px] text-[var(--text2)] mono leading-relaxed" id="tariff-hs-note">HTS 7108 — monetary gold classified as financial instrument</div>
+      </div>
+      <!-- Card 2: Trade War Signal -->
+      <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-widest mono mb-2">Trade War Signal (DXY 30d)</div>
+        <div id="tariff-signal-badge" class="inline-block px-3 py-1 rounded text-sm font-bold mono mb-2" style="background:rgba(136,136,136,0.15);color:#888;border:1px solid rgba(136,136,136,0.3);">--</div>
+        <div class="text-[10px] text-[var(--text2)] mono" id="tariff-signal-detail">Dollar Index 30-day change loading...</div>
+      </div>
+      <!-- Card 3: Current Regime -->
+      <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-widest mono mb-2">Current Tariff Regime</div>
+        <div id="tariff-regime-name" class="text-sm font-bold mono text-[var(--gold)] mb-1">--</div>
+        <div class="text-[10px] text-[var(--text2)] mono" id="tariff-regime-desc">--</div>
+      </div>
+    </div>
+
+    <!-- Middle row: DXY/Gold chart + Indirect impacts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <!-- Left: DXY vs Gold dual-axis chart -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold vs DXY — 1 Year with Tariff Events <span class="info-tooltip" data-tip="Gold (gold line) vs US Dollar Index (purple). Each dashed vertical line marks a major tariff escalation event. Dollar weakness = gold bullish.">ℹ</span></div>
+        <div class="chart-wrap chart-loading" style="height:280px;">
+          <canvas id="chart-tariff-dxy"></canvas>
+        </div>
+      </div>
+      <!-- Right: Indirect Impact list -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-3">Indirect Impact on Gold</div>
+        <div id="tariff-impacts-list" class="space-y-2">
+          <div class="flex justify-center py-8"><div class="spinner"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row: Tariff news feed -->
+    <div>
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-3">Tariff &amp; Trade News</div>
+      <div id="tariff-news-list" class="space-y-2">
+        <div class="flex justify-center py-6"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- SECTION 5: COT POSITIONING -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-cot" style="animation-delay:0.5s">
@@ -2289,6 +2344,7 @@ function loadAllData() {
     { key: 'crisisAssets', url: 'data/crisis_assets.json' },
     { key: 'marketIntel', url: 'data/market_intel.json' },
     { key: 'bankTargets', url: 'data/bank_targets.json' },
+    { key: 'tariffs', url: 'data/tariffs.json' },
   ];
 
   // Show loading states immediately
@@ -2380,6 +2436,7 @@ function renderAll() {
   renderCentralBanks();
   renderETFs();
   renderAnalystTargets();
+  renderTariffs();
   renderCOT();
   renderComexVault();
   renderLeaseRate();
@@ -4004,6 +4061,247 @@ function renderAnalystTargets() {
   });
   var cardsEl = document.getElementById('analyst-cards');
   if (cardsEl) cardsEl.innerHTML = cards || makeEmptyState('🏦', 'No analyst targets available', false);
+}
+
+// --- TRADE WAR & TARIFF IMPACT ---
+function renderTariffs() {
+  var d = DATA.tariffs;
+  if (!d) return;
+
+  // Card 1: Gold Tariff Status
+  var bs = d.bullion_status || {};
+  var statusEl = document.getElementById('tariff-status-badge');
+  var hsEl = document.getElementById('tariff-hs-note');
+  if (statusEl) {
+    var st = bs.status || 'EXEMPT';
+    var stColor = st === 'EXEMPT' ? '#00ff88' : '#ff4444';
+    var stBg = st === 'EXEMPT' ? 'rgba(0,255,136,0.15)' : 'rgba(255,68,68,0.15)';
+    var stBorder = st === 'EXEMPT' ? 'rgba(0,255,136,0.3)' : 'rgba(255,68,68,0.3)';
+    statusEl.textContent = st;
+    statusEl.style.color = stColor;
+    statusEl.style.background = stBg;
+    statusEl.style.border = '1px solid ' + stBorder;
+  }
+  if (hsEl && bs.hs_code) {
+    hsEl.textContent = 'HTS ' + bs.hs_code + ' — ' + (bs.reason || 'monetary gold classified as financial instrument');
+  }
+
+  // Card 2: Trade War Signal
+  var sigEl = document.getElementById('tariff-signal-badge');
+  var sigDetail = document.getElementById('tariff-signal-detail');
+  if (sigEl) {
+    var sig = d.dxy_signal || 'NEUTRAL';
+    var chg = d.dxy_30d_change_pct;
+    var sigColor, sigBg, sigBorder;
+    if (sig === 'BULLISH') {
+      sigColor = '#00ff88'; sigBg = 'rgba(0,255,136,0.15)'; sigBorder = 'rgba(0,255,136,0.3)';
+    } else if (sig === 'BEARISH') {
+      sigColor = '#ff4444'; sigBg = 'rgba(255,68,68,0.15)'; sigBorder = 'rgba(255,68,68,0.3)';
+    } else {
+      sigColor = '#ffd700'; sigBg = 'rgba(255,215,0,0.10)'; sigBorder = 'rgba(255,215,0,0.25)';
+    }
+    sigEl.textContent = sig;
+    sigEl.style.color = sigColor;
+    sigEl.style.background = sigBg;
+    sigEl.style.border = '1px solid ' + sigBorder;
+    if (sigDetail) {
+      var chgStr = chg != null ? (chg > 0 ? '+' : '') + chg.toFixed(2) + '% DXY 30d' : 'DXY 30d change';
+      var dxyNow = d.dxy_now ? ' (DXY ' + d.dxy_now.toFixed(2) + ')' : '';
+      var hint = sig === 'BULLISH' ? ' → dollar weakness is gold bullish' :
+                 sig === 'BEARISH' ? ' → dollar strength is gold headwind' : ' → dollar flat';
+      sigDetail.textContent = chgStr + dxyNow + hint;
+    }
+  }
+
+  // Card 3: Current Regime
+  var regName = document.getElementById('tariff-regime-name');
+  var regDesc = document.getElementById('tariff-regime-desc');
+  var regime = d.current_regime || {};
+  if (regName) regName.textContent = regime.name || '--';
+  if (regDesc) regDesc.textContent = (regime.date ? 'Enacted ' + regime.date + ' · ' : '') + (regime.description || '');
+
+  // Indirect Impacts
+  var impactsEl = document.getElementById('tariff-impacts-list');
+  if (impactsEl) {
+    var impacts = (bs.indirect_impacts || []);
+    if (!impacts.length) {
+      impactsEl.innerHTML = makeEmptyState('📊', 'No impact data available', false);
+    } else {
+      var impHtml = '';
+      impacts.forEach(function(imp) {
+        var typeColor = { 'AISC': '#ff8844', 'DEMAND': '#4488ff', 'SUPPLY': '#aa44ff', 'SIGNAL': '#ffd700' }[imp.type] || '#888';
+        var impactColor = imp.impact === 'positive' ? '#00ff88' : imp.impact === 'negative' ? '#ff4444' : '#ffd700';
+        var arrow = imp.impact === 'positive' ? '▲' : imp.impact === 'negative' ? '▼' : '●';
+        impHtml += '<div style="display:flex;align-items:flex-start;gap:10px;padding:8px 10px;background:#0a0a0a;border-radius:6px;border:1px solid var(--card-border);">' +
+          '<span style="flex-shrink:0;padding:2px 7px;border-radius:4px;font-size:9px;font-family:JetBrains Mono,monospace;font-weight:700;background:' + typeColor + '22;color:' + typeColor + ';border:1px solid ' + typeColor + '44;">' + imp.type + '</span>' +
+          '<span style="flex-shrink:0;color:' + impactColor + ';font-size:11px;margin-top:1px;">' + arrow + '</span>' +
+          '<span style="font-size:11px;color:var(--text2);font-family:JetBrains Mono,monospace;line-height:1.4;">' + imp.text + '</span>' +
+          '</div>';
+      });
+      impactsEl.innerHTML = impHtml;
+    }
+  }
+
+  // DXY vs Gold dual-axis chart with tariff event annotations
+  var events = d.tariff_events || [];
+  var goldData = d.gold_1y || [];
+  var dxyData = d.dxy_1y || [];
+
+  var parsedGold = parseChartData(goldData);
+  var parsedDxy = parseChartData(dxyData);
+
+  // Align by date: find common date range (last 1Y in gold data)
+  var goldMap = {};
+  parsedGold.labels.forEach(function(l, i) { goldMap[l.substring(0,10)] = parsedGold.values[i]; });
+  var labels = [], goldVals = [], dxyVals = [];
+  parsedDxy.labels.forEach(function(l, i) {
+    var d10 = l.substring(0,10);
+    if (goldMap[d10] != null) {
+      labels.push(d10);
+      dxyVals.push(parsedDxy.values[i]);
+      goldVals.push(goldMap[d10]);
+    }
+  });
+
+  if (labels.length >= 5) {
+    destroyChart('tariff-dxy');
+    var canvasEl = document.getElementById('chart-tariff-dxy');
+    if (canvasEl) {
+      var wrap = canvasEl.closest('.chart-wrap');
+      var ctx = canvasEl.getContext('2d');
+
+      // Build event lookup: date → short label (only events within chart date range)
+      var chartStart = labels[0];
+      var eventLabels = {};
+      events.forEach(function(ev) {
+        if (ev.date >= chartStart) {
+          eventLabels[ev.date] = ev.short || ev.label;
+        }
+      });
+
+      charts['tariff-dxy'] = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Gold ($/oz)',
+              data: goldVals,
+              borderColor: '#ffd700',
+              borderWidth: 2,
+              pointRadius: 0,
+              yAxisID: 'y1',
+              tension: 0.3,
+            },
+            {
+              label: 'DXY (USD Index)',
+              data: dxyVals,
+              borderColor: '#aa44ff',
+              borderWidth: 1.5,
+              borderDash: [4, 2],
+              pointRadius: 0,
+              yAxisID: 'y2',
+              tension: 0.3,
+            }
+          ]
+        },
+        options: {
+          interaction: { intersect: false, mode: 'index' },
+          plugins: {
+            legend: { display: true, labels: { boxWidth: 10, padding: 10, color: '#888', font: { size: 10 } } },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  if (ctx.datasetIndex === 0) return 'Gold: $' + fmt(ctx.parsed.y, 0);
+                  return 'DXY: ' + fmt(ctx.parsed.y, 2);
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                maxTicksLimit: 8,
+                callback: function(val) {
+                  var label = this.getLabelForValue(val);
+                  try { return new Date(label).toLocaleDateString('en-US', { month: 'short', year: '2-digit' }); } catch(e) { return ''; }
+                }
+              }
+            },
+            y1: {
+              position: 'left',
+              grid: { color: 'rgba(255,255,255,0.03)' },
+              ticks: { color: '#ffd700', callback: function(v) { return '$' + fmt(v, 0); } }
+            },
+            y2: {
+              position: 'right',
+              grid: { display: false },
+              ticks: { color: '#aa44ff', callback: function(v) { return fmt(v, 1); } }
+            }
+          }
+        },
+        plugins: [{
+          id: 'tariffAnnotations',
+          afterDraw: function(chart) {
+            var evKeys = Object.keys(eventLabels);
+            if (!evKeys.length) return;
+            var xScale = chart.scales.x;
+            var yScale = chart.scales.y1;
+            var c = chart.ctx;
+            evKeys.forEach(function(evDate) {
+              var idx = -1;
+              for (var i = 0; i < labels.length; i++) {
+                if (labels[i].substring(0,10) === evDate) { idx = i; break; }
+              }
+              if (idx < 0) return;
+              var x = xScale.getPixelForValue(idx);
+              c.save();
+              c.strokeStyle = 'rgba(255,80,80,0.6)';
+              c.lineWidth = 1.2;
+              c.setLineDash([4, 3]);
+              c.beginPath();
+              c.moveTo(x, yScale.top);
+              c.lineTo(x, yScale.bottom);
+              c.stroke();
+              c.setLineDash([]);
+              c.fillStyle = 'rgba(255,100,80,0.9)';
+              c.font = 'bold 8px JetBrains Mono, monospace';
+              c.textAlign = 'center';
+              c.fillText(eventLabels[evDate], x, yScale.top + 10);
+              c.restore();
+            });
+          }
+        }]
+      });
+
+      if (wrap) wrap.classList.remove('chart-loading');
+    }
+  }
+
+  // Tariff News
+  var newsEl = document.getElementById('tariff-news-list');
+  if (newsEl) {
+    var articles = d.news || [];
+    if (!articles.length) {
+      newsEl.innerHTML = '<div style="color:var(--text2);font-size:11px;font-family:JetBrains Mono,monospace;padding:12px 0;">No tariff news available — check back after next data refresh.</div>';
+    } else {
+      var newsHtml = '';
+      articles.forEach(function(a) {
+        var src = a.source || 'News';
+        var title = a.title || '';
+        var link = a.link || '#';
+        var pub = a.published ? a.published.substring(0, 16) : '';
+        newsHtml += '<div style="display:flex;align-items:flex-start;gap:10px;padding:8px 10px;background:#0a0a0a;border-radius:6px;border:1px solid var(--card-border);">' +
+          '<span style="flex-shrink:0;padding:1px 6px;border-radius:3px;font-size:8px;font-family:JetBrains Mono,monospace;font-weight:700;background:rgba(255,165,0,0.15);color:#ffaa44;border:1px solid rgba(255,165,0,0.25);white-space:nowrap;">TARIFF</span>' +
+          '<div style="flex:1;min-width:0;">' +
+          '<a href="' + link + '" target="_blank" rel="noopener" style="color:var(--text1);text-decoration:none;font-size:12px;line-height:1.4;display:block;">' + title + '</a>' +
+          '<div style="font-size:9px;color:var(--text2);font-family:JetBrains Mono,monospace;margin-top:3px;">' + src + (pub ? ' · ' + pub : '') + '</div>' +
+          '</div></div>';
+      });
+      newsEl.innerHTML = newsHtml;
+    }
+  }
 }
 
 // --- COT ---

@@ -3171,6 +3171,144 @@ def generate_og_preview():
         print(f"OG preview error: {e}")
 
 
+def fetch_tariffs():
+    """Fetch trade war & tariff impact data: news, DXY signal, correlation chart, gold exemption."""
+    print("Fetching tariff/trade war data...")
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; GoldBot/1.0)"}
+
+    # --- 1. Tariff news from Google News RSS ---
+    TARIFF_KEYWORDS = ["tariff", "trade war", "trade deal", "gold", "dollar", "import duty", "sanctions"]
+    tariff_feeds = [
+        "https://news.google.com/rss/search?q=tariff+gold+price+impact&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=trade+war+gold+2026&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=dollar+tariff+gold+safe+haven&hl=en-US&gl=US&ceid=US:en",
+    ]
+    tariff_articles = []
+    seen_titles = set()
+    for url in tariff_feeds:
+        try:
+            feed = feedparser.parse(url, request_headers=headers)
+            for entry in feed.entries[:10]:
+                title = entry.get("title", "")
+                if not title or title in seen_titles:
+                    continue
+                tl = title.lower()
+                if not any(k in tl for k in TARIFF_KEYWORDS):
+                    continue
+                seen_titles.add(title)
+                tariff_articles.append({
+                    "source": "Google News",
+                    "title": title,
+                    "link": entry.get("link", ""),
+                    "published": entry.get("published", ""),
+                })
+            throttle(0.3)
+        except Exception as e:
+            print(f"  Tariff RSS error ({url[:60]}): {e}")
+    tariff_articles = tariff_articles[:5]
+
+    # --- 2. DXY 30-day change signal ---
+    dxy_signal = "NEUTRAL"
+    dxy_30d_change_pct = 0.0
+    dxy_now = None
+    try:
+        dxy_ticker = get_ticker("DX-Y.NYB")
+        dxy_hist = dxy_ticker.history(period="35d", interval="1d")
+        if len(dxy_hist) >= 20:
+            dxy_now = round(float(dxy_hist["Close"].iloc[-1]), 2)
+            dxy_30d_ago = float(dxy_hist["Close"].iloc[max(0, len(dxy_hist) - 30)])
+            dxy_30d_change_pct = round((dxy_now - dxy_30d_ago) / dxy_30d_ago * 100, 2)
+            if dxy_30d_change_pct < -2:
+                dxy_signal = "BULLISH"
+            elif dxy_30d_change_pct > 2:
+                dxy_signal = "BEARISH"
+            else:
+                dxy_signal = "NEUTRAL"
+    except Exception as e:
+        print(f"  DXY 30d signal error: {e}")
+
+    # --- 3. DXY + Gold 1Y chart data ---
+    dxy_1y = []
+    gold_1y_tariff = []
+    try:
+        throttle(0.3)
+        dxy_data = get_ticker("DX-Y.NYB").history(period="1y", interval="1d")
+        dxy_1y = [{"t": str(d.date()), "v": round(float(r["Close"]), 2)} for d, r in dxy_data.iterrows()]
+    except Exception as e:
+        print(f"  DXY 1Y chart error: {e}")
+    try:
+        throttle(0.3)
+        gold_data = get_ticker("GC=F").history(period="1y", interval="1d")
+        gold_1y_tariff = [{"t": str(d.date()), "v": round(float(r["Close"]), 2)} for d, r in gold_data.iterrows()]
+    except Exception as e:
+        print(f"  Gold 1Y tariff chart error: {e}")
+
+    # --- 4. Gold bullion tariff status (static/regulatory) ---
+    bullion_status = {
+        "status": "EXEMPT",
+        "hs_code": "7108",
+        "reason": "Gold bullion and monetary gold classified as financial instruments under HTS 7108, exempt from Section 301, 232, and Section 122 tariffs",
+        "last_confirmed": "2026-04",
+        "indirect_impacts": [
+            {"type": "AISC", "impact": "negative", "text": "Steel/aluminum tariffs (50%) increase mining equipment and processing costs → AISC pressure"},
+            {"type": "DEMAND", "impact": "negative", "text": "China tariffs may reduce industrial gold demand (electronics, jewelry)"},
+            {"type": "SUPPLY", "impact": "positive", "text": "India import TRQ under UAE trade pact extended to June 30, 2026 — supports demand"},
+            {"type": "SIGNAL", "impact": "positive", "text": "Dollar weakness from trade uncertainty is the primary bullish driver for gold"},
+        ],
+    }
+
+    # --- 5. Key tariff escalation events with gold price at each date ---
+    tariff_events = [
+        {"date": "2018-07-06", "label": "US-China tariffs", "short": "US-CN", "detail": "First Trump-era China tariffs (25% on $34B goods)"},
+        {"date": "2025-02-01", "label": "Canada/Mexico 25%", "short": "CA/MX", "detail": "Trump announces 25% tariffs on Canada and Mexico"},
+        {"date": "2025-03-12", "label": "Steel/Aluminum 25%", "short": "Steel", "detail": "Steel and aluminum tariffs take effect globally"},
+        {"date": "2025-04-02", "label": "Liberation Day", "short": "LibDay", "detail": "Reciprocal tariff package announcement"},
+        {"date": "2026-01-20", "label": "Inauguration threats", "short": "Jan20", "detail": "New tariff threats begin on inauguration day"},
+        {"date": "2026-02-20", "label": "10% Universal", "short": "Univ.", "detail": "10% universal tariff (Section 122/IEEPA) enacted"},
+    ]
+    try:
+        throttle(0.5)
+        gold_full = get_ticker("GC=F").history(start="2018-01-01", interval="1d")
+        gold_date_map = {str(d.date()): round(float(r["Close"]), 2) for d, r in gold_full.iterrows()}
+        gold_date_keys = sorted(gold_date_map.keys())
+        for ev in tariff_events:
+            ev_date = ev["date"]
+            if ev_date in gold_date_map:
+                ev["gold_price"] = gold_date_map[ev_date]
+            elif gold_date_keys:
+                ev_dt = datetime.strptime(ev_date, "%Y-%m-%d")
+                nearest = min(gold_date_keys, key=lambda x: abs(
+                    (datetime.strptime(x, "%Y-%m-%d") - ev_dt).days
+                ))
+                ev["gold_price"] = gold_date_map.get(nearest)
+            else:
+                ev["gold_price"] = None
+    except Exception as e:
+        print(f"  Tariff event gold prices error: {e}")
+        for ev in tariff_events:
+            ev.setdefault("gold_price", None)
+
+    # --- 6. Current tariff regime ---
+    current_regime = {
+        "name": "10% Universal Tariff (Section 122)",
+        "date": "2026-02-20",
+        "status": "ACTIVE",
+        "description": "Blanket 10% import duty on virtually all goods entering the US under emergency IEEPA powers",
+    }
+
+    write_json("tariffs.json", {
+        "news": tariff_articles,
+        "dxy_signal": dxy_signal,
+        "dxy_30d_change_pct": dxy_30d_change_pct,
+        "dxy_now": dxy_now,
+        "dxy_1y": dxy_1y,
+        "gold_1y": gold_1y_tariff,
+        "bullion_status": bullion_status,
+        "tariff_events": tariff_events,
+        "current_regime": current_regime,
+    })
+
+
 def main():
     print("=" * 60)
     print("Gold Situation Room — Data Fetch")
@@ -3191,6 +3329,7 @@ def main():
         ("market_intel", fetch_market_intelligence),
         ("bank_targets", fetch_bank_targets),
         ("analyst_targets", fetch_analyst_targets),
+        ("tariffs", fetch_tariffs),
     ]
 
     results = {}
