@@ -2827,20 +2827,38 @@ def fetch_market_intelligence():
 
         # RSI oversold/overbought signals
         if rsi is not None:
-            if rsi < 35:
+            if rsi < 30:
                 alerts.append({
                     "type": "rsi_oversold",
-                    "headline": f"📉 RSI OVERSOLD: Gold RSI at {rsi:.1f} — historically strong mean-reversion buy zone",
-                    "detail": f"RSI below 35 has historically preceded gold bounces. Current RSI: {rsi:.1f}",
+                    "headline": f"📉 RSI DEEPLY OVERSOLD: Gold RSI at {rsi:.1f} — extreme mean-reversion buy signal",
+                    "detail": f"RSI below 30 is a strong historical buy signal for gold. Current RSI: {rsi:.1f}",
                     "significance": "high",
                     "ts": now_str,
                     "link": "",
                 })
-            elif rsi > 75:
+            elif rsi < 40:
+                alerts.append({
+                    "type": "rsi_approaching_oversold",
+                    "headline": f"📉 RSI APPROACHING OVERSOLD: Gold RSI at {rsi:.1f} — historically precedes mean-reversion bounces",
+                    "detail": f"RSI in the 30-40 range has historically preceded gold price rebounds. Watch for a reversal signal. Current RSI: {rsi:.1f}",
+                    "significance": "medium",
+                    "ts": now_str,
+                    "link": "",
+                })
+            elif rsi > 80:
+                alerts.append({
+                    "type": "rsi_overbought",
+                    "headline": f"📈 RSI DEEPLY OVERBOUGHT: Gold RSI at {rsi:.1f} — elevated short-term pullback risk",
+                    "detail": f"RSI above 80 signals significant short-term overextension. Current RSI: {rsi:.1f}",
+                    "significance": "high",
+                    "ts": now_str,
+                    "link": "",
+                })
+            elif rsi > 70:
                 alerts.append({
                     "type": "rsi_overbought",
                     "headline": f"📈 RSI OVERBOUGHT: Gold RSI at {rsi:.1f} — caution zone for short-term pullback risk",
-                    "detail": f"RSI above 75 signals short-term overextension. Current RSI: {rsi:.1f}",
+                    "detail": f"RSI above 70 signals short-term overextension. Current RSI: {rsi:.1f}",
                     "significance": "medium",
                     "ts": now_str,
                     "link": "",
@@ -2864,6 +2882,20 @@ def fetch_market_intelligence():
                 "headline": f"📊 YTD CORRECTION: Gold down {abs(ytd_pct):.1f}% YTD — positioning for potential reversal",
                 "detail": f"Gold has corrected {abs(ytd_pct):.1f}% YTD. Historical corrections of this magnitude have often preceded renewed buying.",
                 "significance": "high",
+                "ts": now_str,
+                "link": "",
+            })
+
+        # ATH pullback signal — alert when gold is 8-20% below ATH (healthy correction zone)
+        pct_below_ath = pd_tech.get("pct_below_ath")
+        ath = pd_tech.get("ath")
+        ath_date = pd_tech.get("ath_date", "")
+        if pct_below_ath is not None and 8 <= pct_below_ath <= 20 and current_price and ath:
+            alerts.append({
+                "type": "ath_pullback",
+                "headline": f"🟡 ATH PULLBACK: Gold is {pct_below_ath:.1f}% below its all-time high of ${ath:,.0f} — historically a re-entry zone",
+                "detail": f"Gold set its ATH of ${ath:,.0f} on {ath_date}. Pullbacks of 8-20% below ATH have historically been strong accumulation opportunities in bull markets.",
+                "significance": "medium",
                 "ts": now_str,
                 "link": "",
             })
@@ -2922,7 +2954,7 @@ def fetch_market_intelligence():
     # FOMC upcoming meeting alert (May 6-7, 2026)
     fomc_may = datetime(2026, 5, 6, tzinfo=timezone.utc)
     days_to_fomc = (fomc_may - _now).days
-    if 0 <= days_to_fomc <= 21:
+    if 0 <= days_to_fomc <= 35:
         pinned_alerts.append({
             "type": "macro_catalyst",
             "headline": f"🏦 FOMC MEETING in {days_to_fomc}d (May 6-7): Fed rate decision — gold sensitive to rate path guidance amid tariff-driven inflation",
