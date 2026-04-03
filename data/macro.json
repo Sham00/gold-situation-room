@@ -1,11 +1,7 @@
 {
-  "real_yield_10y": 2.02,
-  "real_yield_10y_date": "2026-04-01",
+  "real_yield_10y": 1.97,
+  "real_yield_10y_date": "2026-04-02",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-03-28",
-      "v": 1.9
-    },
     {
       "t": "2025-03-31",
       "v": 1.85
@@ -1009,6 +1005,10 @@
     {
       "t": "2026-04-01",
       "v": 2.02
+    },
+    {
+      "t": "2026-04-02",
+      "v": 1.97
     }
   ],
   "fed_funds": 3.64,
@@ -4047,13 +4047,9 @@
       "v": 22695.9
     }
   ],
-  "us_10y": 4.33,
-  "us_10y_date": "2026-04-01",
+  "us_10y": 4.31,
+  "us_10y_date": "2026-04-02",
   "us_10y_chart": [
-    {
-      "t": "2025-03-28",
-      "v": 4.27
-    },
     {
       "t": "2025-03-31",
       "v": 4.23
@@ -5057,9 +5053,13 @@
     {
       "t": "2026-04-01",
       "v": 4.33
+    },
+    {
+      "t": "2026-04-02",
+      "v": 4.31
     }
   ],
-  "dxy": 100.22,
+  "dxy": 100.19,
   "dxy_date": "2026-04-03",
   "dxy_chart": [
     {
@@ -6072,7 +6072,7 @@
     },
     {
       "t": "2026-04-03",
-      "v": 100.22
+      "v": 100.19
     }
   ],
   "data_sources": {
@@ -7107,5 +7107,5 @@
   "lease_rate_6m": 0.0,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": false,
-  "last_updated": "2026-04-03T19:43:56Z"
+  "last_updated": "2026-04-03T20:28:19Z"
 }

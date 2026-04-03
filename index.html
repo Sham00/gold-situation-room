@@ -252,6 +252,21 @@
   .freshness-quarterly { background: rgba(136,136,136,0.12); color: #888; border: 1px solid rgba(136,136,136,0.25); }
   .freshness-estimate { background: rgba(255,170,0,0.12); color: #ffaa00; border: 1px solid rgba(255,170,0,0.3); }
 
+  /* Portfolio Calculator */
+  .calc-vehicle-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: none;
+    border: 1px solid #333;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .calc-vehicle-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .calc-vehicle-btn.active { background: rgba(255,215,0,0.15); border-color: var(--gold); color: var(--gold); }
+
   /* Market Status Bar */
   .market-status-bar {
     margin-bottom: 16px;
@@ -2426,6 +2441,108 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- SECTION: GOLD PORTFOLIO CALCULATOR -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-portfolio-calc" style="animation-delay:0.69s">
+    <div class="section-title">Gold Portfolio Calculator <span class="info-tooltip" data-tip="Interactive tool: enter your portfolio size, target gold allocation %, or oz to buy — and see the numbers instantly. No data sent anywhere; runs locally in your browser.">ℹ</span><span class="freshness-badge" style="background:rgba(255,215,0,0.15);color:#ffd700;border:1px solid rgba(255,215,0,0.3);">Local</span></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Input Panel -->
+      <div>
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-4">Inputs</div>
+        <div class="space-y-4">
+          <!-- Portfolio Size -->
+          <div>
+            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-1">Total Portfolio Size (USD)</label>
+            <div class="flex items-center gap-2">
+              <span class="text-[var(--gold)] mono text-sm">$</span>
+              <input type="number" id="calc-portfolio" value="100000" min="0" step="1000"
+                class="mono text-sm bg-transparent border border-[#333] rounded px-3 py-2 text-white focus:outline-none focus:border-[var(--gold)] w-full"
+                oninput="runGoldCalc()" />
+            </div>
+          </div>
+          <!-- Allocation % -->
+          <div>
+            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-1">Gold Allocation <span id="calc-alloc-pct-label" class="text-[var(--gold)]">10%</span></label>
+            <input type="range" id="calc-alloc" min="1" max="50" value="10" step="1"
+              class="w-full accent-yellow-400"
+              oninput="document.getElementById('calc-alloc-pct-label').textContent=this.value+'%'; runGoldCalc()" />
+            <div class="flex justify-between text-[9px] text-[var(--text2)] mono mt-1">
+              <span>1%</span><span>Conservative: 5–10%</span><span>Aggressive: 20–30%</span><span>50%</span>
+            </div>
+          </div>
+          <!-- Buy Mode Toggle -->
+          <div class="flex gap-3 mt-2">
+            <button id="calc-mode-dollar" onclick="setCalcMode('dollar')"
+              class="mono text-xs px-4 py-2 rounded border border-[var(--gold)] bg-[var(--gold)] text-black font-bold">$ Dollars</button>
+            <button id="calc-mode-oz" onclick="setCalcMode('oz')"
+              class="mono text-xs px-4 py-2 rounded border border-[#333] text-[var(--text2)]">oz Amount</button>
+          </div>
+          <!-- Oz input (shown in oz mode) -->
+          <div id="calc-oz-input-row" class="hidden">
+            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-1">Gold oz to Buy</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="calc-oz-buy" value="10" min="0.001" step="0.1"
+                class="mono text-sm bg-transparent border border-[#333] rounded px-3 py-2 text-white focus:outline-none focus:border-[var(--gold)] w-full"
+                oninput="runGoldCalc()" />
+              <span class="text-[var(--text2)] mono text-xs">oz</span>
+            </div>
+          </div>
+          <!-- Vehicle selector -->
+          <div>
+            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-2">Vehicle / Premium</label>
+            <div class="flex flex-wrap gap-2" id="calc-vehicle-btns">
+              <button class="calc-vehicle-btn active" data-premium="0" onclick="setCalcVehicle(this, 0)">Spot (LBMA)</button>
+              <button class="calc-vehicle-btn" data-premium="0.003" onclick="setCalcVehicle(this, 0.003)">GLD ETF (+0.3%)</button>
+              <button class="calc-vehicle-btn" data-premium="0.005" onclick="setCalcVehicle(this, 0.005)">IAU ETF (+0.5%)</button>
+              <button class="calc-vehicle-btn" data-premium="0.02" onclick="setCalcVehicle(this, 0.02)">1oz Coin (+2%)</button>
+              <button class="calc-vehicle-btn" data-premium="0.05" onclick="setCalcVehicle(this, 0.05)">Silver Eagle +5%</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Panel -->
+      <div>
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-4">Results</div>
+        <div class="space-y-3">
+          <!-- Primary result: oz -->
+          <div class="card" style="background:#0d0d0d;padding:16px;">
+            <div class="text-[10px] text-[var(--text2)] mono uppercase tracking-wider mb-1">Gold oz You Can Buy</div>
+            <div id="calc-result-oz" class="text-3xl font-bold mono" style="color:var(--gold);">10.00 oz</div>
+            <div id="calc-result-cost" class="text-xs text-[var(--text2)] mono mt-1">$10,000 total cost</div>
+          </div>
+          <!-- At various price targets -->
+          <div class="card" style="background:#0d0d0d;padding:16px;">
+            <div class="text-[10px] text-[var(--text2)] mono uppercase tracking-wider mb-2">Value at Analyst Targets</div>
+            <div class="space-y-2" id="calc-target-rows">
+              <div class="text-[10px] mono text-[#444]">Loading targets…</div>
+            </div>
+          </div>
+          <!-- Allocation bar -->
+          <div class="card" style="background:#0d0d0d;padding:16px;">
+            <div class="text-[10px] text-[var(--text2)] mono uppercase tracking-wider mb-2">Allocation in Portfolio</div>
+            <div class="relative h-4 rounded-full overflow-hidden" style="background:#1a1a1a;">
+              <div id="calc-alloc-bar" class="h-full rounded-full transition-all" style="background:linear-gradient(90deg,#ffd700,#ffaa00);width:10%;"></div>
+            </div>
+            <div class="flex justify-between mt-1">
+              <span id="calc-alloc-bar-label" class="text-xs mono" style="color:var(--gold);">10% gold</span>
+              <span class="text-[10px] text-[var(--text2)] mono">90% other assets</span>
+            </div>
+            <div id="calc-advice" class="text-[10px] text-[var(--text2)] mono mt-2 leading-relaxed"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price sensitivity table -->
+    <div class="mt-6">
+      <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-3">Sensitivity: Value of Your Gold at Different Prices</div>
+      <div id="calc-sensitivity-table" style="overflow-x:auto;"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- SECTION 9: HISTORICAL CONTEXT -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-historical" style="animation-delay:0.7s">
@@ -2775,6 +2892,7 @@ function loadAllData() {
     { key: 'bankTargets', url: 'data/bank_targets.json' },
     { key: 'tariffs', url: 'data/tariffs.json' },
     { key: 'seasonality', url: 'data/seasonality.json' },
+    { key: 'comex', url: 'data/comex.json' },
   ];
 
   // Show loading states immediately
@@ -6104,19 +6222,37 @@ function renderMiners() {
 
 // --- COMEX VAULT ---
 function renderComexVault() {
-  // Hardcoded data (inline)
-  var vault = {
-    registered_tonnes: 442, eligible_tonnes: 8200, total_tonnes: 8642,
-    registered_change_30d: -85
-  };
+  // Use live data from data/comex.json if available, otherwise fall back to estimates
+  var comexData = DATA.comex;
   var cot = DATA.cot;
-  var oi = cot ? cot.gold_open_interest : 534892;
+  var oi = (cot ? cot.gold_open_interest : null) || (comexData ? comexData.open_interest_contracts : null) || 361409;
+
+  var vault;
+  if (comexData && comexData.registered_tonnes && comexData.eligible_tonnes) {
+    vault = {
+      registered_tonnes: comexData.registered_tonnes,
+      eligible_tonnes: comexData.eligible_tonnes,
+      total_tonnes: comexData.total_tonnes || (comexData.registered_tonnes + comexData.eligible_tonnes),
+    };
+  } else {
+    // Fallback static values (last known, Apr 2026)
+    vault = { registered_tonnes: 509, eligible_tonnes: 461, total_tonnes: 970 };
+  }
+
   // Cover ratio: registered oz / (OI contracts * 100 oz/contract)
   var registeredOz = vault.registered_tonnes * 32150.7; // troy oz per tonne
   var oiOz = oi * 100;
   var coverRatio = (registeredOz / oiOz * 100).toFixed(1);
   var el = document.getElementById('comex-cover-ratio');
   if (el) el.textContent = coverRatio + '%';
+
+  // Update source badge if element exists
+  var srcEl = document.getElementById('comex-data-source');
+  if (srcEl && comexData) {
+    var freshness = comexData.data_quality ? comexData.data_quality.freshness : '';
+    srcEl.textContent = freshness === '4-hourly' ? 'Live · 4h refresh' : 'Static estimate';
+    srcEl.style.color = freshness === '4-hourly' ? '#00ff88' : '#ff8844';
+  }
 
   // Stacked bar chart
   destroyChart('comex-vault');
@@ -6127,8 +6263,8 @@ function renderComexVault() {
       data: {
         labels: ['COMEX Gold Vault'],
         datasets: [
-          { label: 'Registered', data: [vault.registered_tonnes], backgroundColor: 'rgba(255,215,0,0.8)', borderColor: '#ffd700', borderWidth: 1 },
-          { label: 'Eligible', data: [vault.eligible_tonnes], backgroundColor: 'rgba(136,136,136,0.4)', borderColor: '#888', borderWidth: 1 },
+          { label: 'Registered (' + fmtInt(vault.registered_tonnes) + 't)', data: [vault.registered_tonnes], backgroundColor: 'rgba(255,215,0,0.8)', borderColor: '#ffd700', borderWidth: 1 },
+          { label: 'Eligible (' + fmtInt(vault.eligible_tonnes) + 't)', data: [vault.eligible_tonnes], backgroundColor: 'rgba(136,136,136,0.4)', borderColor: '#888', borderWidth: 1 },
         ]
       },
       options: {
@@ -6148,9 +6284,28 @@ function renderComexVault() {
 
 // --- GOLD LEASE RATE ---
 function renderLeaseRate() {
-  var leaseData = {
-    '1M': 0.28, '3M': 0.35, '6M': 0.42, '12M': 0.58
-  };
+  var macro = DATA.macro || {};
+  // Use real data from macro.json if available, else fall back to GOFO-proxy estimates
+  var gofo = macro.gofo_annualized;
+  var leaseData;
+  if (macro.lease_rate_1m != null && (macro.lease_rate_1m !== 0 || macro.lease_rate_3m !== 0)) {
+    leaseData = {
+      '1M': macro.lease_rate_1m || 0,
+      '3M': macro.lease_rate_3m || 0,
+      '6M': macro.lease_rate_6m || 0,
+    };
+  } else if (gofo != null) {
+    // Approximate lease rate from GOFO: lease_rate ≈ T-bill rate - GOFO
+    // Typical T-bill (^IRX) ~4.5%; lease = T-bill - GOFO
+    var tbill = macro.tbill_3m || 4.5;
+    leaseData = {
+      '1M': Math.max(0, Math.round((tbill - gofo * 0.9) * 100) / 100),
+      '3M': Math.max(0, Math.round((tbill - gofo) * 100) / 100),
+      '6M': Math.max(0, Math.round((tbill - gofo * 1.05) * 100) / 100),
+    };
+  } else {
+    leaseData = { '1M': 0.28, '3M': 0.35, '6M': 0.42 };
+  }
   var alertThreshold = 1.5;
   var hasAlert = Object.values(leaseData).some(function(v) { return v > alertThreshold; });
   var alertEl = document.getElementById('lease-rate-alert');
@@ -7351,6 +7506,7 @@ var SECTION_COLLAPSE_DEFAULTS = {
   'sec-miners':         true,   // Mining Snapshot — secondary
   'sec-crisis':         false,  // Crisis Asset Performance — useful YTD chart
   'sec-bank-targets':   true,   // Wall Street Targets — overlaps analyst-targets
+  'sec-portfolio-calc': true,   // Gold Portfolio Calculator — interactive tool
   'sec-historical':     true,   // Historical Context — reference
 };
 
@@ -7840,6 +7996,165 @@ document.addEventListener('keydown', function(e) {
 })();
 </script>
 <!-- ===== END PRICE ALERT SYSTEM ===== -->
+
+<!-- ===== GOLD PORTFOLIO CALCULATOR ===== -->
+<script>
+(function() {
+  var _calcMode = 'dollar';
+  var _calcPremium = 0;
+
+  window.setCalcMode = function(mode) {
+    _calcMode = mode;
+    var btnDollar = document.getElementById('calc-mode-dollar');
+    var btnOz = document.getElementById('calc-mode-oz');
+    var ozRow = document.getElementById('calc-oz-input-row');
+    var allocRow = document.querySelector('input[id="calc-alloc"]');
+    if (mode === 'dollar') {
+      btnDollar.style.background = 'var(--gold)'; btnDollar.style.color = '#000'; btnDollar.style.borderColor = 'var(--gold)'; btnDollar.style.fontWeight = 'bold';
+      btnOz.style.background = 'none'; btnOz.style.color = '#888'; btnOz.style.borderColor = '#333'; btnOz.style.fontWeight = '';
+      if (ozRow) ozRow.classList.add('hidden');
+    } else {
+      btnOz.style.background = 'var(--gold)'; btnOz.style.color = '#000'; btnOz.style.borderColor = 'var(--gold)'; btnOz.style.fontWeight = 'bold';
+      btnDollar.style.background = 'none'; btnDollar.style.color = '#888'; btnDollar.style.borderColor = '#333'; btnDollar.style.fontWeight = '';
+      if (ozRow) ozRow.classList.remove('hidden');
+    }
+    runGoldCalc();
+  };
+
+  window.setCalcVehicle = function(btn, premium) {
+    _calcPremium = premium;
+    document.querySelectorAll('.calc-vehicle-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    runGoldCalc();
+  };
+
+  window.runGoldCalc = function() {
+    var spotPrice = (DATA.price && DATA.price.price) ? DATA.price.price : 4651.5;
+    var effectivePrice = spotPrice * (1 + _calcPremium);
+
+    var portfolio = parseFloat(document.getElementById('calc-portfolio').value) || 100000;
+    var allocPct = parseFloat(document.getElementById('calc-alloc').value) || 10;
+    var ozBuy = parseFloat(document.getElementById('calc-oz-buy').value) || 10;
+
+    var goldDollars, goldOz;
+    if (_calcMode === 'dollar') {
+      goldDollars = portfolio * (allocPct / 100);
+      goldOz = goldDollars / effectivePrice;
+    } else {
+      goldOz = ozBuy;
+      goldDollars = goldOz * effectivePrice;
+      // Update allocation pct based on oz input
+      allocPct = portfolio > 0 ? (goldDollars / portfolio) * 100 : 0;
+      // Update slider label
+      var lbl = document.getElementById('calc-alloc-pct-label');
+      if (lbl) lbl.textContent = allocPct.toFixed(1) + '%';
+      var slider = document.getElementById('calc-alloc');
+      if (slider) slider.value = Math.min(50, Math.max(1, allocPct));
+    }
+
+    // Update primary result
+    var ozEl = document.getElementById('calc-result-oz');
+    var costEl = document.getElementById('calc-result-cost');
+    if (ozEl) ozEl.textContent = goldOz.toFixed(3) + ' oz';
+    if (costEl) costEl.textContent = '$' + Math.round(goldDollars).toLocaleString() + ' total cost at $' + Math.round(effectivePrice).toLocaleString() + '/oz';
+
+    // Allocation bar
+    var barEl = document.getElementById('calc-alloc-bar');
+    var barLabel = document.getElementById('calc-alloc-bar-label');
+    if (barEl) barEl.style.width = Math.min(100, allocPct) + '%';
+    if (barLabel) barLabel.textContent = allocPct.toFixed(1) + '% gold';
+
+    // Advice text
+    var adviceEl = document.getElementById('calc-advice');
+    if (adviceEl) {
+      var advice = '';
+      if (allocPct < 3) advice = 'Token position. Most wealth advisors recommend 5–10% as a minimum hedge.';
+      else if (allocPct <= 10) advice = '✅ Conservative range (5–10%). Standard hedge allocation recommended by most advisors.';
+      else if (allocPct <= 20) advice = '⚠️ Moderate-aggressive. Gold bug territory. Appropriate if you expect dollar weakness.';
+      else if (allocPct <= 30) advice = '🔥 Aggressive. High conviction gold bull position. Be aware of concentration risk.';
+      else advice = '⚠️ Extreme overweight. Only suitable for hardcore gold bulls. Consider diversification.';
+      adviceEl.textContent = advice;
+    }
+
+    // Analyst price targets
+    var targets = [];
+    if (DATA.analystTargets && DATA.analystTargets.targets) {
+      var seenInst = {};
+      DATA.analystTargets.targets.forEach(function(t) {
+        if (!seenInst[t.institution]) {
+          seenInst[t.institution] = true;
+          targets.push({ label: t.institution, price: t.target_high });
+        }
+      });
+    }
+    // Add some standard reference prices
+    targets = [
+      { label: 'Current Spot', price: spotPrice, current: true },
+      { label: '+25% ($' + Math.round(spotPrice * 1.25).toLocaleString() + ')', price: spotPrice * 1.25 },
+      { label: 'Goldman $5,400', price: 5400 },
+      { label: 'JPMorgan $6,300', price: 6300 },
+      { label: 'UBS Bull $6,200', price: 6200 },
+    ];
+    var targetRows = document.getElementById('calc-target-rows');
+    if (targetRows) {
+      targetRows.innerHTML = targets.map(function(t) {
+        var val = goldOz * t.price;
+        var gain = val - goldDollars;
+        var gainPct = goldDollars > 0 ? ((val - goldDollars) / goldDollars) * 100 : 0;
+        var color = t.current ? '#ffd700' : gain >= 0 ? '#00ff88' : '#ff4444';
+        return '<div class="flex justify-between items-center py-1 border-b border-[rgba(255,255,255,0.04)]">' +
+          '<span class="text-[10px] mono" style="color:#888;">' + t.label + '</span>' +
+          '<span class="text-xs mono font-bold" style="color:' + color + ';">$' + Math.round(val).toLocaleString() + '</span>' +
+          (t.current ? '' : '<span class="text-[10px] mono" style="color:' + color + ';">' + (gain >= 0 ? '+' : '') + Math.round(gain).toLocaleString() + ' (' + (gainPct >= 0 ? '+' : '') + gainPct.toFixed(1) + '%)</span>') +
+        '</div>';
+      }).join('');
+    }
+
+    // Sensitivity table
+    var pricePoints = [3000, 3500, 4000, 4500, Math.round(spotPrice), 5000, 5500, 6000, 7000, 8000];
+    var stEl = document.getElementById('calc-sensitivity-table');
+    if (stEl) {
+      stEl.innerHTML = '<table style="width:100%;border-collapse:collapse;font-family:JetBrains Mono,monospace;font-size:10px;">' +
+        '<thead><tr>' +
+        '<th style="text-align:left;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">Gold Price</th>' +
+        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">Portfolio Value</th>' +
+        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">Gold Value</th>' +
+        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">P&L</th>' +
+        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">P&L %</th>' +
+        '</tr></thead><tbody>' +
+        pricePoints.map(function(p) {
+          var isNow = Math.abs(p - spotPrice) < 50;
+          var gv = goldOz * p;
+          var pl = gv - goldDollars;
+          var plPct = goldDollars > 0 ? (pl / goldDollars) * 100 : 0;
+          var totalPort = (portfolio - goldDollars) + gv;
+          var rowStyle = isNow ? 'background:rgba(255,215,0,0.05);' : '';
+          var plColor = pl >= 0 ? '#00ff88' : '#ff4444';
+          return '<tr style="' + rowStyle + '">' +
+            '<td style="padding:5px 8px;color:' + (isNow ? '#ffd700' : '#888') + ';">' + (isNow ? '▶ ' : '') + '$' + p.toLocaleString() + (isNow ? ' (now)' : '') + '</td>' +
+            '<td style="text-align:right;padding:5px 8px;color:#aaa;">$' + Math.round(totalPort).toLocaleString() + '</td>' +
+            '<td style="text-align:right;padding:5px 8px;color:' + (isNow ? '#ffd700' : '#aaa') + ';">$' + Math.round(gv).toLocaleString() + '</td>' +
+            '<td style="text-align:right;padding:5px 8px;color:' + plColor + ';">' + (pl >= 0 ? '+' : '') + '$' + Math.round(pl).toLocaleString() + '</td>' +
+            '<td style="text-align:right;padding:5px 8px;color:' + plColor + ';">' + (plPct >= 0 ? '+' : '') + plPct.toFixed(1) + '%</td>' +
+            '</tr>';
+        }).join('') +
+        '</tbody></table>';
+    }
+  };
+
+  // Run after data loads
+  var _calcInterval = setInterval(function() {
+    if (DATA.price && DATA.price.price) {
+      clearInterval(_calcInterval);
+      runGoldCalc();
+    }
+  }, 500);
+
+  // Initial run
+  setTimeout(runGoldCalc, 2000);
+})();
+</script>
+<!-- ===== END GOLD PORTFOLIO CALCULATOR ===== -->
 
 <!-- More menu sheet -->
 <div id="more-menu-sheet" style="display:none;position:fixed;bottom:56px;left:0;right:0;background:#111;border-top:1px solid #222;z-index:899;padding:8px 0;">

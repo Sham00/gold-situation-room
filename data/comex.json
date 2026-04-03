@@ -1,0 +1,19 @@
+{
+  "registered_oz": 16370000.0,
+  "eligible_oz": 14810000.0,
+  "total_oz": 31180000.0,
+  "registered_tonnes": 509.2,
+  "eligible_tonnes": 460.6,
+  "total_tonnes": 969.8,
+  "open_interest_contracts": null,
+  "coverage_ratio": 2.0,
+  "registered_coverage_pct": 45.3,
+  "cover_pct": 45.3,
+  "source": "silveroftruth.com (updated every 4h from CME Group)",
+  "data_quality": {
+    "freshness": "4-hourly",
+    "reliability": "scraped",
+    "notes": "Registered = warrantable gold deliverable vs futures. Eligible = meets COMEX standards but not currently warranted."
+  },
+  "last_updated": "2026-04-03T20:29:04Z"
+}
