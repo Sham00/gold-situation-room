@@ -3319,6 +3319,48 @@ function renderPriceChart(timeframe) {
         c.fillText('⚡ Liberation Day', x, yScale.top + 11);
         c.restore();
       }
+    }, {
+      id: 'fibLevels',
+      afterDraw: function(chart) {
+        // Draw horizontal Fibonacci level lines on 1Y timeframe
+        if (timeframe !== '1y') return;
+        var fib = DATA.price && DATA.price.fib_levels;
+        if (!fib || !fib.levels) return;
+        var yScale = chart.scales.y;
+        var xScale = chart.scales.x;
+        if (!yScale || !xScale) return;
+        var c = chart.ctx;
+        var currentPrice = DATA.price.price;
+
+        fib.levels.forEach(function(level) {
+          var y = yScale.getPixelForValue(level.price);
+          if (y < yScale.top || y > yScale.bottom) return;
+
+          var isNearest = (fib.nearest_support && fib.nearest_support.label === level.label) ||
+                          (fib.nearest_resistance && fib.nearest_resistance.label === level.label);
+          var lineColor = level.is_resistance ? 'rgba(255,68,68,0.35)' : 'rgba(0,255,136,0.25)';
+          if (isNearest) lineColor = level.is_resistance ? 'rgba(255,68,68,0.65)' : 'rgba(0,255,136,0.55)';
+
+          c.save();
+          c.strokeStyle = lineColor;
+          c.lineWidth = isNearest ? 1 : 0.75;
+          c.setLineDash([3, 5]);
+          c.beginPath();
+          c.moveTo(xScale.left, y);
+          c.lineTo(xScale.right, y);
+          c.stroke();
+          c.setLineDash([]);
+
+          // Label on right side
+          var labelColor = level.is_resistance ? 'rgba(255,100,100,0.85)' : 'rgba(0,220,100,0.85)';
+          if (isNearest) labelColor = level.is_resistance ? '#ff6666' : '#00ff88';
+          c.fillStyle = labelColor;
+          c.font = (isNearest ? 'bold ' : '') + '8px JetBrains Mono, monospace';
+          c.textAlign = 'right';
+          c.fillText('Fib ' + level.label + ' $' + Math.round(level.price).toLocaleString(), xScale.right - 4, y - 2);
+          c.restore();
+        });
+      }
     }]
   });
 }
