@@ -2155,6 +2155,8 @@ def fetch_news():
         ("Google News", "https://news.google.com/rss/search?q=gold+price+OR+gold+market+OR+XAU&hl=en-US&gl=US&ceid=US:en"),
         # Google News Gold — investment/ETF/central bank angle for deeper coverage
         ("Google News Gold Investment", "https://news.google.com/rss/search?q=gold+investment+OR+gold+ETF+OR+central+bank+gold&hl=en-US&gl=US&ceid=US:en"),
+        # Google News Reuters Gold — Reuters-sourced gold news via Google News (highly relevant, 90%+ gold)
+        ("Reuters Gold", "https://news.google.com/rss/search?q=gold+price+reuters&hl=en-US&gl=US&ceid=US:en"),
         # FXStreet commodities (filtered to gold)
         ("FXStreet", "https://www.fxstreet.com/rss/news?category=commodities&subcategory=gold"),
         # General mining/commodity feeds (keyword-filtered below)
@@ -2268,7 +2270,7 @@ def fetch_news():
         "neutral_count": total - bull_count - bear_count,
         "bull_pct": bull_pct,
         "data_quality": {
-            "source": "RSS feeds: Yahoo Finance Gold, Google News, FXStreet, Mining.com, Reuters, Investing.com",
+            "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
             "freshness": "hourly",
             "reliability": "live",
             "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis.",
