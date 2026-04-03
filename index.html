@@ -1643,7 +1643,13 @@
     <!-- Technical Indicators: MA50 / MA200 / RSI -->
     <div class="mt-6">
       <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-3 mono">Technical Indicators <span class="info-tooltip" data-tip="Moving averages and RSI calculated from daily COMEX closing prices. MA50/MA200 crossovers are widely-watched trend signals. RSI above 70 = overbought, below 30 = oversold.">ℹ</span></div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <!-- MA20 -->
+        <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
+          <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">20-Day MA <span class="info-tooltip" data-tip="20-day simple moving average. Short-term momentum indicator. Price above MA20 = near-term uptrend. MA20 crossing MA50 can signal short-term trend shifts.">ℹ</span></div>
+          <div class="text-xl font-bold mono" id="ma20-val">--</div>
+          <div class="text-xs mt-1" id="ma20-signal" style="color: var(--text2)">--</div>
+        </div>
         <!-- MA50 -->
         <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
           <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">50-Day MA <span class="info-tooltip" data-tip="50-day simple moving average. Price above MA50 suggests short-term uptrend.">ℹ</span></div>
@@ -2491,6 +2497,15 @@
         </span>
       </div>
     </div>
+
+    <!-- Historical Drawdown Analysis -->
+    <div class="mt-6">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Historical Drawdowns (≥10%) <span class="info-tooltip" data-tip="Every major gold correction ≥10% from peak since 2000. Shows: drawdown depth, days to trough, and days to full recovery. Current drawdown highlighted in gold. Helps contextualize where we are in typical correction cycles.">ℹ</span></div>
+      <div class="text-[9px] text-[var(--text2)] mono mb-3">Peak-to-trough corrections ≥10% · Sorted by severity · Current cycle highlighted</div>
+      <div id="drawdown-table" style="overflow-x:auto;">
+        <div class="text-[10px] text-[var(--text2)] mono" style="padding:8px 0;color:#444;">Loading drawdown history…</div>
+      </div>
+    </div>
   </section>
 
 </main>
@@ -2710,7 +2725,7 @@ function showSkeletonCharts() {
     'contango-state', 'contango-front', 'contango-back', 'contango-basis', 'contango-basis-pct',
     'comex-cover-ratio',
     'sentiment-pct', 'sentiment-score',
-    'ma50-val', 'ma50-signal', 'ma200-val', 'ma200-signal', 'rsi-val', 'rsi-signal',
+    'ma20-val', 'ma20-signal', 'ma50-val', 'ma50-signal', 'ma200-val', 'ma200-signal', 'rsi-val', 'rsi-signal',
     'ath-pct-label',
     'header-ytd', 'header-ath', 'header-updated',
     'gdxj-ytd', 'gdx-ytd', 'gdxj-edge',
@@ -3488,7 +3503,20 @@ function renderPriceSection() {
     }
   }
 
-  // Technical indicators: MA50, MA200, RSI
+  // Technical indicators: MA20, MA50, MA200, RSI
+  if (d.ma20 != null) {
+    document.getElementById('ma20-val').textContent = '$' + fmt(d.ma20);
+    var ma20diff = d.price - d.ma20;
+    var ma20pct = ((ma20diff / d.ma20) * 100).toFixed(1);
+    var ma20El = document.getElementById('ma20-signal');
+    if (d.ma20_signal === 'above') {
+      ma20El.textContent = '+' + ma20pct + '% above ↑';
+      ma20El.style.color = '#00ff88';
+    } else {
+      ma20El.textContent = ma20pct + '% below ↓';
+      ma20El.style.color = '#ff4444';
+    }
+  }
   if (d.ma50 != null) {
     document.getElementById('ma50-val').textContent = '$' + fmt(d.ma50);
     var ma50diff = d.price - d.ma50;
@@ -6954,6 +6982,9 @@ function renderHistorical() {
   // Daily Returns Heatmap
   renderDailyHeatmap();
 
+  // Drawdown history table
+  renderDrawdowns(d);
+
   // Event cards
   var evtContainer = document.getElementById('event-cards');
   evtContainer.innerHTML = '';
@@ -6968,6 +6999,103 @@ function renderHistorical() {
       '</div>';
     evtContainer.appendChild(card);
   });
+}
+
+// =====================================================================
+// HISTORICAL DRAWDOWN TABLE
+// =====================================================================
+function renderDrawdowns(d) {
+  var container = document.getElementById('drawdown-table');
+  if (!container) return;
+
+  var history = d && d.drawdown_history;
+  if (!history || !history.length) {
+    container.innerHTML = '<div class="text-[10px] mono" style="color:#444;padding:8px 0;">No drawdown data available.</div>';
+    return;
+  }
+
+  // Current price for detecting active drawdown
+  var currentPrice = DATA.price && DATA.price.price;
+  var currentATH = DATA.price && DATA.price.ath;
+  var currentATHDate = DATA.price && DATA.price.ath_date;
+  var currentPctBelowATH = DATA.price && DATA.price.pct_below_ath;
+
+  // Build HTML table
+  var html = '<table style="width:100%;border-collapse:collapse;font-family:\'JetBrains Mono\',monospace;font-size:10px;">';
+  html += '<thead><tr style="color:var(--text2);text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(255,255,255,0.08);">';
+  html += '<th style="text-align:left;padding:6px 8px;font-weight:400;">Peak Date</th>';
+  html += '<th style="text-align:left;padding:6px 8px;font-weight:400;">Trough Date</th>';
+  html += '<th style="text-align:right;padding:6px 8px;font-weight:400;">Max DD%</th>';
+  html += '<th style="text-align:right;padding:6px 8px;font-weight:400;">Days Down</th>';
+  html += '<th style="text-align:right;padding:6px 8px;font-weight:400;">Days Recovery</th>';
+  html += '<th style="text-align:left;padding:6px 8px;font-weight:400;">Status</th>';
+  html += '</tr></thead><tbody>';
+
+  // Sort by magnitude (worst first)
+  var sorted = history.slice().sort(function(a, b) { return a.drawdown_pct - b.drawdown_pct; });
+
+  // Check if current cycle matches last ATH
+  var isCurrent = false;
+  var currentRow = null;
+  if (currentATHDate && currentPctBelowATH > 1) {
+    // Find if the last drawdown in history matches the current ATH date
+    var latestDD = history[history.length - 1];
+    if (latestDD && latestDD.peak_date === currentATHDate && !latestDD.recovered) {
+      isCurrent = true;
+      currentRow = latestDD;
+    }
+  }
+
+  sorted.forEach(function(dd) {
+    var isCurrentDD = (currentRow && dd.peak_date === currentRow.peak_date);
+    var rowStyle = isCurrentDD
+      ? 'background:rgba(255,215,0,0.06);border-left:3px solid #ffd700;'
+      : 'border-left:3px solid transparent;';
+
+    var ddColor = dd.drawdown_pct <= -30 ? '#ff4444' : dd.drawdown_pct <= -20 ? '#ff8844' : dd.drawdown_pct <= -15 ? '#ffaa44' : '#ffd700';
+    var ddPct = (dd.drawdown_pct > 0 ? '+' : '') + dd.drawdown_pct.toFixed(1) + '%';
+
+    var daysDown = dd.days_to_trough != null ? dd.days_to_trough : '--';
+    var daysRec = dd.days_to_recovery != null ? dd.days_to_recovery : '--';
+
+    var status;
+    if (isCurrentDD) {
+      var daysElapsed = dd.days_to_trough || '?';
+      status = '<span style="color:#ffd700;font-weight:bold;">● ACTIVE ' + (currentPctBelowATH != null ? '(' + currentPctBelowATH.toFixed(1) + '% below ATH)' : '') + '</span>';
+    } else if (dd.recovered) {
+      status = '<span style="color:#00ff88;">✓ Recovered</span>';
+    } else {
+      status = '<span style="color:#888;">Ongoing</span>';
+    }
+
+    html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.03);' + rowStyle + '">';
+    html += '<td style="padding:6px 8px;color:var(--text2);">' + (dd.peak_date || '--') + '</td>';
+    html += '<td style="padding:6px 8px;color:var(--text2);">' + (dd.trough_date || '--') + '</td>';
+    html += '<td style="padding:6px 8px;text-align:right;color:' + ddColor + ';font-weight:bold;">' + ddPct + '</td>';
+    html += '<td style="padding:6px 8px;text-align:right;color:var(--text);">' + daysDown + '</td>';
+    html += '<td style="padding:6px 8px;text-align:right;color:var(--text);">' + (daysRec === '--' ? '<span style="color:#555;">--</span>' : daysRec) + '</td>';
+    html += '<td style="padding:6px 8px;">' + status + '</td>';
+    html += '</tr>';
+  });
+
+  html += '</tbody>';
+
+  // Summary stats row
+  var recovered = history.filter(function(d) { return d.recovered; });
+  if (recovered.length > 0) {
+    var avgDD = recovered.reduce(function(s, d) { return s + d.drawdown_pct; }, 0) / recovered.length;
+    var avgDaysDown = recovered.reduce(function(s, d) { return s + (d.days_to_trough || 0); }, 0) / recovered.length;
+    var avgDaysRec = recovered.reduce(function(s, d) { return s + (d.days_to_recovery || 0); }, 0) / recovered.length;
+    html += '<tfoot><tr style="border-top:1px solid rgba(255,255,255,0.1);color:var(--text2);font-style:italic;">';
+    html += '<td colspan="2" style="padding:8px 8px;font-size:9px;">Avg (recovered only, n=' + recovered.length + ')</td>';
+    html += '<td style="padding:8px 8px;text-align:right;font-size:9px;">' + avgDD.toFixed(1) + '%</td>';
+    html += '<td style="padding:8px 8px;text-align:right;font-size:9px;">' + Math.round(avgDaysDown) + 'd</td>';
+    html += '<td style="padding:8px 8px;text-align:right;font-size:9px;">' + Math.round(avgDaysRec) + 'd</td>';
+    html += '<td></td></tr></tfoot>';
+  }
+
+  html += '</table>';
+  container.innerHTML = html;
 }
 
 // =====================================================================

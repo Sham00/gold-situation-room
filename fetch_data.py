@@ -2766,17 +2766,95 @@ def fetch_historical():
         except Exception:
             pass
 
+    # -----------------------------------------------------------------------
+    # Historical Drawdown Analysis
+    # Computes all peak-to-trough corrections >= 10% from daily data (post-2000)
+    # For each drawdown: peak date, trough date, max drawdown %, recovery date, days
+    # -----------------------------------------------------------------------
+    drawdown_history = []
+    try:
+        gold_daily = get_ticker("GC=F").history(period="max", interval="1d")
+        if len(gold_daily) > 200:
+            closes = gold_daily["Close"].values
+            dates = [str(d.date()) for d in gold_daily.index]
+
+            MIN_DRAWDOWN = 0.08  # 8% minimum to qualify
+            MIN_DURATION = 5     # at least 5 trading days
+
+            i = 0
+            while i < len(closes) - 10:
+                # Find local peak
+                peak_val = closes[i]
+                peak_idx = i
+                j = i + 1
+                while j < len(closes) and closes[j] >= closes[j-1] * 0.995:
+                    if closes[j] > peak_val:
+                        peak_val = closes[j]
+                        peak_idx = j
+                    j += 1
+
+                # Find trough from peak
+                trough_val = peak_val
+                trough_idx = peak_idx
+                k = peak_idx + 1
+                # Scan until we see recovery above peak
+                while k < len(closes):
+                    if closes[k] < trough_val:
+                        trough_val = closes[k]
+                        trough_idx = k
+                    if closes[k] >= peak_val:
+                        break
+                    k += 1
+
+                drawdown_pct = (trough_val - peak_val) / peak_val * 100
+                duration_days = trough_idx - peak_idx
+
+                if drawdown_pct <= -MIN_DRAWDOWN * 100 and duration_days >= MIN_DURATION:
+                    # Find recovery date (first close >= peak after trough)
+                    recovery_idx = None
+                    recovery_days = None
+                    for r in range(trough_idx + 1, min(trough_idx + 1500, len(closes))):
+                        if closes[r] >= peak_val:
+                            recovery_idx = r
+                            recovery_days = r - peak_idx
+                            break
+
+                    drawdown_history.append({
+                        "peak_date": dates[peak_idx],
+                        "trough_date": dates[trough_idx],
+                        "recovery_date": dates[recovery_idx] if recovery_idx else None,
+                        "peak_price": round(float(peak_val), 2),
+                        "trough_price": round(float(trough_val), 2),
+                        "drawdown_pct": round(float(drawdown_pct), 2),
+                        "days_to_trough": int(duration_days),
+                        "days_to_recovery": int(recovery_days) if recovery_days else None,
+                        "recovered": recovery_idx is not None,
+                    })
+                    # Jump past the trough to avoid double-counting
+                    i = trough_idx + 1
+                else:
+                    i = peak_idx + 1 if peak_idx > i else i + 1
+
+            # Sort by drawdown magnitude
+            drawdown_history.sort(key=lambda x: x["drawdown_pct"])
+            # Keep only drawdowns >= 10%
+            drawdown_history = [d for d in drawdown_history if d["drawdown_pct"] <= -10.0]
+            print(f"  Found {len(drawdown_history)} major drawdowns (≥10%) in gold history")
+    except Exception as e:
+        print(f"  Drawdown analysis error: {e}")
+
     write_json("historical.json", {
         "events": events,
         "decade_returns": decade_returns,
         "timeline_chart": timeline_chart,
         "real_gold_chart": real_gold_chart,
         "seasonal_monthly": seasonal_monthly,
+        "drawdown_history": drawdown_history,
         "data_quality": {
             "source": "yfinance GC=F monthly (post-2000) + London PM Fix historical data (pre-2000, hardcoded)",
             "freshness": "monthly (timeline) / static (seasonality based on all available history)",
             "reliability": "live (recent) / hardcoded (pre-2000)",
-            "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages.",
+            "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000.",
         },
     })
 

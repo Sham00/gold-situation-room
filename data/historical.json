@@ -2796,11 +2796,156 @@
       "n": 22
     }
   ],
+  "drawdown_history": [
+    {
+      "peak_date": "2011-08-22",
+      "trough_date": "2015-12-17",
+      "recovery_date": "2020-07-23",
+      "peak_price": 1888.7,
+      "trough_price": 1050.8,
+      "drawdown_pct": -44.36,
+      "days_to_trough": 1088,
+      "days_to_recovery": 2241,
+      "recovered": true
+    },
+    {
+      "peak_date": "2008-03-18",
+      "trough_date": "2008-11-13",
+      "recovery_date": "2009-09-11",
+      "peak_price": 1003.2,
+      "trough_price": 704.9,
+      "drawdown_pct": -29.73,
+      "days_to_trough": 168,
+      "days_to_recovery": 375,
+      "recovered": true
+    },
+    {
+      "peak_date": "2006-05-11",
+      "trough_date": "2006-10-04",
+      "recovery_date": "2007-09-19",
+      "peak_price": 719.8,
+      "trough_price": 562.0,
+      "drawdown_pct": -21.92,
+      "days_to_trough": 101,
+      "days_to_recovery": 341,
+      "recovered": true
+    },
+    {
+      "peak_date": "2020-08-06",
+      "trough_date": "2022-09-26",
+      "recovery_date": "2023-12-01",
+      "peak_price": 2051.5,
+      "trough_price": 1623.3,
+      "drawdown_pct": -20.87,
+      "days_to_trough": 538,
+      "days_to_recovery": 836,
+      "recovered": true
+    },
+    {
+      "peak_date": "2026-01-29",
+      "trough_date": "2026-03-26",
+      "recovery_date": null,
+      "peak_price": 5318.4,
+      "trough_price": 4375.5,
+      "drawdown_pct": -17.73,
+      "days_to_trough": 39,
+      "days_to_recovery": null,
+      "recovered": false
+    },
+    {
+      "peak_date": "2016-07-06",
+      "trough_date": "2016-12-15",
+      "recovery_date": "2019-06-20",
+      "peak_price": 1364.9,
+      "trough_price": 1127.8,
+      "drawdown_pct": -17.37,
+      "days_to_trough": 112,
+      "days_to_recovery": 741,
+      "recovered": true
+    },
+    {
+      "peak_date": "2003-02-04",
+      "trough_date": "2003-04-07",
+      "recovery_date": "2003-09-09",
+      "peak_price": 379.0,
+      "trough_price": 321.5,
+      "drawdown_pct": -15.17,
+      "days_to_trough": 43,
+      "days_to_recovery": 150,
+      "recovered": true
+    },
+    {
+      "peak_date": "2018-01-25",
+      "trough_date": "2018-08-16",
+      "recovery_date": "2019-06-20",
+      "peak_price": 1362.4,
+      "trough_price": 1176.2,
+      "drawdown_pct": -13.67,
+      "days_to_trough": 140,
+      "days_to_recovery": 351,
+      "recovered": true
+    },
+    {
+      "peak_date": "2009-12-03",
+      "trough_date": "2010-02-05",
+      "recovery_date": "2010-05-11",
+      "peak_price": 1217.4,
+      "trough_price": 1052.2,
+      "drawdown_pct": -13.57,
+      "days_to_trough": 43,
+      "days_to_recovery": 108,
+      "recovered": true
+    },
+    {
+      "peak_date": "2009-02-20",
+      "trough_date": "2009-04-17",
+      "recovery_date": "2009-09-11",
+      "peak_price": 1001.8,
+      "trough_price": 867.4,
+      "drawdown_pct": -13.42,
+      "days_to_trough": 39,
+      "days_to_recovery": 141,
+      "recovered": true
+    },
+    {
+      "peak_date": "2004-04-01",
+      "trough_date": "2004-05-13",
+      "recovery_date": "2004-10-25",
+      "peak_price": 427.8,
+      "trough_price": 374.8,
+      "drawdown_pct": -12.39,
+      "days_to_trough": 29,
+      "days_to_recovery": 142,
+      "recovered": true
+    },
+    {
+      "peak_date": "2020-03-09",
+      "trough_date": "2020-03-18",
+      "recovery_date": "2020-04-06",
+      "peak_price": 1674.5,
+      "trough_price": 1477.3,
+      "drawdown_pct": -11.78,
+      "days_to_trough": 7,
+      "days_to_recovery": 20,
+      "recovered": true
+    },
+    {
+      "peak_date": "2023-05-04",
+      "trough_date": "2023-10-05",
+      "recovery_date": "2023-12-01",
+      "peak_price": 2048.0,
+      "trough_price": 1816.6,
+      "drawdown_pct": -11.3,
+      "days_to_trough": 106,
+      "days_to_recovery": 146,
+      "recovered": true
+    }
+  ],
   "data_quality": {
     "source": "yfinance GC=F monthly (post-2000) + London PM Fix historical data (pre-2000, hardcoded)",
     "freshness": "monthly (timeline) / static (seasonality based on all available history)",
     "reliability": "live (recent) / hardcoded (pre-2000)",
-    "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages."
+    "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-04-03T19:21:02Z"
+  "last_updated": "2026-04-03T19:44:19Z"
 }
