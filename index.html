@@ -1514,7 +1514,7 @@
   <!-- SECTION 0: COMPOSITE BULL/BEAR SIGNAL -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-composite" style="animation-delay:0.05s">
-    <div class="section-title">Market Signal <span class="info-tooltip" data-tip="Composite bull/bear score computed from 9 factors: RSI momentum, real yield (10Y TIPS), DXY trend, ETF flows, COT positioning, active market catalysts (tariffs, CB buying, etc.), ratio extremes (gold/silver, gold/SPX, gold/copper percentiles), news headline sentiment, and MA momentum (20-day vs 50-day crossover). Score ranges from -10 (Strongly Bearish) to +10 (Strongly Bullish).">ℹ</span><span class="freshness-badge freshness-live">● Hourly</span></div>
+    <div class="section-title">Market Signal <span class="info-tooltip" data-tip="Composite bull/bear score computed from 10 factors: RSI momentum, real yield (10Y TIPS), DXY trend, ETF flows, COT positioning, active market catalysts (tariffs, CB buying, etc.), ratio extremes (gold/silver, gold/SPX, gold/copper percentiles), news headline sentiment, MA momentum (20-day vs 50-day crossover), and Gold–SPX 20-day rolling correlation (negative = safe haven, positive = correlation breakdown). Score ranges from -10 (Strongly Bearish) to +10 (Strongly Bullish).">ℹ</span><span class="freshness-badge freshness-live">● Hourly</span></div>
     <div class="signal-gauge-wrap">
       <!-- Arc gauge -->
       <div class="signal-gauge-arc">
@@ -3180,7 +3180,21 @@ function renderCompositeSignal() {
     factors.push({ label: 'MA Momentum (20/50)', val: maLabel + ' (MA20: ' + fmt(ma20, 0) + ')', score: maScore, color: maColor });
   }
 
-  // Normalize score to -18..+18 range (9 factors, each max ±2 = ±18, clamp to ±10)
+  // Factor 10: Gold–SPX 20-Day Correlation (-1.5 to +1.5)
+  // Negative corr = gold acting as safe haven (bullish); positive corr = gold moving with stocks (caution)
+  var corrVal = (typeof window._goldSPXCorr20d !== 'undefined') ? window._goldSPXCorr20d : null;
+  if (corrVal !== null) {
+    var corrScore = 0, corrLabel = '', corrColor = '#888';
+    if (corrVal < -0.4)      { corrScore = 1.5;  corrLabel = 'Safe Haven (' + corrVal.toFixed(2) + ')'; corrColor = '#00ff88'; }
+    else if (corrVal < -0.1) { corrScore = 0.75; corrLabel = 'Low Correlation (' + corrVal.toFixed(2) + ')'; corrColor = '#88dd44'; }
+    else if (corrVal < 0.2)  { corrScore = 0;    corrLabel = 'Uncorrelated (' + corrVal.toFixed(2) + ')'; corrColor = '#888'; }
+    else if (corrVal < 0.5)  { corrScore = -0.75; corrLabel = 'Co-moving w/ Stocks (' + corrVal.toFixed(2) + ')'; corrColor = '#ff8844'; }
+    else                     { corrScore = -1.5; corrLabel = '⚠ Correlation Breakdown (' + corrVal.toFixed(2) + ')'; corrColor = '#ff3333'; }
+    totalScore += corrScore;
+    factors.push({ label: 'Gold–SPX Correlation', val: corrLabel, score: corrScore, color: corrColor });
+  }
+
+  // Normalize score to -20..+20 range (10 factors, each max ±2 = ±20, clamp to ±10)
   var clampedScore = Math.max(-10, Math.min(10, totalScore));
 
   // Determine label and color
@@ -3250,6 +3264,11 @@ function renderCompositeSignal() {
     }
     if (newsVeryBull) lines.push('📰 News sentiment very bullish — broad positive media coverage supporting gold.');
     if (newsVeryBear) lines.push('📰 News sentiment very bearish — negative media pressure, watch for capitulation.');
+    // Gold-SPX correlation context
+    if (corrVal !== null) {
+      if (corrVal > 0.4) lines.push('📉 Gold–SPX correlation elevated (' + corrVal.toFixed(2) + '): gold moving with equities — safe-haven premium temporarily impaired. Liberation Day II risk-off liquidation pattern.');
+      else if (corrVal < -0.3) lines.push('✅ Gold–SPX correlation negative (' + corrVal.toFixed(2) + '): gold acting as true safe haven — historically bullish for sustained moves.');
+    }
 
     interpEl.innerHTML = lines.map(function(l) { return '<span style="display:block;margin-bottom:2px;">' + l + '</span>'; }).join('');
     interpEl.style.color = clampedScore >= 2 ? '#88dd44' : clampedScore <= -2 ? '#ff8844' : '#888';
@@ -6452,6 +6471,9 @@ function renderGoldSPXCorrelation() {
     else sentiment = 'Gold is largely uncorrelated with equities — behaving as an independent asset.';
     blurbEl.textContent = 'Current 20d correlation: ' + latestStr + '  ·  ' + sentiment;
   }
+
+  // Expose for composite signal (called before renderCompositeSignal)
+  window._goldSPXCorr20d = latest;
 
   // Color segments
   var pointColors = corrVals.map(function(v) {
