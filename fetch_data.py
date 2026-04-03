@@ -3262,9 +3262,10 @@ def fetch_tariffs():
         {"date": "2018-07-06", "label": "US-China tariffs", "short": "US-CN", "detail": "First Trump-era China tariffs (25% on $34B goods)"},
         {"date": "2025-02-01", "label": "Canada/Mexico 25%", "short": "CA/MX", "detail": "Trump announces 25% tariffs on Canada and Mexico"},
         {"date": "2025-03-12", "label": "Steel/Aluminum 25%", "short": "Steel", "detail": "Steel and aluminum tariffs take effect globally"},
-        {"date": "2025-04-02", "label": "Liberation Day", "short": "LibDay", "detail": "Reciprocal tariff package announcement"},
+        {"date": "2025-04-02", "label": "Liberation Day I", "short": "LD-25", "detail": "Trump's first Liberation Day: reciprocal tariff package announced"},
         {"date": "2026-01-20", "label": "Inauguration threats", "short": "Jan20", "detail": "New tariff threats begin on inauguration day"},
         {"date": "2026-02-20", "label": "10% Universal", "short": "Univ.", "detail": "10% universal tariff (Section 122/IEEPA) enacted"},
+        {"date": "2026-04-02", "label": "Liberation Day II", "short": "LD-26", "detail": "Trump announces sweeping reciprocal tariffs: 10% baseline + country-specific rates. Gold surges on safe-haven demand."},
     ]
     try:
         throttle(0.5)
@@ -3290,10 +3291,10 @@ def fetch_tariffs():
 
     # --- 6. Current tariff regime ---
     current_regime = {
-        "name": "10% Universal Tariff (Section 122)",
-        "date": "2026-02-20",
+        "name": "Liberation Day II: Sweeping Reciprocal Tariffs (Apr 2, 2026)",
+        "date": "2026-04-02",
         "status": "ACTIVE",
-        "description": "Blanket 10% import duty on virtually all goods entering the US under emergency IEEPA powers",
+        "description": "10% baseline tariff on all imports + higher country-specific reciprocal rates announced Apr 2, 2026. Gold surged as flight-to-safety demand spiked and the dollar weakened.",
     }
 
     write_json("tariffs.json", {
