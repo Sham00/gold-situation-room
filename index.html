@@ -1226,6 +1226,13 @@
   </div>
 </div>
 
+<!-- GOLD PRICE TODAY SUMMARY SENTENCE -->
+<div id="gold-today-strip" style="background:rgba(255,215,0,0.03); border-bottom:1px solid rgba(255,215,0,0.07); padding:0; display:none;">
+  <div class="max-w-[1600px] mx-auto px-5 py-2">
+    <p id="gold-today-sentence" class="text-[11px] mono" style="color:#888; line-height:1.6; margin:0;"></p>
+  </div>
+</div>
+
 <!-- MAIN DASHBOARD -->
 <main class="dashboard-grid" id="dashboard">
 
@@ -2466,6 +2473,8 @@ function renderAll() {
   updateFreshnessBadges();
   renderKeyStatsBanner();
 
+  renderGoldTodaySentence();
+
   // After all renders: clear shimmer from charts that got drawn,
   // keep shimmer on charts that are still empty (data unavailable)
   requestAnimationFrame(function() {
@@ -2485,6 +2494,85 @@ function renderAll() {
       // (the ::after pseudo-element already does this via CSS)
     });
   });
+}
+
+// --- GOLD PRICE TODAY SUMMARY SENTENCE ---
+function renderGoldTodaySentence() {
+  var price = DATA.price;
+  var macro = DATA.macro;
+  var news = DATA.news;
+  var strip = document.getElementById('gold-today-strip');
+  var el = document.getElementById('gold-today-sentence');
+  if (!price || !el || !strip) return;
+
+  var parts = [];
+
+  // Price & daily change
+  var p = price.price;
+  var chgPct = price.change_pct;
+  var priceStr = p != null ? '$' + p.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : null;
+  if (priceStr) {
+    var chgStr = '';
+    if (chgPct != null) {
+      var dir = chgPct > 0 ? 'up' : chgPct < 0 ? 'down' : 'flat';
+      var color = chgPct > 0 ? '#00ff88' : chgPct < 0 ? '#ff4444' : '#888';
+      var absPct = Math.abs(chgPct).toFixed(2);
+      if (dir !== 'flat') chgStr = ', <span style="color:' + color + ';">' + dir + ' ' + absPct + '%</span> on the day';
+    }
+    parts.push('Gold is trading at <span style="color:#ffd700;font-weight:600;">' + priceStr + '</span>' + chgStr);
+  }
+
+  // YTD context
+  var ytd = price.ytd_change_pct;
+  if (ytd != null) {
+    var ytdColor = ytd >= 0 ? '#00ff88' : '#ff4444';
+    parts.push('<span style="color:' + ytdColor + ';">' + (ytd >= 0 ? '+' : '') + ytd.toFixed(1) + '% YTD</span>');
+  }
+
+  // ATH context
+  var pctBelowAth = price.pct_below_ath;
+  var ath = price.ath;
+  if (pctBelowAth != null && ath != null) {
+    if (pctBelowAth < 0.5) {
+      parts.push('near its <span style="color:#ffd700;">all-time high of $' + Math.round(ath).toLocaleString() + '</span>');
+    } else if (pctBelowAth < 5) {
+      parts.push('<span style="color:#ffd700;">' + pctBelowAth.toFixed(1) + '% below its ATH</span> of $' + Math.round(ath).toLocaleString());
+    } else {
+      parts.push(pctBelowAth.toFixed(1) + '% below the ATH of $' + Math.round(ath).toLocaleString());
+    }
+  }
+
+  // Macro context — leading driver
+  var dxy = macro ? macro.dxy : null;
+  var realYield = macro ? macro.real_yield_10y : null;
+  var macroNotes = [];
+  if (realYield != null) {
+    if (realYield < 0) macroNotes.push('negative real yields (' + realYield.toFixed(2) + '%) support the rally');
+    else if (realYield > 2) macroNotes.push('real yields at ' + realYield.toFixed(2) + '% create a headwind');
+    else macroNotes.push('real yields at ' + realYield.toFixed(2) + '%');
+  }
+  if (dxy != null) {
+    if (dxy < 98) macroNotes.push('a weak dollar (DXY ' + dxy.toFixed(1) + ') boosts demand');
+    else if (dxy > 105) macroNotes.push('a strong dollar (DXY ' + dxy.toFixed(1) + ') weighs on prices');
+  }
+  if (macroNotes.length) parts.push(macroNotes[0]);
+
+  // Sentiment from news
+  if (news && news.sentiment_score != null) {
+    var sc = news.sentiment_score;
+    if (sc > 40) parts.push('<span style="color:#00ff88;">headlines are broadly bullish</span>');
+    else if (sc < -40) parts.push('<span style="color:#ff4444;">sentiment is turning cautious</span>');
+  }
+
+  if (parts.length < 2) { strip.style.display = 'none'; return; }
+
+  // Build sentence
+  var sentence = parts[0];
+  if (parts.length > 1) sentence += ' — ' + parts.slice(1).join(', ') + '.';
+  else sentence += '.';
+
+  el.innerHTML = '🟡 <strong style="color:#ffd700;">Gold Price Today:</strong> ' + sentence;
+  strip.style.display = '';
 }
 
 // --- COMPOSITE BULL/BEAR SIGNAL ---
