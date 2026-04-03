@@ -3393,11 +3393,13 @@ def fetch_tariffs():
     headers = {"User-Agent": "Mozilla/5.0 (compatible; GoldBot/1.0)"}
 
     # --- 1. Tariff news from Google News RSS ---
-    TARIFF_KEYWORDS = ["tariff", "trade war", "trade deal", "gold", "dollar", "import duty", "sanctions"]
+    TARIFF_KEYWORDS = ["tariff", "trade war", "trade deal", "gold", "dollar", "import duty", "sanctions", "liberation day", "reciprocal"]
     tariff_feeds = [
-        "https://news.google.com/rss/search?q=tariff+gold+price+impact&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=liberation+day+tariff+gold+2026&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=gold+price+tariff+april+2026&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=tariff+gold+safe+haven+dollar&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=reciprocal+tariff+gold+market&hl=en-US&gl=US&ceid=US:en",
         "https://news.google.com/rss/search?q=trade+war+gold+2026&hl=en-US&gl=US&ceid=US:en",
-        "https://news.google.com/rss/search?q=dollar+tariff+gold+safe+haven&hl=en-US&gl=US&ceid=US:en",
     ]
     tariff_articles = []
     seen_titles = set()
@@ -3412,16 +3414,27 @@ def fetch_tariffs():
                 if not any(k in tl for k in TARIFF_KEYWORDS):
                     continue
                 seen_titles.add(title)
+                published_str = entry.get("published", "")
+                # Parse date for sorting
+                try:
+                    import email.utils
+                    pub_dt = email.utils.parsedate_to_datetime(published_str)
+                    pub_ts = pub_dt.timestamp()
+                except Exception:
+                    pub_ts = 0
                 tariff_articles.append({
                     "source": "Google News",
                     "title": title,
                     "link": entry.get("link", ""),
-                    "published": entry.get("published", ""),
+                    "published": published_str,
+                    "_pub_ts": pub_ts,
                 })
             throttle(0.3)
         except Exception as e:
             print(f"  Tariff RSS error ({url[:60]}): {e}")
-    tariff_articles = tariff_articles[:5]
+    # Sort by most recent first and take top 8
+    tariff_articles.sort(key=lambda x: x.pop("_pub_ts", 0), reverse=True)
+    tariff_articles = tariff_articles[:8]
 
     # --- 2. DXY 30-day change signal ---
     dxy_signal = "NEUTRAL"

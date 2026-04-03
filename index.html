@@ -2756,6 +2756,20 @@ function renderGoldTodaySentence() {
   }
   if (macroNotes.length) parts.push(macroNotes[0]);
 
+  // Liberation Day / Key Event context
+  var marketIntel = DATA.marketIntel;
+  if (marketIntel && marketIntel.alerts) {
+    var ldAlert = marketIntel.alerts.find(function(a) { return a.type === 'tariff_catalyst' && a.significance === 'critical'; });
+    if (ldAlert) {
+      var ldTs = ldAlert.ts ? new Date(ldAlert.ts) : null;
+      var now = new Date();
+      var daysSinceLd = ldTs ? Math.floor((now - ldTs) / 86400000) : null;
+      if (daysSinceLd !== null && daysSinceLd <= 7) {
+        parts.push('<span style="color:#ffd700;">⚡ Liberation Day II tariffs (Apr 2) triggered flight-to-safety bid — watching for follow-through</span>');
+      }
+    }
+  }
+
   // Sentiment from news
   if (news && news.sentiment_score != null) {
     var sc = news.sentiment_score;
@@ -3502,15 +3516,17 @@ function renderPriceChart(timeframe) {
           var y = yScale.getPixelForValue(level.price);
           if (y < yScale.top || y > yScale.bottom) return;
 
-          var isNearest = (fib.nearest_support && fib.nearest_support.label === level.label) ||
-                          (fib.nearest_resistance && fib.nearest_resistance.label === level.label);
+          var isNearestSupport = fib.nearest_support && fib.nearest_support.label === level.label;
+          var isNearestResistance = fib.nearest_resistance && fib.nearest_resistance.label === level.label;
+          var isNearest = isNearestSupport || isNearestResistance;
           var lineColor = level.is_resistance ? 'rgba(255,68,68,0.35)' : 'rgba(0,255,136,0.25)';
-          if (isNearest) lineColor = level.is_resistance ? 'rgba(255,68,68,0.65)' : 'rgba(0,255,136,0.55)';
+          if (isNearestSupport) lineColor = 'rgba(255,215,0,0.75)';      // gold for nearest support
+          else if (isNearestResistance) lineColor = 'rgba(255,68,68,0.75)'; // bright red for nearest resistance
 
           c.save();
           c.strokeStyle = lineColor;
-          c.lineWidth = isNearest ? 1 : 0.75;
-          c.setLineDash([3, 5]);
+          c.lineWidth = isNearest ? 1.5 : 0.75;
+          c.setLineDash(isNearest ? [4, 3] : [3, 5]);
           c.beginPath();
           c.moveTo(xScale.left, y);
           c.lineTo(xScale.right, y);
@@ -3519,11 +3535,13 @@ function renderPriceChart(timeframe) {
 
           // Label on right side
           var labelColor = level.is_resistance ? 'rgba(255,100,100,0.85)' : 'rgba(0,220,100,0.85)';
-          if (isNearest) labelColor = level.is_resistance ? '#ff6666' : '#00ff88';
+          if (isNearestSupport) labelColor = '#ffd700';        // gold for nearest support label
+          else if (isNearestResistance) labelColor = '#ff5555'; // red for nearest resistance label
           c.fillStyle = labelColor;
           c.font = (isNearest ? 'bold ' : '') + '8px JetBrains Mono, monospace';
           c.textAlign = 'right';
-          c.fillText('Fib ' + level.label + ' $' + Math.round(level.price).toLocaleString(), xScale.right - 4, y - 2);
+          var nearestTag = isNearestSupport ? ' ◀ SUPPORT' : (isNearestResistance ? ' ◀ RESIST' : '');
+          c.fillText('Fib ' + level.label + ' $' + Math.round(level.price).toLocaleString() + nearestTag, xScale.right - 4, y - 2);
           c.restore();
         });
       }
@@ -6160,10 +6178,20 @@ function renderHistorical() {
       destroyChart('seasonality');
       var ctxS = document.getElementById('chart-seasonality');
       if (ctxS) {
+        var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var currentMonthIdx = new Date().getMonth(); // 0-based
+        var currentMonthShort = monthNames[currentMonthIdx];
         var sLabels = smData.map(function(s) { return s.month; });
         var sValues = smData.map(function(s) { return parseFloat(s.avg_return) || 0; });
-        var sBgColors = sValues.map(function(v) { return v >= 0 ? 'rgba(0,255,136,0.65)' : 'rgba(255,68,68,0.65)'; });
-        var sBorderColors = sValues.map(function(v) { return v >= 0 ? '#00ff88' : '#ff4444'; });
+        var sBgColors = sValues.map(function(v, i) {
+          if (sLabels[i] === currentMonthShort) return 'rgba(255,215,0,0.85)'; // gold highlight for current month
+          return v >= 0 ? 'rgba(0,255,136,0.65)' : 'rgba(255,68,68,0.65)';
+        });
+        var sBorderColors = sValues.map(function(v, i) {
+          if (sLabels[i] === currentMonthShort) return '#ffd700';
+          return v >= 0 ? '#00ff88' : '#ff4444';
+        });
+        var sBorderWidths = sLabels.map(function(l) { return l === currentMonthShort ? 2 : 1; });
         charts['seasonality'] = new Chart(ctxS.getContext('2d'), {
           type: 'bar',
           data: {
@@ -6173,13 +6201,23 @@ function renderHistorical() {
               data: sValues,
               backgroundColor: sBgColors,
               borderColor: sBorderColors,
-              borderWidth: 1,
+              borderWidth: sBorderWidths,
               borderRadius: 3,
             }]
           },
           options: {
             scales: {
-              x: { grid: { display: false } },
+              x: {
+                grid: { display: false },
+                ticks: {
+                  color: function(ctx) {
+                    return sLabels[ctx.index] === currentMonthShort ? '#ffd700' : '#888';
+                  },
+                  font: function(ctx) {
+                    return { weight: sLabels[ctx.index] === currentMonthShort ? 'bold' : 'normal', size: 10 };
+                  }
+                }
+              },
               y: {
                 grid: { color: 'rgba(255,255,255,0.03)' },
                 ticks: { callback: function(v) { return v.toFixed(1) + '%'; } }
@@ -6191,16 +6229,33 @@ function renderHistorical() {
                 callbacks: {
                   label: function(ctx) {
                     var s = smData[ctx.dataIndex];
+                    var isCurrent = sLabels[ctx.dataIndex] === currentMonthShort;
                     return [
-                      (ctx.parsed.y >= 0 ? '+' : '') + fmt(ctx.parsed.y, 2) + '% avg return',
+                      (isCurrent ? '★ Current month — ' : '') + (ctx.parsed.y >= 0 ? '+' : '') + fmt(ctx.parsed.y, 2) + '% avg return',
                       s.positive_pct + '% of years positive (' + s.n + ' years)',
                     ];
                   }
                 }
-              }
+              },
+              annotation: undefined
             }
           }
         });
+
+        // Add a note below the chart showing current month stats
+        var curIdx = sLabels.indexOf(currentMonthShort);
+        var curStat = curIdx >= 0 ? smData[curIdx] : null;
+        var noteEl = document.getElementById('seasonality-note');
+        if (!noteEl) {
+          noteEl = document.createElement('div');
+          noteEl.id = 'seasonality-note';
+          noteEl.className = 'text-xs mono mt-2';
+          ctxS.parentNode.parentNode.appendChild(noteEl);
+        }
+        if (curStat) {
+          var sign = curStat.avg_return >= 0 ? '+' : '';
+          noteEl.innerHTML = '<span style="color:#ffd700">★ ' + currentMonthShort + '</span>: avg <span style="color:' + (curStat.avg_return >= 0 ? 'var(--green)' : 'var(--red)') + '">' + sign + curStat.avg_return.toFixed(2) + '%</span> — positive ' + curStat.positive_pct + '% of years (' + curStat.n + ' yrs data)';
+        }
       }
     }
   } catch(e) { console.warn('Seasonality chart error:', e); }
