@@ -2458,10 +2458,11 @@
 
     <!-- Gold Seasonality Chart -->
     <div class="mt-6">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold Seasonality — Avg. Monthly Return <span class="info-tooltip" data-tip="Average monthly return for gold based on all available price history. Shows which months gold has historically performed best. Bar color: green = avg positive month, red = avg negative.">ℹ</span></div>
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold Seasonality — Avg. Monthly Return <span class="info-tooltip" data-tip="Average monthly return for gold based on all available price history (22+ years). Shows which months gold has historically performed best. Hover for standard deviation (σ) from standalone 10-year analysis. Bar color: green = avg positive month, red = avg negative, gold = current month.">ℹ</span></div>
       <div class="chart-wrap" style="height: 200px;">
         <canvas id="chart-seasonality"></canvas>
       </div>
+      <div id="seasonality-source" class="text-[10px] text-[var(--text2)] mono mt-1 opacity-60">22yr historical avg · hover bars for σ (std dev) from 10yr analysis</div>
     </div>
 
     <!-- Daily Returns Heatmap -->
@@ -2758,6 +2759,7 @@ function loadAllData() {
     { key: 'marketIntel', url: 'data/market_intel.json' },
     { key: 'bankTargets', url: 'data/bank_targets.json' },
     { key: 'tariffs', url: 'data/tariffs.json' },
+    { key: 'seasonality', url: 'data/seasonality.json' },
   ];
 
   // Show loading states immediately
@@ -6756,9 +6758,26 @@ function renderHistorical() {
     });
   }
 
-  // Seasonality chart
+  // Seasonality chart — prefer historical.seasonal_monthly (22yr), fallback to seasonality.json (10yr)
   try {
     var smData = d.seasonal_monthly;
+    // If historical data unavailable, use standalone seasonality.json
+    var seasonalityExtra = DATA.seasonality; // {monthly_avg:[{month:1,name:'Jan',avg_return,std_dev,years_of_data},...]}
+    if ((!smData || !smData.length) && seasonalityExtra && seasonalityExtra.monthly_avg && seasonalityExtra.monthly_avg.length) {
+      var monthNames2 = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      smData = seasonalityExtra.monthly_avg.map(function(item) {
+        return { month: monthNames2[item.month - 1] || item.name, avg_return: item.avg_return, positive_pct: null, n: item.years_of_data, std_dev: item.std_dev };
+      });
+    }
+    // Build std_dev lookup from seasonality.json if available (for tooltip enrichment)
+    var stdDevMap = {};
+    if (seasonalityExtra && seasonalityExtra.monthly_avg) {
+      var mnArr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      seasonalityExtra.monthly_avg.forEach(function(item) {
+        var mn = mnArr[item.month - 1] || item.name;
+        stdDevMap[mn] = item.std_dev;
+      });
+    }
     if (smData && smData.length) {
       destroyChart('seasonality');
       var ctxS = document.getElementById('chart-seasonality');
@@ -6815,10 +6834,14 @@ function renderHistorical() {
                   label: function(ctx) {
                     var s = smData[ctx.dataIndex];
                     var isCurrent = sLabels[ctx.dataIndex] === currentMonthShort;
-                    return [
+                    var lines = [
                       (isCurrent ? '★ Current month — ' : '') + (ctx.parsed.y >= 0 ? '+' : '') + fmt(ctx.parsed.y, 2) + '% avg return',
-                      s.positive_pct + '% of years positive (' + s.n + ' years)',
                     ];
+                    if (s.positive_pct != null) lines.push(s.positive_pct + '% of years positive (' + s.n + ' years)');
+                    else if (s.n) lines.push(s.n + ' years of data');
+                    var sd = stdDevMap[sLabels[ctx.dataIndex]];
+                    if (sd != null) lines.push('Std dev: ±' + fmt(sd, 2) + '%');
+                    return lines;
                   }
                 }
               },
@@ -6839,7 +6862,11 @@ function renderHistorical() {
         }
         if (curStat) {
           var sign = curStat.avg_return >= 0 ? '+' : '';
-          noteEl.innerHTML = '<span style="color:#ffd700">★ ' + currentMonthShort + '</span>: avg <span style="color:' + (curStat.avg_return >= 0 ? 'var(--green)' : 'var(--red)') + '">' + sign + curStat.avg_return.toFixed(2) + '%</span> — positive ' + curStat.positive_pct + '% of years (' + curStat.n + ' yrs data)';
+          var sdNote = stdDevMap[currentMonthShort] != null ? ' · σ <span style="color:#888">±' + fmt(stdDevMap[currentMonthShort], 2) + '%</span>' : '';
+          var positiveNote = curStat.positive_pct != null
+            ? ' — positive ' + curStat.positive_pct + '% of years (' + curStat.n + ' yrs)'
+            : (curStat.n ? ' — ' + curStat.n + ' yrs data' : '');
+          noteEl.innerHTML = '<span style="color:#ffd700">★ ' + currentMonthShort + '</span>: avg <span style="color:' + (curStat.avg_return >= 0 ? 'var(--green)' : 'var(--red)') + '">' + sign + curStat.avg_return.toFixed(2) + '%</span>' + positiveNote + sdNote;
         }
       }
     }
