@@ -1646,6 +1646,15 @@
         <span id="etf-total" class="text-3xl font-bold mono text-[var(--gold)]">--</span>
         <span class="text-sm text-[var(--text2)] mono ml-1">tonnes</span>
       </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">GLD YTD <span class="info-tooltip" data-tip="Year-to-date price performance of GLD ETF.">ℹ</span></div>
+        <span id="etf-gld-ytd" class="text-2xl font-bold mono">--</span>
+      </div>
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Daily Flow Est. <span class="info-tooltip" data-tip="Estimated net tonnes of gold flowing into/out of major ETFs today, based on price momentum.">ℹ</span></div>
+        <span id="etf-daily-flow" class="text-2xl font-bold mono">--</span>
+        <span class="text-sm text-[var(--text2)] mono ml-1">t/day</span>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -3920,6 +3929,23 @@ function renderETFs() {
 
   document.getElementById('etf-total').textContent = fmtInt(d.total_holdings_tonnes_est);
 
+  // GLD YTD badge
+  var gldYtdEl = document.getElementById('etf-gld-ytd');
+  if (gldYtdEl && d.etfs && d.etfs.GLD && d.etfs.GLD.ytd_pct != null) {
+    var gytd = d.etfs.GLD.ytd_pct;
+    gldYtdEl.textContent = (gytd >= 0 ? '+' : '') + fmt(gytd, 1) + '%';
+    gldYtdEl.style.color = colorForChange(gytd);
+  }
+
+  // Daily flow total
+  var dailyFlowEl = document.getElementById('etf-daily-flow');
+  if (dailyFlowEl && d.etfs) {
+    var totalFlow = 0;
+    Object.values(d.etfs).forEach(function(e) { totalFlow += (e.daily_change_est || 0); });
+    dailyFlowEl.textContent = (totalFlow >= 0 ? '+' : '') + fmt(totalFlow, 1);
+    dailyFlowEl.style.color = colorForChange(totalFlow);
+  }
+
   // Overlay chart
   var overlaySymbols = ['GLD', 'IAU', 'PHYS'];
   var colors = ['#ffd700', '#4488ff', '#00ff88'];
@@ -4012,14 +4038,32 @@ function renderETFs() {
         '</div>';
     }
 
+    var ytdHtml = '';
+    if (etf.ytd_pct != null) {
+      var ytdColor = colorForChange(etf.ytd_pct);
+      ytdHtml = '<span class="text-[10px] mono ml-2" style="color:' + ytdColor + ';opacity:0.8;">' +
+        'YTD ' + (etf.ytd_pct >= 0 ? '+' : '') + fmt(etf.ytd_pct, 1) + '%</span>';
+    }
+    var w7Html = '';
+    if (etf.week7_pct != null) {
+      var w7Color = colorForChange(etf.week7_pct);
+      w7Html = '<span class="text-[10px] mono" style="color:' + w7Color + ';opacity:0.7;">7d ' +
+        (etf.week7_pct >= 0 ? '+' : '') + fmt(etf.week7_pct, 1) + '%</span>';
+    }
+
     card.innerHTML =
       '<div class="flex items-center justify-between mb-2">' +
         '<span class="text-sm font-bold mono">' + sym + '</span>' +
         '<span class="text-[10px] text-[var(--text2)]">' + (etf.name || '') + '</span>' +
       '</div>' +
-      '<div class="text-xl font-bold mono">$' + fmt(etf.price) + '</div>' +
-      '<div class="text-xs mono mt-1" style="color:' + changeColor + '">' +
-        (etf.change_pct >= 0 ? '+' : '') + fmt(etf.change_pct) + '%' +
+      '<div class="flex items-baseline gap-1">' +
+        '<div class="text-xl font-bold mono">$' + fmt(etf.price) + '</div>' +
+        ytdHtml +
+      '</div>' +
+      '<div class="flex items-center gap-2 mt-1">' +
+        '<span class="text-xs mono" style="color:' + changeColor + '">' +
+          (etf.change_pct >= 0 ? '+' : '') + fmt(etf.change_pct) + '%</span>' +
+        w7Html +
       '</div>' +
       (etf.tonnes_est ?
         '<div class="flex items-center gap-2 mt-2">' +

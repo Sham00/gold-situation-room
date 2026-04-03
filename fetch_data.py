@@ -1652,6 +1652,34 @@ def fetch_etfs():
                 tonnes_val = meta["tonnes_est"]
                 tonnes_source = "hardcoded estimate"
 
+            # Compute YTD and 7-day price performance from chart data
+            ytd_pct = None
+            week7_pct = None
+            week4_pct = None
+            try:
+                ytd_pts = [p for p in chart_pts if p["t"] >= f"{datetime.now().year}-01-01"]
+                if len(ytd_pts) >= 2:
+                    ytd_start = ytd_pts[0]["v"]
+                    ytd_end = ytd_pts[-1]["v"]
+                    if ytd_start:
+                        ytd_pct = round((ytd_end - ytd_start) / ytd_start * 100, 2)
+                if len(chart_pts) >= 8:
+                    week7_pct = round((chart_pts[-1]["v"] - chart_pts[-8]["v"]) / chart_pts[-8]["v"] * 100, 2)
+                if len(chart_pts) >= 22:
+                    week4_pct = round((chart_pts[-1]["v"] - chart_pts[-22]["v"]) / chart_pts[-22]["v"] * 100, 2)
+            except Exception:
+                pass
+
+            # Estimate daily tonnes change from price momentum (positive price = inflow signal)
+            # Use 1-day price change as a proxy for flow direction, scaled to ETF size
+            daily_change_est_computed = None
+            try:
+                if change_pct and tonnes_val:
+                    # Rough: 1% price move ≈ 0.5% flow (mix of price + flow)
+                    daily_change_est_computed = round(tonnes_val * (change_pct / 100) * 0.4, 1)
+            except Exception:
+                pass
+
             etfs[sym] = {
                 "name": meta["name"],
                 "price": round(price, 2),
@@ -1659,7 +1687,10 @@ def fetch_etfs():
                 "change_pct": round(change_pct, 2),
                 "tonnes_est": tonnes_val,
                 "tonnes_source": tonnes_source,
-                "daily_change_est": meta["daily_change_est"],
+                "daily_change_est": daily_change_est_computed if daily_change_est_computed is not None else meta["daily_change_est"],
+                "ytd_pct": ytd_pct,
+                "week7_pct": week7_pct,
+                "week4_pct": week4_pct,
                 "chart_1y": chart_pts,
             }
         except Exception as e:

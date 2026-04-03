@@ -7,7 +7,10 @@
       "change_pct": -2.27,
       "tonnes_est": 739.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": -0.5,
+      "daily_change_est": -6.7,
+      "ytd_pct": 7.82,
+      "week7_pct": 6.26,
+      "week4_pct": -8.98,
       "chart_1y": [
         {
           "t": "2025-04-03",
@@ -1022,7 +1025,10 @@
       "change_pct": -2.25,
       "tonnes_est": 564.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.3,
+      "daily_change_est": -5.1,
+      "ytd_pct": 7.82,
+      "week7_pct": 6.26,
+      "week4_pct": -9.01,
       "chart_1y": [
         {
           "t": "2025-04-03",
@@ -2037,7 +2043,10 @@
       "change_pct": -2.59,
       "tonnes_est": 111.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.1,
+      "daily_change_est": -1.2,
+      "ytd_pct": 6.82,
+      "week7_pct": 6.47,
+      "week4_pct": -9.65,
       "chart_1y": [
         {
           "t": "2025-04-03",
@@ -3052,7 +3061,10 @@
       "change_pct": -2.56,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.0,
+      "daily_change_est": -0.2,
+      "ytd_pct": 7.87,
+      "week7_pct": 6.26,
+      "week4_pct": -8.96,
       "chart_1y": [
         {
           "t": "2025-04-03",
@@ -4067,7 +4079,10 @@
       "change_pct": -2.09,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.0,
+      "daily_change_est": -0.4,
+      "ytd_pct": 7.82,
+      "week7_pct": 6.2,
+      "week4_pct": -9.0,
       "chart_1y": [
         {
           "t": "2025-04-03",
@@ -5083,5 +5098,5 @@
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-04-03T03:38:34Z"
+  "last_updated": "2026-04-03T03:53:18Z"
 }
