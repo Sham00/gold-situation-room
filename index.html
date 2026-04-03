@@ -1656,11 +1656,19 @@
           </tbody>
         </table>
       </div>
-      <!-- Bar chart -->
-      <div>
-        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top 15 by Reserves</div>
-        <div class="chart-wrap" style="height: 400px;">
-          <canvas id="chart-cb-bars"></canvas>
+      <!-- Bar charts -->
+      <div class="space-y-6">
+        <div>
+          <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top Buyers YTD 2026 <span class="info-tooltip" data-tip="Countries with the highest YTD gold purchases in 2026. Based on monthly reserve change estimates from WGC and central bank disclosures.">ℹ</span></div>
+          <div class="chart-wrap" style="height: 220px;">
+            <canvas id="chart-cb-buyers-ytd"></canvas>
+          </div>
+        </div>
+        <div>
+          <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top 15 by Reserves</div>
+          <div class="chart-wrap" style="height: 400px;">
+            <canvas id="chart-cb-bars"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -4047,7 +4055,56 @@ function renderCentralBanks() {
     tbody.appendChild(expandTr);
   });
 
-  // Bar chart
+  // Top CB Buyers YTD bar chart
+  var ytdBuyers = d.reserves
+    .filter(function(r) { return r.last_month_change > 0 || r.change_ytd > 0; })
+    .map(function(r) { return { country: r.country, ytd: r.change_ytd || 0, monthly: r.last_month_change || 0 }; })
+    .filter(function(r) { return r.ytd > 0 || r.monthly > 0; });
+  ytdBuyers.sort(function(a, b) { return (b.ytd || b.monthly) - (a.ytd || a.monthly); });
+  var top10buyers = ytdBuyers.slice(0, 10);
+  if (top10buyers.length) {
+    destroyChart('cb-buyers-ytd');
+    var ctxBuyers = document.getElementById('chart-cb-buyers-ytd');
+    if (ctxBuyers) {
+      var buyerColors = top10buyers.map(function(r) {
+        var v = r.ytd || r.monthly;
+        return v >= 20 ? 'rgba(0,255,136,0.8)' : v >= 10 ? 'rgba(255,215,0,0.8)' : 'rgba(255,215,0,0.5)';
+      });
+      charts['cb-buyers-ytd'] = new Chart(ctxBuyers.getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: top10buyers.map(function(r) { return r.country; }),
+          datasets: [{
+            label: 'YTD Purchases (tonnes)',
+            data: top10buyers.map(function(r) { return r.ytd || r.monthly; }),
+            backgroundColor: buyerColors,
+            borderColor: top10buyers.map(function(r) { return r.ytd >= 20 ? '#00ff88' : '#ffd700'; }),
+            borderWidth: 1,
+            borderRadius: 3,
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            x: {
+              grid: { color: 'rgba(255,255,255,0.03)' },
+              ticks: { callback: function(v) { return v + 't'; }, font: { size: 9 } }
+            },
+            y: {
+              grid: { display: false },
+              ticks: { font: { size: 9 } }
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function(ctx) { return '+' + ctx.parsed.x + ' tonnes'; } } }
+          }
+        }
+      });
+    }
+  }
+
+  // Bar chart (by reserves)
   var top15 = d.reserves.slice(0, 15);
   destroyChart('cb-bars');
   var ctx = document.getElementById('chart-cb-bars').getContext('2d');
