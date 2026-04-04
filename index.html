@@ -2115,11 +2115,36 @@
 
     <!-- Contango/Backwardation History Chart -->
     <div class="mt-6 pt-4 border-t border-[var(--card-border)]">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">COMEX Gold Basis History (Front vs Dec 2026) <span class="info-tooltip" data-tip="Positive = Contango (normal). Negative = Backwardation (physical scarcity signal — historically bullish). Basis spikes above $50 signal futures market stress.">ℹ</span></div>
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">COMEX Gold Basis History (Front vs Dec 2026) <span class="info-tooltip" data-tip="Positive = Contango (normal). Negative = Backwardation (physical scarcity signal — historically bullish). Basis compression (basis shrinking over time) signals growing physical demand as spot price is bid up relative to futures.">ℹ</span></div>
+      <!-- Basis Compression Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3" id="basis-compression-row">
+        <div class="bg-[#0a0a0a] rounded p-2 border border-[var(--card-border)] text-center">
+          <div class="text-[9px] text-[var(--text2)] mono">Peak (1Y)</div>
+          <div id="basis-peak" class="text-sm font-bold mono text-[var(--text2)]">--</div>
+        </div>
+        <div class="bg-[#0a0a0a] rounded p-2 border border-[var(--card-border)] text-center">
+          <div class="text-[9px] text-[var(--text2)] mono">6M Ago</div>
+          <div id="basis-6m" class="text-sm font-bold mono text-[var(--text2)]">--</div>
+        </div>
+        <div class="bg-[#0a0a0a] rounded p-2 border border-[var(--card-border)] text-center">
+          <div class="text-[9px] text-[var(--text2)] mono">3M Ago</div>
+          <div id="basis-3m" class="text-sm font-bold mono text-[var(--text2)]">--</div>
+        </div>
+        <div class="bg-[#0a0a0a] rounded p-2 border border-[var(--card-border)] text-center">
+          <div class="text-[9px] text-[var(--text2)] mono">Today</div>
+          <div id="basis-now" class="text-sm font-bold mono text-[var(--gold)]">--</div>
+        </div>
+        <div class="bg-[#0a0a0a] rounded p-2 border border-[var(--card-border)] text-center col-span-2 sm:col-span-1">
+          <div class="text-[9px] text-[var(--text2)] mono">1Y Change</div>
+          <div id="basis-1y-chg" class="text-sm font-bold mono">--</div>
+        </div>
+      </div>
+      <!-- Signal banner (shown when compressing) -->
+      <div id="basis-signal" class="text-[10px] mono mb-2 px-2 py-1 rounded" style="display:none;"></div>
       <div class="chart-wrap" style="height: 180px;">
         <canvas id="chart-contango-history"></canvas>
       </div>
-      <div class="text-[9px] mono mt-1" style="color:#555;">Positive = Contango (carry cost) · Negative = Backwardation (physical demand premium) · Green line = backwardation</div>
+      <div class="text-[9px] mono mt-1" style="color:#555;">Positive = Contango (carry cost) · Negative = Backwardation (physical demand premium) · Green line = backwardation · Compressing basis = physical demand building</div>
     </div>
   </section>
 
@@ -6155,6 +6180,44 @@ function renderCOT() {
         });
       }
     } catch(e) { console.warn('Contango history chart error:', e); }
+  }
+
+  // Basis Compression stats panel
+  if (ctHistory && ctHistory.length >= 10) {
+    try {
+      var chVals = ctHistory.map(function(p) { return p.v; });
+      var peak = Math.max.apply(null, chVals);
+      var cur = chVals[chVals.length - 1];
+      var v6m = chVals[Math.max(0, chVals.length - 130)]; // ~6 months trading days
+      var v3m = chVals[Math.max(0, chVals.length - 65)];  // ~3 months
+      var v1yAgo = chVals[0];
+      var pctChg1y = ((cur - v1yAgo) / v1yAgo * 100).toFixed(1);
+      var isCompressing = cur < v1yAgo && cur < v6m;
+
+      var elPeak = document.getElementById('basis-peak');
+      var el6m   = document.getElementById('basis-6m');
+      var el3m   = document.getElementById('basis-3m');
+      var elNow  = document.getElementById('basis-now');
+      var el1y   = document.getElementById('basis-1y-chg');
+      var elSig  = document.getElementById('basis-signal');
+
+      if (elPeak) elPeak.textContent = '$' + peak.toFixed(0);
+      if (el6m)   el6m.textContent  = '$' + v6m.toFixed(0);
+      if (el3m)   el3m.textContent  = '$' + v3m.toFixed(0);
+      if (elNow)  elNow.textContent = '$' + cur.toFixed(0);
+      if (el1y) {
+        el1y.textContent = (pctChg1y > 0 ? '+' : '') + pctChg1y + '%';
+        el1y.style.color = pctChg1y < 0 ? '#00ff88' : '#ff4444';
+      }
+      if (elSig && isCompressing) {
+        var compression = Math.abs(parseFloat(pctChg1y));
+        elSig.textContent = '📉 BASIS COMPRESSING ' + compression.toFixed(0) + '% vs 1Y ago — spot demand outpacing futures; physical buyers bidding near-term delivery premium above long-dated paper gold.';
+        elSig.style.display = 'block';
+        elSig.style.background = 'rgba(0,255,136,0.06)';
+        elSig.style.border = '1px solid rgba(0,255,136,0.2)';
+        elSig.style.color = '#00cc66';
+      }
+    } catch(e) { console.warn('Basis compression stats error:', e); }
   }
 }
 
