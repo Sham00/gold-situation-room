@@ -1658,6 +1658,15 @@
       </div>
     </div>
 
+    <!-- Central Bank Heatmap: Annual purchases by country -->
+    <div class="mb-6 pt-4 border-t border-[var(--card-border)]">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Annual Gold Purchases by Central Bank (tonnes) <span class="info-tooltip" data-tip="Shows annual net gold purchases per central bank. Darker gold = more buying. Computed from monthly reserve history data.">ℹ</span></div>
+      <div class="text-[10px] text-[var(--text2)] mono mb-3">Excludes static holders (US, Germany, Italy). Positive = net buying. Darker = more tonnes.</div>
+      <div class="overflow-x-auto">
+        <div id="cb-heatmap-table"><!-- filled by JS --></div>
+      </div>
+    </div>
+
     <!-- Central Bank Intelligence: live CB news feed -->
     <div id="cb-intelligence" class="mb-6 pt-4 border-t border-[var(--card-border)]" style="display:none;">
       <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Central Bank Intelligence <span class="info-tooltip" data-tip="Tracked CBs: China (PBOC), Turkey (TCMB), India (RBI), Poland (NBP), Singapore (MAS), Russia, Kazakhstan, Uzbekistan, Hungary, Czech Republic, Iraq, Philippines, Qatar, Saudi Arabia, Egypt. Tier 1 movers drive WGC quarterly reports.">ℹ</span></div>
@@ -2206,7 +2215,7 @@
       </div>
       <!-- GDX/Gold ratio + GDXJ/GDX ratio -->
       <div>
-        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">GDX / Gold Ratio (Miner Leverage) <span class="info-tooltip" data-tip="GDX tracks gold mining stocks. This ratio shows whether miners are cheap or expensive relative to the gold price itself.">ℹ</span></div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">GDX / Gold Ratio (Miner Leverage) <span class="info-tooltip" data-tip="GDX tracks gold mining stocks. This ratio shows whether miners are cheap or expensive relative to the gold price itself. A rising ratio means miners are outperforming gold — historically bullish for gold continuation.">ℹ</span> <span id="miners-lead-badge" style="display:none;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;vertical-align:middle;letter-spacing:0.08em;"></span></div>
         <div class="chart-wrap" style="height: 200px;">
           <canvas id="chart-gdx-ratio"></canvas>
         </div>
@@ -4346,6 +4355,84 @@ function renderCentralBanks() {
       '</a>';
     }).join('');
   }
+
+  // Central Bank Heatmap: annual purchases by country
+  (function() {
+    var hmEl = document.getElementById('cb-heatmap-table');
+    if (!hmEl || !d.reserves || !d.reserves.length) return;
+    var years = ['2022', '2023', '2024', '2025'];
+    // Compute annual purchase (change in tonnes per year) for each country
+    var rows = [];
+    d.reserves.forEach(function(r) {
+      if (!r.history || r.history.length < 2) return;
+      var annualBuying = {};
+      years.forEach(function(yr) {
+        var dec_key = yr + '-12';
+        var prev_dec = (parseInt(yr) - 1).toString() + '-12';
+        var decPt = r.history.filter(function(h) { return String(h.date).startsWith(dec_key); });
+        var prevPt = r.history.filter(function(h) { return String(h.date).startsWith(prev_dec); });
+        if (decPt.length && prevPt.length) {
+          annualBuying[yr] = Math.round(decPt[decPt.length-1].tonnes - prevPt[prevPt.length-1].tonnes);
+        } else {
+          annualBuying[yr] = null;
+        }
+      });
+      // 2025: use latest available vs end of 2024
+      var dec24 = r.history.filter(function(h) { return String(h.date).startsWith('2024-12'); });
+      var latest = r.history[r.history.length - 1];
+      if (dec24.length && latest && !String(latest.date).startsWith('2024-12')) {
+        annualBuying['2025'] = Math.round(latest.tonnes - dec24[dec24.length-1].tonnes);
+      }
+      var anyBuying = years.some(function(yr) { return annualBuying[yr] !== null && annualBuying[yr] !== 0; });
+      if (!anyBuying) return;
+      // Skip large static holders (US, Germany, Italy, France) as changes are near-zero
+      var skip = ['United States', 'Germany', 'Italy', 'France', 'Netherlands', 'Switzerland'];
+      if (skip.indexOf(r.country) !== -1) return;
+      rows.push({ country: r.country, flag: r.flag || '', buying: annualBuying });
+    });
+    // Sort by total buying desc
+    rows.sort(function(a, b) {
+      var sumA = years.reduce(function(s, yr) { return s + (a.buying[yr] || 0); }, 0);
+      var sumB = years.reduce(function(s, yr) { return s + (b.buying[yr] || 0); }, 0);
+      return sumB - sumA;
+    });
+    rows = rows.slice(0, 12);
+    if (!rows.length) return;
+    // Find max for color scaling
+    var maxVal = 0;
+    rows.forEach(function(r) {
+      years.forEach(function(yr) { if (r.buying[yr] > maxVal) maxVal = r.buying[yr]; });
+    });
+    if (maxVal === 0) maxVal = 100;
+    function cellBg(v) {
+      if (v === null || v === 0) return 'background:#0a0a0a;color:#444;';
+      if (v < 0) {
+        var pct = Math.min(1, Math.abs(v) / maxVal);
+        return 'background:rgba(255,68,68,' + (0.1 + pct * 0.4).toFixed(2) + ');color:#ff8888;';
+      }
+      var pct = Math.min(1, v / maxVal);
+      return 'background:rgba(255,215,0,' + (0.08 + pct * 0.6).toFixed(2) + ');color:' + (pct > 0.5 ? '#000' : '#ffd700') + ';';
+    }
+    var html = '<table style="width:100%;border-collapse:collapse;font-family:JetBrains Mono,monospace;font-size:11px;">';
+    html += '<thead><tr><th style="text-align:left;padding:4px 8px;color:#888;border-bottom:1px solid #222;">Country</th>';
+    years.forEach(function(yr) {
+      html += '<th style="text-align:center;padding:4px 8px;color:#888;border-bottom:1px solid #222;">' + yr + '</th>';
+    });
+    html += '</tr></thead><tbody>';
+    rows.forEach(function(r) {
+      html += '<tr>';
+      html += '<td style="padding:4px 8px;white-space:nowrap;color:#ddd;">' + (r.flag ? r.flag + ' ' : '') + r.country + '</td>';
+      years.forEach(function(yr) {
+        var v = r.buying[yr];
+        var style = cellBg(v);
+        var txt = v === null ? '—' : (v > 0 ? '+' : '') + v + 't';
+        html += '<td style="text-align:center;padding:4px 8px;border-radius:3px;' + style + '">' + txt + '</td>';
+      });
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    hmEl.innerHTML = html;
+  })();
 }
 
 // ---------------------------------------------------------------------------
@@ -5859,6 +5946,43 @@ function renderMiners() {
       }
     });
   }
+
+  // GDX/Gold 6-month trend signal — MINERS LEADING vs MINERS LAGGING badge
+  (function() {
+    var chart = d.gdx_gold_ratio_chart;
+    if (!chart || chart.length < 2) return;
+    // Compare last value to value ~126 trading days (6 months) ago
+    var cur = chart[chart.length - 1];
+    var lookback = Math.max(0, chart.length - 127);
+    var past = chart[lookback];
+    if (!cur || !past || !past.v || !cur.v) return;
+    var change6m = (cur.v - past.v) / past.v * 100;
+    var badge = document.getElementById('miners-lead-badge');
+    if (!badge) return;
+    badge.style.display = 'inline-block';
+    if (change6m >= 0) {
+      badge.textContent = '⬆ MINERS LEADING';
+      badge.style.background = 'rgba(0,255,136,0.15)';
+      badge.style.color = '#00ff88';
+      badge.style.border = '1px solid rgba(0,255,136,0.4)';
+      badge.title = 'GDX/Gold ratio rising over 6 months — miners outperforming gold. Historically bullish for gold continuation.';
+    } else {
+      badge.textContent = '⬇ MINERS LAGGING';
+      badge.style.background = 'rgba(255,68,68,0.12)';
+      badge.style.color = '#ff6666';
+      badge.style.border = '1px solid rgba(255,68,68,0.35)';
+      badge.title = 'GDX/Gold ratio declining over 6 months — miners underperforming gold. Can signal caution or value opportunity in miners.';
+    }
+    // Add 6m change label below chart
+    var wrap = document.getElementById('chart-gdx-ratio');
+    if (wrap && !document.getElementById('gdx-6m-change')) {
+      var lbl = document.createElement('div');
+      lbl.id = 'gdx-6m-change';
+      lbl.style.cssText = 'font-size:10px;font-family:JetBrains Mono,monospace;color:' + (change6m >= 0 ? '#00ff88' : '#ff6666') + ';margin-top:3px;text-align:right;';
+      lbl.textContent = 'GDX/Gold 6m: ' + (change6m >= 0 ? '+' : '') + change6m.toFixed(1) + '%';
+      wrap.parentNode.insertBefore(lbl, wrap.nextSibling);
+    }
+  })();
 
   // GDXJ/GDX junior vs senior ratio
   var gdxjData = d.miners && d.miners['GDXJ'];
