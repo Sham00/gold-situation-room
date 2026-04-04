@@ -2295,6 +2295,16 @@
     </div>
   </section>
 
+  <!-- ============================================================ -->
+  <!-- SECTION: WHAT TO WATCH THIS WEEK -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-watch" style="animation-delay:0.75s">
+    <div class="section-title">What to Watch This Week <span class="info-tooltip" data-tip="Dynamic checklist of key catalysts, levels, and events that could move gold this week. Compiled from active alerts, technical levels, and upcoming macro events.">ℹ</span><span class="freshness-badge freshness-live">● Live</span></div>
+    <div id="watch-list" class="space-y-2">
+      <div class="text-xs mono" style="color:#444;">Loading…</div>
+    </div>
+  </section>
+
 </main>
 
 <!-- Footer -->
@@ -2669,6 +2679,7 @@ function renderAll() {
   renderBankTargets();
   renderCompositeSignal();
   renderMarketAlerts();
+  renderWhatToWatch();
   updateFreshnessBadges();
   renderKeyStatsBanner();
 
@@ -2693,6 +2704,133 @@ function renderAll() {
       // (the ::after pseudo-element already does this via CSS)
     });
   });
+}
+
+// --- WHAT TO WATCH THIS WEEK ---
+function renderWhatToWatch() {
+  var el = document.getElementById('watch-list');
+  if (!el) return;
+
+  var price = DATA.price;
+  var macro = DATA.macro;
+  var intel = DATA.marketIntel;
+  var items = [];
+
+  // 1. Key technical levels from price data
+  if (price) {
+    var p = price.price;
+    var fib = price.fib_levels;
+    if (fib && fib.nearest_resistance) {
+      var res = fib.nearest_resistance;
+      items.push({
+        icon: '🔴',
+        label: 'KEY RESISTANCE',
+        text: 'Fib ' + res.label + ' at $' + res.price.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' (' + (res.distance_pct > 0 ? '+' : '') + res.distance_pct.toFixed(1) + '% from here) — needs a close above to resume uptrend',
+        color: '#ff8844'
+      });
+    }
+    if (fib && fib.nearest_support) {
+      var sup = fib.nearest_support;
+      items.push({
+        icon: '🟢',
+        label: 'KEY SUPPORT',
+        text: 'Fib ' + sup.label + ' at $' + sup.price.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' — watch for hold; break below = accelerated sell-off risk',
+        color: '#00ff88'
+      });
+    }
+    // MA50 as resistance/support
+    if (price.ma50) {
+      var ma50dist = ((p - price.ma50) / price.ma50 * 100).toFixed(1);
+      if (p < price.ma50) {
+        items.push({
+          icon: '⚠️',
+          label: '50-DAY MA',
+          text: '50-DMA at $' + price.ma50.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' is overhead resistance (' + ma50dist + '% away) — reclaim = bullish signal',
+          color: '#ffaa00'
+        });
+      }
+    }
+    // RSI zone
+    if (price.rsi != null) {
+      var rsi = price.rsi;
+      if (rsi < 35) {
+        items.push({
+          icon: '📉',
+          label: 'RSI OVERSOLD',
+          text: 'RSI at ' + rsi.toFixed(1) + ' — historically a mean-reversion bounce zone; watch for reversal candle as entry signal',
+          color: '#4488ff'
+        });
+      }
+    }
+  }
+
+  // 2. Macro events from market intel alerts
+  if (intel && intel.alerts) {
+    var macroAlerts = intel.alerts.filter(function(a) {
+      return a.significance === 'critical' || a.significance === 'high';
+    });
+    macroAlerts.slice(0, 3).forEach(function(a) {
+      var icon = '⚡';
+      var color = '#ffd700';
+      if (a.type === 'cb_buying') { icon = '🏦'; color = '#00ff88'; }
+      else if (a.type === 'cb_selling') { icon = '🏦'; color = '#ff4444'; }
+      else if (a.type === 'tariff_catalyst') { icon = '⚡'; color = '#ffd700'; }
+      else if (a.type === 'macro_catalyst' || a.type === 'fomc_window') { icon = '🏛️'; color = '#4488ff'; }
+      else if (a.type === 'correlation_breakdown') { icon = '📊'; color = '#ff8844'; }
+      else if (a.type === 'etf_inflow') { icon = '📈'; color = '#00ff88'; }
+      else if (a.type === 'etf_outflow') { icon = '📉'; color = '#ff4444'; }
+      // Strip emoji from headline for clean display
+      var headline = a.headline.replace(/^[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}⚡📉📈🏦⚠️🟡📊🏛️]+\s*/u, '');
+      items.push({ icon: icon, label: a.type.replace(/_/g, ' ').toUpperCase(), text: headline, color: color, link: a.link || '' });
+    });
+  }
+
+  // 3. DXY watch from macro
+  if (macro && macro.dxy != null) {
+    var dxy = macro.dxy;
+    var dxyNote = '';
+    if (dxy < 99) dxyNote = 'DXY at ' + dxy.toFixed(1) + ' — weak dollar is gold-bullish; watch for DXY bounce as headwind';
+    else if (dxy < 102) dxyNote = 'DXY at ' + dxy.toFixed(1) + ' — neutral zone; watch for break below 99 (dollar weakness = gold rally fuel)';
+    else dxyNote = 'DXY at ' + dxy.toFixed(1) + ' — strong dollar headwind; watch for rollover below 102';
+    items.push({ icon: '💵', label: 'DXY WATCH', text: dxyNote, color: '#888' });
+  }
+
+  // 4. Upcoming FOMC / macro events from intel
+  if (intel && intel.alerts) {
+    var fomc = intel.alerts.find(function(a) { return a.type === 'fomc_window' || a.type === 'macro_catalyst'; });
+    if (!fomc && macro && macro.next_fomc_date) {
+      items.push({ icon: '🏛️', label: 'FOMC WATCH', text: 'Next FOMC: ' + macro.next_fomc_date + ' — Fed rate path guidance = key gold catalyst', color: '#4488ff' });
+    }
+  }
+
+  // Deduplicate and cap
+  var seen = new Set();
+  var unique = items.filter(function(it) {
+    var key = it.label + it.text.slice(0, 30);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  if (!unique.length) {
+    el.innerHTML = '<div class="text-xs mono" style="color:#444;">No active watch items — check back after next data refresh.</div>';
+    return;
+  }
+
+  el.innerHTML = unique.slice(0, 7).map(function(item, i) {
+    var delay = (i * 0.05).toFixed(2);
+    var linkStart = item.link ? '<a href="' + item.link + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">' : '';
+    var linkEnd = item.link ? '</a>' : '';
+    return '<div class="flex items-start gap-3 py-2 border-b border-[var(--card-border)] last:border-0 fade-in" style="animation-delay:' + delay + 's">' +
+      '<span class="text-base flex-shrink-0 mt-0.5">' + item.icon + '</span>' +
+      '<div class="flex-1 min-w-0">' +
+        '<span class="text-[9px] mono px-1.5 py-0.5 rounded mr-2" style="background:rgba(255,215,0,0.08);color:' + item.color + ';border:1px solid ' + item.color + '33;white-space:nowrap;">' + item.label + '</span>' +
+        linkStart +
+        '<span class="text-[11px] mono" style="color:#ccc;">' + item.text + '</span>' +
+        linkEnd +
+      '</div>' +
+    '</div>';
+  }).join('');
 }
 
 // --- GOLD PRICE TODAY SUMMARY SENTENCE ---
