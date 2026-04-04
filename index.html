@@ -2280,6 +2280,20 @@
       <div class="text-[9px] text-[var(--text2)] mono mt-1">VIX = CBOE Volatility Index (S&P 500 30-day implied vol) • Gold line = left axis • VIX line = right axis</div>
     </div>
 
+    <!-- Gold-SPX Rolling Correlation -->
+    <div class="mt-6 pt-4 border-t border-[var(--card-border)]" id="gold-spx-corr-section">
+      <div class="flex items-center gap-3 mb-2 flex-wrap">
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono">Gold vs S&amp;P 500 — 20-Day Rolling Correlation <span class="info-tooltip" data-tip="20-day rolling Pearson correlation between daily gold returns and S&P 500 returns. Normally negative or near zero — gold is a hedge. When correlation spikes positive (both falling together), it signals forced liquidation / margin calls, not a change in gold's fundamentals. Historically resolves bullishly as safe-haven demand resumes once selling pressure clears.">ℹ</span></div>
+        <div id="corr-current-badge" class="text-[10px] font-bold mono px-2 py-0.5 rounded" style="background:rgba(136,136,136,0.1);color:#888;border:1px solid rgba(136,136,136,0.2);">Corr: --</div>
+        <div id="corr-regime-badge" class="text-[10px] font-bold mono px-2 py-0.5 rounded" style="background:rgba(136,136,136,0.1);color:#888;border:1px solid rgba(136,136,136,0.2);">--</div>
+      </div>
+      <div class="chart-wrap" style="height: 180px; position:relative;">
+        <canvas id="chart-gold-spx-corr"></canvas>
+      </div>
+      <div id="corr-breakdown-alert" class="text-[10px] mono mt-2 p-2 rounded" style="display:none;"></div>
+      <div class="text-[9px] text-[var(--text2)] mono mt-1">Pearson correlation of daily returns (20-day window) · +1.0 = perfect co-movement · -1.0 = perfect inverse · Near 0 = decorrelated (gold acting as independent safe-haven)</div>
+    </div>
+
     <!-- FOMC Countdown -->
     <div class="mt-6 pt-4 border-t border-[var(--card-border)]">
       <div class="flex items-center gap-4 flex-wrap">
@@ -6540,6 +6554,166 @@ function renderMacro() {
     renderDualAxisChart('chart-macro-vix', 'macro-vix', goldChart, vixChart, 'Gold', 'VIX', '#ffd700', '#cc44ff', false, false);
     clearChartLoading('chart-macro-vix');
   }
+
+  // Gold-SPX 20-Day Rolling Correlation chart
+  (function() {
+    try {
+      var crisisData = DATA.crisisAssets;
+      if (!goldChart || !goldChart.length || !crisisData || !crisisData.assets || !crisisData.assets['S&P 500']) return;
+      var spxData = crisisData.assets['S&P 500'].chart || [];
+      if (!spxData.length) return;
+
+      // Build date-indexed maps
+      var goldMap = {};
+      goldChart.forEach(function(pt) { goldMap[pt.t] = pt.v; });
+      var spxMap = {};
+      spxData.forEach(function(pt) { spxMap[pt.t] = pt.v; });
+
+      // Find common dates
+      var common = Object.keys(goldMap).filter(function(t) { return spxMap[t] != null; }).sort();
+      if (common.length < 22) return;
+
+      // Compute daily returns
+      var goldRets = [], spxRets = [], retDates = [];
+      for (var i = 1; i < common.length; i++) {
+        var d0 = common[i-1], d1 = common[i];
+        goldRets.push((goldMap[d1] - goldMap[d0]) / goldMap[d0]);
+        spxRets.push((spxMap[d1] - spxMap[d0]) / spxMap[d0]);
+        retDates.push(d1);
+      }
+
+      // Rolling 20-day Pearson correlation
+      var window20 = 20;
+      var corrPts = [];
+      for (var i = window20 - 1; i < retDates.length; i++) {
+        var g = goldRets.slice(i - window20 + 1, i + 1);
+        var s = spxRets.slice(i - window20 + 1, i + 1);
+        var n = g.length;
+        var mg = g.reduce(function(a,b){return a+b;},0)/n;
+        var ms = s.reduce(function(a,b){return a+b;},0)/n;
+        var cov = 0, vg = 0, vs = 0;
+        for (var j = 0; j < n; j++) {
+          cov += (g[j]-mg)*(s[j]-ms);
+          vg  += (g[j]-mg)*(g[j]-mg);
+          vs  += (s[j]-ms)*(s[j]-ms);
+        }
+        var corr = (vg > 0 && vs > 0) ? cov / Math.sqrt(vg * vs) : 0;
+        corrPts.push({ t: retDates[i], v: Math.round(corr * 1000) / 1000 });
+      }
+      if (!corrPts.length) return;
+
+      var currentCorr = corrPts[corrPts.length - 1].v;
+
+      // Update badges
+      var corrBadgeEl = document.getElementById('corr-current-badge');
+      var corrRegimeEl = document.getElementById('corr-regime-badge');
+      var corrAlertEl = document.getElementById('corr-breakdown-alert');
+      if (corrBadgeEl) {
+        corrBadgeEl.textContent = 'Corr: ' + currentCorr.toFixed(2);
+        if (currentCorr > 0.3) {
+          corrBadgeEl.style.cssText = 'background:rgba(255,68,68,0.15);color:#ff4444;border:1px solid rgba(255,68,68,0.3);font-size:10px;font-weight:700;font-family:JetBrains Mono,monospace;padding:2px 8px;border-radius:4px;';
+        } else if (currentCorr > 0) {
+          corrBadgeEl.style.cssText = 'background:rgba(255,215,0,0.1);color:#ffd700;border:1px solid rgba(255,215,0,0.25);font-size:10px;font-weight:700;font-family:JetBrains Mono,monospace;padding:2px 8px;border-radius:4px;';
+        } else {
+          corrBadgeEl.style.cssText = 'background:rgba(0,255,136,0.1);color:#00ff88;border:1px solid rgba(0,255,136,0.25);font-size:10px;font-weight:700;font-family:JetBrains Mono,monospace;padding:2px 8px;border-radius:4px;';
+        }
+      }
+      if (corrRegimeEl) {
+        var regText, regBg, regColor, regBorder;
+        if (currentCorr > 0.5) {
+          regText = '🚨 FORCED LIQUIDATION'; regBg = 'rgba(255,68,68,0.15)'; regColor = '#ff4444'; regBorder = 'rgba(255,68,68,0.3)';
+        } else if (currentCorr > 0.3) {
+          regText = '⚠ CORR. BREAKDOWN'; regBg = 'rgba(255,136,0,0.15)'; regColor = '#ff8800'; regBorder = 'rgba(255,136,0,0.3)';
+        } else if (currentCorr > 0.1) {
+          regText = '→ MILD COUPLING'; regBg = 'rgba(255,215,0,0.1)'; regColor = '#ffd700'; regBorder = 'rgba(255,215,0,0.25)';
+        } else if (currentCorr < -0.3) {
+          regText = '✓ STRONG SAFE HAVEN'; regBg = 'rgba(0,255,136,0.1)'; regColor = '#00ff88'; regBorder = 'rgba(0,255,136,0.25)';
+        } else {
+          regText = '✓ DECORRELATED'; regBg = 'rgba(0,255,136,0.1)'; regColor = '#00ff88'; regBorder = 'rgba(0,255,136,0.25)';
+        }
+        corrRegimeEl.textContent = regText;
+        corrRegimeEl.style.cssText = 'background:' + regBg + ';color:' + regColor + ';border:1px solid ' + regBorder + ';font-size:10px;font-weight:700;font-family:JetBrains Mono,monospace;padding:2px 8px;border-radius:4px;';
+      }
+      if (corrAlertEl && currentCorr > 0.3) {
+        corrAlertEl.style.display = 'block';
+        corrAlertEl.style.background = 'rgba(255,136,0,0.08)';
+        corrAlertEl.style.border = '1px solid rgba(255,136,0,0.3)';
+        corrAlertEl.style.color = '#ff8800';
+        corrAlertEl.innerHTML = '📊 <strong>Correlation Breakdown Active:</strong> Gold &amp; S&P 500 co-moving at ' + currentCorr.toFixed(2) + ' (20d) — consistent with forced liquidation / margin calls. Historical precedent: this regime resolves within 2–6 weeks as safe-haven demand reasserts. The macro case for gold (tariffs, CB buying, real yields) remains intact.';
+      }
+
+      // Render chart
+      var canvas = document.getElementById('chart-gold-spx-corr');
+      if (!canvas || typeof Chart === 'undefined') return;
+      var ctx = canvas.getContext('2d');
+      var labels = corrPts.map(function(p) { return p.t; });
+      var values = corrPts.map(function(p) { return p.v; });
+
+      // Color bars: red if positive (bad), green if negative (healthy)
+      var barColors = values.map(function(v) {
+        if (v > 0.3) return 'rgba(255,68,68,0.7)';
+        if (v > 0) return 'rgba(255,170,0,0.5)';
+        if (v > -0.3) return 'rgba(0,255,136,0.4)';
+        return 'rgba(0,255,136,0.7)';
+      });
+
+      if (window._chartInstances && window._chartInstances['gold-spx-corr']) {
+        window._chartInstances['gold-spx-corr'].destroy();
+      }
+      if (!window._chartInstances) window._chartInstances = {};
+      window._chartInstances['gold-spx-corr'] = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: '20d Corr (Gold vs SPX)',
+            data: values,
+            backgroundColor: barColors,
+            borderColor: barColors,
+            borderWidth: 0,
+            barPercentage: 0.85
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                title: function(items) { return items[0].label; },
+                label: function(item) {
+                  var v = item.raw;
+                  var interp = v > 0.5 ? 'Forced liquidation' : v > 0.3 ? 'Correlation breakdown' : v > 0.1 ? 'Mild coupling' : v < -0.3 ? 'Strong safe haven' : 'Decorrelated';
+                  return 'Corr: ' + v.toFixed(3) + ' — ' + interp;
+                }
+              }
+            },
+            annotation: undefined
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: '#555', font: { size: 9, family: 'JetBrains Mono' },
+                maxTicksLimit: 8, maxRotation: 0
+              },
+              grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false }
+            },
+            y: {
+              min: -1, max: 1,
+              ticks: {
+                color: '#555', font: { size: 9, family: 'JetBrains Mono' },
+                callback: function(v) { return v.toFixed(1); }
+              },
+              grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false }
+            }
+          }
+        }
+      });
+    } catch(e) {
+      console.warn('[corr chart]', e);
+    }
+  })();
 
   // VIX badge update
   var vixVal = d.vix;
