@@ -2428,6 +2428,28 @@
       <div class="text-[9px] text-[var(--text2)] mono mt-2">All drawdowns >10% from peak. Days to trough = calendar days from peak to bottom. Days to recovery = calendar days from peak to full recovery.</div>
     </div>
 
+    <!-- Gold vs Real Estate Comparison Chart (Priority 33b) -->
+    <div class="mt-6">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">$10,000 Invested in 2000 — Gold vs US Real Estate (Case-Shiller) <span class="info-tooltip" data-tip="Compares $10,000 invested in gold vs US housing (Case-Shiller National HPI) since Jan 2000. Gold is a liquid, storage-free alternative to real estate as a long-term store of value.">ℹ</span></div>
+      <div class="chart-wrap chart-loading" style="height:240px;">
+        <canvas id="chart-gold-realestate"></canvas>
+      </div>
+      <div class="grid grid-cols-2 gap-3 mt-3">
+        <div class="text-center">
+          <div class="text-[10px] mono uppercase tracking-wider" style="color:#ffd700">🟡 Gold</div>
+          <div id="gre-gold-val" class="text-lg font-bold mono" style="color:#ffd700">—</div>
+          <div id="gre-gold-ret" class="text-[10px] mono" style="color:#ffd700">—</div>
+        </div>
+        <div class="text-center">
+          <div class="text-[10px] mono uppercase tracking-wider" style="color:#4da6ff">🏠 US Housing (Case-Shiller)</div>
+          <div id="gre-house-val" class="text-lg font-bold mono" style="color:#4da6ff">—</div>
+          <div id="gre-house-ret" class="text-[10px] mono" style="color:#4da6ff">—</div>
+        </div>
+      </div>
+      <div id="gre-outperform-note" class="text-[10px] mono mt-2" style="color:#888;text-align:center;"></div>
+      <div class="text-[9px] text-[var(--text2)] mono mt-1">Case-Shiller National HPI annual data (2000–2025, hardcoded) • Gold: GC=F monthly close from yfinance • Both rebased to $10,000 at Jan 2000</div>
+    </div>
+
     <!-- Gold Standard History Timeline (Priority 32) -->
     <div class="mt-6">
       <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-3">Gold Standard History — Key Milestones <span class="info-tooltip" data-tip="The journey from the gold standard to fiat currency to gold's modern role as a reserve asset. Each event shaped gold's price trajectory.">ℹ</span></div>
@@ -7260,6 +7282,82 @@ function renderHistorical() {
       }
     }
   } catch(e) { console.warn('Purchasing power chart error:', e); }
+
+  // Gold vs Real Estate comparison chart (Priority 33b)
+  try {
+    var cshpiData = {
+      2000:100.0,2001:107.6,2002:117.4,2003:130.0,2004:149.1,
+      2005:172.3,2006:188.6,2007:189.9,2008:168.3,2009:149.0,
+      2010:146.8,2011:138.6,2012:144.9,2013:161.7,2014:170.1,
+      2015:178.8,2016:188.9,2017:200.9,2018:210.7,2019:216.4,
+      2020:231.6,2021:278.5,2022:308.5,2023:307.0,2024:322.1,
+      2025:338.0
+    };
+    var goldFallback = {2000:287,2001:271,2002:310,2003:363,2004:409,2005:445,2006:603,2007:695,2008:872,2009:978,2010:1226,2011:1566,2012:1668,2013:1204,2014:1206,2015:1060,2016:1157,2017:1257,2018:1247,2019:1393,2020:1891,2021:1800,2022:1726,2023:1943,2024:2328,2025:2900};
+    var goldHistData2 = d.gold_price_chart || [];
+    var goldByYear2 = {};
+    goldHistData2.forEach(function(pt) {
+      if (pt && pt.t && pt.v != null) {
+        var yr = parseInt(pt.t.substring(0,4));
+        if (yr >= 2000 && !goldByYear2[yr]) goldByYear2[yr] = pt.v;
+      }
+    });
+    var goldBase2 = goldByYear2[2000] || 287;
+    var greLabels = [], greGold = [], greHouse = [];
+    var curYr = new Date().getFullYear();
+    for (var yr2 = 2000; yr2 <= Math.min(curYr, 2025); yr2++) {
+      var hpi = cshpiData[yr2]; if (!hpi) continue;
+      var gp = goldByYear2[yr2] || goldFallback[yr2]; if (!gp) continue;
+      greLabels.push(yr2.toString());
+      greGold.push(Math.round(10000 * gp / goldBase2));
+      greHouse.push(Math.round(10000 * hpi / 100.0));
+    }
+    if (d.price && curYr > 2025) {
+      greLabels.push(curYr.toString());
+      greGold.push(Math.round(10000 * d.price / goldBase2));
+      greHouse.push(null);
+    }
+    var lastG2 = greGold[greGold.length-1];
+    var lastH2 = greHouse.filter(function(v){return v!=null;}).pop();
+    var greGoldValEl = document.getElementById('gre-gold-val');
+    var greHouseValEl = document.getElementById('gre-house-val');
+    var greNoteEl = document.getElementById('gre-outperform-note');
+    if (greGoldValEl && lastG2) { greGoldValEl.textContent = '$' + fmtInt(lastG2); document.getElementById('gre-gold-ret').textContent = '+' + Math.round((lastG2-10000)/100) + '% total'; }
+    if (greHouseValEl && lastH2) { greHouseValEl.textContent = '$' + fmtInt(lastH2); document.getElementById('gre-house-ret').textContent = '+' + Math.round((lastH2-10000)/100) + '% total'; }
+    if (greNoteEl && lastG2 && lastH2) {
+      var diff2 = lastG2 - lastH2;
+      if (diff2 > 0) { greNoteEl.textContent = '🟡 Gold has outperformed US housing by $' + fmtInt(diff2) + ' (+' + Math.round(diff2/100) + '%) since 2000'; greNoteEl.style.color = '#ffd700'; }
+      else { greNoteEl.textContent = '🏠 US housing has outperformed gold by $' + fmtInt(-diff2) + ' since 2000'; greNoteEl.style.color = '#4da6ff'; }
+    }
+    destroyChart('gold-realestate');
+    var ctxGRE = document.getElementById('chart-gold-realestate');
+    if (ctxGRE && greLabels.length > 0) {
+      var wrapGRE = ctxGRE.closest('.chart-wrap');
+      if (wrapGRE) wrapGRE.classList.remove('chart-loading');
+      charts['gold-realestate'] = new Chart(ctxGRE.getContext('2d'), {
+        type: 'line',
+        data: {
+          labels: greLabels,
+          datasets: [
+            { label: 'Gold', data: greGold, borderColor: '#ffd700', backgroundColor: 'rgba(255,215,0,0.08)', borderWidth: 2.5, pointRadius: 2, fill: false, tension: 0.3, spanGaps: true },
+            { label: 'US Housing (Case-Shiller)', data: greHouse, borderColor: '#4da6ff', backgroundColor: 'rgba(77,166,255,0.06)', borderWidth: 2, pointRadius: 2, fill: false, tension: 0.3, spanGaps: true }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { font: { size: 9 }, maxTicksLimit: 14 } },
+            y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { callback: function(v) { return '$' + (v>=1000 ? Math.round(v/1000)+'K' : v); }, font: { size: 9 } } }
+          },
+          plugins: {
+            legend: { display: true, labels: { color: '#aaa', font: { size: 10, family: 'JetBrains Mono' }, boxWidth: 16, padding: 12 } },
+            tooltip: { callbacks: { label: function(ctx) { var val=ctx.parsed.y; if(val==null) return ctx.dataset.label+': N/A'; var ret=Math.round((val-10000)/100); return ctx.dataset.label+': $'+fmtInt(val)+' ('+(ret>=0?'+':'')+ret+'%)'; } } }
+          }
+        }
+      });
+    }
+  } catch(e) { console.warn('Gold vs Real Estate chart error:', e); }
 
   // Real (CPI-adjusted) gold chart
   try {
