@@ -439,6 +439,26 @@
     vertical-align: middle;
   }
 
+  /* What to Watch card */
+  .wtw-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 14px;
+    background: rgba(255,215,0,0.03);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text1);
+  }
+  .wtw-item .wtw-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .wtw-item .wtw-label { color: var(--gold); font-weight: 700; margin-right: 4px; }
+  .wtw-item.wtw-alert { border-left-color: #ff4444; background: rgba(255,68,68,0.04); }
+  .wtw-item.wtw-bullish { border-left-color: #00ff88; background: rgba(0,255,136,0.04); }
+  .wtw-item.wtw-neutral { border-left-color: #888; background: transparent; }
+
   /* Info tooltip */
   .info-tooltip {
     display: inline-flex;
@@ -1739,6 +1759,17 @@
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Source</div>
         <div id="lbma-source" class="text-xs mono text-[var(--text2)]">--</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1c: WHAT TO WATCH THIS WEEK -->
+  <!-- ============================================================ -->
+  <section class="full-width card fade-in" id="sec-what-to-watch" style="animation-delay:0.14s">
+    <div class="section-title">What to Watch This Week <span class="info-tooltip" data-tip="Dynamically generated checklist of key market signals and catalysts to monitor. Updated on each data refresh.">ℹ</span></div>
+    <div id="what-to-watch-list" class="space-y-2">
+      <!-- Filled by renderWhatToWatch() -->
+      <div style="color:#555;font-size:12px;font-family:JetBrains Mono,monospace;">Loading signals…</div>
     </div>
   </section>
 
@@ -3069,6 +3100,7 @@ function renderAll() {
   renderKeyStatsBanner();
 
   renderGoldTodaySentence();
+  renderWhatToWatch();
 
   // After all renders: clear shimmer from charts that got drawn,
   // keep shimmer on charts that are still empty (data unavailable)
@@ -3092,6 +3124,114 @@ function renderAll() {
 }
 
 // --- GOLD PRICE TODAY SUMMARY SENTENCE ---
+function renderWhatToWatch() {
+  var el = document.getElementById('what-to-watch-list');
+  if (!el) return;
+  var items = [];
+  var p = DATA.price || {};
+  var m = DATA.macro || {};
+  var ratios = (DATA.ratios || {}).ratios || {};
+  var ca = DATA.crisisAssets || {};
+  var etfs = DATA.etfs || {};
+  var news = DATA.news || {};
+  var cb = DATA.centralBanks || {};
+
+  // 1. Fed / real yield signal
+  var realYield = m.real_yield_10y;
+  if (realYield != null) {
+    if (realYield < 0) {
+      items.push({ cls: 'wtw-bullish', icon: '🏦', label: 'Real yields negative:', text: 'At ' + realYield.toFixed(2) + '% — negative real yields are historically gold's strongest tailwind.' });
+    } else if (realYield < 0.5) {
+      items.push({ cls: 'wtw-bullish', icon: '🏦', label: 'Real yields low:', text: 'At ' + realYield.toFixed(2) + '% — near zero = supportive for gold.' });
+    } else {
+      items.push({ cls: 'wtw-neutral', icon: '🏦', label: 'Real yield at ' + realYield.toFixed(2) + '%:', text: 'Watch for Fed pivot signals that could push yields lower.' });
+    }
+  }
+
+  // 2. DXY / dollar
+  var dxy = m.dxy;
+  if (dxy != null) {
+    var dxyPct = m.dxy_change_pct || 0;
+    if (dxyPct < -2) {
+      items.push({ cls: 'wtw-bullish', icon: '💵', label: 'Dollar weakening:', text: 'DXY at ' + dxy.toFixed(1) + ' (' + (dxyPct > 0 ? '+' : '') + dxyPct.toFixed(1) + '% YTD) — dollar weakness supports gold.' });
+    } else if (dxyPct > 2) {
+      items.push({ cls: 'wtw-alert', icon: '💵', label: 'Dollar strengthening:', text: 'DXY at ' + dxy.toFixed(1) + ' (' + (dxyPct > 0 ? '+' : '') + dxyPct.toFixed(1) + '% YTD) — headwind for gold; watch for reversal.' });
+    } else {
+      items.push({ cls: 'wtw-neutral', icon: '💵', label: 'DXY at ' + dxy.toFixed(1) + ':', text: 'Dollar near neutral — not a strong signal either way.' });
+    }
+  }
+
+  // 3. Gold/Silver ratio
+  var gsRatio = (ratios.gold_silver || {}).value;
+  if (gsRatio != null) {
+    if (gsRatio > 85) {
+      items.push({ cls: 'wtw-neutral', icon: '⚖️', label: 'Gold/Silver at ' + gsRatio.toFixed(0) + 'x:', text: 'Historically elevated — watch for mean reversion (silver tends to outperform in late-cycle gold rallies).' });
+    } else if (gsRatio < 70) {
+      items.push({ cls: 'wtw-bullish', icon: '⚖️', label: 'Gold/Silver at ' + gsRatio.toFixed(0) + 'x:', text: 'Near historical lows — silver catching up, suggesting broad precious metals demand.' });
+    }
+  }
+
+  // 4. VIX / fear signal from crisis assets
+  var caAssets = ca.assets || [];
+  var vixEntry = caAssets.find(function(a) { return a.symbol === '^VIX'; });
+  if (vixEntry && vixEntry.current != null) {
+    var vixVal = vixEntry.current;
+    if (vixVal > 25) {
+      items.push({ cls: 'wtw-bullish', icon: '⚡', label: 'VIX at ' + vixVal.toFixed(0) + ':', text: 'Elevated fear — high VIX historically drives safe-haven flows into gold.' });
+    } else if (vixVal > 20) {
+      items.push({ cls: 'wtw-neutral', icon: '⚡', label: 'VIX at ' + vixVal.toFixed(0) + ':', text: 'Moderate volatility — watch for VIX spikes above 25 as a gold entry signal.' });
+    } else {
+      items.push({ cls: 'wtw-neutral', icon: '⚡', label: 'VIX calm at ' + vixVal.toFixed(0) + ':', text: 'Low fear — complacency can reverse quickly; gold can still rally on macro flows.' });
+    }
+  }
+
+  // 5. ETF flows
+  var etfFlows = etfs.total_flow_5d_tonnes;
+  if (etfFlows != null) {
+    if (etfFlows > 5) {
+      items.push({ cls: 'wtw-bullish', icon: '📦', label: 'ETF inflows:', text: '+' + etfFlows.toFixed(1) + 't net last 5 days — institutional accumulation in progress.' });
+    } else if (etfFlows < -5) {
+      items.push({ cls: 'wtw-alert', icon: '📦', label: 'ETF outflows:', text: etfFlows.toFixed(1) + 't net last 5 days — watch for sustained selling pressure.' });
+    } else {
+      items.push({ cls: 'wtw-neutral', icon: '📦', label: 'ETF flows neutral:', text: (etfFlows > 0 ? '+' : '') + (etfFlows || 0).toFixed(1) + 't last 5 days — no strong directional signal.' });
+    }
+  }
+
+  // 6. Gold YTD momentum
+  var goldYtd = null;
+  var goldCA = caAssets.find(function(a) { return a.symbol === 'GC=F'; });
+  if (goldCA) goldYtd = goldCA.ytd_pct;
+  if (goldYtd != null) {
+    if (goldYtd > 15) {
+      items.push({ cls: 'wtw-bullish', icon: '🥇', label: 'Gold up ' + goldYtd.toFixed(1) + '% YTD:', text: 'Strong trend intact — momentum favors continuation, but watch for consolidation near resistance.' });
+    } else if (goldYtd > 5) {
+      items.push({ cls: 'wtw-bullish', icon: '🥇', label: 'Gold up ' + goldYtd.toFixed(1) + '% YTD:', text: 'Solid uptrend — dips into support have been buying opportunities.' });
+    } else if (goldYtd < 0) {
+      items.push({ cls: 'wtw-alert', icon: '🥇', label: 'Gold down ' + Math.abs(goldYtd).toFixed(1) + '% YTD:', text: 'Under pressure — watch key support levels and macro catalysts for reversal.' });
+    }
+  }
+
+  // 7. Central bank pace
+  var cbPace = cb.net_monthly_pace_tonnes;
+  if (cbPace != null && cbPace > 30) {
+    items.push({ cls: 'wtw-bullish', icon: '🏛️', label: 'CB buying at ' + cbPace.toFixed(0) + 't/month:', text: 'Central bank demand running above historical average — structural support for gold.' });
+  }
+
+  // Limit to 5 items, ensure at least 3
+  items = items.slice(0, 6);
+  if (!items.length) {
+    el.innerHTML = '<div class="wtw-item wtw-neutral"><span class="wtw-icon">📊</span><span>No strong signals detected — monitor data updates.</span></div>';
+    return;
+  }
+
+  el.innerHTML = items.map(function(item) {
+    return '<div class="wtw-item ' + item.cls + '">' +
+      '<span class="wtw-icon">' + item.icon + '</span>' +
+      '<span><span class="wtw-label">' + item.label + '</span>' + item.text + '</span>' +
+      '</div>';
+  }).join('');
+}
+
 function renderGoldTodaySentence() {
   var price = DATA.price;
   var macro = DATA.macro;
@@ -4460,8 +4600,20 @@ function renderCentralBanks() {
     var reserveIntensity = Math.max(0.03, r.reserves_tonnes / maxReserves * 0.15);
     var barWidth = (r.reserves_tonnes / maxReserves * 60).toFixed(0);
 
+    var cbFlags = {
+      'China': '🇨🇳', 'United States': '🇺🇸', 'Germany': '🇩🇪', 'Italy': '🇮🇹',
+      'France': '🇫🇷', 'Russia': '🇷🇺', 'India': '🇮🇳', 'Turkey': '🇹🇷',
+      'Poland': '🇵🇱', 'Saudi Arabia': '🇸🇦', 'Singapore': '🇸🇬', 'Iraq': '🇮🇶',
+      'Czech Republic': '🇨🇿', 'Netherlands': '🇳🇱', 'Japan': '🇯🇵',
+      'Kazakhstan': '🇰🇿', 'Uzbekistan': '🇺🇿', 'Hungary': '🇭🇺',
+      'Philippines': '🇵🇭', 'Qatar': '🇶🇦', 'Egypt': '🇪🇬', 'UAE': '🇦🇪',
+      'United Arab Emirates': '🇦🇪', 'Switzerland': '🇨🇭', 'Australia': '🇦🇺',
+      'UK': '🇬🇧', 'Portugal': '🇵🇹', 'Spain': '🇪🇸', 'Belgium': '🇧🇪',
+      'South Korea': '🇰🇷', 'Thailand': '🇹🇭', 'Mexico': '🇲🇽'
+    };
+    var countryFlag = cbFlags[r.country] || '';
     tr.innerHTML =
-      '<td style="font-weight:600;">' + r.country + ' <span style="font-size:9px;color:#555;margin-left:4px;">▼</span></td>' +
+      '<td style="font-weight:600;">' + (countryFlag ? '<span style="margin-right:5px;">' + countryFlag + '</span>' : '') + r.country + ' <span style="font-size:9px;color:#555;margin-left:4px;">▼</span></td>' +
       '<td style="background:rgba(255,215,0,' + reserveIntensity.toFixed(3) + ');">' +
         fmtInt(r.reserves_tonnes) +
         '<div class="mini-bar" style="width:' + barWidth + 'px;background:#ffd700;margin-left:6px;"></div>' +
@@ -7840,6 +7992,7 @@ var SECTION_COLLAPSE_DEFAULTS = {
   'sec-composite':      false,  // Market Signal — primary, always visible
   'sec-price':          false,  // Price Command Center — primary
   'sec-lbma':           true,   // LBMA Fix — institutional detail
+  'sec-what-to-watch':  false,  // What to Watch — always visible (primary)
   'sec-ratios':         false,  // Key Ratios — primary
   'sec-cb':             false,  // Central Bank Tracker — important
   'sec-gold-flows':     true,   // Global Gold Flows — educational/decorative
