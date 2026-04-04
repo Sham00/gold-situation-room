@@ -3172,10 +3172,16 @@ function renderWhatToWatch() {
   }
 
   // 4. VIX / fear signal from crisis assets
-  var caAssets = ca.assets || [];
-  var vixEntry = caAssets.find(function(a) { return a.symbol === '^VIX'; });
-  if (vixEntry && vixEntry.current != null) {
-    var vixVal = vixEntry.current;
+  // ca.assets is a dict keyed by name (e.g. 'VIX', 'Gold'), not an array
+  var caAssetsDict = (ca.assets && typeof ca.assets === 'object' && !Array.isArray(ca.assets)) ? ca.assets : {};
+  // Also support old array format for backwards compat
+  var caAssets = Array.isArray(ca.assets) ? ca.assets : [];
+  // Get VIX: try dict by name 'VIX', then macro.vix, then array lookup
+  var vixVal = null;
+  if (caAssetsDict['VIX'] && caAssetsDict['VIX'].price != null) vixVal = caAssetsDict['VIX'].price;
+  else if (m.vix != null) vixVal = m.vix;
+  else { var vixEntry2 = caAssets.find(function(a) { return a.symbol === '^VIX'; }); if (vixEntry2) vixVal = vixEntry2.current; }
+  if (vixVal != null) {
     if (vixVal > 25) {
       items.push({ cls: 'wtw-bullish', icon: '⚡', label: 'VIX at ' + vixVal.toFixed(0) + ':', text: 'Elevated fear — high VIX historically drives safe-haven flows into gold.' });
     } else if (vixVal > 20) {
@@ -3198,9 +3204,11 @@ function renderWhatToWatch() {
   }
 
   // 6. Gold YTD momentum
+  // Get gold YTD: try crisis assets dict, then price.ytd_change_pct, then array
   var goldYtd = null;
-  var goldCA = caAssets.find(function(a) { return a.symbol === 'GC=F'; });
-  if (goldCA) goldYtd = goldCA.ytd_pct;
+  if (caAssetsDict['Gold'] && caAssetsDict['Gold'].ytd_pct != null) goldYtd = caAssetsDict['Gold'].ytd_pct;
+  else if (p.ytd_change_pct != null) goldYtd = p.ytd_change_pct;
+  else { var goldCA = caAssets.find(function(a) { return a.symbol === 'GC=F'; }); if (goldCA) goldYtd = goldCA.ytd_pct; }
   if (goldYtd != null) {
     if (goldYtd > 15) {
       items.push({ cls: 'wtw-bullish', icon: '🥇', label: 'Gold up ' + goldYtd.toFixed(1) + '% YTD:', text: 'Strong trend intact — momentum favors continuation, but watch for consolidation near resistance.' });
@@ -3217,8 +3225,29 @@ function renderWhatToWatch() {
     items.push({ cls: 'wtw-bullish', icon: '🏛️', label: 'CB buying at ' + cbPace.toFixed(0) + 't/month:', text: 'Central bank demand running above historical average — structural support for gold.' });
   }
 
-  // Limit to 5 items, ensure at least 3
-  items = items.slice(0, 6);
+  // 8. RSI signal from price data
+  var rsi = p.rsi;
+  if (rsi != null) {
+    if (rsi < 30) {
+      items.push({ cls: 'wtw-bullish', icon: '📉', label: 'RSI oversold at ' + rsi.toFixed(0) + ':', text: 'RSI below 30 — historically a strong mean-reversion buy signal for gold.' });
+    } else if (rsi < 40) {
+      items.push({ cls: 'wtw-bullish', icon: '📉', label: 'RSI near oversold at ' + rsi.toFixed(0) + ':', text: 'RSI approaching oversold territory — watch for a reversal/bounce signal.' });
+    } else if (rsi > 70) {
+      items.push({ cls: 'wtw-alert', icon: '📈', label: 'RSI overbought at ' + rsi.toFixed(0) + ':', text: 'RSI above 70 — gold may be due for consolidation; watch for pullbacks to support.' });
+    }
+  }
+
+  // 9. MA50 signal
+  var ma50sig = p.ma50_signal;
+  var ma50 = p.ma50;
+  if (ma50sig === 'below' && ma50 != null) {
+    items.push({ cls: 'wtw-alert', icon: '⚠️', label: 'Below 50-day MA ($' + fmtInt(ma50) + '):', text: 'Short-term bearish. Watch for reclaim above MA50 as a buy signal.' });
+  } else if (ma50sig === 'above' && ma50 != null) {
+    items.push({ cls: 'wtw-bullish', icon: '📈', label: 'Above 50-day MA ($' + fmtInt(ma50) + '):', text: 'Short-term trend is up. Dips to MA50 are potential support levels.' });
+  }
+
+  // Limit to 7 items
+  items = items.slice(0, 7);
   if (!items.length) {
     el.innerHTML = '<div class="wtw-item wtw-neutral"><span class="wtw-icon">📊</span><span>No strong signals detected — monitor data updates.</span></div>';
     return;
