@@ -136,14 +136,6 @@
     transition: left 1s ease;
   }
 
-  /* CB Country Heatmap */
-  .cb-heatmap-table { border-collapse: separate; border-spacing: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
-  .cb-heatmap-table th { color: var(--text2); font-weight: 600; text-align: center; padding: 4px 6px; white-space: nowrap; font-size: 10px; }
-  .cb-heatmap-table th.row-label { text-align: left; padding-right: 10px; min-width: 100px; }
-  .cb-heatmap-table td { width: 52px; height: 34px; border-radius: 4px; text-align: center; vertical-align: middle; cursor: default; transition: opacity 0.15s; font-size: 10px; font-weight: 600; color: rgba(0,0,0,0.8); }
-  .cb-heatmap-table td:hover { opacity: 0.85; outline: 1px solid #ffd700; }
-  .cb-heatmap-table td.row-label { background: none !important; color: var(--text2); text-align: left; padding-right: 10px; font-size: 11px; font-weight: 400; }
-
   /* Heatmap table */
   .heat-table { width: 100%; border-collapse: separate; border-spacing: 0; }
   .heat-table th {
@@ -259,67 +251,6 @@
   .freshness-weekly { background: rgba(255,215,0,0.12); color: #ffd700; border: 1px solid rgba(255,215,0,0.25); }
   .freshness-quarterly { background: rgba(136,136,136,0.12); color: #888; border: 1px solid rgba(136,136,136,0.25); }
   .freshness-estimate { background: rgba(255,170,0,0.12); color: #ffaa00; border: 1px solid rgba(255,170,0,0.3); }
-
-  /* Portfolio Calculator */
-  .calc-vehicle-btn {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    background: none;
-    border: 1px solid #333;
-    color: #888;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .calc-vehicle-btn:hover { border-color: var(--gold); color: var(--gold); }
-  .calc-vehicle-btn.active { background: rgba(255,215,0,0.15); border-color: var(--gold); color: var(--gold); }
-
-  /* Market Status Bar */
-  .market-status-bar {
-    margin-bottom: 16px;
-    padding: 10px 16px;
-    background: rgba(255,215,0,0.04);
-    border: 1px solid rgba(255,215,0,0.1);
-    border-radius: 10px;
-  }
-  .market-status-inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    align-items: center;
-  }
-  .market-session {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--text2);
-  }
-  .market-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--gray);
-    flex-shrink: 0;
-  }
-  .market-dot.open {
-    background: var(--green);
-    box-shadow: 0 0 6px rgba(0,255,136,0.5);
-    animation: pulse-dot 2s infinite;
-  }
-  .market-dot.pre-market {
-    background: #ffaa00;
-    box-shadow: 0 0 4px rgba(255,170,0,0.4);
-  }
-  .market-dot.closed { background: var(--gray); }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-  .market-name { font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em; }
-  .market-hours { font-size: 10px; color: var(--text2); }
   .freshness-stale { background: rgba(255,68,68,0.12); color: #ff6644; border: 1px solid rgba(255,68,68,0.3); animation: stalePulse 2s ease-in-out infinite; }
   @keyframes stalePulse { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
 
@@ -438,26 +369,6 @@
     min-width: 2px;
     vertical-align: middle;
   }
-
-  /* What to Watch card */
-  .wtw-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 9px 14px;
-    background: rgba(255,215,0,0.03);
-    border-left: 3px solid var(--gold);
-    border-radius: 0 6px 6px 0;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--text1);
-  }
-  .wtw-item .wtw-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-  .wtw-item .wtw-label { color: var(--gold); font-weight: 700; margin-right: 4px; }
-  .wtw-item.wtw-alert { border-left-color: #ff4444; background: rgba(255,68,68,0.04); }
-  .wtw-item.wtw-bullish { border-left-color: #00ff88; background: rgba(0,255,136,0.04); }
-  .wtw-item.wtw-neutral { border-left-color: #888; background: transparent; }
 
   /* Info tooltip */
   .info-tooltip {
@@ -819,15 +730,12 @@
     #cb-table th:nth-child(4), #cb-table td:nth-child(4),
     #cb-table th:nth-child(5), #cb-table td:nth-child(5) { display: none; }
 
-    /* 4. Miners Table: hide vs Gold, 4-Week%, Mkt Cap, P/E, AISC, Margin, Production koz, 6M Chart on mobile */
+    /* 4. Miners Table: hide YTD%, 4-Week%, Mkt Cap, Production koz, 6M Chart on mobile */
+    #miners-table th:nth-child(4), #miners-table td:nth-child(4),
     #miners-table th:nth-child(5), #miners-table td:nth-child(5),
     #miners-table th:nth-child(6), #miners-table td:nth-child(6),
-    #miners-table th:nth-child(7), #miners-table td:nth-child(7),
-    #miners-table th:nth-child(8), #miners-table td:nth-child(8),
     #miners-table th:nth-child(9), #miners-table td:nth-child(9),
-    #miners-table th:nth-child(10), #miners-table td:nth-child(10),
-    #miners-table th:nth-child(11), #miners-table td:nth-child(11),
-    #miners-table th:nth-child(12), #miners-table td:nth-child(12) { display: none; }
+    #miners-table th:nth-child(10), #miners-table td:nth-child(10) { display: none; }
 
     /* 10. Gold Flow SVG map: hidden by default on mobile */
     #gold-flow-svg-wrap { display: none; }
@@ -1350,47 +1258,7 @@
     border: 1px solid var(--card-border);
     line-height: 1.8;
   }
-  .alert-preset-btn {
-    background: rgba(255,215,0,0.08);
-    color: #aaa;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 6px;
-    padding: 4px 10px;
-    font-size: 10px;
-    font-family: 'JetBrains Mono', monospace;
-    cursor: pointer;
-    transition: all .15s;
-    letter-spacing: .04em;
-  }
-  .alert-preset-btn:hover {
-    background: rgba(255,215,0,0.18);
-    color: #ffd700;
-    border-color: rgba(255,215,0,0.4);
-  }
   /* ===== END PRICE ALERTS ===== */
-
-  /* ===== COLLAPSIBLE SECTIONS ===== */
-  .section-title.section-collapsible {
-    cursor: pointer;
-    position: relative;
-    padding-right: 28px;
-  }
-  .section-title.section-collapsible:hover { opacity: 0.85; }
-  .section-chevron {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 11px;
-    color: var(--text2);
-    font-family: 'JetBrains Mono', monospace;
-    user-select: none;
-    line-height: 1;
-    transition: color 0.15s;
-    padding: 2px 0;
-  }
-  .section-title.section-collapsible:hover .section-chevron { color: var(--gold); }
-  /* ===== END COLLAPSIBLE SECTIONS ===== */
 </style>
 </head>
 <body>
@@ -1430,9 +1298,6 @@
       <button onclick="openAlertModal()" class="pill flex items-center gap-2" title="Set price alerts" id="price-alerts-btn">
         🔔 <span id="alert-btn-label">Alerts</span>
       </button>
-      <button onclick="shareGoldPrice()" class="pill flex items-center gap-2" title="Share current gold price on X/Twitter" id="share-btn">
-        𝕏 Share
-      </button>
       <div id="header-live-dot" class="w-2 h-2 rounded-full bg-[var(--green)] loading-pulse" title="Auto-refresh every 5m"></div>
     </div>
   </div>
@@ -1459,34 +1324,16 @@
 <div id="price-alert-modal" role="dialog" aria-modal="true" aria-label="Price Alerts">
   <div class="alert-modal-box">
     <div class="alert-modal-title">🔔 Price Alerts</div>
-    <div style="font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;margin-bottom:14px;line-height:1.6;">
+    <div style="font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;margin-bottom:18px;line-height:1.6;">
       Set upper and/or lower price thresholds. Alerts are stored locally in your browser and checked on every page load.
-    </div>
-    <!-- Quick preset buttons -->
-    <div style="margin-bottom:16px;">
-      <div style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">Quick Presets</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;" id="alert-presets-upper">
-        <span style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;align-self:center;margin-right:2px;">▲ Upper:</span>
-        <button class="alert-preset-btn" onclick="setAlertPreset('upper','+5')" title="Set upper alert 5% above current price">+5%</button>
-        <button class="alert-preset-btn" onclick="setAlertPreset('upper','+10')" title="Set upper alert 10% above current price">+10%</button>
-        <button class="alert-preset-btn" onclick="setAlertPreset('upper','fib-res')" title="Set upper alert at nearest Fib resistance" id="preset-fib-res">Fib R</button>
-        <button class="alert-preset-btn" onclick="setAlertPreset('upper','ath')" title="Set upper alert at all-time high" id="preset-ath">ATH</button>
-      </div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;" id="alert-presets-lower">
-        <span style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;align-self:center;margin-right:2px;">▼ Lower:</span>
-        <button class="alert-preset-btn" onclick="setAlertPreset('lower','-5')" title="Set lower alert 5% below current price">-5%</button>
-        <button class="alert-preset-btn" onclick="setAlertPreset('lower','-10')" title="Set lower alert 10% below current price">-10%</button>
-        <button class="alert-preset-btn" onclick="setAlertPreset('lower','fib-sup')" title="Set lower alert at nearest Fib support" id="preset-fib-sup">Fib S</button>
-        <button class="alert-preset-btn" onclick="setAlertPreset('lower','ma200')" title="Set lower alert at 200-day moving average" id="preset-ma200">MA200</button>
-      </div>
     </div>
     <div class="alert-input-row">
       <label>Upper Limit</label>
-      <input type="number" id="alert-upper" placeholder="e.g. 5000" step="10" min="0">
+      <input type="number" id="alert-upper" placeholder="e.g. 3200" step="10" min="0">
     </div>
     <div class="alert-input-row">
       <label>Lower Limit</label>
-      <input type="number" id="alert-lower" placeholder="e.g. 4200" step="10" min="0">
+      <input type="number" id="alert-lower" placeholder="e.g. 2800" step="10" min="0">
     </div>
     <div id="alert-active-display" class="alert-active-list" style="display:none;"></div>
     <div class="alert-btn-row">
@@ -1560,7 +1407,7 @@
   <!-- SECTION 0: COMPOSITE BULL/BEAR SIGNAL -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-composite" style="animation-delay:0.05s">
-    <div class="section-title">Market Signal <span class="info-tooltip" data-tip="Composite bull/bear score computed from 10 factors: RSI momentum, real yield (10Y TIPS), DXY trend, ETF flows, COT positioning, active market catalysts (tariffs, CB buying, etc.), ratio extremes (gold/silver, gold/SPX, gold/copper percentiles), news headline sentiment, MA momentum (20-day vs 50-day crossover), and Gold–SPX 20-day rolling correlation (negative = safe haven, positive = correlation breakdown). Score ranges from -10 (Strongly Bearish) to +10 (Strongly Bullish).">ℹ</span><span class="freshness-badge freshness-live">● Hourly</span></div>
+    <div class="section-title">Market Signal <span class="info-tooltip" data-tip="Composite bull/bear score computed from 7 factors: RSI momentum, real yield (10Y TIPS), DXY trend, ETF flows, COT positioning, active market catalysts (tariffs, CB buying, etc.), and ratio extremes (gold/silver, gold/SPX, gold/copper percentiles). Score ranges from -10 (Strongly Bearish) to +10 (Strongly Bullish).">ℹ</span><span class="freshness-badge freshness-live">● Hourly</span></div>
     <div class="signal-gauge-wrap">
       <!-- Arc gauge -->
       <div class="signal-gauge-arc">
@@ -1607,32 +1454,6 @@
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-price" style="animation-delay:0.1s">
     <div class="section-title">Price Command Center <span class="info-tooltip" data-tip="The current market price for one troy ounce of physical gold, based on COMEX front-month futures. This is the global benchmark price.">ℹ</span><span class="freshness-badge freshness-live">● Hourly</span></div>
-
-    <!-- Market Status Indicator -->
-    <div id="market-status-bar" class="market-status-bar">
-      <div class="market-status-inner">
-        <div class="market-session" id="ms-comex">
-          <span class="market-dot" id="ms-comex-dot"></span>
-          <span class="market-name">COMEX</span>
-          <span class="market-hours" id="ms-comex-hours">--</span>
-        </div>
-        <div class="market-session" id="ms-lbma">
-          <span class="market-dot" id="ms-lbma-dot"></span>
-          <span class="market-name">LBMA</span>
-          <span class="market-hours" id="ms-lbma-hours">--</span>
-        </div>
-        <div class="market-session" id="ms-shanghai">
-          <span class="market-dot" id="ms-shanghai-dot"></span>
-          <span class="market-name">Shanghai</span>
-          <span class="market-hours" id="ms-shanghai-hours">--</span>
-        </div>
-        <div class="market-session" id="ms-globex">
-          <span class="market-dot" id="ms-globex-dot"></span>
-          <span class="market-name">Globex</span>
-          <span class="market-hours" id="ms-globex-hours">--</span>
-        </div>
-      </div>
-    </div>
 
     <!-- Main chart -->
     <div class="chart-wrap chart-main-price" style="height: 40vh; min-height: 300px;">
@@ -1689,13 +1510,7 @@
     <!-- Technical Indicators: MA50 / MA200 / RSI -->
     <div class="mt-6">
       <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-3 mono">Technical Indicators <span class="info-tooltip" data-tip="Moving averages and RSI calculated from daily COMEX closing prices. MA50/MA200 crossovers are widely-watched trend signals. RSI above 70 = overbought, below 30 = oversold.">ℹ</span></div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <!-- MA20 -->
-        <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
-          <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">20-Day MA <span class="info-tooltip" data-tip="20-day simple moving average. Short-term momentum indicator. Price above MA20 = near-term uptrend. MA20 crossing MA50 can signal short-term trend shifts.">ℹ</span></div>
-          <div class="text-xl font-bold mono" id="ma20-val">--</div>
-          <div class="text-xs mt-1" id="ma20-signal" style="color: var(--text2)">--</div>
-        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <!-- MA50 -->
         <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
           <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">50-Day MA <span class="info-tooltip" data-tip="50-day simple moving average. Price above MA50 suggests short-term uptrend.">ℹ</span></div>
@@ -1763,17 +1578,6 @@
   </section>
 
   <!-- ============================================================ -->
-  <!-- SECTION 1c: WHAT TO WATCH THIS WEEK -->
-  <!-- ============================================================ -->
-  <section class="full-width card fade-in" id="sec-what-to-watch" style="animation-delay:0.14s">
-    <div class="section-title">What to Watch This Week <span class="info-tooltip" data-tip="Dynamically generated checklist of key market signals and catalysts to monitor. Updated on each data refresh.">ℹ</span></div>
-    <div id="what-to-watch-list" class="space-y-2">
-      <!-- Filled by renderWhatToWatch() -->
-      <div style="color:#555;font-size:12px;font-family:JetBrains Mono,monospace;">Loading signals…</div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
   <!-- SECTION 2: KEY RATIOS -->
   <!-- ============================================================ -->
   <div class="full-width" id="sec-ratios">
@@ -1829,15 +1633,6 @@
       <div id="cb-news-list" class="space-y-1"><!-- filled by JS --></div>
     </div>
 
-    <!-- CB Buying Heatmap -->
-    <div class="mb-6 pt-4 border-t border-[var(--card-border)]">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Annual Gold Purchases by Central Bank (tonnes) <span class="info-tooltip" data-tip="Darker gold = more buying that year. Based on WGC quarterly reports and central bank disclosures. 2025–2026 are partial-year estimates.">ℹ</span></div>
-      <div class="text-[10px] text-[var(--text2)] mono mb-3" style="color:#555;">Darker = more buying · Hover for exact tonnes</div>
-      <div style="overflow-x:auto;">
-        <div id="cb-heatmap" style="min-width:340px;"></div>
-      </div>
-    </div>
-
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <!-- Table -->
       <div class="lg:col-span-2 overflow-x-auto">
@@ -1858,19 +1653,11 @@
           </tbody>
         </table>
       </div>
-      <!-- Bar charts -->
-      <div class="space-y-6">
-        <div>
-          <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top Buyers YTD 2026 <span class="info-tooltip" data-tip="Countries with the highest YTD gold purchases in 2026. Based on monthly reserve change estimates from WGC and central bank disclosures.">ℹ</span></div>
-          <div class="chart-wrap" style="height: 220px;">
-            <canvas id="chart-cb-buyers-ytd"></canvas>
-          </div>
-        </div>
-        <div>
-          <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top 15 by Reserves</div>
-          <div class="chart-wrap" style="height: 400px;">
-            <canvas id="chart-cb-bars"></canvas>
-          </div>
+      <!-- Bar chart -->
+      <div>
+        <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Top 15 by Reserves</div>
+        <div class="chart-wrap" style="height: 400px;">
+          <canvas id="chart-cb-bars"></canvas>
         </div>
       </div>
     </div>
@@ -2058,15 +1845,6 @@
         <!-- Filled by JS -->
       </div>
     </div>
-
-    <!-- 30-Day GLD Daily Returns bar chart -->
-    <div class="mt-6">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">GLD 30-Day Daily Returns <span class="info-tooltip" data-tip="Daily price change % for GLD over the past 30 trading days. Green bars = positive day (inflow signal), red bars = negative day (outflow signal). Use as a proxy for ETF flow direction.">ℹ</span></div>
-      <div class="chart-wrap" style="height: 160px;">
-        <canvas id="chart-etf-daily-returns"></canvas>
-      </div>
-      <div class="text-[9px] mono mt-1" style="color:#444;">Green = positive day (buy signal) · Red = negative day (sell signal) · Proxy for daily ETF flow direction</div>
-    </div>
   </section>
 
   <!-- ============================================================ -->
@@ -2243,16 +2021,15 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Registered <span class="info-tooltip" data-tip="Physical gold available for delivery against futures contracts.">i</span></div>
-        <div class="text-2xl font-bold mono text-[var(--gold)]"><span id="comex-registered">--</span><span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
+        <div class="text-2xl font-bold mono text-[var(--gold)]">442<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Eligible <span class="info-tooltip" data-tip="Gold stored in COMEX vaults but not available for delivery. Owners have not registered it.">i</span></div>
-        <div class="text-2xl font-bold mono text-[var(--text2)]"><span id="comex-eligible">--</span><span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
+        <div class="text-2xl font-bold mono text-[var(--text2)]">8,200<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
-        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Registered % of Total <span class="info-tooltip" data-tip="Percentage of all COMEX gold that is registered (warrantable for delivery). Low % = most gold is not available for futures delivery — potential supply squeeze signal.">ℹ</span></div>
-        <div class="text-2xl font-bold mono" id="comex-reg-pct" style="color:var(--gold);">--</div>
-        <div class="text-[9px] text-[var(--text2)] mono mt-1" id="comex-reg-pct-sub">registered of total vault</div>
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">30-Day Registered Change <span class="info-tooltip" data-tip="How much registered inventory has changed in 30 days. Declining registered with rising open interest = supply squeeze risk.">ℹ</span></div>
+        <div class="text-2xl font-bold mono text-[var(--red)]">-85t <span class="text-sm">&#9660;</span></div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Cover Ratio <span class="info-tooltip" data-tip="How many ounces of registered gold back each open futures contract. A declining cover ratio signals shorts may struggle to deliver.">ℹ</span></div>
@@ -2266,14 +2043,14 @@
         <canvas id="chart-comex-vault"></canvas>
       </div>
     </div>
-    <div class="text-[9px] text-[var(--text2)] mono mt-2" id="comex-last-updated">Source: COMEX daily vault reports (compiled)</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: 2026-04-01 | Source: COMEX daily vault reports (compiled)</div>
   </section>
 
   <!-- ============================================================ -->
   <!-- GOLD LEASE RATE -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-lease-rate" style="animation-delay:0.53s">
-    <div class="section-title" id="lease-rate-title">Gold Lease Rate (GLR) <span class="info-tooltip" data-tip="Gold lease rate is what it costs to borrow physical gold. Spikes above 2% signal severe physical tightness — a historically reliable bullish indicator.">i</span><span class="freshness-badge freshness-estimate">Est.</span><span id="lease-curve-badge" style="display:none;margin-left:8px;padding:2px 7px;border-radius:10px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:.06em;cursor:help;"></span></div>
+    <div class="section-title">Gold Lease Rate (GLR) <span class="info-tooltip" data-tip="Gold lease rate is what it costs to borrow physical gold. Spikes above 2% signal severe physical tightness — a historically reliable bullish indicator.">i</span><span class="freshness-badge freshness-estimate">Est.</span></div>
     <div class="chart-wrap" style="height: 200px;">
       <canvas id="chart-lease-rate"></canvas>
     </div>
@@ -2326,7 +2103,7 @@
     <div class="section-title">Macro Context <span class="info-tooltip" data-tip="Key macroeconomic indicators that drive gold prices. Gold typically rises with inflation, falling real yields, and dollar weakness.">ℹ</span><span class="freshness-badge freshness-live">● Daily</span></div>
 
     <!-- Macro stat cards -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 mb-6" id="macro-cards">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6" id="macro-cards">
       <!-- Filled by JS -->
     </div>
 
@@ -2433,10 +2210,8 @@
             <th>Price</th>
             <th>Change %</th>
             <th>YTD %</th>
-            <th>vs Gold</th>
             <th>4-Week %</th>
             <th>Mkt Cap</th>
-            <th>P/E</th>
             <th>AISC</th>
             <th>Margin</th>
             <th>Production (koz)</th>
@@ -2444,7 +2219,7 @@
           </tr>
         </thead>
         <tbody id="miners-table-body">
-          <tr><td colspan="12" class="text-center py-8"><div class="spinner mx-auto"></div></td></tr>
+          <tr><td colspan="10" class="text-center py-8"><div class="spinner mx-auto"></div></td></tr>
         </tbody>
       </table>
     </div>
@@ -2454,15 +2229,7 @@
   <!-- CRISIS ASSET COMPARISON (YTD) -->
   <!-- ============================================================ -->
   <section class="full-width card fade-in" id="sec-crisis" style="animation-delay:0.67s">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
-      <div class="section-title" style="margin-bottom:0;">Crisis Asset Performance <span class="info-tooltip" data-tip="All assets rebased to 100 at the selected start date. Shows which safe-haven/risk assets are leading or lagging. Includes S&amp;P 500 to show gold/stocks divergence during Liberation Day tariff crisis.">i</span><span class="freshness-badge freshness-live">● Hourly</span><span id="crisis-divergence-badge" style="display:none;margin-left:8px;padding:3px 9px;border-radius:10px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:.06em;background:rgba(255,215,0,0.18);border:1px solid rgba(255,215,0,0.55);color:#ffd700;cursor:help;"></span></div>
-      <div style="display:flex;gap:6px;align-items:center;">
-        <span style="font-size:10px;color:#888;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;">Rebase from:</span>
-        <button id="crisis-btn-ytd" onclick="setCrisisView('ytd')" style="padding:4px 10px;border-radius:6px;border:1px solid var(--gold);background:var(--gold);color:#000;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;transition:all .2s;">Jan 1</button>
-        <button id="crisis-btn-libday" onclick="setCrisisView('libday')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(255,68,68,0.5);background:none;color:#ff8844;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;cursor:pointer;transition:all .2s;">⚡ Apr 2</button>
-      </div>
-    </div>
-    <div id="crisis-view-label" style="font-size:10px;color:#888;font-family:'JetBrains Mono',monospace;margin-bottom:8px;">Rebased to 100 at Jan 1, 2026 (YTD)</div>
+    <div class="section-title">Crisis Asset Performance (YTD) <span class="info-tooltip" data-tip="All assets rebased to 100 at Jan 1 2026. Shows which safe-haven/risk assets are leading or lagging year-to-date. Includes S&amp;P 500 to show gold/stocks divergence during Liberation Day tariff crisis.">i</span><span class="freshness-badge freshness-live">● Hourly</span></div>
     <div class="chart-wrap" style="height: 320px;">
       <canvas id="chart-crisis-assets"></canvas>
     </div>
@@ -2470,16 +2237,6 @@
       <!-- Filled by JS -->
     </div>
     <div id="crisis-context-blurb" class="text-[11px] mono mt-4 pt-4 border-t border-[var(--card-border)]" style="color:#888;line-height:1.7;"></div>
-
-    <!-- Rolling Gold-SPX Correlation -->
-    <div class="mt-6 pt-4 border-t border-[var(--card-border)]">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Gold–S&P 500 Rolling 20-Day Correlation <span class="info-tooltip" data-tip="20-day rolling Pearson correlation between gold daily returns and S&P 500 daily returns. Near +1 = gold moves with stocks (risk-on correlation). Near -1 = gold is a true hedge (safe haven). Near 0 = uncorrelated. A breakdown below 0 during a market selloff signals gold acting as a pure safe haven — bullish for gold. Liberation Day II (Apr 2) triggered a rare positive spike (both fell together) which is unusual and worth monitoring.">ℹ</span></div>
-      <div class="text-[9px] text-[var(--text2)] mono mb-3">+1 = moves with stocks &nbsp;·&nbsp; 0 = uncorrelated &nbsp;·&nbsp; -1 = pure hedge</div>
-      <div class="chart-wrap" style="height: 160px;">
-        <canvas id="chart-gold-spx-corr"></canvas>
-      </div>
-      <div id="gold-spx-corr-blurb" class="text-[10px] mono mt-2" style="color:#888;line-height:1.6;"></div>
-    </div>
   </section>
 
   <!-- ============================================================ -->
@@ -2489,140 +2246,6 @@
     <div class="section-title">Wall Street Price Targets — 2026 <span class="info-tooltip" data-tip="Consensus gold price forecasts from major banks and research institutions. Tier: Bull (top 40%), Base (middle), Bear (bottom 20%). Current gold price shown as vertical reference.">ℹ</span><span class="freshness-badge freshness-estimate">Quarterly</span></div>
     <div id="bank-targets-content">
       <div class="text-xs mono text-[var(--text2)]">Loading…</div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SECTION: GOLD PORTFOLIO CALCULATOR -->
-  <!-- ============================================================ -->
-  <section class="full-width card fade-in" id="sec-portfolio-calc" style="animation-delay:0.69s">
-    <div class="section-title">Gold Portfolio Calculator <span class="info-tooltip" data-tip="Interactive tool: enter your portfolio size, target gold allocation %, or oz to buy — and see the numbers instantly. No data sent anywhere; runs locally in your browser.">ℹ</span><span class="freshness-badge" style="background:rgba(255,215,0,0.15);color:#ffd700;border:1px solid rgba(255,215,0,0.3);">Local</span></div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <!-- Input Panel -->
-      <div>
-        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-4">Inputs</div>
-        <div class="space-y-4">
-          <!-- Portfolio Size -->
-          <div>
-            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-1">Total Portfolio Size (USD)</label>
-            <div class="flex items-center gap-2">
-              <span class="text-[var(--gold)] mono text-sm">$</span>
-              <input type="number" id="calc-portfolio" value="100000" min="0" step="1000"
-                class="mono text-sm bg-transparent border border-[#333] rounded px-3 py-2 text-white focus:outline-none focus:border-[var(--gold)] w-full"
-                oninput="runGoldCalc()" />
-            </div>
-          </div>
-          <!-- Preset portfolio sizes -->
-          <div class="flex flex-wrap gap-2">
-            <span class="text-[9px] text-[var(--text2)] mono self-center">Quick:</span>
-            <button class="calc-preset-btn mono text-[10px] px-2 py-1 rounded border border-[#333] text-[#888] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors" onclick="setCalcPreset(50000)">$50K</button>
-            <button class="calc-preset-btn mono text-[10px] px-2 py-1 rounded border border-[#333] text-[#888] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors" onclick="setCalcPreset(100000)">$100K</button>
-            <button class="calc-preset-btn mono text-[10px] px-2 py-1 rounded border border-[#333] text-[#888] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors" onclick="setCalcPreset(250000)">$250K</button>
-            <button class="calc-preset-btn mono text-[10px] px-2 py-1 rounded border border-[#333] text-[#888] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors" onclick="setCalcPreset(500000)">$500K</button>
-            <button class="calc-preset-btn mono text-[10px] px-2 py-1 rounded border border-[#333] text-[#888] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors" onclick="setCalcPreset(1000000)">$1M</button>
-          </div>
-          <!-- Allocation % -->
-          <div>
-            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-1">Gold Allocation <span id="calc-alloc-pct-label" class="text-[var(--gold)]">10%</span></label>
-            <input type="range" id="calc-alloc" min="1" max="50" value="10" step="1"
-              class="w-full accent-yellow-400"
-              oninput="document.getElementById('calc-alloc-pct-label').textContent=this.value+'%'; runGoldCalc()" />
-            <div class="flex justify-between text-[9px] text-[var(--text2)] mono mt-1">
-              <span>1%</span><span>Conservative: 5–10%</span><span>Aggressive: 20–30%</span><span>50%</span>
-            </div>
-          </div>
-          <!-- Buy Mode Toggle -->
-          <div class="flex gap-3 mt-2">
-            <button id="calc-mode-dollar" onclick="setCalcMode('dollar')"
-              class="mono text-xs px-4 py-2 rounded border border-[var(--gold)] bg-[var(--gold)] text-black font-bold">$ Dollars</button>
-            <button id="calc-mode-oz" onclick="setCalcMode('oz')"
-              class="mono text-xs px-4 py-2 rounded border border-[#333] text-[var(--text2)]">oz Amount</button>
-          </div>
-          <!-- Oz input (shown in oz mode) -->
-          <div id="calc-oz-input-row" class="hidden">
-            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-1">Gold oz to Buy</label>
-            <div class="flex items-center gap-2">
-              <input type="number" id="calc-oz-buy" value="10" min="0.001" step="0.1"
-                class="mono text-sm bg-transparent border border-[#333] rounded px-3 py-2 text-white focus:outline-none focus:border-[var(--gold)] w-full"
-                oninput="runGoldCalc()" />
-              <span class="text-[var(--text2)] mono text-xs">oz</span>
-            </div>
-          </div>
-          <!-- Vehicle selector -->
-          <div>
-            <label class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono block mb-2">Vehicle / Premium</label>
-            <div class="flex flex-wrap gap-2" id="calc-vehicle-btns">
-              <button class="calc-vehicle-btn active" data-premium="0" onclick="setCalcVehicle(this, 0)">Spot (LBMA)</button>
-              <button class="calc-vehicle-btn" data-premium="0.003" onclick="setCalcVehicle(this, 0.003)">GLD ETF (+0.3%)</button>
-              <button class="calc-vehicle-btn" data-premium="0.005" onclick="setCalcVehicle(this, 0.005)">IAU ETF (+0.5%)</button>
-              <button class="calc-vehicle-btn" data-premium="0.02" onclick="setCalcVehicle(this, 0.02)">1oz Coin (+2%)</button>
-              <button class="calc-vehicle-btn" data-premium="0.05" onclick="setCalcVehicle(this, 0.05)">Silver Eagle +5%</button>
-            </div>
-          </div>
-
-          <!-- Troy oz ↔ Grams Converter -->
-          <div class="border-t border-[#1a1a1a] pt-4 mt-2">
-            <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2">Troy oz ↔ Grams Converter <span class="text-[#444]">(1 troy oz = 31.1035g)</span></div>
-            <div class="flex items-center gap-2">
-              <input type="number" id="conv-oz" value="1" min="0" step="0.01"
-                class="mono text-sm bg-transparent border border-[#333] rounded px-3 py-2 text-white focus:outline-none focus:border-[var(--gold)] w-full"
-                oninput="var g=parseFloat(this.value)||0; document.getElementById('conv-g').value=(g*31.1035).toFixed(3); document.getElementById('conv-val').textContent='= $'+(g*((DATA.price&&DATA.price.price)||3100)).toLocaleString(undefined,{maximumFractionDigits:2})" />
-              <span class="text-[var(--text2)] mono text-xs">oz</span>
-              <span class="text-[#444] mono text-xs">=</span>
-              <input type="number" id="conv-g" value="31.104" min="0" step="0.1"
-                class="mono text-sm bg-transparent border border-[#333] rounded px-3 py-2 text-white focus:outline-none focus:border-[var(--gold)] w-full"
-                oninput="var o=parseFloat(this.value)||0; document.getElementById('conv-oz').value=(o/31.1035).toFixed(4); document.getElementById('conv-val').textContent='= $'+(o/31.1035*((DATA.price&&DATA.price.price)||3100)).toLocaleString(undefined,{maximumFractionDigits:2})" />
-              <span class="text-[var(--text2)] mono text-xs">g</span>
-            </div>
-            <div id="conv-val" class="text-xs mono mt-1" style="color:var(--gold);">= $3,100.00</div>
-          </div>
-
-          <!-- Break-even Calculator -->
-          <div class="border-t border-[#1a1a1a] pt-4">
-            <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-2">Break-Even Price to Double Gold Allocation</div>
-            <div id="calc-breakeven" class="card" style="background:#0d0d0d;padding:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;">Enter portfolio size above to compute</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Results Panel -->
-      <div>
-        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-4">Results</div>
-        <div class="space-y-3">
-          <!-- Primary result: oz -->
-          <div class="card" style="background:#0d0d0d;padding:16px;">
-            <div class="text-[10px] text-[var(--text2)] mono uppercase tracking-wider mb-1">Gold oz You Can Buy</div>
-            <div id="calc-result-oz" class="text-3xl font-bold mono" style="color:var(--gold);">10.00 oz</div>
-            <div id="calc-result-cost" class="text-xs text-[var(--text2)] mono mt-1">$10,000 total cost</div>
-          </div>
-          <!-- At various price targets -->
-          <div class="card" style="background:#0d0d0d;padding:16px;">
-            <div class="text-[10px] text-[var(--text2)] mono uppercase tracking-wider mb-2">Value at Analyst Targets</div>
-            <div class="space-y-2" id="calc-target-rows">
-              <div class="text-[10px] mono text-[#444]">Loading targets…</div>
-            </div>
-          </div>
-          <!-- Allocation bar -->
-          <div class="card" style="background:#0d0d0d;padding:16px;">
-            <div class="text-[10px] text-[var(--text2)] mono uppercase tracking-wider mb-2">Allocation in Portfolio</div>
-            <div class="relative h-4 rounded-full overflow-hidden" style="background:#1a1a1a;">
-              <div id="calc-alloc-bar" class="h-full rounded-full transition-all" style="background:linear-gradient(90deg,#ffd700,#ffaa00);width:10%;"></div>
-            </div>
-            <div class="flex justify-between mt-1">
-              <span id="calc-alloc-bar-label" class="text-xs mono" style="color:var(--gold);">10% gold</span>
-              <span class="text-[10px] text-[var(--text2)] mono">90% other assets</span>
-            </div>
-            <div id="calc-advice" class="text-[10px] text-[var(--text2)] mono mt-2 leading-relaxed"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Price sensitivity table -->
-    <div class="mt-6">
-      <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-3">Sensitivity: Value of Your Gold at Different Prices</div>
-      <div id="calc-sensitivity-table" style="overflow-x:auto;"></div>
     </div>
   </section>
 
@@ -2665,57 +2288,9 @@
 
     <!-- Gold Seasonality Chart -->
     <div class="mt-6">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold Seasonality — Avg. Monthly Return <span class="info-tooltip" data-tip="Average monthly return for gold based on all available price history (22+ years). Shows which months gold has historically performed best. Hover for standard deviation (σ) from standalone 10-year analysis. Bar color: green = avg positive month, red = avg negative, gold = current month.">ℹ</span></div>
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Gold Seasonality — Avg. Monthly Return <span class="info-tooltip" data-tip="Average monthly return for gold based on all available price history. Shows which months gold has historically performed best. Bar color: green = avg positive month, red = avg negative.">ℹ</span></div>
       <div class="chart-wrap" style="height: 200px;">
         <canvas id="chart-seasonality"></canvas>
-      </div>
-      <div id="seasonality-source" class="text-[10px] text-[var(--text2)] mono mt-1 opacity-60">22yr historical avg · hover bars for σ (std dev) from 10yr analysis</div>
-    </div>
-
-    <!-- Daily Returns Heatmap -->
-    <div class="mt-6">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Daily Returns Heatmap — Last 12 Months <span class="info-tooltip" data-tip="Each cell = one trading day. Color intensity shows the magnitude of gold's daily price change. Green = up day, Red = down day. Hover for exact return.">ℹ</span></div>
-      <div class="text-[9px] text-[var(--text2)] mono mb-3">Each cell is one trading day. Darker = larger move.</div>
-      <div id="daily-heatmap" style="overflow-x:auto;">
-        <div class="text-[10px] text-[var(--text2)] mono" style="padding:8px 0;color:#444;">Loading heatmap…</div>
-      </div>
-      <div class="flex items-center gap-3 mt-2" style="font-size:9px;font-family:'JetBrains Mono',monospace;color:#666;">
-        <span>Legend:</span>
-        <span style="display:inline-flex;align-items:center;gap:4px;">
-          <span style="width:10px;height:10px;border-radius:2px;background:rgba(255,68,68,0.9);display:inline-block;"></span> &gt;1% down
-        </span>
-        <span style="display:inline-flex;align-items:center;gap:4px;">
-          <span style="width:10px;height:10px;border-radius:2px;background:rgba(255,68,68,0.4);display:inline-block;"></span> flat–1% down
-        </span>
-        <span style="display:inline-flex;align-items:center;gap:4px;">
-          <span style="width:10px;height:10px;border-radius:2px;background:rgba(136,136,136,0.3);display:inline-block;"></span> ~0%
-        </span>
-        <span style="display:inline-flex;align-items:center;gap:4px;">
-          <span style="width:10px;height:10px;border-radius:2px;background:rgba(0,255,136,0.4);display:inline-block;"></span> flat–1% up
-        </span>
-        <span style="display:inline-flex;align-items:center;gap:4px;">
-          <span style="width:10px;height:10px;border-radius:2px;background:rgba(0,255,136,0.9);display:inline-block;"></span> &gt;1% up
-        </span>
-      </div>
-    </div>
-
-    <!-- $10K Purchasing Power Chart -->
-    <div class="mt-6">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">$10,000 Invested in 2000: Gold vs S&amp;P 500 vs Cash <span class="info-tooltip" data-tip="Shows what $10,000 invested at the start of 2000 would be worth today if held as gold, invested in the S&P 500, or kept as cash (inflation-adjusted). Gold price from COMEX historical data. S&P 500 uses annual return approximations (CAGR ~7%). Cash deflates via cumulative CPI (~80% loss since 2000).">ℹ</span></div>
-      <div class="text-[9px] text-[var(--text2)] mono mb-3">Starting value: $10,000 · Gold = COMEX annual price · S&amp;P 500 = total return index (incl. dividends) · Cash = inflation-adjusted purchasing power</div>
-      <div class="chart-wrap" style="height: 280px;">
-        <canvas id="chart-purchasing-power"></canvas>
-      </div>
-      <div id="purchasing-power-summary" class="grid grid-cols-3 gap-3 mt-3"></div>
-      <div class="text-[9px] text-[var(--text2)] mono mt-1 opacity-60">Gold: COMEX annual avg · S&P 500: annual total return est. · Cash: CPI-adjusted · Not investment advice</div>
-    </div>
-
-    <!-- Historical Drawdown Analysis -->
-    <div class="mt-6">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-1">Historical Drawdowns (≥10%) <span class="info-tooltip" data-tip="Every major gold correction ≥10% from peak since 2000. Shows: drawdown depth, days to trough, and days to full recovery. Current drawdown highlighted in gold. Helps contextualize where we are in typical correction cycles.">ℹ</span></div>
-      <div class="text-[9px] text-[var(--text2)] mono mb-3">Peak-to-trough corrections ≥10% · Sorted by severity · Current cycle highlighted</div>
-      <div id="drawdown-table" style="overflow-x:auto;">
-        <div class="text-[10px] text-[var(--text2)] mono" style="padding:8px 0;color:#444;">Loading drawdown history…</div>
       </div>
     </div>
   </section>
@@ -2937,7 +2512,7 @@ function showSkeletonCharts() {
     'contango-state', 'contango-front', 'contango-back', 'contango-basis', 'contango-basis-pct',
     'comex-cover-ratio',
     'sentiment-pct', 'sentiment-score',
-    'ma20-val', 'ma20-signal', 'ma50-val', 'ma50-signal', 'ma200-val', 'ma200-signal', 'rsi-val', 'rsi-signal',
+    'ma50-val', 'ma50-signal', 'ma200-val', 'ma200-signal', 'rsi-val', 'rsi-signal',
     'ath-pct-label',
     'header-ytd', 'header-ath', 'header-updated',
     'gdxj-ytd', 'gdx-ytd', 'gdxj-edge',
@@ -2957,7 +2532,7 @@ function showSkeletonCharts() {
   var cbBody = document.getElementById('cb-table-body');
   if (cbBody) cbBody.innerHTML = '<tr><td colspan="6" class="text-center py-6"><div class="spinner mx-auto"></div><div class="text-[10px] text-[var(--text2)] mono mt-2 text-center">Loading data…</div></td></tr>';
   var minersBody = document.getElementById('miners-table-body');
-  if (minersBody) minersBody.innerHTML = '<tr><td colspan="12" class="text-center py-6"><div class="spinner mx-auto"></div><div class="text-[10px] text-[var(--text2)] mono mt-2 text-center">Loading data…</div></td></tr>';
+  if (minersBody) minersBody.innerHTML = '<tr><td colspan="10" class="text-center py-6"><div class="spinner mx-auto"></div><div class="text-[10px] text-[var(--text2)] mono mt-2 text-center">Loading data…</div></td></tr>';
   var newsList = document.getElementById('news-list');
   if (newsList) newsList.innerHTML = '<div class="empty-state"><div class="spinner"></div><div class="empty-state-text" style="margin-top:8px;">Fetching headlines…</div></div>';
 }
@@ -2986,8 +2561,6 @@ function loadAllData() {
     { key: 'marketIntel', url: 'data/market_intel.json' },
     { key: 'bankTargets', url: 'data/bank_targets.json' },
     { key: 'tariffs', url: 'data/tariffs.json' },
-    { key: 'seasonality', url: 'data/seasonality.json' },
-    { key: 'comex', url: 'data/comex.json' },
   ];
 
   // Show loading states immediately
@@ -3049,7 +2622,7 @@ function renderMarketAlerts() {
     tariff_catalyst: '#ffd700', rsi_oversold: '#4488ff', rsi_overbought: '#ff8844',
     rsi_approaching_oversold: '#4488ff', ath_pullback: '#ffd700',
     ma50_break: '#ff8844', ytd_correction: '#ff8844', macro_catalyst: '#4488ff',
-    fomc_window: '#4488ff', correlation_breakdown: '#ff6666', bearish_macro: '#ff8844',
+    fomc_window: '#4488ff', correlation_breakdown: '#ff8844',
   };
   var typeLabels = {
     cb_buying: 'CB BUYING', cb_selling: 'CB SELLING', etf_inflow: 'ETF INFLOW',
@@ -3057,7 +2630,7 @@ function renderMarketAlerts() {
     tariff_catalyst: '⚡ TARIFF', rsi_oversold: '📉 RSI', rsi_overbought: '📈 RSI',
     rsi_approaching_oversold: '📉 RSI', ath_pullback: '🟡 ATH',
     ma50_break: '⚠️ MA50', ytd_correction: '📊 YTD', macro_catalyst: '🏦 MACRO',
-    fomc_window: '🏦 FOMC', correlation_breakdown: '📊 CORR BREAK', bearish_macro: '📉 BEARISH',
+    fomc_window: '🏦 FOMC', correlation_breakdown: '📊 CORR',
   };
   list.innerHTML = d.alerts.slice(0, 8).map(function(a) {
     var color = typeColors[a.type] || '#ffaa00';
@@ -3092,7 +2665,6 @@ function renderAll() {
   renderMacro();
   renderMiners();
   renderCrisisAssets();
-  renderGoldSPXCorrelation();
   renderHistorical();
   renderBankTargets();
   renderCompositeSignal();
@@ -3101,7 +2673,6 @@ function renderAll() {
   renderKeyStatsBanner();
 
   renderGoldTodaySentence();
-  renderWhatToWatch();
 
   // After all renders: clear shimmer from charts that got drawn,
   // keep shimmer on charts that are still empty (data unavailable)
@@ -3125,143 +2696,6 @@ function renderAll() {
 }
 
 // --- GOLD PRICE TODAY SUMMARY SENTENCE ---
-function renderWhatToWatch() {
-  var el = document.getElementById('what-to-watch-list');
-  if (!el) return;
-  var items = [];
-  var p = DATA.price || {};
-  var m = DATA.macro || {};
-  var ratios = (DATA.ratios || {}).ratios || {};
-  var ca = DATA.crisisAssets || {};
-  var etfs = DATA.etfs || {};
-  var news = DATA.news || {};
-  var cb = DATA.centralBanks || {};
-
-  // 1. Fed / real yield signal
-  var realYield = m.real_yield_10y;
-  if (realYield != null) {
-    if (realYield < 0) {
-      items.push({ cls: 'wtw-bullish', icon: '🏦', label: 'Real yields negative:', text: 'At ' + realYield.toFixed(2) + '% — negative real yields are historically gold\'s strongest tailwind.' });
-    } else if (realYield < 0.5) {
-      items.push({ cls: 'wtw-bullish', icon: '🏦', label: 'Real yields low:', text: 'At ' + realYield.toFixed(2) + '% — near zero = supportive for gold.' });
-    } else {
-      items.push({ cls: 'wtw-neutral', icon: '🏦', label: 'Real yield at ' + realYield.toFixed(2) + '%:', text: 'Watch for Fed pivot signals that could push yields lower.' });
-    }
-  }
-
-  // 2. DXY / dollar
-  var dxy = m.dxy;
-  if (dxy != null) {
-    var dxyPct = m.dxy_change_pct || 0;
-    if (dxyPct < -2) {
-      items.push({ cls: 'wtw-bullish', icon: '💵', label: 'Dollar weakening:', text: 'DXY at ' + dxy.toFixed(1) + ' (' + (dxyPct > 0 ? '+' : '') + dxyPct.toFixed(1) + '% YTD) — dollar weakness supports gold.' });
-    } else if (dxyPct > 2) {
-      items.push({ cls: 'wtw-alert', icon: '💵', label: 'Dollar strengthening:', text: 'DXY at ' + dxy.toFixed(1) + ' (' + (dxyPct > 0 ? '+' : '') + dxyPct.toFixed(1) + '% YTD) — headwind for gold; watch for reversal.' });
-    } else {
-      items.push({ cls: 'wtw-neutral', icon: '💵', label: 'DXY at ' + dxy.toFixed(1) + ':', text: 'Dollar near neutral — not a strong signal either way.' });
-    }
-  }
-
-  // 3. Gold/Silver ratio
-  var gsRatio = (ratios.gold_silver || {}).value;
-  if (gsRatio != null) {
-    if (gsRatio > 85) {
-      items.push({ cls: 'wtw-neutral', icon: '⚖️', label: 'Gold/Silver at ' + gsRatio.toFixed(0) + 'x:', text: 'Historically elevated — watch for mean reversion (silver tends to outperform in late-cycle gold rallies).' });
-    } else if (gsRatio < 70) {
-      items.push({ cls: 'wtw-bullish', icon: '⚖️', label: 'Gold/Silver at ' + gsRatio.toFixed(0) + 'x:', text: 'Near historical lows — silver catching up, suggesting broad precious metals demand.' });
-    }
-  }
-
-  // 4. VIX / fear signal from crisis assets
-  // ca.assets is a dict keyed by name (e.g. 'VIX', 'Gold'), not an array
-  var caAssetsDict = (ca.assets && typeof ca.assets === 'object' && !Array.isArray(ca.assets)) ? ca.assets : {};
-  // Also support old array format for backwards compat
-  var caAssets = Array.isArray(ca.assets) ? ca.assets : [];
-  // Get VIX: try dict by name 'VIX', then macro.vix, then array lookup
-  var vixVal = null;
-  if (caAssetsDict['VIX'] && caAssetsDict['VIX'].price != null) vixVal = caAssetsDict['VIX'].price;
-  else if (m.vix != null) vixVal = m.vix;
-  else { var vixEntry2 = caAssets.find(function(a) { return a.symbol === '^VIX'; }); if (vixEntry2) vixVal = vixEntry2.current; }
-  if (vixVal != null) {
-    if (vixVal > 25) {
-      items.push({ cls: 'wtw-bullish', icon: '⚡', label: 'VIX at ' + vixVal.toFixed(0) + ':', text: 'Elevated fear — high VIX historically drives safe-haven flows into gold.' });
-    } else if (vixVal > 20) {
-      items.push({ cls: 'wtw-neutral', icon: '⚡', label: 'VIX at ' + vixVal.toFixed(0) + ':', text: 'Moderate volatility — watch for VIX spikes above 25 as a gold entry signal.' });
-    } else {
-      items.push({ cls: 'wtw-neutral', icon: '⚡', label: 'VIX calm at ' + vixVal.toFixed(0) + ':', text: 'Low fear — complacency can reverse quickly; gold can still rally on macro flows.' });
-    }
-  }
-
-  // 5. ETF flows
-  var etfFlows = etfs.total_flow_5d_tonnes;
-  if (etfFlows != null) {
-    if (etfFlows > 5) {
-      items.push({ cls: 'wtw-bullish', icon: '📦', label: 'ETF inflows:', text: '+' + etfFlows.toFixed(1) + 't net last 5 days — institutional accumulation in progress.' });
-    } else if (etfFlows < -5) {
-      items.push({ cls: 'wtw-alert', icon: '📦', label: 'ETF outflows:', text: etfFlows.toFixed(1) + 't net last 5 days — watch for sustained selling pressure.' });
-    } else {
-      items.push({ cls: 'wtw-neutral', icon: '📦', label: 'ETF flows neutral:', text: (etfFlows > 0 ? '+' : '') + (etfFlows || 0).toFixed(1) + 't last 5 days — no strong directional signal.' });
-    }
-  }
-
-  // 6. Gold YTD momentum
-  // Get gold YTD: try crisis assets dict, then price.ytd_change_pct, then array
-  var goldYtd = null;
-  if (caAssetsDict['Gold'] && caAssetsDict['Gold'].ytd_pct != null) goldYtd = caAssetsDict['Gold'].ytd_pct;
-  else if (p.ytd_change_pct != null) goldYtd = p.ytd_change_pct;
-  else { var goldCA = caAssets.find(function(a) { return a.symbol === 'GC=F'; }); if (goldCA) goldYtd = goldCA.ytd_pct; }
-  if (goldYtd != null) {
-    if (goldYtd > 15) {
-      items.push({ cls: 'wtw-bullish', icon: '🥇', label: 'Gold up ' + goldYtd.toFixed(1) + '% YTD:', text: 'Strong trend intact — momentum favors continuation, but watch for consolidation near resistance.' });
-    } else if (goldYtd > 5) {
-      items.push({ cls: 'wtw-bullish', icon: '🥇', label: 'Gold up ' + goldYtd.toFixed(1) + '% YTD:', text: 'Solid uptrend — dips into support have been buying opportunities.' });
-    } else if (goldYtd < 0) {
-      items.push({ cls: 'wtw-alert', icon: '🥇', label: 'Gold down ' + Math.abs(goldYtd).toFixed(1) + '% YTD:', text: 'Under pressure — watch key support levels and macro catalysts for reversal.' });
-    }
-  }
-
-  // 7. Central bank pace
-  var cbPace = cb.net_monthly_pace_tonnes;
-  if (cbPace != null && cbPace > 30) {
-    items.push({ cls: 'wtw-bullish', icon: '🏛️', label: 'CB buying at ' + cbPace.toFixed(0) + 't/month:', text: 'Central bank demand running above historical average — structural support for gold.' });
-  }
-
-  // 8. RSI signal from price data
-  var rsi = p.rsi;
-  if (rsi != null) {
-    if (rsi < 30) {
-      items.push({ cls: 'wtw-bullish', icon: '📉', label: 'RSI oversold at ' + rsi.toFixed(0) + ':', text: 'RSI below 30 — historically a strong mean-reversion buy signal for gold.' });
-    } else if (rsi < 40) {
-      items.push({ cls: 'wtw-bullish', icon: '📉', label: 'RSI near oversold at ' + rsi.toFixed(0) + ':', text: 'RSI approaching oversold territory — watch for a reversal/bounce signal.' });
-    } else if (rsi > 70) {
-      items.push({ cls: 'wtw-alert', icon: '📈', label: 'RSI overbought at ' + rsi.toFixed(0) + ':', text: 'RSI above 70 — gold may be due for consolidation; watch for pullbacks to support.' });
-    }
-  }
-
-  // 9. MA50 signal
-  var ma50sig = p.ma50_signal;
-  var ma50 = p.ma50;
-  if (ma50sig === 'below' && ma50 != null) {
-    items.push({ cls: 'wtw-alert', icon: '⚠️', label: 'Below 50-day MA ($' + fmtInt(ma50) + '):', text: 'Short-term bearish. Watch for reclaim above MA50 as a buy signal.' });
-  } else if (ma50sig === 'above' && ma50 != null) {
-    items.push({ cls: 'wtw-bullish', icon: '📈', label: 'Above 50-day MA ($' + fmtInt(ma50) + '):', text: 'Short-term trend is up. Dips to MA50 are potential support levels.' });
-  }
-
-  // Limit to 7 items
-  items = items.slice(0, 7);
-  if (!items.length) {
-    el.innerHTML = '<div class="wtw-item wtw-neutral"><span class="wtw-icon">📊</span><span>No strong signals detected — monitor data updates.</span></div>';
-    return;
-  }
-
-  el.innerHTML = items.map(function(item) {
-    return '<div class="wtw-item ' + item.cls + '">' +
-      '<span class="wtw-icon">' + item.icon + '</span>' +
-      '<span><span class="wtw-label">' + item.label + '</span>' + item.text + '</span>' +
-      '</div>';
-  }).join('');
-}
-
 function renderGoldTodaySentence() {
   var price = DATA.price;
   var macro = DATA.macro;
@@ -3438,7 +2872,7 @@ function renderCompositeSignal() {
   var marketIntel = DATA.marketIntel;
   if (marketIntel && marketIntel.alerts && marketIntel.alerts.length) {
     var bullishTypes = { tariff_catalyst: 1.5, cb_buying: 1, etf_inflow: 0.5, backwardation: 1, lease_spike: 0.5, rsi_approaching_oversold: 0.5, rsi_oversold: 1.0, ath_pullback: 0.5 };
-    var bearishTypes = { cb_selling: -1, etf_outflow: -0.5, ma50_break: -0.5, ytd_correction: -0.5, rsi_overbought: -0.5, correlation_breakdown: -1.0, bearish_macro: -0.5 };
+    var bearishTypes = { cb_selling: -1, etf_outflow: -0.5, ma50_break: -0.5, ytd_correction: -0.5, rsi_overbought: -0.5 };
     var catSum = 0;
     var criticalAlerts = [];
     marketIntel.alerts.forEach(function(a) {
@@ -3511,71 +2945,7 @@ function renderCompositeSignal() {
     }
   }
 
-  // Factor 8: News Headline Sentiment (-2 to +2)
-  var newsData = DATA.news;
-  if (newsData && newsData.sentiment_score != null) {
-    var newsSc = newsData.sentiment_score; // -100 to +100
-    var newsScore = 0, newsLabel = '', newsColor = '#888';
-    if (newsSc >= 60)        { newsScore = 2;    newsLabel = 'Very Bullish (' + newsSc.toFixed(0) + ')'; newsColor = '#00ff88'; }
-    else if (newsSc >= 30)   { newsScore = 1;    newsLabel = 'Bullish (' + newsSc.toFixed(0) + ')'; newsColor = '#88dd44'; }
-    else if (newsSc >= -10)  { newsScore = 0;    newsLabel = 'Neutral (' + newsSc.toFixed(0) + ')'; newsColor = '#888'; }
-    else if (newsSc >= -40)  { newsScore = -1;   newsLabel = 'Bearish (' + newsSc.toFixed(0) + ')'; newsColor = '#ff8844'; }
-    else                     { newsScore = -2;   newsLabel = 'Very Bearish (' + newsSc.toFixed(0) + ')'; newsColor = '#ff3333'; }
-    totalScore += newsScore;
-    factors.push({ label: 'News Sentiment', val: newsLabel, score: newsScore, color: newsColor });
-  }
-
-  // Factor 9: MA Momentum — 20-day vs 50-day MA crossover (-2 to +2)
-  var ma20 = price.ma20;
-  var ma50v = price.ma50;
-  var currentPrice = price.price;
-  var maScore = 0, maLabel = '', maColor = '#888';
-  if (ma20 != null && ma50v != null && currentPrice != null) {
-    var ma20VsMa50 = ((ma20 - ma50v) / ma50v) * 100; // % spread
-    var priceVsMa50 = ((currentPrice - ma50v) / ma50v) * 100;
-    if (ma20 > ma50v && priceVsMa50 > 3) {
-      maScore = 2; maLabel = 'MA20 > MA50, strong uptrend'; maColor = '#00ff88';
-    } else if (ma20 > ma50v) {
-      maScore = 1; maLabel = 'MA20 > MA50 (golden cross zone)'; maColor = '#88dd44';
-    } else if (ma20 < ma50v && priceVsMa50 < -3) {
-      maScore = -2; maLabel = 'MA20 < MA50, price below MA50'; maColor = '#ff3333';
-    } else if (ma20 < ma50v) {
-      maScore = -1; maLabel = 'MA20 < MA50 (death cross zone)'; maColor = '#ff8844';
-    } else {
-      maScore = 0; maLabel = 'MA20 ≈ MA50 (neutral)'; maColor = '#888';
-    }
-    totalScore += maScore;
-    factors.push({ label: 'MA Momentum (20/50)', val: maLabel + ' (MA20: ' + fmt(ma20, 0) + ')', score: maScore, color: maColor });
-  }
-
-  // Factor 10: Gold–SPX 20-Day Correlation (-1.5 to +1.5)
-  // Negative corr = gold acting as safe haven (bullish); positive corr = gold moving with stocks (caution)
-  var corrVal = (typeof window._goldSPXCorr20d !== 'undefined') ? window._goldSPXCorr20d : null;
-  if (corrVal !== null) {
-    var corrScore = 0, corrLabel = '', corrColor = '#888';
-    if (corrVal < -0.4)      { corrScore = 1.5;  corrLabel = 'Safe Haven (' + corrVal.toFixed(2) + ')'; corrColor = '#00ff88'; }
-    else if (corrVal < -0.1) { corrScore = 0.75; corrLabel = 'Low Correlation (' + corrVal.toFixed(2) + ')'; corrColor = '#88dd44'; }
-    else if (corrVal < 0.2)  { corrScore = 0;    corrLabel = 'Uncorrelated (' + corrVal.toFixed(2) + ')'; corrColor = '#888'; }
-    else if (corrVal < 0.5)  { corrScore = -0.75; corrLabel = 'Co-moving w/ Stocks (' + corrVal.toFixed(2) + ')'; corrColor = '#ff8844'; }
-    else                     { corrScore = -1.5; corrLabel = '⚠ Correlation Breakdown (' + corrVal.toFixed(2) + ')'; corrColor = '#ff3333'; }
-    totalScore += corrScore;
-    factors.push({ label: 'Gold–SPX Correlation', val: corrLabel, score: corrScore, color: corrColor });
-  }
-
-  // Factor 11: VIX Fear Index — high VIX = fear = safe-haven demand for gold (-1.5 to +1.5)
-  var vixVal = macro.vix;
-  if (vixVal != null) {
-    var vixScore = 0, vixLabel = '', vixColor = '#888';
-    if (vixVal > 35)       { vixScore = 1.5;  vixLabel = 'Extreme Fear (' + vixVal.toFixed(1) + ')'; vixColor = '#00ff88'; }
-    else if (vixVal > 25)  { vixScore = 1.0;  vixLabel = 'Elevated Fear (' + vixVal.toFixed(1) + ')'; vixColor = '#88dd44'; }
-    else if (vixVal > 18)  { vixScore = 0;    vixLabel = 'Moderate (' + vixVal.toFixed(1) + ')'; vixColor = '#888'; }
-    else if (vixVal > 12)  { vixScore = -0.5; vixLabel = 'Low Fear (' + vixVal.toFixed(1) + ')'; vixColor = '#ff8844'; }
-    else                   { vixScore = -1.5; vixLabel = 'Complacency (' + vixVal.toFixed(1) + ')'; vixColor = '#ff3333'; }
-    totalScore += vixScore;
-    factors.push({ label: 'VIX Fear Index', val: vixLabel, score: vixScore, color: vixColor });
-  }
-
-  // Normalize score to -22..+22 range (11 factors, each max ±2 = ±22, clamp to ±10)
+  // Normalize score to -14..+14 range (7 factors, each max ±2 = ±14, clamp to ±10)
   var clampedScore = Math.max(-10, Math.min(10, totalScore));
 
   // Determine label and color
@@ -3608,8 +2978,6 @@ function renderCompositeSignal() {
     var negReal = (macro.real_yield_10y != null && macro.real_yield_10y < 0);
     var cotCrowded = (cot && cot.net_percentile != null && cot.net_percentile > 85);
     var dxyWeak = (macro.dxy != null && macro.dxy < 99);
-    var newsVeryBull = (newsData && newsData.sentiment_score != null && newsData.sentiment_score >= 60);
-    var newsVeryBear = (newsData && newsData.sentiment_score != null && newsData.sentiment_score <= -40);
 
     var lines = [];
     if (clampedScore >= 6) {
@@ -3642,16 +3010,6 @@ function renderCompositeSignal() {
       if (hasCriticalTariff) lines.push('⚡ Liberation Day tariffs (Apr 2, 2026): sweeping reciprocal tariffs — historically strong gold safe-haven catalyst.');
       if (hasCBBuying) lines.push('Central bank buying activity detected — structural demand signal.');
       if (hasMacroCatalyst) lines.push('🏦 Upcoming FOMC — rate uncertainty supports gold positioning.');
-    }
-    if (newsVeryBull) lines.push('📰 News sentiment very bullish — broad positive media coverage supporting gold.');
-    if (newsVeryBear) lines.push('📰 News sentiment very bearish — negative media pressure, watch for capitulation.');
-    // VIX context
-    if (vixVal != null && vixVal > 30) lines.push('😱 VIX at ' + vixVal.toFixed(1) + ' — extreme fear elevates gold safe-haven demand; historically strong environment for gold.');
-    else if (vixVal != null && vixVal < 14) lines.push('😴 VIX at ' + vixVal.toFixed(1) + ' — complacency in markets; gold may consolidate without a fear catalyst.');
-    // Gold-SPX correlation context
-    if (corrVal !== null) {
-      if (corrVal > 0.4) lines.push('📉 Gold–SPX correlation elevated (' + corrVal.toFixed(2) + '): gold moving with equities — safe-haven premium temporarily impaired. Liberation Day II risk-off liquidation pattern.');
-      else if (corrVal < -0.3) lines.push('✅ Gold–SPX correlation negative (' + corrVal.toFixed(2) + '): gold acting as true safe haven — historically bullish for sustained moves.');
     }
 
     interpEl.innerHTML = lines.map(function(l) { return '<span style="display:block;margin-bottom:2px;">' + l + '</span>'; }).join('');
@@ -3818,9 +3176,7 @@ function updateFreshnessBadges() {
 function renderPriceSection() {
   var d = DATA.price;
   if (!d) {
-    var priceBody = document.getElementById('body-sec-price');
-    if (priceBody) { priceBody.innerHTML = makeEmptyState('📡', 'Price data unavailable', true); }
-    else { document.getElementById('sec-price').innerHTML = '<div class="section-title">Price Command Center</div>' + makeEmptyState('📡', 'Price data unavailable', true); }
+    document.getElementById('sec-price').innerHTML = '<div class="section-title">Price Command Center</div>' + makeEmptyState('📡', 'Price data unavailable', true);
     return;
   }
 
@@ -3870,20 +3226,7 @@ function renderPriceSection() {
     }
   }
 
-  // Technical indicators: MA20, MA50, MA200, RSI
-  if (d.ma20 != null) {
-    document.getElementById('ma20-val').textContent = '$' + fmt(d.ma20);
-    var ma20diff = d.price - d.ma20;
-    var ma20pct = ((ma20diff / d.ma20) * 100).toFixed(1);
-    var ma20El = document.getElementById('ma20-signal');
-    if (d.ma20_signal === 'above') {
-      ma20El.textContent = '+' + ma20pct + '% above ↑';
-      ma20El.style.color = '#00ff88';
-    } else {
-      ma20El.textContent = ma20pct + '% below ↓';
-      ma20El.style.color = '#ff4444';
-    }
-  }
+  // Technical indicators: MA50, MA200, RSI
   if (d.ma50 != null) {
     document.getElementById('ma50-val').textContent = '$' + fmt(d.ma50);
     var ma50diff = d.price - d.ma50;
@@ -3940,24 +3283,14 @@ function renderPriceSection() {
       if (rsiBar) rsiBar.style.background = '#ff4444';
     } else if (d.rsi <= 30) {
       rsiEl.style.color = '#00ff88';
-      rsiSig.textContent = 'Oversold — strong buy signal';
+      rsiSig.textContent = 'Oversold — potential buy';
       rsiSig.style.color = '#00ff88';
       if (rsiBar) rsiBar.style.background = '#00ff88';
-    } else if (d.rsi <= 40) {
-      rsiEl.style.color = '#88dd44';
-      rsiSig.textContent = 'Approaching oversold — bounce watch';
-      rsiSig.style.color = '#88dd44';
-      if (rsiBar) rsiBar.style.background = '#88dd44';
-    } else if (d.rsi >= 60) {
+    } else if (d.rsi >= 55) {
       rsiEl.style.color = '#ffd700';
       rsiSig.textContent = 'Bullish momentum';
       rsiSig.style.color = '#ffd700';
       if (rsiBar) rsiBar.style.background = 'var(--gold)';
-    } else if (d.rsi >= 55) {
-      rsiEl.style.color = '#aabb44';
-      rsiSig.textContent = 'Moderate bullish';
-      rsiSig.style.color = '#aabb44';
-      if (rsiBar) rsiBar.style.background = '#aabb44';
     } else {
       rsiEl.style.color = '#888';
       rsiSig.textContent = 'Neutral zone';
@@ -4630,20 +3963,8 @@ function renderCentralBanks() {
     var reserveIntensity = Math.max(0.03, r.reserves_tonnes / maxReserves * 0.15);
     var barWidth = (r.reserves_tonnes / maxReserves * 60).toFixed(0);
 
-    var cbFlags = {
-      'China': '🇨🇳', 'United States': '🇺🇸', 'Germany': '🇩🇪', 'Italy': '🇮🇹',
-      'France': '🇫🇷', 'Russia': '🇷🇺', 'India': '🇮🇳', 'Turkey': '🇹🇷',
-      'Poland': '🇵🇱', 'Saudi Arabia': '🇸🇦', 'Singapore': '🇸🇬', 'Iraq': '🇮🇶',
-      'Czech Republic': '🇨🇿', 'Netherlands': '🇳🇱', 'Japan': '🇯🇵',
-      'Kazakhstan': '🇰🇿', 'Uzbekistan': '🇺🇿', 'Hungary': '🇭🇺',
-      'Philippines': '🇵🇭', 'Qatar': '🇶🇦', 'Egypt': '🇪🇬', 'UAE': '🇦🇪',
-      'United Arab Emirates': '🇦🇪', 'Switzerland': '🇨🇭', 'Australia': '🇦🇺',
-      'UK': '🇬🇧', 'Portugal': '🇵🇹', 'Spain': '🇪🇸', 'Belgium': '🇧🇪',
-      'South Korea': '🇰🇷', 'Thailand': '🇹🇭', 'Mexico': '🇲🇽'
-    };
-    var countryFlag = cbFlags[r.country] || '';
     tr.innerHTML =
-      '<td style="font-weight:600;">' + (countryFlag ? '<span style="margin-right:5px;">' + countryFlag + '</span>' : '') + r.country + ' <span style="font-size:9px;color:#555;margin-left:4px;">▼</span></td>' +
+      '<td style="font-weight:600;">' + r.country + ' <span style="font-size:9px;color:#555;margin-left:4px;">▼</span></td>' +
       '<td style="background:rgba(255,215,0,' + reserveIntensity.toFixed(3) + ');">' +
         fmtInt(r.reserves_tonnes) +
         '<div class="mini-bar" style="width:' + barWidth + 'px;background:#ffd700;margin-left:6px;"></div>' +
@@ -4668,56 +3989,7 @@ function renderCentralBanks() {
     tbody.appendChild(expandTr);
   });
 
-  // Top CB Buyers YTD bar chart
-  var ytdBuyers = d.reserves
-    .filter(function(r) { return r.last_month_change > 0 || r.change_ytd > 0; })
-    .map(function(r) { return { country: r.country, ytd: r.change_ytd || 0, monthly: r.last_month_change || 0 }; })
-    .filter(function(r) { return r.ytd > 0 || r.monthly > 0; });
-  ytdBuyers.sort(function(a, b) { return (b.ytd || b.monthly) - (a.ytd || a.monthly); });
-  var top10buyers = ytdBuyers.slice(0, 10);
-  if (top10buyers.length) {
-    destroyChart('cb-buyers-ytd');
-    var ctxBuyers = document.getElementById('chart-cb-buyers-ytd');
-    if (ctxBuyers) {
-      var buyerColors = top10buyers.map(function(r) {
-        var v = r.ytd || r.monthly;
-        return v >= 20 ? 'rgba(0,255,136,0.8)' : v >= 10 ? 'rgba(255,215,0,0.8)' : 'rgba(255,215,0,0.5)';
-      });
-      charts['cb-buyers-ytd'] = new Chart(ctxBuyers.getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: top10buyers.map(function(r) { return r.country; }),
-          datasets: [{
-            label: 'YTD Purchases (tonnes)',
-            data: top10buyers.map(function(r) { return r.ytd || r.monthly; }),
-            backgroundColor: buyerColors,
-            borderColor: top10buyers.map(function(r) { return r.ytd >= 20 ? '#00ff88' : '#ffd700'; }),
-            borderWidth: 1,
-            borderRadius: 3,
-          }]
-        },
-        options: {
-          indexAxis: 'y',
-          scales: {
-            x: {
-              grid: { color: 'rgba(255,255,255,0.03)' },
-              ticks: { callback: function(v) { return v + 't'; }, font: { size: 9 } }
-            },
-            y: {
-              grid: { display: false },
-              ticks: { font: { size: 9 } }
-            }
-          },
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: function(ctx) { return '+' + ctx.parsed.x + ' tonnes'; } } }
-          }
-        }
-      });
-    }
-  }
-
-  // Bar chart (by reserves)
+  // Bar chart
   var top15 = d.reserves.slice(0, 15);
   destroyChart('cb-bars');
   var ctx = document.getElementById('chart-cb-bars').getContext('2d');
@@ -4750,77 +4022,6 @@ function renderCentralBanks() {
       }
     }
   });
-
-  // CB Country Buying Heatmap (grid: top buyers × years 2020-2025)
-  (function() {
-    var heatmapEl = document.getElementById('cb-heatmap');
-    if (!heatmapEl || !d.reserves || !Array.isArray(d.reserves)) return;
-
-    var years = ['2020','2021','2022','2023','2024','2025'];
-    // Pick top buyers by total change 2020-2025 (exclude steady holders like US/Germany)
-    var buyers = d.reserves.map(function(r) {
-      var h = r.history || [];
-      // For each year, get the net change (last month of year minus first month)
-      var annual = {};
-      years.forEach(function(yr) {
-        var yrEntries = h.filter(function(e) { return e.date && e.date.startsWith(yr); });
-        if (yrEntries.length >= 2) {
-          annual[yr] = Math.round(yrEntries[yrEntries.length-1].tonnes - yrEntries[0].tonnes);
-        } else if (yrEntries.length === 1) {
-          annual[yr] = 0;
-        } else {
-          annual[yr] = null;
-        }
-      });
-      var totalChange = years.reduce(function(acc, yr) { return acc + (annual[yr] || 0); }, 0);
-      return { country: r.country, annual: annual, totalChange: totalChange };
-    }).filter(function(b) { return b.totalChange > 5; }) // only net buyers
-      .sort(function(a, b) { return b.totalChange - a.totalChange; })
-      .slice(0, 10);
-
-    if (!buyers.length) return;
-
-    // Max value for color scaling
-    var maxVal = 0;
-    buyers.forEach(function(b) {
-      years.forEach(function(yr) { if (b.annual[yr] && b.annual[yr] > maxVal) maxVal = b.annual[yr]; });
-    });
-    if (maxVal < 1) maxVal = 1;
-
-    function heatColor(val) {
-      if (val === null || val === undefined) return 'rgba(255,255,255,0.04)';
-      if (val <= 0) return 'rgba(255,255,255,0.04)';
-      var ratio = Math.min(val / maxVal, 1);
-      // Ramp from dark gold to bright gold
-      var r = Math.round(80 + 175 * ratio);
-      var g = Math.round(50 + 155 * ratio);
-      var b = Math.round(0 + 20 * ratio);
-      return 'rgb(' + r + ',' + g + ',' + b + ')';
-    }
-
-    var html = '<table class="cb-heatmap-table">';
-    html += '<thead><tr><th class="row-label">Country</th>';
-    years.forEach(function(yr) { html += '<th>' + yr + '</th>'; });
-    html += '<th>Total</th></tr></thead><tbody>';
-
-    buyers.forEach(function(b) {
-      html += '<tr>';
-      html += '<td class="row-label">' + b.country + '</td>';
-      years.forEach(function(yr) {
-        var val = b.annual[yr];
-        var bg = heatColor(val);
-        var textVal = (val !== null && val !== undefined) ? (val > 0 ? '+' + val : (val === 0 ? '—' : val)) : '?';
-        var textColor = (val !== null && val > 5) ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.35)';
-        html += '<td style="background:' + bg + ';color:' + textColor + ';" title="' + b.country + ' ' + yr + ': ' + (val !== null ? val + 't' : 'n/a') + '">' + textVal + '</td>';
-      });
-      // Total column
-      var bg = heatColor(b.totalChange);
-      html += '<td style="background:' + heatColor(Math.min(b.totalChange * 0.3, maxVal)) + ';color:rgba(255,215,0,0.9);font-weight:700;">+' + b.totalChange + '</td>';
-      html += '</tr>';
-    });
-    html += '</tbody></table>';
-    heatmapEl.innerHTML = html;
-  })();
 
   // CB Intelligence news feed
   var cbNewsList = document.getElementById('cb-news-list');
@@ -5230,69 +4431,6 @@ function renderETFs() {
       rangeHtml;
     cardsContainer.appendChild(card);
   });
-
-  // 30-day daily returns bar chart for GLD
-  var gldData = d && d.etfs && d.etfs.GLD ? d.etfs.GLD : null;
-  if (gldData && gldData.chart_1y && gldData.chart_1y.length > 30) {
-    var recent30 = gldData.chart_1y.slice(-31);
-    var labels30 = [], returns30 = [], barColors30 = [];
-    for (var ri = 1; ri < recent30.length; ri++) {
-      var prevV = recent30[ri-1].v, currV = recent30[ri].v;
-      if (prevV && currV) {
-        var ret = ((currV - prevV) / prevV) * 100;
-        var dt = new Date(recent30[ri].t + 'T12:00:00');
-        labels30.push(dt.toLocaleDateString('en-US', { month:'short', day:'numeric' }));
-        returns30.push(Math.round(ret * 100) / 100);
-        barColors30.push(ret >= 0 ? 'rgba(0,255,136,0.75)' : 'rgba(255,68,68,0.75)');
-      }
-    }
-    var dailyRetCtx = document.getElementById('chart-etf-daily-returns');
-    if (dailyRetCtx && labels30.length) {
-      destroyChart('etf-daily-returns');
-      charts['etf-daily-returns'] = new Chart(dailyRetCtx.getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: labels30,
-          datasets: [{
-            label: 'GLD Daily Return %',
-            data: returns30,
-            backgroundColor: barColors30,
-            borderWidth: 0,
-            borderRadius: 2,
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: function(ctx) {
-                  return (ctx.parsed.y >= 0 ? '+' : '') + ctx.parsed.y.toFixed(2) + '%';
-                }
-              }
-            }
-          },
-          scales: {
-            x: {
-              grid: { display: false },
-              ticks: { color: '#555', font: { size: 9 }, maxTicksLimit: 8 }
-            },
-            y: {
-              position: 'right',
-              grid: { color: 'rgba(255,255,255,0.04)' },
-              ticks: {
-                color: '#666',
-                font: { size: 9 },
-                callback: function(v) { return (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
-              }
-            }
-          }
-        }
-      });
-    }
-  }
 }
 
 // --- Analyst Price Targets ---
@@ -6005,7 +5143,6 @@ function renderMacro() {
     { key: 'fed_funds', label: 'Fed Funds Rate', unit: '%', rangeMin: 0, rangeMax: 6, color: '#ff8800', tip: 'The interest rate the Federal Reserve charges banks overnight. Lower rates reduce the opportunity cost of holding gold (which pays no yield), making gold more attractive.' },
     { key: 'm2', label: 'M2 Growth YoY', unit: '%', rangeMin: -5, rangeMax: 30, color: '#00ff88', tip: 'Annual growth rate of total money in circulation. Rapid M2 expansion (money printing) historically correlates with gold price increases as currency purchasing power dilutes.' },
     { key: 'us_10y', label: 'US 10Y Yield', unit: '%', rangeMin: 0, rangeMax: 5, color: '#ffd700', tip: 'Nominal yield on 10-year US Treasuries. Rising nominal yields can pressure gold prices as bonds become more competitive with yield-free gold.' },
-    { key: 'vix', label: 'VIX Fear Index', unit: '', rangeMin: 10, rangeMax: 50, color: '#aa44ff', tip: 'The CBOE Volatility Index measures market fear. VIX above 30 signals elevated fear — historically bullish for gold as investors flee to safe havens. VIX below 15 signals complacency and can precede gold consolidation.' },
   ];
 
   var container = document.getElementById('macro-cards');
@@ -6525,18 +5662,13 @@ function renderMiners() {
       var mc = m.market_cap;
       mcapStr = mc >= 1e9 ? '$' + (mc / 1e9).toFixed(1) + 'B' : mc >= 1e6 ? '$' + (mc / 1e6).toFixed(0) + 'M' : '$' + fmtInt(mc);
     }
-    var vsGoldColor = m.vs_gold_ytd != null ? colorForChange(m.vs_gold_ytd) : '#888';
-    var peStr = m.pe_ratio != null ? fmt(m.pe_ratio, 1) + 'x' : '--';
-    var peColor = m.pe_ratio != null ? (m.pe_ratio < 15 ? '#00ff88' : m.pe_ratio > 30 ? '#ff4444' : '#ffd700') : '#888';
     tr.innerHTML =
       '<td style="font-weight:600;">' + (m.name || sym) + ' <span class="text-[10px] text-[var(--text2)]">' + sym + '</span></td>' +
       '<td>$' + fmt(m.price) + '</td>' +
       '<td style="color:' + changeColor + '">' + (m.change_pct >= 0 ? '+' : '') + fmt(m.change_pct) + '%</td>' +
       '<td style="color:' + ytdColor + ';font-weight:600;">' + (m.ytd_pct != null ? (m.ytd_pct >= 0 ? '+' : '') + fmt(m.ytd_pct) + '%' : '--') + '</td>' +
-      '<td style="color:' + vsGoldColor + ';font-size:11px;">' + (m.vs_gold_ytd != null ? (m.vs_gold_ytd >= 0 ? '+' : '') + fmt(m.vs_gold_ytd, 1) + '%' : '--') + '</td>' +
       '<td style="color:' + w4Color + ';">' + (m.week4_pct != null ? (m.week4_pct >= 0 ? '+' : '') + fmt(m.week4_pct) + '%' : '--') + '</td>' +
       '<td class="text-[var(--text2)]">' + mcapStr + '</td>' +
-      '<td style="color:' + peColor + ';">' + peStr + '</td>' +
       '<td>$' + (m.aisc != null ? fmtInt(m.aisc) : '--') + '</td>' +
       '<td style="color:' + marginColor + ';font-weight:600;">$' + (m.margin != null ? fmtInt(m.margin) : '--') + '</td>' +
       '<td>' + (m.production_koz != null ? fmtInt(m.production_koz) : '--') + '</td>' +
@@ -6555,60 +5687,19 @@ function renderMiners() {
 
 // --- COMEX VAULT ---
 function renderComexVault() {
-  // Use live data from data/comex.json if available, otherwise fall back to estimates
-  var comexData = DATA.comex;
+  // Hardcoded data (inline)
+  var vault = {
+    registered_tonnes: 442, eligible_tonnes: 8200, total_tonnes: 8642,
+    registered_change_30d: -85
+  };
   var cot = DATA.cot;
-  var oi = (cot ? cot.gold_open_interest : null) || (comexData ? comexData.open_interest_contracts : null) || 361409;
-
-  var vault;
-  if (comexData && comexData.registered_tonnes && comexData.eligible_tonnes) {
-    vault = {
-      registered_tonnes: comexData.registered_tonnes,
-      eligible_tonnes: comexData.eligible_tonnes,
-      total_tonnes: comexData.total_tonnes || (comexData.registered_tonnes + comexData.eligible_tonnes),
-    };
-  } else {
-    // Fallback static values (last known, Apr 2026)
-    vault = { registered_tonnes: 509, eligible_tonnes: 461, total_tonnes: 970 };
-  }
-
-  // Populate registered/eligible stat cards dynamically
-  var regEl = document.getElementById('comex-registered');
-  if (regEl) regEl.textContent = vault.registered_tonnes.toLocaleString('en-US', {maximumFractionDigits: 1});
-  var eligEl = document.getElementById('comex-eligible');
-  if (eligEl) eligEl.textContent = vault.eligible_tonnes.toLocaleString('en-US', {maximumFractionDigits: 1});
-
-  // Registered % of total
-  var regPctEl = document.getElementById('comex-reg-pct');
-  var regPctSubEl = document.getElementById('comex-reg-pct-sub');
-  if (regPctEl && vault.total_tonnes > 0) {
-    var regPct = (vault.registered_tonnes / vault.total_tonnes * 100).toFixed(1);
-    regPctEl.textContent = regPct + '%';
-    // Color: < 40% = tight (red), 40-60% = moderate (gold), > 60% = ample (green)
-    regPctEl.style.color = parseFloat(regPct) < 40 ? '#ff4444' : parseFloat(regPct) < 60 ? '#ffd700' : '#00ff88';
-    if (regPctSubEl) regPctSubEl.textContent = fmtInt(vault.total_tonnes) + 't total vault (' + fmtInt(vault.registered_tonnes) + 't reg)';
-  }
-
+  var oi = cot ? cot.gold_open_interest : 534892;
   // Cover ratio: registered oz / (OI contracts * 100 oz/contract)
   var registeredOz = vault.registered_tonnes * 32150.7; // troy oz per tonne
   var oiOz = oi * 100;
   var coverRatio = (registeredOz / oiOz * 100).toFixed(1);
   var el = document.getElementById('comex-cover-ratio');
   if (el) el.textContent = coverRatio + '%';
-
-  // Update last updated timestamp
-  var luEl = document.getElementById('comex-last-updated');
-  if (luEl && comexData && comexData.last_updated) {
-    luEl.textContent = 'Updated: ' + relativeTime(comexData.last_updated) + ' | Source: COMEX daily vault reports';
-  }
-
-  // Update source badge if element exists
-  var srcEl = document.getElementById('comex-data-source');
-  if (srcEl && comexData) {
-    var freshness = comexData.data_quality ? comexData.data_quality.freshness : '';
-    srcEl.textContent = freshness === '4-hourly' ? 'Live · 4h refresh' : 'Static estimate';
-    srcEl.style.color = freshness === '4-hourly' ? '#00ff88' : '#ff8844';
-  }
 
   // Stacked bar chart
   destroyChart('comex-vault');
@@ -6619,8 +5710,8 @@ function renderComexVault() {
       data: {
         labels: ['COMEX Gold Vault'],
         datasets: [
-          { label: 'Registered (' + fmtInt(vault.registered_tonnes) + 't)', data: [vault.registered_tonnes], backgroundColor: 'rgba(255,215,0,0.8)', borderColor: '#ffd700', borderWidth: 1 },
-          { label: 'Eligible (' + fmtInt(vault.eligible_tonnes) + 't)', data: [vault.eligible_tonnes], backgroundColor: 'rgba(136,136,136,0.4)', borderColor: '#888', borderWidth: 1 },
+          { label: 'Registered', data: [vault.registered_tonnes], backgroundColor: 'rgba(255,215,0,0.8)', borderColor: '#ffd700', borderWidth: 1 },
+          { label: 'Eligible', data: [vault.eligible_tonnes], backgroundColor: 'rgba(136,136,136,0.4)', borderColor: '#888', borderWidth: 1 },
         ]
       },
       options: {
@@ -6640,54 +5731,13 @@ function renderComexVault() {
 
 // --- GOLD LEASE RATE ---
 function renderLeaseRate() {
-  var macro = DATA.macro || {};
-  // Use real data from macro.json if available, else fall back to GOFO-proxy estimates
-  var gofo = macro.gofo_annualized;
-  var leaseData;
-  if (macro.lease_rate_1m != null && (macro.lease_rate_1m !== 0 || macro.lease_rate_3m !== 0)) {
-    leaseData = {
-      '1M': macro.lease_rate_1m || 0,
-      '3M': macro.lease_rate_3m || 0,
-      '6M': macro.lease_rate_6m || 0,
-    };
-  } else if (gofo != null) {
-    // Approximate lease rate from GOFO: lease_rate ≈ T-bill rate - GOFO
-    // Typical T-bill (^IRX) ~4.5%; lease = T-bill - GOFO
-    var tbill = macro.tbill_3m || 4.5;
-    leaseData = {
-      '1M': Math.max(0, Math.round((tbill - gofo * 0.9) * 100) / 100),
-      '3M': Math.max(0, Math.round((tbill - gofo) * 100) / 100),
-      '6M': Math.max(0, Math.round((tbill - gofo * 1.05) * 100) / 100),
-    };
-  } else {
-    leaseData = { '1M': 0.28, '3M': 0.35, '6M': 0.42 };
-  }
+  var leaseData = {
+    '1M': 0.28, '3M': 0.35, '6M': 0.42, '12M': 0.58
+  };
   var alertThreshold = 1.5;
   var hasAlert = Object.values(leaseData).some(function(v) { return v > alertThreshold; });
   var alertEl = document.getElementById('lease-rate-alert');
   if (alertEl) alertEl.style.display = hasAlert ? 'block' : 'none';
-
-  // Backwardation / Contango badge (Priority 17)
-  var curveBadge = document.getElementById('lease-curve-badge');
-  if (curveBadge && leaseData['1M'] != null && leaseData['3M'] != null) {
-    var r1m = leaseData['1M'], r3m = leaseData['3M'];
-    if (r1m > r3m) {
-      // Inverted curve = backwardation = physical tightness signal
-      curveBadge.textContent = '⚡ BACKWARDATION';
-      curveBadge.style.display = 'inline-block';
-      curveBadge.style.background = 'rgba(255,170,0,0.18)';
-      curveBadge.style.border = '1px solid rgba(255,170,0,0.6)';
-      curveBadge.style.color = '#ffaa00';
-      curveBadge.title = 'Backwardation: 1M rate (' + r1m.toFixed(2) + '%) > 3M rate (' + r3m.toFixed(2) + '%). Short-term lease rates higher than longer-dated — signals physical gold is scarce and in high demand right now. Historically a bullish signal.';
-    } else {
-      curveBadge.textContent = 'CONTANGO';
-      curveBadge.style.display = 'inline-block';
-      curveBadge.style.background = 'rgba(100,100,120,0.18)';
-      curveBadge.style.border = '1px solid rgba(150,150,170,0.35)';
-      curveBadge.style.color = '#888';
-      curveBadge.title = 'Contango: 1M rate (' + r1m.toFixed(2) + '%) < 3M rate (' + r3m.toFixed(2) + '%). Normal forward curve — carry cost priced in, no unusual physical tightness.';
-    }
-  }
 
   destroyChart('lease-rate');
   var ctx = document.getElementById('chart-lease-rate');
@@ -6744,10 +5794,134 @@ function renderLeaseRate() {
 function renderCrisisAssets() {
   var d = DATA.crisisAssets;
   if (!d || !d.assets) return;
-  // Render chart using current view mode
-  renderCrisisAssetsWithMode(_crisisViewMode);
 
-    // Dynamic context blurb
+  var assetNames = Object.keys(d.assets);
+  if (!assetNames.length) return;
+
+  // Build date-aligned datasets (each asset may start on different dates due to BTC trading 7 days)
+  var dateMap = {}; // date string -> index in refLabels
+  var refLabels = [];
+
+  // Collect all unique dates, sorted
+  assetNames.forEach(function(name) {
+    var asset = d.assets[name];
+    if (!asset.chart || !asset.chart.length) return;
+    asset.chart.forEach(function(pt) { if (!dateMap[pt.t]) dateMap[pt.t] = true; });
+  });
+  refLabels = Object.keys(dateMap).sort();
+  refLabels.forEach(function(dt, i) { dateMap[dt] = i; });
+
+  var datasets = [];
+  assetNames.forEach(function(name) {
+    var asset = d.assets[name];
+    if (!asset.chart || !asset.chart.length) return;
+    // Build sparse array aligned to refLabels
+    var values = new Array(refLabels.length).fill(null);
+    asset.chart.forEach(function(pt) {
+      var idx = dateMap[pt.t];
+      if (idx !== undefined) values[idx] = pt.v;
+    });
+    datasets.push({
+      label: name + ' (' + (asset.ytd_pct >= 0 ? '+' : '') + fmt(asset.ytd_pct, 1) + '%)',
+      data: values,
+      borderColor: asset.color,
+      borderWidth: 2,
+      pointRadius: 0,
+      tension: 0.3,
+      fill: false,
+      spanGaps: true,
+    });
+  });
+
+  if (!datasets.length) return;
+
+  destroyChart('crisis-assets');
+  var ctx = document.getElementById('chart-crisis-assets');
+  if (ctx) {
+    charts['crisis-assets'] = new Chart(ctx.getContext('2d'), {
+      type: 'line',
+      data: { labels: refLabels, datasets: datasets },
+      options: {
+        interaction: { intersect: false, mode: 'index' },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              maxTicksLimit: 8,
+              callback: function(val) {
+                try { return new Date(this.getLabelForValue(val)).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); } catch(e) { return ''; }
+              }
+            }
+          },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.03)' },
+            title: { display: true, text: 'Jan 1 2026 = 100', color: '#666', font: { size: 10 } },
+            ticks: { callback: function(v) { return v.toFixed(0); } }
+          }
+        },
+        plugins: {
+          legend: { display: true, labels: { boxWidth: 10, padding: 10, color: '#888' } },
+          tooltip: {
+            callbacks: {
+              title: function(items) {
+                try { return new Date(items[0].label + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); } catch(e) { return items[0].label; }
+              },
+              label: function(ctx) {
+                if (ctx.parsed.y == null) return null;
+                return '  ' + ctx.dataset.label.split(' (')[0] + ': ' + fmt(ctx.parsed.y, 1);
+              }
+            }
+          }
+        }
+      },
+      plugins: [{
+        id: 'baseline100',
+        afterDraw: function(chart) {
+          var yScale = chart.scales.y;
+          var xScale = chart.scales.x;
+          var c = chart.ctx;
+          var y = yScale.getPixelForValue(100);
+          c.save();
+          c.strokeStyle = 'rgba(255,255,255,0.25)';
+          c.lineWidth = 1;
+          c.setLineDash([4, 4]);
+          c.beginPath(); c.moveTo(xScale.left, y); c.lineTo(xScale.right, y); c.stroke();
+          c.setLineDash([]);
+          c.fillStyle = 'rgba(255,255,255,0.3)';
+          c.font = '9px JetBrains Mono, monospace';
+          c.fillText('Jan 1 baseline', xScale.left + 4, y - 3);
+          c.restore();
+        }
+      }]
+    });
+  }
+
+  // Legend cards
+  var legendContainer = document.getElementById('crisis-asset-legend');
+  if (legendContainer) {
+    legendContainer.innerHTML = '';
+    assetNames.forEach(function(name) {
+      var asset = d.assets[name];
+      var div = document.createElement('div');
+      div.className = 'bg-[#0a0a0a] rounded-lg p-3 border border-[var(--card-border)] text-center';
+      var priceStr = '';
+      if (asset.price != null) {
+        var p = asset.price;
+        if (name === 'VIX') priceStr = fmt(p, 2);
+        else if (p >= 1000) priceStr = '$' + p.toLocaleString('en-US', {maximumFractionDigits: 0});
+        else if (p >= 100) priceStr = '$' + fmt(p, 2);
+        else priceStr = '$' + fmt(p, 4);
+      }
+      div.innerHTML =
+        '<div class="text-[10px] text-[var(--text2)] mono mb-1">' + name + '</div>' +
+        (priceStr ? '<div class="text-[11px] mono text-[var(--text2)] mb-1">' + priceStr + '</div>' : '') +
+        '<div class="text-lg font-bold mono" style="color:' + asset.color + '">' +
+          (asset.ytd_pct >= 0 ? '+' : '') + fmt(asset.ytd_pct, 1) + '% YTD</div>';
+      legendContainer.appendChild(div);
+    });
+  }
+
+  // Dynamic context blurb
   var blurbEl = document.getElementById('crisis-context-blurb');
   if (blurbEl) {
     var goldAsset = d.assets['Gold'];
@@ -6757,31 +5931,6 @@ function renderCrisisAssets() {
     var silverAsset = d.assets['Silver'];
     var dxyAsset = d.assets['DXY'];
     var lines = [];
-
-    // Priority 16: Gold vs SPX divergence ALERT badge
-    var spxAsset = d.assets['S&P 500'];
-    var divBadge = document.getElementById('crisis-divergence-badge');
-    if (divBadge && goldAsset && spxAsset) {
-      var goldYtd = goldAsset.ytd_pct || 0;
-      var spxYtd = spxAsset.ytd_pct || 0;
-      var divergence = goldYtd - spxYtd;
-      if (divergence > 10) {
-        divBadge.style.display = 'inline-block';
-        var spxSign = spxYtd >= 0 ? '+' : '';
-        divBadge.textContent = '⚡ DIVERGENCE: Gold +' + fmt(goldYtd, 1) + '% vs SPX ' + spxSign + fmt(spxYtd, 1) + '% = ' + fmt(divergence, 0) + 'pp';
-        divBadge.title = 'Gold outperforming S&P 500 by ' + fmt(divergence, 1) + ' percentage points YTD. Historically, large gold/stocks divergence signals institutional risk-off rotation — investors seeking hard asset safety over equities. This divergence has historically preceded further gold gains.';
-      } else if (divergence < -10) {
-        divBadge.style.display = 'inline-block';
-        divBadge.style.background = 'rgba(100,100,120,0.18)';
-        divBadge.style.border = '1px solid rgba(150,150,170,0.35)';
-        divBadge.style.color = '#888';
-        divBadge.textContent = 'SPX leading Gold by ' + fmt(-divergence, 0) + 'pp';
-        divBadge.title = 'Risk-on environment: stocks outperforming gold by ' + fmt(-divergence, 1) + 'pp YTD.';
-      } else {
-        divBadge.style.display = 'none';
-      }
-    }
-
     // Gold vs Bitcoin divergence
     if (goldAsset && btcAsset) {
       var gdiff = goldAsset.ytd_pct - btcAsset.ytd_pct;
@@ -6803,328 +5952,6 @@ function renderCrisisAssets() {
     if (lines.length === 0) lines.push('Monitoring crisis asset divergences. All assets tracking close to baseline.');
     blurbEl.innerHTML = lines.join('<br>');
   }
-}
-
-// --- CRISIS VIEW TOGGLE ---
-var _crisisViewMode = 'ytd'; // 'ytd' or 'libday'
-function setCrisisView(mode) {
-  _crisisViewMode = mode;
-  var btnYtd = document.getElementById('crisis-btn-ytd');
-  var btnLib = document.getElementById('crisis-btn-libday');
-  var label = document.getElementById('crisis-view-label');
-  if (btnYtd && btnLib) {
-    if (mode === 'ytd') {
-      btnYtd.style.background = 'var(--gold)'; btnYtd.style.color = '#000'; btnYtd.style.borderColor = 'var(--gold)';
-      btnLib.style.background = 'none'; btnLib.style.color = '#ff8844'; btnLib.style.borderColor = 'rgba(255,68,68,0.5)';
-      if (label) label.textContent = 'Rebased to 100 at Jan 1, 2026 (YTD)';
-    } else {
-      btnLib.style.background = '#ff4444'; btnLib.style.color = '#fff'; btnLib.style.borderColor = '#ff4444';
-      btnYtd.style.background = 'none'; btnYtd.style.color = 'var(--gold)'; btnYtd.style.borderColor = 'rgba(255,215,0,0.5)';
-      if (label) label.textContent = '⚡ Rebased to 100 at Apr 2, 2026 (Liberation Day)';
-    }
-  }
-  renderCrisisAssetsWithMode(mode);
-}
-
-function renderCrisisAssetsWithMode(mode) {
-  var d = DATA.crisisAssets;
-  if (!d || !d.assets) return;
-  var assetNames = Object.keys(d.assets);
-  if (!assetNames.length) return;
-
-  var LIB_DAY = '2026-04-02';
-
-  // Build date-aligned datasets
-  var dateMap = {};
-  var refLabels = [];
-  assetNames.forEach(function(name) {
-    var asset = d.assets[name];
-    if (!asset.chart || !asset.chart.length) return;
-    asset.chart.forEach(function(pt) {
-      if (mode === 'libday' && pt.t < LIB_DAY) return;
-      if (!dateMap[pt.t]) dateMap[pt.t] = true;
-    });
-  });
-  refLabels = Object.keys(dateMap).sort();
-  refLabels.forEach(function(dt, i) { dateMap[dt] = i; });
-
-  var datasets = [];
-  assetNames.forEach(function(name) {
-    var asset = d.assets[name];
-    if (!asset.chart || !asset.chart.length) return;
-
-    // Find base value for rebasing
-    var baseVal = null;
-    if (mode === 'libday') {
-      // Find the Liberation Day value (or nearest before)
-      var sorted = asset.chart.slice().sort(function(a, b) { return a.t < b.t ? -1 : 1; });
-      var libPt = sorted.find(function(pt) { return pt.t === LIB_DAY; });
-      if (!libPt) libPt = sorted.slice().reverse().find(function(pt) { return pt.t <= LIB_DAY; });
-      if (libPt) baseVal = libPt.v; // v is already rebased to Jan1=100
-    }
-
-    var values = new Array(refLabels.length).fill(null);
-    asset.chart.forEach(function(pt) {
-      if (mode === 'libday' && pt.t < LIB_DAY) return;
-      var idx = dateMap[pt.t];
-      if (idx !== undefined) {
-        if (mode === 'libday' && baseVal) {
-          values[idx] = (pt.v / baseVal) * 100;
-        } else {
-          values[idx] = pt.v;
-        }
-      }
-    });
-
-    // Compute current pct change for label
-    var lastVal = null;
-    for (var i = values.length - 1; i >= 0; i--) { if (values[i] != null) { lastVal = values[i]; break; } }
-    var pctChange = lastVal != null ? lastVal - 100 : 0;
-
-    datasets.push({
-      label: name + ' (' + (pctChange >= 0 ? '+' : '') + pctChange.toFixed(1) + '%)',
-      data: values,
-      borderColor: asset.color,
-      borderWidth: 2,
-      pointRadius: 0,
-      tension: 0.3,
-      fill: false,
-      spanGaps: true,
-    });
-  });
-
-  if (!datasets.length) return;
-
-  destroyChart('crisis-assets');
-  var ctx = document.getElementById('chart-crisis-assets');
-  if (!ctx) return;
-  var baselineLabel = mode === 'libday' ? 'Apr 2 baseline (Liberation Day)' : 'Jan 1 baseline';
-  var yTitle = mode === 'libday' ? 'Apr 2, 2026 = 100' : 'Jan 1 2026 = 100';
-  charts['crisis-assets'] = new Chart(ctx.getContext('2d'), {
-    type: 'line',
-    data: { labels: refLabels, datasets: datasets },
-    options: {
-      interaction: { intersect: false, mode: 'index' },
-      scales: {
-        x: {
-          grid: { display: false },
-          ticks: {
-            maxTicksLimit: 8,
-            callback: function(val) {
-              try { return new Date(this.getLabelForValue(val)).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); } catch(e) { return ''; }
-            }
-          }
-        },
-        y: {
-          grid: { color: 'rgba(255,255,255,0.03)' },
-          title: { display: true, text: yTitle, color: '#666', font: { size: 10 } },
-          ticks: { callback: function(v) { return v.toFixed(0); } }
-        }
-      },
-      plugins: {
-        legend: { display: true, labels: { boxWidth: 10, padding: 10, color: '#888' } },
-        tooltip: {
-          callbacks: {
-            title: function(items) {
-              try { return new Date(items[0].label + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); } catch(e) { return items[0].label; }
-            },
-            label: function(ctx) {
-              if (ctx.parsed.y == null) return null;
-              var pct = ctx.parsed.y - 100;
-              return '  ' + ctx.dataset.label.split(' (')[0] + ': ' + ctx.parsed.y.toFixed(1) + ' (' + (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%)';
-            }
-          }
-        }
-      }
-    },
-    plugins: [{
-      id: 'baseline100',
-      afterDraw: function(chart) {
-        var yScale = chart.scales.y;
-        var xScale = chart.scales.x;
-        var c = chart.ctx;
-        var y = yScale.getPixelForValue(100);
-        c.save();
-        c.strokeStyle = 'rgba(255,255,255,0.25)';
-        c.lineWidth = 1;
-        c.setLineDash([4, 4]);
-        c.beginPath(); c.moveTo(xScale.left, y); c.lineTo(xScale.right, y); c.stroke();
-        c.setLineDash([]);
-        c.fillStyle = 'rgba(255,255,255,0.3)';
-        c.font = '9px JetBrains Mono, monospace';
-        c.fillText(baselineLabel, xScale.left + 4, y - 3);
-        c.restore();
-      }
-    }]
-  });
-
-  // Update legend cards with new pct values
-  var legendContainer = document.getElementById('crisis-asset-legend');
-  if (legendContainer) {
-    legendContainer.innerHTML = '';
-    assetNames.forEach(function(name) {
-      var asset = d.assets[name];
-      var div = document.createElement('div');
-      div.className = 'bg-[#0a0a0a] rounded-lg p-3 border border-[var(--card-border)] text-center';
-      var priceStr = '';
-      if (asset.price != null) {
-        var p = asset.price;
-        if (name === 'VIX') priceStr = fmt(p, 2);
-        else if (p >= 1000) priceStr = '$' + p.toLocaleString('en-US', {maximumFractionDigits: 0});
-        else if (p >= 100) priceStr = '$' + fmt(p, 2);
-        else priceStr = '$' + fmt(p, 4);
-      }
-      // Compute pct for this view
-      var pctLabel = '';
-      if (mode === 'libday') {
-        var sorted = asset.chart.slice().sort(function(a, b) { return a.t < b.t ? -1 : 1; });
-        var libPt = sorted.find(function(pt) { return pt.t === LIB_DAY; });
-        if (!libPt) libPt = sorted.slice().reverse().find(function(pt) { return pt.t <= LIB_DAY; });
-        var lastPt = sorted[sorted.length - 1];
-        if (libPt && lastPt) {
-          var chg = ((lastPt.v - libPt.v) / libPt.v) * 100;
-          pctLabel = (chg >= 0 ? '+' : '') + chg.toFixed(1) + '% since Apr 2';
-        }
-      } else {
-        pctLabel = (asset.ytd_pct >= 0 ? '+' : '') + fmt(asset.ytd_pct, 1) + '% YTD';
-      }
-      div.innerHTML =
-        '<div class="text-[10px] text-[var(--text2)] mono mb-1">' + name + '</div>' +
-        (priceStr ? '<div class="text-[11px] mono text-[var(--text2)] mb-1">' + priceStr + '</div>' : '') +
-        '<div class="text-lg font-bold mono" style="color:' + asset.color + '">' + pctLabel + '</div>';
-      legendContainer.appendChild(div);
-    });
-  }
-}
-
-// --- GOLD-SPX ROLLING CORRELATION ---
-function renderGoldSPXCorrelation() {
-  var d = DATA.crisisAssets;
-  if (!d || !d.assets) return;
-
-  var goldAsset = d.assets['Gold'];
-  var spxAsset = d.assets['S&P 500'];
-  if (!goldAsset || !goldAsset.chart || !spxAsset || !spxAsset.chart) return;
-
-  // Build date-indexed maps
-  var goldMap = {}, spxMap = {};
-  goldAsset.chart.forEach(function(pt) { goldMap[pt.t] = pt.v; });
-  spxAsset.chart.forEach(function(pt) { spxMap[pt.t] = pt.v; });
-
-  // Get sorted common dates
-  var commonDates = Object.keys(goldMap).filter(function(d) { return spxMap[d] != null; }).sort();
-  if (commonDates.length < 22) return;
-
-  // Compute daily returns
-  var goldRets = [], spxRets = [], retDates = [];
-  for (var i = 1; i < commonDates.length; i++) {
-    var prev = commonDates[i - 1], cur = commonDates[i];
-    var gPrev = goldMap[prev], gCur = goldMap[cur];
-    var sPrev = spxMap[prev], sCur = spxMap[cur];
-    if (gPrev && gCur && sPrev && sCur) {
-      goldRets.push((gCur - gPrev) / gPrev);
-      spxRets.push((sCur - sPrev) / sPrev);
-      retDates.push(cur);
-    }
-  }
-
-  // 20-day rolling Pearson correlation
-  var WINDOW = 20;
-  var corrDates = [], corrVals = [];
-  function pearson(x, y) {
-    var n = x.length;
-    var mx = x.reduce(function(a, b) { return a + b; }, 0) / n;
-    var my = y.reduce(function(a, b) { return a + b; }, 0) / n;
-    var num = 0, dx2 = 0, dy2 = 0;
-    for (var i = 0; i < n; i++) {
-      var dxi = x[i] - mx, dyi = y[i] - my;
-      num += dxi * dyi; dx2 += dxi * dxi; dy2 += dyi * dyi;
-    }
-    return (dx2 === 0 || dy2 === 0) ? 0 : num / Math.sqrt(dx2 * dy2);
-  }
-  for (var i = WINDOW - 1; i < retDates.length; i++) {
-    corrDates.push(retDates[i]);
-    corrVals.push(parseFloat(pearson(goldRets.slice(i - WINDOW + 1, i + 1), spxRets.slice(i - WINDOW + 1, i + 1)).toFixed(3)));
-  }
-
-  // Build context blurb
-  var latest = corrVals[corrVals.length - 1];
-  var blurbEl = document.getElementById('gold-spx-corr-blurb');
-  if (blurbEl) {
-    var latestStr = latest > 0 ? '+' + latest.toFixed(2) : latest.toFixed(2);
-    var sentiment = '';
-    if (latest > 0.4) sentiment = '⚠️ Gold is moving WITH stocks — correlation breakdown. In Liberation Day II, both fell together. Watch for this to normalize as gold resumes safe-haven role.';
-    else if (latest > 0.1) sentiment = 'Gold and stocks are loosely correlated. Moderate co-movement — not a clean hedge right now.';
-    else if (latest < -0.3) sentiment = '✅ Gold is acting as a true safe haven — negative correlation with stocks is historically bullish for gold in risk-off regimes.';
-    else sentiment = 'Gold is largely uncorrelated with equities — behaving as an independent asset.';
-    blurbEl.textContent = 'Current 20d correlation: ' + latestStr + '  ·  ' + sentiment;
-  }
-
-  // Expose for composite signal (called before renderCompositeSignal)
-  window._goldSPXCorr20d = latest;
-
-  // Color segments
-  var pointColors = corrVals.map(function(v) {
-    return v > 0.3 ? 'rgba(255,68,68,0.9)' : v < -0.3 ? 'rgba(0,255,136,0.9)' : 'rgba(255,215,0,0.7)';
-  });
-  var bgColors = corrVals.map(function(v) {
-    return v > 0.3 ? 'rgba(255,68,68,0.15)' : v < -0.3 ? 'rgba(0,255,136,0.15)' : 'rgba(255,215,0,0.1)';
-  });
-
-  destroyChart('gold-spx-corr');
-  var ctx = document.getElementById('chart-gold-spx-corr');
-  if (!ctx) return;
-  charts['gold-spx-corr'] = new Chart(ctx.getContext('2d'), {
-    type: 'line',
-    data: {
-      labels: corrDates,
-      datasets: [{
-        data: corrVals,
-        borderColor: corrVals.map(function(v) { return v > 0.3 ? '#ff4444' : v < -0.3 ? '#00ff88' : '#ffd700'; }),
-        segment: {
-          borderColor: function(ctx) {
-            var v = ctx.p1.parsed.y;
-            return v > 0.3 ? '#ff4444' : v < -0.3 ? '#00ff88' : '#ffd700';
-          }
-        },
-        borderWidth: 1.5,
-        pointRadius: 0,
-        fill: false,
-        tension: 0.2,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: function(ctx) { return 'Corr: ' + (ctx.parsed.y > 0 ? '+' : '') + ctx.parsed.y.toFixed(2); },
-            title: function(ctx) { return ctx[0].label; }
-          }
-        },
-        annotation: {
-          annotations: {
-            zeroLine: { type: 'line', scaleID: 'y', value: 0, borderColor: 'rgba(255,255,255,0.15)', borderWidth: 1 },
-            posZone: { type: 'box', yMin: 0.3, yMax: 1, backgroundColor: 'rgba(255,68,68,0.05)', borderWidth: 0, label: { display: true, content: 'Co-movement', color: 'rgba(255,68,68,0.5)', font: { size: 9, family: 'JetBrains Mono, monospace' }, position: { x: 'end', y: 'start' } } },
-            negZone: { type: 'box', yMin: -1, yMax: -0.3, backgroundColor: 'rgba(0,255,136,0.05)', borderWidth: 0, label: { display: true, content: 'Safe Haven', color: 'rgba(0,255,136,0.5)', font: { size: 9, family: 'JetBrains Mono, monospace' }, position: { x: 'end', y: 'end' } } }
-          }
-        }
-      },
-      scales: {
-        x: {
-          ticks: { color: '#555', font: { size: 9, family: 'JetBrains Mono, monospace' }, maxTicksLimit: 6 },
-          grid: { color: 'rgba(255,255,255,0.04)' }
-        },
-        y: {
-          min: -1, max: 1,
-          ticks: { color: '#555', font: { size: 9, family: 'JetBrains Mono, monospace' }, stepSize: 0.5 },
-          grid: { color: 'rgba(255,255,255,0.04)' }
-        }
-      }
-    }
-  });
 }
 
 // --- BANK TARGETS ---
@@ -7344,26 +6171,9 @@ function renderHistorical() {
     });
   }
 
-  // Seasonality chart — prefer historical.seasonal_monthly (22yr), fallback to seasonality.json (10yr)
+  // Seasonality chart
   try {
     var smData = d.seasonal_monthly;
-    // If historical data unavailable, use standalone seasonality.json
-    var seasonalityExtra = DATA.seasonality; // {monthly_avg:[{month:1,name:'Jan',avg_return,std_dev,years_of_data},...]}
-    if ((!smData || !smData.length) && seasonalityExtra && seasonalityExtra.monthly_avg && seasonalityExtra.monthly_avg.length) {
-      var monthNames2 = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      smData = seasonalityExtra.monthly_avg.map(function(item) {
-        return { month: monthNames2[item.month - 1] || item.name, avg_return: item.avg_return, positive_pct: null, n: item.years_of_data, std_dev: item.std_dev };
-      });
-    }
-    // Build std_dev lookup from seasonality.json if available (for tooltip enrichment)
-    var stdDevMap = {};
-    if (seasonalityExtra && seasonalityExtra.monthly_avg) {
-      var mnArr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      seasonalityExtra.monthly_avg.forEach(function(item) {
-        var mn = mnArr[item.month - 1] || item.name;
-        stdDevMap[mn] = item.std_dev;
-      });
-    }
     if (smData && smData.length) {
       destroyChart('seasonality');
       var ctxS = document.getElementById('chart-seasonality');
@@ -7420,14 +6230,10 @@ function renderHistorical() {
                   label: function(ctx) {
                     var s = smData[ctx.dataIndex];
                     var isCurrent = sLabels[ctx.dataIndex] === currentMonthShort;
-                    var lines = [
+                    return [
                       (isCurrent ? '★ Current month — ' : '') + (ctx.parsed.y >= 0 ? '+' : '') + fmt(ctx.parsed.y, 2) + '% avg return',
+                      s.positive_pct + '% of years positive (' + s.n + ' years)',
                     ];
-                    if (s.positive_pct != null) lines.push(s.positive_pct + '% of years positive (' + s.n + ' years)');
-                    else if (s.n) lines.push(s.n + ' years of data');
-                    var sd = stdDevMap[sLabels[ctx.dataIndex]];
-                    if (sd != null) lines.push('Std dev: ±' + fmt(sd, 2) + '%');
-                    return lines;
                   }
                 }
               },
@@ -7448,11 +6254,7 @@ function renderHistorical() {
         }
         if (curStat) {
           var sign = curStat.avg_return >= 0 ? '+' : '';
-          var sdNote = stdDevMap[currentMonthShort] != null ? ' · σ <span style="color:#888">±' + fmt(stdDevMap[currentMonthShort], 2) + '%</span>' : '';
-          var positiveNote = curStat.positive_pct != null
-            ? ' — positive ' + curStat.positive_pct + '% of years (' + curStat.n + ' yrs)'
-            : (curStat.n ? ' — ' + curStat.n + ' yrs data' : '');
-          noteEl.innerHTML = '<span style="color:#ffd700">★ ' + currentMonthShort + '</span>: avg <span style="color:' + (curStat.avg_return >= 0 ? 'var(--green)' : 'var(--red)') + '">' + sign + curStat.avg_return.toFixed(2) + '%</span>' + positiveNote + sdNote;
+          noteEl.innerHTML = '<span style="color:#ffd700">★ ' + currentMonthShort + '</span>: avg <span style="color:' + (curStat.avg_return >= 0 ? 'var(--green)' : 'var(--red)') + '">' + sign + curStat.avg_return.toFixed(2) + '%</span> — positive ' + curStat.positive_pct + '% of years (' + curStat.n + ' yrs data)';
         }
       }
     }
@@ -7537,162 +6339,6 @@ function renderHistorical() {
     }
   } catch(e) { console.warn('Real gold chart error:', e); }
 
-  // Daily Returns Heatmap
-  renderDailyHeatmap();
-
-  // $10K Purchasing Power Chart
-  try {
-    var ppLabels = [];
-    var ppGold = [];
-    var ppSPX = [];
-    var ppCash = [];
-
-    // Gold year-start prices from historical timeline (annual avg, first occurrence of each year)
-    var goldByYear = {};
-    (d.timeline_chart || []).forEach(function(p) {
-      var yr = p.t.substring(0, 4);
-      if (parseInt(yr) >= 2000 && !goldByYear[yr]) goldByYear[yr] = p.v;
-    });
-
-    // S&P 500 annual total return estimates (price return + ~2% dividend yield)
-    // Using actual approximate historical returns by year
-    var spxReturns = {
-      '2000': -0.091, '2001': -0.119, '2002': -0.221, '2003': 0.287, '2004': 0.109,
-      '2005': 0.048,  '2006': 0.158,  '2007': 0.055,  '2008': -0.370,'2009': 0.265,
-      '2010': 0.151,  '2011': 0.021,  '2012': 0.160,  '2013': 0.323, '2014': 0.137,
-      '2015': 0.014,  '2016': 0.120,  '2017': 0.218,  '2018': -0.044,'2019': 0.315,
-      '2020': 0.184,  '2021': 0.287,  '2022': -0.183, '2023': 0.264, '2024': 0.250,
-      '2025': -0.04,  '2026': -0.02
-    };
-
-    // CPI cumulative multiplier from 2000 (approximate)
-    var cpiByYear = {
-      '2000': 1.000, '2001': 0.972, '2002': 0.953, '2003': 0.932, '2004': 0.908,
-      '2005': 0.881, '2006': 0.854, '2007': 0.827, '2008': 0.798, '2009': 0.795,
-      '2010': 0.784, '2011': 0.758, '2012': 0.740, '2013': 0.726, '2014': 0.714,
-      '2015': 0.714, '2016': 0.706, '2017': 0.694, '2018': 0.674, '2019': 0.662,
-      '2020': 0.656, '2021': 0.622, '2022': 0.569, '2023': 0.541, '2024': 0.525,
-      '2025': 0.511, '2026': 0.500
-    };
-
-    var goldBase = goldByYear['2000'] || 278.3;
-    var spxValue = 10000;
-    var years2000on = Object.keys(goldByYear).sort();
-
-    years2000on.forEach(function(yr, i) {
-      ppLabels.push(yr);
-      // Gold value: 10000 * (currentPrice / basePrice)
-      var goldVal = 10000 * (goldByYear[yr] / goldBase);
-      ppGold.push(Math.round(goldVal));
-
-      // SPX: apply that year's return
-      if (i > 0) {
-        var ret = spxReturns[yr] !== undefined ? spxReturns[yr] : 0.07;
-        spxValue = spxValue * (1 + ret);
-      }
-      ppSPX.push(Math.round(spxValue));
-
-      // Cash: real purchasing power
-      var cashVal = 10000 * (cpiByYear[yr] || 0.5);
-      ppCash.push(Math.round(cashVal));
-    });
-
-    // Final values
-    var finalGold = ppGold[ppGold.length - 1];
-    var finalSPX  = ppSPX[ppSPX.length - 1];
-    var finalCash = ppCash[ppCash.length - 1];
-
-    destroyChart('purchasing-power');
-    var ctxPP = document.getElementById('chart-purchasing-power');
-    if (ctxPP) {
-      charts['purchasing-power'] = new Chart(ctxPP.getContext('2d'), {
-        type: 'line',
-        data: {
-          labels: ppLabels,
-          datasets: [
-            {
-              label: 'Gold',
-              data: ppGold,
-              borderColor: '#ffd700',
-              backgroundColor: 'rgba(255,215,0,0.08)',
-              borderWidth: 2.5,
-              pointRadius: 0,
-              fill: true,
-              tension: 0.3,
-            },
-            {
-              label: 'S&P 500',
-              data: ppSPX,
-              borderColor: '#4488ff',
-              backgroundColor: 'rgba(68,136,255,0.06)',
-              borderWidth: 2,
-              pointRadius: 0,
-              fill: true,
-              tension: 0.3,
-            },
-            {
-              label: 'Cash (real)',
-              data: ppCash,
-              borderColor: '#888',
-              backgroundColor: 'rgba(136,136,136,0.04)',
-              borderWidth: 1.5,
-              borderDash: [4, 3],
-              pointRadius: 0,
-              fill: true,
-              tension: 0.3,
-            }
-          ]
-        },
-        options: {
-          interaction: { intersect: false, mode: 'index' },
-          scales: {
-            x: {
-              grid: { display: false },
-              ticks: { maxTicksLimit: 14, font: { size: 10 } }
-            },
-            y: {
-              grid: { color: 'rgba(255,255,255,0.03)' },
-              ticks: { callback: function(v) { return '$' + fmtCompact(v); } }
-            }
-          },
-          plugins: {
-            legend: {
-              display: true,
-              labels: { boxWidth: 10, padding: 14, color: '#888', font: { size: 10 } }
-            },
-            tooltip: {
-              callbacks: {
-                label: function(ctx) {
-                  return ctx.dataset.label + ': $' + fmtInt(ctx.parsed.y);
-                }
-              }
-            }
-          }
-        }
-      });
-    }
-
-    // Summary cards
-    var ppSummary = document.getElementById('purchasing-power-summary');
-    if (ppSummary) {
-      var items = [
-        { label: 'Gold', val: finalGold, color: '#ffd700', mult: (finalGold / 10000).toFixed(1) },
-        { label: 'S&P 500', val: finalSPX, color: '#4488ff', mult: (finalSPX / 10000).toFixed(1) },
-        { label: 'Cash (real)', val: finalCash, color: '#888', mult: (finalCash / 10000).toFixed(2) }
-      ];
-      ppSummary.innerHTML = items.map(function(it) {
-        return '<div class="bg-[#0a0a0a] rounded-lg p-3 border border-[var(--card-border)] text-center">' +
-          '<div class="text-[10px] text-[var(--text2)] uppercase mono mb-1" style="color:' + it.color + ';">' + it.label + '</div>' +
-          '<div class="text-lg font-bold mono" style="color:' + it.color + ';">$' + fmtInt(it.val) + '</div>' +
-          '<div class="text-[10px] text-[var(--text2)] mono mt-1">' + it.mult + 'x return</div>' +
-        '</div>';
-      }).join('');
-    }
-  } catch(e) { console.warn('Purchasing power chart error:', e); }
-
-  // Drawdown history table
-  renderDrawdowns(d);
-
   // Event cards
   var evtContainer = document.getElementById('event-cards');
   evtContainer.innerHTML = '';
@@ -7710,325 +6356,6 @@ function renderHistorical() {
 }
 
 // =====================================================================
-// HISTORICAL DRAWDOWN TABLE
-// =====================================================================
-function renderDrawdowns(d) {
-  var container = document.getElementById('drawdown-table');
-  if (!container) return;
-
-  var history = d && d.drawdown_history;
-  if (!history || !history.length) {
-    container.innerHTML = '<div class="text-[10px] mono" style="color:#444;padding:8px 0;">No drawdown data available.</div>';
-    return;
-  }
-
-  // Current price for detecting active drawdown
-  var currentPrice = DATA.price && DATA.price.price;
-  var currentATH = DATA.price && DATA.price.ath;
-  var currentATHDate = DATA.price && DATA.price.ath_date;
-  var currentPctBelowATH = DATA.price && DATA.price.pct_below_ath;
-
-  // Build HTML table
-  var html = '<table style="width:100%;border-collapse:collapse;font-family:\'JetBrains Mono\',monospace;font-size:10px;">';
-  html += '<thead><tr style="color:var(--text2);text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(255,255,255,0.08);">';
-  html += '<th style="text-align:left;padding:6px 8px;font-weight:400;">Peak Date</th>';
-  html += '<th style="text-align:left;padding:6px 8px;font-weight:400;">Trough Date</th>';
-  html += '<th style="text-align:right;padding:6px 8px;font-weight:400;">Max DD%</th>';
-  html += '<th style="text-align:right;padding:6px 8px;font-weight:400;">Days Down</th>';
-  html += '<th style="text-align:right;padding:6px 8px;font-weight:400;">Days Recovery</th>';
-  html += '<th style="text-align:left;padding:6px 8px;font-weight:400;">Status</th>';
-  html += '</tr></thead><tbody>';
-
-  // Sort by magnitude (worst first)
-  var sorted = history.slice().sort(function(a, b) { return a.drawdown_pct - b.drawdown_pct; });
-
-  // Check if current cycle matches last ATH
-  var isCurrent = false;
-  var currentRow = null;
-  if (currentATHDate && currentPctBelowATH > 1) {
-    // Find if the last drawdown in history matches the current ATH date
-    var latestDD = history[history.length - 1];
-    if (latestDD && latestDD.peak_date === currentATHDate && !latestDD.recovered) {
-      isCurrent = true;
-      currentRow = latestDD;
-    }
-  }
-
-  sorted.forEach(function(dd) {
-    var isCurrentDD = (currentRow && dd.peak_date === currentRow.peak_date);
-    var rowStyle = isCurrentDD
-      ? 'background:rgba(255,215,0,0.06);border-left:3px solid #ffd700;'
-      : 'border-left:3px solid transparent;';
-
-    var ddColor = dd.drawdown_pct <= -30 ? '#ff4444' : dd.drawdown_pct <= -20 ? '#ff8844' : dd.drawdown_pct <= -15 ? '#ffaa44' : '#ffd700';
-    var ddPct = (dd.drawdown_pct > 0 ? '+' : '') + dd.drawdown_pct.toFixed(1) + '%';
-
-    var daysDown = dd.days_to_trough != null ? dd.days_to_trough : '--';
-    var daysRec = dd.days_to_recovery != null ? dd.days_to_recovery : '--';
-
-    var status;
-    if (isCurrentDD) {
-      var daysElapsed = dd.days_to_trough || '?';
-      status = '<span style="color:#ffd700;font-weight:bold;">● ACTIVE ' + (currentPctBelowATH != null ? '(' + currentPctBelowATH.toFixed(1) + '% below ATH)' : '') + '</span>';
-    } else if (dd.recovered) {
-      status = '<span style="color:#00ff88;">✓ Recovered</span>';
-    } else {
-      status = '<span style="color:#888;">Ongoing</span>';
-    }
-
-    html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.03);' + rowStyle + '">';
-    html += '<td style="padding:6px 8px;color:var(--text2);">' + (dd.peak_date || '--') + '</td>';
-    html += '<td style="padding:6px 8px;color:var(--text2);">' + (dd.trough_date || '--') + '</td>';
-    html += '<td style="padding:6px 8px;text-align:right;color:' + ddColor + ';font-weight:bold;">' + ddPct + '</td>';
-    html += '<td style="padding:6px 8px;text-align:right;color:var(--text);">' + daysDown + '</td>';
-    html += '<td style="padding:6px 8px;text-align:right;color:var(--text);">' + (daysRec === '--' ? '<span style="color:#555;">--</span>' : daysRec) + '</td>';
-    html += '<td style="padding:6px 8px;">' + status + '</td>';
-    html += '</tr>';
-  });
-
-  html += '</tbody>';
-
-  // Summary stats row
-  var recovered = history.filter(function(d) { return d.recovered; });
-  if (recovered.length > 0) {
-    var avgDD = recovered.reduce(function(s, d) { return s + d.drawdown_pct; }, 0) / recovered.length;
-    var avgDaysDown = recovered.reduce(function(s, d) { return s + (d.days_to_trough || 0); }, 0) / recovered.length;
-    var avgDaysRec = recovered.reduce(function(s, d) { return s + (d.days_to_recovery || 0); }, 0) / recovered.length;
-    html += '<tfoot><tr style="border-top:1px solid rgba(255,255,255,0.1);color:var(--text2);font-style:italic;">';
-    html += '<td colspan="2" style="padding:8px 8px;font-size:9px;">Avg (recovered only, n=' + recovered.length + ')</td>';
-    html += '<td style="padding:8px 8px;text-align:right;font-size:9px;">' + avgDD.toFixed(1) + '%</td>';
-    html += '<td style="padding:8px 8px;text-align:right;font-size:9px;">' + Math.round(avgDaysDown) + 'd</td>';
-    html += '<td style="padding:8px 8px;text-align:right;font-size:9px;">' + Math.round(avgDaysRec) + 'd</td>';
-    html += '<td></td></tr></tfoot>';
-  }
-
-  html += '</table>';
-  container.innerHTML = html;
-}
-
-// =====================================================================
-// DAILY RETURNS HEATMAP
-// =====================================================================
-function renderDailyHeatmap() {
-  var container = document.getElementById('daily-heatmap');
-  if (!container) return;
-
-  // Get 1Y chart data from price.json
-  var priceData = DATA.price;
-  if (!priceData || !priceData.charts || !priceData.charts['1y'] || !priceData.charts['1y'].length) {
-    container.innerHTML = '<div class="text-[10px] mono" style="color:#444;padding:8px 0;">No chart data available.</div>';
-    return;
-  }
-
-  var chart = priceData.charts['1y'];
-
-  // Compute daily returns
-  var days = [];
-  for (var i = 1; i < chart.length; i++) {
-    var prev = chart[i - 1].v;
-    var curr = chart[i].v;
-    if (prev && curr) {
-      var ret = ((curr - prev) / prev) * 100;
-      days.push({ t: chart[i].t, v: round2(ret), price: curr });
-    }
-  }
-
-  function round2(n) { return Math.round(n * 100) / 100; }
-
-  // Group by month
-  var monthMap = {};
-  var monthOrder = [];
-  days.forEach(function(d) {
-    var dt = new Date(d.t + 'T12:00:00');
-    var key = dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0');
-    if (!monthMap[key]) {
-      monthMap[key] = [];
-      monthOrder.push(key);
-    }
-    monthMap[key].push({ ...d, dow: dt.getDay(), dom: dt.getDate() });
-  });
-
-  // Color based on return magnitude
-  function heatColor(ret) {
-    if (ret > 2.0)  return 'rgba(0,255,136,0.95)';
-    if (ret > 1.0)  return 'rgba(0,255,136,0.70)';
-    if (ret > 0.3)  return 'rgba(0,255,136,0.45)';
-    if (ret > -0.3) return 'rgba(136,136,136,0.30)';
-    if (ret > -1.0) return 'rgba(255,68,68,0.45)';
-    if (ret > -2.0) return 'rgba(255,68,68,0.70)';
-    return 'rgba(255,68,68,0.95)';
-  }
-
-  var MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var DOW_LABELS = ['S','M','T','W','T','F','S'];
-
-  var html = '<div style="display:flex;flex-wrap:wrap;gap:16px;">';
-
-  monthOrder.forEach(function(key) {
-    var parts = key.split('-');
-    var year = parseInt(parts[0]);
-    var month = parseInt(parts[1]) - 1;
-    var monthDays = monthMap[key];
-
-    // Build a date→return lookup
-    var lookup = {};
-    monthDays.forEach(function(d) { lookup[d.dom] = d; });
-
-    // First day of month weekday offset
-    var firstDow = new Date(year, month, 1).getDay();
-    var daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    html += '<div style="min-width:120px;">';
-    html += '<div style="font-size:10px;font-family:JetBrains Mono,monospace;color:#ffd700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;">' + MONTH_NAMES[month] + ' ' + year + '</div>';
-    // DOW header
-    html += '<div style="display:grid;grid-template-columns:repeat(7,14px);gap:2px;margin-bottom:2px;">';
-    DOW_LABELS.forEach(function(l) {
-      html += '<div style="font-size:8px;font-family:JetBrains Mono,monospace;color:#444;text-align:center;">' + l + '</div>';
-    });
-    html += '</div>';
-    // Calendar grid
-    html += '<div style="display:grid;grid-template-columns:repeat(7,14px);gap:2px;">';
-    // Empty cells before first day
-    for (var e = 0; e < firstDow; e++) {
-      html += '<div style="width:14px;height:14px;"></div>';
-    }
-    for (var dom = 1; dom <= daysInMonth; dom++) {
-      var d = lookup[dom];
-      if (d) {
-        var bg = heatColor(d.v);
-        var sign = d.v >= 0 ? '+' : '';
-        var title = MONTH_NAMES[month] + ' ' + dom + ': ' + sign + d.v.toFixed(2) + '% ($' + Math.round(d.price).toLocaleString() + ')';
-        html += '<div title="' + title + '" style="width:14px;height:14px;border-radius:2px;background:' + bg + ';cursor:default;"></div>';
-      } else {
-        // Weekend or no data
-        html += '<div style="width:14px;height:14px;border-radius:2px;background:rgba(255,255,255,0.03);"></div>';
-      }
-    }
-    html += '</div>';
-    html += '</div>';
-  });
-
-  html += '</div>';
-
-  // Stats row
-  var upDays = days.filter(function(d) { return d.v > 0; }).length;
-  var downDays = days.filter(function(d) { return d.v < 0; }).length;
-  var avgUp = upDays > 0 ? days.filter(function(d) { return d.v > 0; }).reduce(function(s, d) { return s + d.v; }, 0) / upDays : 0;
-  var avgDown = downDays > 0 ? days.filter(function(d) { return d.v < 0; }).reduce(function(s, d) { return s + d.v; }, 0) / downDays : 0;
-  var bigUp = days.filter(function(d) { return d.v > 1; }).length;
-  var bigDown = days.filter(function(d) { return d.v < -1; }).length;
-
-  html += '<div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;font-size:9px;font-family:JetBrains Mono,monospace;color:#666;">';
-  html += '<span>📅 ' + days.length + ' trading days</span>';
-  html += '<span style="color:#00ff88;">▲ ' + upDays + ' up (' + Math.round(upDays / days.length * 100) + '%) avg +' + avgUp.toFixed(2) + '%</span>';
-  html += '<span style="color:#ff4444;">▼ ' + downDays + ' down avg ' + avgDown.toFixed(2) + '%</span>';
-  html += '<span style="color:#00ff88;">⚡ ' + bigUp + ' days &gt;+1%</span>';
-  html += '<span style="color:#ff4444;">⚡ ' + bigDown + ' days &lt;-1%</span>';
-  html += '</div>';
-
-  container.innerHTML = html;
-}
-
-// =====================================================================
-// =====================================================================
-// MARKET STATUS INDICATOR
-// =====================================================================
-(function updateMarketStatus() {
-  var now = new Date();
-  // Helper: get current time in a timezone as { h, m, dow }
-  function tzTime(tz) {
-    var s = now.toLocaleString('en-US', { timeZone: tz, hour12: false, hour: '2-digit', minute: '2-digit', weekday: 'short' });
-    // Parse "Mon, 14:30" format
-    var parts = s.split(', ');
-    var day = parts[0];
-    var tm = (parts[1] || '').split(':');
-    var dow = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(day);
-    return { h: parseInt(tm[0]) || 0, m: parseInt(tm[1]) || 0, dow: dow };
-  }
-  function inRange(t, openH, openM, closeH, closeM) {
-    var mins = t.h * 60 + t.m;
-    return mins >= openH * 60 + openM && mins < closeH * 60 + closeM;
-  }
-  function isWeekday(t) { return t.dow >= 1 && t.dow <= 5; }
-
-  var sessions = [
-    {
-      id: 'comex',
-      label: 'COMEX Floor',
-      tz: 'America/New_York',
-      check: function(t) {
-        if (!isWeekday(t)) return { status: 'closed', note: 'Weekend' };
-        if (inRange(t, 8, 20, 13, 30)) return { status: 'open', note: '8:20a–1:30p ET' };
-        if (inRange(t, 7, 50, 8, 20)) return { status: 'pre-market', note: 'Pre-open' };
-        var mins = t.h * 60 + t.m;
-        if (mins < 8 * 60 + 20) return { status: 'closed', note: 'Opens ' + formatCountdown(8, 20, t) };
-        return { status: 'closed', note: 'Closed' };
-      }
-    },
-    {
-      id: 'lbma',
-      label: 'LBMA',
-      tz: 'Europe/London',
-      check: function(t) {
-        if (!isWeekday(t)) return { status: 'closed', note: 'Weekend' };
-        if (inRange(t, 10, 30, 15, 0)) return { status: 'open', note: '10:30a–3:00p GMT' };
-        var mins = t.h * 60 + t.m;
-        if (mins < 10 * 60 + 30) return { status: 'closed', note: 'Opens ' + formatCountdown(10, 30, t) };
-        return { status: 'closed', note: 'Closed' };
-      }
-    },
-    {
-      id: 'shanghai',
-      label: 'Shanghai (SGE)',
-      tz: 'Asia/Shanghai',
-      check: function(t) {
-        if (!isWeekday(t)) return { status: 'closed', note: 'Weekend' };
-        // SGE: morning 9:00-11:30, afternoon 13:30-15:30, night 21:00-2:30 next day
-        if (inRange(t, 9, 0, 11, 30) || inRange(t, 13, 30, 15, 30) || t.h >= 21) return { status: 'open', note: 'Open' };
-        if (inRange(t, 0, 0, 2, 30)) return { status: 'open', note: 'Night session' };
-        return { status: 'closed', note: 'Closed' };
-      }
-    },
-    {
-      id: 'globex',
-      label: 'CME Globex',
-      tz: 'America/New_York',
-      check: function(t) {
-        // Globex: Sun 6pm – Fri 5pm ET (nearly 24h, closed Sat + Fri 5pm-Sun 6pm)
-        if (t.dow === 6) return { status: 'closed', note: 'Weekend' }; // Saturday
-        if (t.dow === 0 && t.h < 18) return { status: 'closed', note: 'Opens Sun 6pm ET' };
-        if (t.dow === 5 && t.h >= 17) return { status: 'closed', note: 'Weekend' };
-        // 45-min daily halt 5:00-5:45pm ET
-        if (inRange(t, 17, 0, 17, 45)) return { status: 'pre-market', note: 'Daily halt' };
-        return { status: 'open', note: '24h (Sun-Fri)' };
-      }
-    }
-  ];
-
-  function formatCountdown(targetH, targetM, t) {
-    var diff = (targetH * 60 + targetM) - (t.h * 60 + t.m);
-    if (diff <= 0) return '';
-    var hh = Math.floor(diff / 60), mm = diff % 60;
-    return hh > 0 ? 'in ' + hh + 'h' + (mm > 0 ? mm + 'm' : '') : 'in ' + mm + 'm';
-  }
-
-  sessions.forEach(function(sess) {
-    var t = tzTime(sess.tz);
-    var result = sess.check(t);
-    var dot = document.getElementById('ms-' + sess.id + '-dot');
-    var hours = document.getElementById('ms-' + sess.id + '-hours');
-    if (dot) {
-      dot.className = 'market-dot ' + result.status;
-    }
-    if (hours) {
-      hours.textContent = result.note;
-    }
-  });
-
-  // Update every 60 seconds
-  setTimeout(updateMarketStatus, 60000);
-})();
-
 // AUTO-REFRESH (reload all JSON every 5 minutes)
 // =====================================================================
 
@@ -8037,129 +6364,10 @@ setInterval(function() {
 }, 300000);
 
 // =====================================================================
-// COLLAPSIBLE SECTIONS
-// =====================================================================
-
-// true = collapsed by default, false = expanded by default
-var SECTION_COLLAPSE_DEFAULTS = {
-  'sec-composite':      false,  // Market Signal — primary, always visible
-  'sec-price':          false,  // Price Command Center — primary
-  'sec-lbma':           true,   // LBMA Fix — institutional detail
-  'sec-what-to-watch':  false,  // What to Watch — always visible (primary)
-  'sec-ratios':         false,  // Key Ratios — primary
-  'sec-cb':             false,  // Central Bank Tracker — important
-  'sec-gold-flows':     true,   // Global Gold Flows — educational/decorative
-  'sec-etf':            true,   // ETF Flows — secondary
-  'sec-analyst-targets':true,   // Analyst Targets — secondary
-  'sec-tariffs':        false,  // Trade War / Tariff — currently relevant
-  'sec-cot':            true,   // COT Positioning — advanced
-  'sec-comex-vault':    true,   // COMEX Vault — advanced
-  'sec-lease-rate':     true,   // Gold Lease Rate — advanced
-  'sec-news':           false,  // News Feed — primary
-  'sec-macro':          false,  // Macro Context — primary
-  'sec-miners':         true,   // Mining Snapshot — secondary
-  'sec-crisis':         false,  // Crisis Asset Performance — useful YTD chart
-  'sec-bank-targets':   true,   // Wall Street Targets — overlaps analyst-targets
-  'sec-portfolio-calc': true,   // Gold Portfolio Calculator — interactive tool
-  'sec-historical':     true,   // Historical Context — reference
-};
-
-// Sections whose sibling elements must also toggle
-var SECTION_COMPANIONS = {
-  'sec-ratios': ['ratio-cards-grid'],
-};
-
-function initCollapsibleSections() {
-  Object.keys(SECTION_COLLAPSE_DEFAULTS).forEach(function(id) {
-    var section = document.getElementById(id);
-    if (!section) return;
-    var titleEl = section.querySelector('.section-title');
-    if (!titleEl) return;
-
-    // Saved state: '1' = collapsed, '0' = expanded
-    var saved = localStorage.getItem('collapse-' + id);
-    var isCollapsed = saved !== null ? (saved === '1') : SECTION_COLLAPSE_DEFAULTS[id];
-
-    // Mark title as collapsible
-    titleEl.classList.add('section-collapsible');
-
-    // Add chevron indicator
-    var chevron = document.createElement('span');
-    chevron.className = 'section-chevron';
-    chevron.id = 'chev-' + id;
-    chevron.textContent = isCollapsed ? '▶' : '▼';
-    titleEl.appendChild(chevron);
-
-    // Wrap everything after the title into a section-body div
-    var body = document.createElement('div');
-    body.id = 'body-' + id;
-    var siblings = [];
-    var next = titleEl.nextElementSibling;
-    while (next) { siblings.push(next); next = next.nextElementSibling; }
-    siblings.forEach(function(s) { body.appendChild(s); });
-    section.appendChild(body);
-
-    // Apply initial collapsed state
-    if (isCollapsed) {
-      body.style.display = 'none';
-      (SECTION_COMPANIONS[id] || []).forEach(function(cid) {
-        var c = document.getElementById(cid);
-        if (c) c.style.display = 'none';
-      });
-    }
-
-    // Click to toggle (ignore clicks on info tooltips)
-    titleEl.addEventListener('click', function(e) {
-      if (e.target.classList.contains('info-tooltip') || (e.target.closest && e.target.closest('.info-tooltip'))) return;
-      toggleSection(id);
-    });
-  });
-}
-
-function toggleSection(id) {
-  var body = document.getElementById('body-' + id);
-  var chevron = document.getElementById('chev-' + id);
-  if (!body) return;
-
-  var expanding = body.style.display === 'none';
-
-  if (expanding) {
-    body.style.display = '';
-    if (chevron) chevron.textContent = '▼';
-    localStorage.setItem('collapse-' + id, '0');
-    (SECTION_COMPANIONS[id] || []).forEach(function(cid) {
-      var c = document.getElementById(cid);
-      if (c) c.style.display = '';
-    });
-    // Resize any Chart.js instances that were hidden
-    setTimeout(function() {
-      [body].concat((SECTION_COMPANIONS[id] || []).map(function(cid) {
-        return document.getElementById(cid);
-      })).forEach(function(el) {
-        if (!el) return;
-        el.querySelectorAll('canvas').forEach(function(canvas) {
-          if (charts[canvas.id]) charts[canvas.id].resize();
-        });
-      });
-    }, 50);
-  } else {
-    body.style.display = 'none';
-    if (chevron) chevron.textContent = '▶';
-    localStorage.setItem('collapse-' + id, '1');
-    (SECTION_COMPANIONS[id] || []).forEach(function(cid) {
-      var c = document.getElementById(cid);
-      if (c) c.style.display = 'none';
-    });
-  }
-}
-
-// =====================================================================
 // INIT
 // =====================================================================
 
 loadAllData();
-// Run collapsible init after data has rendered (charts need to exist first)
-setTimeout(initCollapsibleSections, 800);
 </script>
 
 <!-- ===== MOBILE BOTTOM NAVIGATION ===== -->
@@ -8186,21 +6394,6 @@ setTimeout(initCollapsibleSections, 800);
 <!-- ===== MOBILE JAVASCRIPT ===== -->
 <script>
 // ---- 1. Header expand / collapse (mobile only) ----
-function shareGoldPrice() {
-  var price = DATA.gold && DATA.gold.price ? DATA.gold.price : null;
-  var change = DATA.gold && DATA.gold.change_pct != null ? DATA.gold.change_pct : null;
-  var url = 'https://sham00.github.io/gold-situation-room/';
-  var text;
-  if (price) {
-    var arrow = change != null ? (change >= 0 ? '📈 +' + change.toFixed(2) + '%' : '📉 ' + change.toFixed(2) + '%') : '';
-    text = '🥇 Gold is at $' + price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '/oz ' + arrow + '\n\nTracking the full situation: ' + url + '\n\n#Gold #Commodities #SafeHaven #XAUUSD';
-  } else {
-    text = '🥇 Gold Situation Room — Real-time gold price intelligence dashboard\n\n' + url + '\n\n#Gold #XAUUSD #Commodities';
-  }
-  var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
-  window.open(twitterUrl, '_blank', 'width=560,height=400,noopener,noreferrer');
-}
-
 function toggleHeaderExtras() {
   var btn = document.getElementById('header-expand-btn');
   var extras = document.getElementById('header-extras');
@@ -8478,50 +6671,8 @@ document.addEventListener('keydown', function(e) {
         display.style.display = 'none';
       }
     }
-    // Update preset button labels with actual prices
-    updateAlertPresetLabels();
     var modal = document.getElementById('price-alert-modal');
     if (modal) modal.classList.add('open');
-  };
-
-  function updateAlertPresetLabels() {
-    var p = currentGoldPrice;
-    var price = DATA.price;
-    if (!p || !price) return;
-    var fmtK = function(v) { return v >= 1000 ? '$' + (v/1000).toFixed(1) + 'k' : '$' + Math.round(v); };
-    // Fib resistance
-    var fibRes = price.fib_levels && price.fib_levels.nearest_resistance ? price.fib_levels.nearest_resistance.price : null;
-    var fibSup = price.fib_levels && price.fib_levels.nearest_support ? price.fib_levels.nearest_support.price : null;
-    var ma200 = price.ma200 || null;
-    var ath = price.ath || null;
-    var el;
-    el = document.getElementById('preset-fib-res');
-    if (el && fibRes) el.textContent = 'Fib R ' + fmtK(fibRes);
-    el = document.getElementById('preset-ath');
-    if (el && ath) el.textContent = 'ATH ' + fmtK(ath);
-    el = document.getElementById('preset-fib-sup');
-    if (el && fibSup) el.textContent = 'Fib S ' + fmtK(fibSup);
-    el = document.getElementById('preset-ma200');
-    if (el && ma200) el.textContent = 'MA200 ' + fmtK(ma200);
-  }
-
-  window.setAlertPreset = function(type, preset) {
-    var p = currentGoldPrice;
-    var price = DATA.price;
-    if (!p) return;
-    var val = null;
-    if (preset === '+5') val = Math.round(p * 1.05 / 10) * 10;
-    else if (preset === '+10') val = Math.round(p * 1.10 / 10) * 10;
-    else if (preset === 'fib-res') val = price && price.fib_levels && price.fib_levels.nearest_resistance ? Math.round(price.fib_levels.nearest_resistance.price / 10) * 10 : null;
-    else if (preset === 'ath') val = price && price.ath ? Math.round(price.ath / 10) * 10 : null;
-    else if (preset === '-5') val = Math.round(p * 0.95 / 10) * 10;
-    else if (preset === '-10') val = Math.round(p * 0.90 / 10) * 10;
-    else if (preset === 'fib-sup') val = price && price.fib_levels && price.fib_levels.nearest_support ? Math.round(price.fib_levels.nearest_support.price / 10) * 10 : null;
-    else if (preset === 'ma200') val = price && price.ma200 ? Math.round(price.ma200 / 10) * 10 : null;
-    if (val) {
-      var input = document.getElementById('alert-' + type);
-      if (input) { input.value = val; input.focus(); }
-    }
   };
 
   window.closeAlertModal = function() {
@@ -8565,195 +6716,6 @@ document.addEventListener('keydown', function(e) {
 })();
 </script>
 <!-- ===== END PRICE ALERT SYSTEM ===== -->
-
-<!-- ===== GOLD PORTFOLIO CALCULATOR ===== -->
-<script>
-(function() {
-  var _calcMode = 'dollar';
-  var _calcPremium = 0;
-
-  window.setCalcMode = function(mode) {
-    _calcMode = mode;
-    var btnDollar = document.getElementById('calc-mode-dollar');
-    var btnOz = document.getElementById('calc-mode-oz');
-    var ozRow = document.getElementById('calc-oz-input-row');
-    var allocRow = document.querySelector('input[id="calc-alloc"]');
-    if (mode === 'dollar') {
-      btnDollar.style.background = 'var(--gold)'; btnDollar.style.color = '#000'; btnDollar.style.borderColor = 'var(--gold)'; btnDollar.style.fontWeight = 'bold';
-      btnOz.style.background = 'none'; btnOz.style.color = '#888'; btnOz.style.borderColor = '#333'; btnOz.style.fontWeight = '';
-      if (ozRow) ozRow.classList.add('hidden');
-    } else {
-      btnOz.style.background = 'var(--gold)'; btnOz.style.color = '#000'; btnOz.style.borderColor = 'var(--gold)'; btnOz.style.fontWeight = 'bold';
-      btnDollar.style.background = 'none'; btnDollar.style.color = '#888'; btnDollar.style.borderColor = '#333'; btnDollar.style.fontWeight = '';
-      if (ozRow) ozRow.classList.remove('hidden');
-    }
-    runGoldCalc();
-  };
-
-  window.setCalcPreset = function(amount) {
-    var input = document.getElementById('calc-portfolio');
-    if (input) { input.value = amount; runGoldCalc(); }
-    // Highlight active preset btn
-    document.querySelectorAll('.calc-preset-btn').forEach(function(b) {
-      var isActive = parseInt(b.getAttribute('onclick').replace(/[^0-9]/g,'')) === amount;
-      b.style.borderColor = isActive ? 'var(--gold)' : '#333';
-      b.style.color = isActive ? 'var(--gold)' : '#888';
-    });
-  };
-
-  window.setCalcVehicle = function(btn, premium) {
-    _calcPremium = premium;
-    document.querySelectorAll('.calc-vehicle-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    runGoldCalc();
-  };
-
-  window.runGoldCalc = function() {
-    var spotPrice = (DATA.price && DATA.price.price) ? DATA.price.price : 4651.5;
-    var effectivePrice = spotPrice * (1 + _calcPremium);
-
-    var portfolio = parseFloat(document.getElementById('calc-portfolio').value) || 100000;
-    var allocPct = parseFloat(document.getElementById('calc-alloc').value) || 10;
-    var ozBuy = parseFloat(document.getElementById('calc-oz-buy').value) || 10;
-
-    var goldDollars, goldOz;
-    if (_calcMode === 'dollar') {
-      goldDollars = portfolio * (allocPct / 100);
-      goldOz = goldDollars / effectivePrice;
-    } else {
-      goldOz = ozBuy;
-      goldDollars = goldOz * effectivePrice;
-      // Update allocation pct based on oz input
-      allocPct = portfolio > 0 ? (goldDollars / portfolio) * 100 : 0;
-      // Update slider label
-      var lbl = document.getElementById('calc-alloc-pct-label');
-      if (lbl) lbl.textContent = allocPct.toFixed(1) + '%';
-      var slider = document.getElementById('calc-alloc');
-      if (slider) slider.value = Math.min(50, Math.max(1, allocPct));
-    }
-
-    // Update primary result
-    var ozEl = document.getElementById('calc-result-oz');
-    var costEl = document.getElementById('calc-result-cost');
-    if (ozEl) ozEl.textContent = goldOz.toFixed(3) + ' oz';
-    if (costEl) costEl.textContent = '$' + Math.round(goldDollars).toLocaleString() + ' total cost at $' + Math.round(effectivePrice).toLocaleString() + '/oz';
-
-    // Allocation bar
-    var barEl = document.getElementById('calc-alloc-bar');
-    var barLabel = document.getElementById('calc-alloc-bar-label');
-    if (barEl) barEl.style.width = Math.min(100, allocPct) + '%';
-    if (barLabel) barLabel.textContent = allocPct.toFixed(1) + '% gold';
-
-    // Advice text
-    var adviceEl = document.getElementById('calc-advice');
-    if (adviceEl) {
-      var advice = '';
-      if (allocPct < 3) advice = 'Token position. Most wealth advisors recommend 5–10% as a minimum hedge.';
-      else if (allocPct <= 10) advice = '✅ Conservative range (5–10%). Standard hedge allocation recommended by most advisors.';
-      else if (allocPct <= 20) advice = '⚠️ Moderate-aggressive. Gold bug territory. Appropriate if you expect dollar weakness.';
-      else if (allocPct <= 30) advice = '🔥 Aggressive. High conviction gold bull position. Be aware of concentration risk.';
-      else advice = '⚠️ Extreme overweight. Only suitable for hardcore gold bulls. Consider diversification.';
-      adviceEl.textContent = advice;
-    }
-
-    // Analyst price targets
-    var targets = [];
-    if (DATA.analystTargets && DATA.analystTargets.targets) {
-      var seenInst = {};
-      DATA.analystTargets.targets.forEach(function(t) {
-        if (!seenInst[t.institution]) {
-          seenInst[t.institution] = true;
-          targets.push({ label: t.institution, price: t.target_high });
-        }
-      });
-    }
-    // Add some standard reference prices
-    targets = [
-      { label: 'Current Spot', price: spotPrice, current: true },
-      { label: '+25% ($' + Math.round(spotPrice * 1.25).toLocaleString() + ')', price: spotPrice * 1.25 },
-      { label: 'Goldman $5,400', price: 5400 },
-      { label: 'JPMorgan $6,300', price: 6300 },
-      { label: 'UBS Bull $6,200', price: 6200 },
-    ];
-    var targetRows = document.getElementById('calc-target-rows');
-    if (targetRows) {
-      targetRows.innerHTML = targets.map(function(t) {
-        var val = goldOz * t.price;
-        var gain = val - goldDollars;
-        var gainPct = goldDollars > 0 ? ((val - goldDollars) / goldDollars) * 100 : 0;
-        var color = t.current ? '#ffd700' : gain >= 0 ? '#00ff88' : '#ff4444';
-        return '<div class="flex justify-between items-center py-1 border-b border-[rgba(255,255,255,0.04)]">' +
-          '<span class="text-[10px] mono" style="color:#888;">' + t.label + '</span>' +
-          '<span class="text-xs mono font-bold" style="color:' + color + ';">$' + Math.round(val).toLocaleString() + '</span>' +
-          (t.current ? '' : '<span class="text-[10px] mono" style="color:' + color + ';">' + (gain >= 0 ? '+' : '') + Math.round(gain).toLocaleString() + ' (' + (gainPct >= 0 ? '+' : '') + gainPct.toFixed(1) + '%)</span>') +
-        '</div>';
-      }).join('');
-    }
-
-    // Sensitivity table
-    var pricePoints = [3000, 3500, 4000, 4500, Math.round(spotPrice), 5000, 5500, 6000, 7000, 8000];
-    var stEl = document.getElementById('calc-sensitivity-table');
-    if (stEl) {
-      stEl.innerHTML = '<table style="width:100%;border-collapse:collapse;font-family:JetBrains Mono,monospace;font-size:10px;">' +
-        '<thead><tr>' +
-        '<th style="text-align:left;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">Gold Price</th>' +
-        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">Portfolio Value</th>' +
-        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">Gold Value</th>' +
-        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">P&L</th>' +
-        '<th style="text-align:right;padding:6px 8px;color:#555;border-bottom:1px solid #1a1a1a;">P&L %</th>' +
-        '</tr></thead><tbody>' +
-        pricePoints.map(function(p) {
-          var isNow = Math.abs(p - spotPrice) < 50;
-          var gv = goldOz * p;
-          var pl = gv - goldDollars;
-          var plPct = goldDollars > 0 ? (pl / goldDollars) * 100 : 0;
-          var totalPort = (portfolio - goldDollars) + gv;
-          var rowStyle = isNow ? 'background:rgba(255,215,0,0.05);' : '';
-          var plColor = pl >= 0 ? '#00ff88' : '#ff4444';
-          return '<tr style="' + rowStyle + '">' +
-            '<td style="padding:5px 8px;color:' + (isNow ? '#ffd700' : '#888') + ';">' + (isNow ? '▶ ' : '') + '$' + p.toLocaleString() + (isNow ? ' (now)' : '') + '</td>' +
-            '<td style="text-align:right;padding:5px 8px;color:#aaa;">$' + Math.round(totalPort).toLocaleString() + '</td>' +
-            '<td style="text-align:right;padding:5px 8px;color:' + (isNow ? '#ffd700' : '#aaa') + ';">$' + Math.round(gv).toLocaleString() + '</td>' +
-            '<td style="text-align:right;padding:5px 8px;color:' + plColor + ';">' + (pl >= 0 ? '+' : '') + '$' + Math.round(pl).toLocaleString() + '</td>' +
-            '<td style="text-align:right;padding:5px 8px;color:' + plColor + ';">' + (plPct >= 0 ? '+' : '') + plPct.toFixed(1) + '%</td>' +
-            '</tr>';
-        }).join('') +
-        '</tbody></table>';
-    }
-
-    // Break-even price calculator (price needed to double gold allocation value)
-    var beEl = document.getElementById('calc-breakeven');
-    if (beEl && goldDollars > 0 && goldOz > 0) {
-      var doubleTarget = goldDollars * 2;
-      var breakEvenPrice = doubleTarget / goldOz;
-      var pctNeeded = ((breakEvenPrice - effectivePrice) / effectivePrice) * 100;
-      var beColor = pctNeeded <= 50 ? '#00ff88' : pctNeeded <= 100 ? '#ffd700' : '#ff8800';
-      beEl.innerHTML =
-        '<div style="color:#888;margin-bottom:4px;">To <span style="color:#ffd700;">double</span> your gold allocation value:</div>' +
-        '<div style="font-size:18px;font-weight:bold;color:' + beColor + ';">$' + Math.round(breakEvenPrice).toLocaleString() + '/oz</div>' +
-        '<div style="color:#555;margin-top:4px;">+' + pctNeeded.toFixed(1) + '% from current $' + Math.round(effectivePrice).toLocaleString() + '/oz &nbsp;→&nbsp; ' +
-        '<span style="color:#aaa;">$' + Math.round(doubleTarget).toLocaleString() + ' gold value</span></div>';
-    }
-
-    // Update conv-val with live spot
-    var convOz = parseFloat(document.getElementById('conv-oz').value) || 1;
-    var convVal = document.getElementById('conv-val');
-    if (convVal) convVal.textContent = '= $' + (convOz * effectivePrice).toLocaleString(undefined, {maximumFractionDigits: 2});
-  };
-
-  // Run after data loads
-  var _calcInterval = setInterval(function() {
-    if (DATA.price && DATA.price.price) {
-      clearInterval(_calcInterval);
-      runGoldCalc();
-    }
-  }, 500);
-
-  // Initial run
-  setTimeout(runGoldCalc, 2000);
-})();
-</script>
-<!-- ===== END GOLD PORTFOLIO CALCULATOR ===== -->
 
 <!-- More menu sheet -->
 <div id="more-menu-sheet" style="display:none;position:fixed;bottom:56px;left:0;right:0;background:#111;border-top:1px solid #222;z-index:899;padding:8px 0;">
