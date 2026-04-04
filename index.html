@@ -703,6 +703,8 @@
 
     /* RSI history: compact on mobile */
     .chart-wrap.chart-rsi-hist { height: 100px !important; max-height: 100px !important; }
+    /* MACD chart: compact on mobile */
+    #macd-section .chart-wrap { height: 90px !important; max-height: 90px !important; }
 
     /* 5. Ratio cards: 2 per row (minmax 160px) */
     #ratio-cards-grid {
@@ -1601,6 +1603,22 @@
       <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-2 mono">RSI (14) — 1 Year History <span class="info-tooltip" data-tip="RSI oscillator over the past year. Zones: above 70 = overbought (red), below 30 = oversold (green). Current RSI below 30 historically signals strong buying opportunities in gold bull markets.">ℹ</span></div>
       <div class="chart-wrap chart-rsi-hist" style="height: 140px;">
         <canvas id="chart-rsi-history"></canvas>
+      </div>
+    </div>
+
+    <!-- MACD Chart -->
+    <div class="mt-6" id="macd-section" style="display:none">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mb-2 mono">MACD (12,26,9) — Momentum Indicator <span class="info-tooltip" data-tip="MACD = EMA(12) minus EMA(26). Signal line = EMA(9) of MACD. Histogram = MACD minus Signal. Green histogram bars = bullish momentum building. Red = bearish. A MACD crossover above the signal line is a buy signal.">ℹ</span>
+        <span id="macd-signal-badge" class="ml-2 inline-block px-2 py-0.5 rounded text-[9px] mono font-bold" style="display:none"></span>
+      </div>
+      <div class="chart-wrap chart-loading" style="height: 120px;">
+        <canvas id="chart-macd"></canvas>
+      </div>
+      <div class="flex gap-4 mt-2 text-[10px] mono text-[var(--text2)]">
+        <span><span style="color:#ffd700;">━</span> MACD</span>
+        <span><span style="color:#ff8844;">━</span> Signal</span>
+        <span><span style="color:#00ff88;">▪</span> Bullish hist</span>
+        <span><span style="color:#ff4444;">▪</span> Bearish hist</span>
       </div>
     </div>
 
@@ -3761,6 +3779,7 @@ function renderPriceSection() {
 
   renderCurrencyGrid();
   renderRSIChart();
+  renderMACDChart();
 
   var pctToATH = 100 - (d.pct_below_ath || 0);
   document.getElementById('ath-progress').style.width = pctToATH + '%';
@@ -4323,6 +4342,196 @@ function renderRSIChart() {
         c.strokeStyle = 'rgba(255,255,255,0.1)';
         c.setLineDash([2, 4]);
         c.beginPath(); c.moveTo(xScale.left, y50); c.lineTo(xScale.right, y50); c.stroke();
+        c.setLineDash([]);
+        c.restore();
+      }
+    }]
+  });
+}
+
+function computeEMA(values, period) {
+  // Exponential Moving Average
+  var k = 2 / (period + 1);
+  var ema = [];
+  var sum = 0;
+  for (var i = 0; i < values.length; i++) {
+    if (values[i] == null) { ema.push(null); continue; }
+    if (i < period - 1) { sum += values[i]; ema.push(null); }
+    else if (i === period - 1) {
+      sum += values[i];
+      ema.push(sum / period);
+    } else {
+      var prev = ema[i - 1];
+      ema.push(prev != null ? values[i] * k + prev * (1 - k) : null);
+    }
+  }
+  return ema;
+}
+
+function renderMACDChart() {
+  var d = DATA.price;
+  // Use 1y chart data
+  var chartData = (d && d.charts && d.charts['1y']) ? d.charts['1y'] : [];
+  if (!chartData || chartData.length < 40) return;
+
+  var section = document.getElementById('macd-section');
+  if (section) section.style.display = '';
+
+  var parsed = parseChartData(chartData);
+  var prices = parsed.values;
+  var labels = parsed.labels;
+  if (!prices || prices.length < 40) return;
+
+  // Compute EMAs
+  var ema12 = computeEMA(prices, 12);
+  var ema26 = computeEMA(prices, 26);
+
+  // MACD line = EMA12 - EMA26
+  var macdLine = prices.map(function(_, i) {
+    if (ema12[i] == null || ema26[i] == null) return null;
+    return parseFloat((ema12[i] - ema26[i]).toFixed(2));
+  });
+
+  // Signal line = EMA9 of MACD
+  var macdValues = macdLine.filter(function(v) { return v != null; });
+  var signalFull = computeEMA(macdLine, 9);
+
+  // Histogram = MACD - Signal
+  var histogram = macdLine.map(function(v, i) {
+    if (v == null || signalFull[i] == null) return null;
+    return parseFloat((v - signalFull[i]).toFixed(2));
+  });
+
+  // Current signal badge
+  var lastIdx = prices.length - 1;
+  var lastMacd = null, lastSignal = null;
+  for (var i = lastIdx; i >= 0; i--) {
+    if (macdLine[i] != null) { lastMacd = macdLine[i]; break; }
+  }
+  for (var i = lastIdx; i >= 0; i--) {
+    if (signalFull[i] != null) { lastSignal = signalFull[i]; break; }
+  }
+
+  var badgeEl = document.getElementById('macd-signal-badge');
+  if (badgeEl && lastMacd != null && lastSignal != null) {
+    var isBullish = lastMacd > lastSignal;
+    badgeEl.style.display = 'inline-block';
+    badgeEl.textContent = isBullish ? '▲ BULLISH CROSS' : '▼ BEARISH CROSS';
+    badgeEl.style.background = isBullish ? 'rgba(0,255,136,0.15)' : 'rgba(255,68,68,0.15)';
+    badgeEl.style.color = isBullish ? '#00ff88' : '#ff4444';
+    badgeEl.style.border = '1px solid ' + (isBullish ? 'rgba(0,255,136,0.3)' : 'rgba(255,68,68,0.3)');
+  }
+
+  // Only show from where EMA26+signal is valid (index >= 34)
+  var startIdx = 0;
+  for (var i = 0; i < histogram.length; i++) {
+    if (histogram[i] != null) { startIdx = i; break; }
+  }
+  var sliceLabels = labels.slice(startIdx);
+  var sliceMacd = macdLine.slice(startIdx);
+  var sliceSignal = signalFull.slice(startIdx);
+  var sliceHist = histogram.slice(startIdx);
+
+  var histColors = sliceHist.map(function(v) {
+    if (v == null) return 'rgba(255,215,0,0.2)';
+    return v >= 0 ? 'rgba(0,255,136,0.5)' : 'rgba(255,68,68,0.5)';
+  });
+  var histBorderColors = sliceHist.map(function(v) {
+    if (v == null) return 'rgba(255,215,0,0.3)';
+    return v >= 0 ? 'rgba(0,255,136,0.8)' : 'rgba(255,68,68,0.8)';
+  });
+
+  destroyChart('macd');
+  var ctx = document.getElementById('chart-macd');
+  if (!ctx) return;
+  var wrap = ctx.parentElement;
+  if (wrap && wrap.classList) wrap.classList.remove('chart-loading');
+
+  charts['macd'] = new Chart(ctx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: sliceLabels,
+      datasets: [
+        {
+          label: 'Histogram',
+          data: sliceHist,
+          backgroundColor: histColors,
+          borderColor: histBorderColors,
+          borderWidth: 1,
+          order: 3,
+          type: 'bar'
+        },
+        {
+          label: 'MACD',
+          data: sliceMacd,
+          borderColor: '#ffd700',
+          borderWidth: 1.5,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.3,
+          order: 1,
+          type: 'line'
+        },
+        {
+          label: 'Signal',
+          data: sliceSignal,
+          borderColor: '#ff8844',
+          borderWidth: 1.5,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.3,
+          order: 2,
+          type: 'line'
+        }
+      ]
+    },
+    options: {
+      interaction: { intersect: false, mode: 'index' },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: {
+            maxTicksLimit: 7,
+            callback: function(val) {
+              var label = this.getLabelForValue(val);
+              if (!label) return '';
+              try { return new Date(label).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); } catch(e) { return ''; }
+            }
+          }
+        },
+        y: {
+          position: 'right',
+          grid: { color: 'rgba(255,255,255,0.03)' },
+          ticks: { callback: function(v) { return v != null ? v.toFixed(0) : ''; }, maxTicksLimit: 5 }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              var v = ctx.parsed.y;
+              if (ctx.dataset.label === 'Histogram') return 'Hist: ' + (v != null ? v.toFixed(1) : '--');
+              if (ctx.dataset.label === 'MACD') return 'MACD: ' + (v != null ? v.toFixed(1) : '--');
+              if (ctx.dataset.label === 'Signal') return 'Signal: ' + (v != null ? v.toFixed(1) : '--');
+              return '';
+            }
+          }
+        }
+      }
+    },
+    plugins: [{
+      id: 'macdZeroLine',
+      afterDraw: function(chart) {
+        var yScale = chart.scales.y;
+        var xScale = chart.scales.x;
+        var c = chart.ctx;
+        c.save();
+        var y0 = yScale.getPixelForValue(0);
+        c.strokeStyle = 'rgba(255,255,255,0.15)';
+        c.lineWidth = 1;
+        c.setLineDash([3, 3]);
+        c.beginPath(); c.moveTo(xScale.left, y0); c.lineTo(xScale.right, y0); c.stroke();
         c.setLineDash([]);
         c.restore();
       }
