@@ -2128,15 +2128,15 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Registered <span class="info-tooltip" data-tip="Physical gold available for delivery against futures contracts.">i</span></div>
-        <div class="text-2xl font-bold mono text-[var(--gold)]">442<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
+        <div id="comex-registered" class="text-2xl font-bold mono text-[var(--gold)]">--<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Eligible <span class="info-tooltip" data-tip="Gold stored in COMEX vaults but not available for delivery. Owners have not registered it.">i</span></div>
-        <div class="text-2xl font-bold mono text-[var(--text2)]">8,200<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
+        <div id="comex-eligible" class="text-2xl font-bold mono text-[var(--text2)]">--<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
-        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">30-Day Registered Change <span class="info-tooltip" data-tip="How much registered inventory has changed in 30 days. Declining registered with rising open interest = supply squeeze risk.">ℹ</span></div>
-        <div class="text-2xl font-bold mono text-[var(--red)]">-85t <span class="text-sm">&#9660;</span></div>
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Registered % of Total <span class="info-tooltip" data-tip="What % of all COMEX vault gold is actually available for delivery. Below 50% signals physical tightness.">ℹ</span></div>
+        <div id="comex-cover-pct" class="text-2xl font-bold mono text-[var(--gold)]">--</div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Cover Ratio <span class="info-tooltip" data-tip="How many ounces of registered gold back each open futures contract. A declining cover ratio signals shorts may struggle to deliver.">ℹ</span></div>
@@ -2145,12 +2145,13 @@
       </div>
     </div>
     <div class="mt-4">
-      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Registered vs Eligible</div>
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-2">Registered vs Eligible (tonnes)</div>
       <div class="chart-wrap" style="height: 160px;">
         <canvas id="chart-comex-vault"></canvas>
       </div>
     </div>
-    <div class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: 2026-04-01 | Source: COMEX daily vault reports (compiled)</div>
+    <div id="comex-squeeze-alert" class="text-xs mono mt-3" style="display:none;"></div>
+    <div id="comex-last-updated" class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: -- | Source: CME Group via silveroftruth.com (4h refresh)</div>
   </section>
 
   <!-- ============================================================ -->
@@ -2833,6 +2834,7 @@ function loadAllData() {
     { key: 'marketIntel', url: 'data/market_intel.json' },
     { key: 'bankTargets', url: 'data/bank_targets.json' },
     { key: 'tariffs', url: 'data/tariffs.json' },
+    { key: 'comex', url: 'data/comex.json' },
   ];
 
   // Show loading states immediately
@@ -6923,19 +6925,64 @@ function renderMiners() {
 
 // --- COMEX VAULT ---
 function renderComexVault() {
-  // Hardcoded data (inline)
+  // Use live data from comex.json, fall back to reasonable defaults
+  var comexData = DATA.comex || {};
   var vault = {
-    registered_tonnes: 442, eligible_tonnes: 8200, total_tonnes: 8642,
-    registered_change_30d: -85
+    registered_tonnes: comexData.registered_tonnes || 509,
+    eligible_tonnes: comexData.eligible_tonnes || 461,
+    total_tonnes: comexData.total_tonnes || 970,
+    registered_oz: comexData.registered_oz || null,
+    cover_pct: comexData.cover_pct || comexData.registered_coverage_pct || null,
+    last_updated: comexData.last_updated || null
   };
-  var cot = DATA.cot;
-  var oi = cot ? cot.gold_open_interest : 534892;
+
+  // Update stat cards
+  var regEl = document.getElementById('comex-registered');
+  if (regEl) regEl.innerHTML = fmtInt(Math.round(vault.registered_tonnes)) + '<span class="text-sm text-[var(--text2)] ml-1">tonnes</span>';
+  var eligEl = document.getElementById('comex-eligible');
+  if (eligEl) eligEl.innerHTML = fmtInt(Math.round(vault.eligible_tonnes)) + '<span class="text-sm text-[var(--text2)] ml-1">tonnes</span>';
+  var pctEl = document.getElementById('comex-cover-pct');
+  if (pctEl && vault.cover_pct != null) {
+    var pct = vault.cover_pct.toFixed(1);
+    var color = vault.cover_pct < 40 ? 'var(--red)' : vault.cover_pct < 55 ? '#ffd700' : 'var(--green)';
+    pctEl.innerHTML = '<span style="color:' + color + '">' + pct + '%</span>';
+  }
+
   // Cover ratio: registered oz / (OI contracts * 100 oz/contract)
-  var registeredOz = vault.registered_tonnes * 32150.7; // troy oz per tonne
+  var cot = DATA.cot;
+  var oi = cot ? cot.gold_open_interest : 361409;
+  var registeredOz = vault.registered_oz || (vault.registered_tonnes * 32150.7);
   var oiOz = oi * 100;
   var coverRatio = (registeredOz / oiOz * 100).toFixed(1);
   var el = document.getElementById('comex-cover-ratio');
   if (el) el.textContent = coverRatio + '%';
+
+  // Dynamic squeeze alert
+  var squeezeEl = document.getElementById('comex-squeeze-alert');
+  if (squeezeEl) {
+    var coverNum = parseFloat(coverRatio);
+    if (coverNum < 20) {
+      squeezeEl.style.display = 'block';
+      squeezeEl.style.color = '#ff4444';
+      squeezeEl.style.fontWeight = '600';
+      squeezeEl.innerHTML = '⚠️ SUPPLY SQUEEZE ALERT: Only ' + coverRatio + '% of open interest backed by registered gold. Physical delivery pressure elevated.';
+    } else if (coverNum < 40) {
+      squeezeEl.style.display = 'block';
+      squeezeEl.style.color = '#ffd700';
+      squeezeEl.style.fontWeight = '500';
+      squeezeEl.innerHTML = '⚡ TIGHT MARKET: ' + coverRatio + '% cover ratio — registered inventory below historical norms. Watch for delivery demand.';
+    } else {
+      squeezeEl.style.display = 'none';
+    }
+  }
+
+  // Update last-updated timestamp
+  var tsEl = document.getElementById('comex-last-updated');
+  if (tsEl && vault.last_updated) {
+    var ts = new Date(vault.last_updated);
+    var tsStr = ts.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + ' ' + ts.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+    tsEl.textContent = 'Last updated: ' + tsStr + ' | Source: CME Group via silveroftruth.com (4h refresh)';
+  }
 
   // Stacked bar chart
   destroyChart('comex-vault');
