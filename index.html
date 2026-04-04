@@ -1410,6 +1410,9 @@
       <button onclick="openAlertModal()" class="pill flex items-center gap-2" title="Set price alerts" id="price-alerts-btn">
         🔔 <span id="alert-btn-label">Alerts</span>
       </button>
+      <button onclick="shareGoldPrice()" class="pill flex items-center gap-2" title="Share current gold price on X/Twitter" id="share-btn">
+        𝕏 Share
+      </button>
       <div id="header-live-dot" class="w-2 h-2 rounded-full bg-[var(--green)] loading-pulse" title="Auto-refresh every 5m"></div>
     </div>
   </div>
@@ -7977,6 +7980,21 @@ setTimeout(initCollapsibleSections, 800);
 <!-- ===== MOBILE JAVASCRIPT ===== -->
 <script>
 // ---- 1. Header expand / collapse (mobile only) ----
+function shareGoldPrice() {
+  var price = DATA.gold && DATA.gold.price ? DATA.gold.price : null;
+  var change = DATA.gold && DATA.gold.change_pct != null ? DATA.gold.change_pct : null;
+  var url = 'https://sham00.github.io/gold-situation-room/';
+  var text;
+  if (price) {
+    var arrow = change != null ? (change >= 0 ? '📈 +' + change.toFixed(2) + '%' : '📉 ' + change.toFixed(2) + '%') : '';
+    text = '🥇 Gold is at $' + price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '/oz ' + arrow + '\n\nTracking the full situation: ' + url + '\n\n#Gold #Commodities #SafeHaven #XAUUSD';
+  } else {
+    text = '🥇 Gold Situation Room — Real-time gold price intelligence dashboard\n\n' + url + '\n\n#Gold #XAUUSD #Commodities';
+  }
+  var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+  window.open(twitterUrl, '_blank', 'width=560,height=400,noopener,noreferrer');
+}
+
 function toggleHeaderExtras() {
   var btn = document.getElementById('header-expand-btn');
   var extras = document.getElementById('header-extras');
