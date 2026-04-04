@@ -2243,15 +2243,16 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Registered <span class="info-tooltip" data-tip="Physical gold available for delivery against futures contracts.">i</span></div>
-        <div class="text-2xl font-bold mono text-[var(--gold)]">442<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
+        <div class="text-2xl font-bold mono text-[var(--gold)]"><span id="comex-registered">--</span><span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Eligible <span class="info-tooltip" data-tip="Gold stored in COMEX vaults but not available for delivery. Owners have not registered it.">i</span></div>
-        <div class="text-2xl font-bold mono text-[var(--text2)]">8,200<span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
+        <div class="text-2xl font-bold mono text-[var(--text2)]"><span id="comex-eligible">--</span><span class="text-sm text-[var(--text2)] ml-1">tonnes</span></div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
-        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">30-Day Registered Change <span class="info-tooltip" data-tip="How much registered inventory has changed in 30 days. Declining registered with rising open interest = supply squeeze risk.">ℹ</span></div>
-        <div class="text-2xl font-bold mono text-[var(--red)]">-85t <span class="text-sm">&#9660;</span></div>
+        <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Registered % of Total <span class="info-tooltip" data-tip="Percentage of all COMEX gold that is registered (warrantable for delivery). Low % = most gold is not available for futures delivery — potential supply squeeze signal.">ℹ</span></div>
+        <div class="text-2xl font-bold mono" id="comex-reg-pct" style="color:var(--gold);">--</div>
+        <div class="text-[9px] text-[var(--text2)] mono mt-1" id="comex-reg-pct-sub">registered of total vault</div>
       </div>
       <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[var(--card-border)]">
         <div class="text-[10px] text-[var(--text2)] uppercase tracking-wider mono mb-1">Cover Ratio <span class="info-tooltip" data-tip="How many ounces of registered gold back each open futures contract. A declining cover ratio signals shorts may struggle to deliver.">ℹ</span></div>
@@ -2265,7 +2266,7 @@
         <canvas id="chart-comex-vault"></canvas>
       </div>
     </div>
-    <div class="text-[9px] text-[var(--text2)] mono mt-2">Last updated: 2026-04-01 | Source: COMEX daily vault reports (compiled)</div>
+    <div class="text-[9px] text-[var(--text2)] mono mt-2" id="comex-last-updated">Source: COMEX daily vault reports (compiled)</div>
   </section>
 
   <!-- ============================================================ -->
@@ -6571,12 +6572,35 @@ function renderComexVault() {
     vault = { registered_tonnes: 509, eligible_tonnes: 461, total_tonnes: 970 };
   }
 
+  // Populate registered/eligible stat cards dynamically
+  var regEl = document.getElementById('comex-registered');
+  if (regEl) regEl.textContent = vault.registered_tonnes.toLocaleString('en-US', {maximumFractionDigits: 1});
+  var eligEl = document.getElementById('comex-eligible');
+  if (eligEl) eligEl.textContent = vault.eligible_tonnes.toLocaleString('en-US', {maximumFractionDigits: 1});
+
+  // Registered % of total
+  var regPctEl = document.getElementById('comex-reg-pct');
+  var regPctSubEl = document.getElementById('comex-reg-pct-sub');
+  if (regPctEl && vault.total_tonnes > 0) {
+    var regPct = (vault.registered_tonnes / vault.total_tonnes * 100).toFixed(1);
+    regPctEl.textContent = regPct + '%';
+    // Color: < 40% = tight (red), 40-60% = moderate (gold), > 60% = ample (green)
+    regPctEl.style.color = parseFloat(regPct) < 40 ? '#ff4444' : parseFloat(regPct) < 60 ? '#ffd700' : '#00ff88';
+    if (regPctSubEl) regPctSubEl.textContent = fmtInt(vault.total_tonnes) + 't total vault (' + fmtInt(vault.registered_tonnes) + 't reg)';
+  }
+
   // Cover ratio: registered oz / (OI contracts * 100 oz/contract)
   var registeredOz = vault.registered_tonnes * 32150.7; // troy oz per tonne
   var oiOz = oi * 100;
   var coverRatio = (registeredOz / oiOz * 100).toFixed(1);
   var el = document.getElementById('comex-cover-ratio');
   if (el) el.textContent = coverRatio + '%';
+
+  // Update last updated timestamp
+  var luEl = document.getElementById('comex-last-updated');
+  if (luEl && comexData && comexData.last_updated) {
+    luEl.textContent = 'Updated: ' + relativeTime(comexData.last_updated) + ' | Source: COMEX daily vault reports';
+  }
 
   // Update source badge if element exists
   var srcEl = document.getElementById('comex-data-source');
