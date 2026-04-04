@@ -2141,6 +2141,22 @@
         <div class="text-[10px] text-[var(--text2)] mono max-w-xs">Gold typically moves 0.5–2% in the 48h surrounding FOMC decisions. Rate cuts are bullish; hawkish surprises are bearish.</div>
       </div>
     </div>
+
+    <!-- Macro Regime Panel -->
+    <div class="mt-6 pt-4 border-t border-[var(--card-border)]" id="macro-regime-panel">
+      <div class="text-xs text-[var(--text2)] uppercase tracking-widest mono mb-3">Macro Regime for Gold <span class="info-tooltip" data-tip="4-factor macro regime model: Real Yields (negative = bullish), DXY trend (falling = bullish), M2 growth (accelerating = bullish), Fed stance (dovish = bullish). Score 0-4: 4=Strongly Bullish, 3=Bullish, 2=Neutral, 1=Bearish, 0=Strongly Bearish.">ℹ</span></div>
+      <div id="macro-regime-pills" class="flex flex-wrap gap-2 mb-4">
+        <!-- Filled by JS -->
+      </div>
+      <div id="macro-regime-score-box" class="inline-flex items-center gap-3 bg-[#0a0a0a] border border-[var(--card-border)] rounded-lg px-4 py-3">
+        <div>
+          <div class="text-[9px] text-[var(--text2)] uppercase tracking-widest mono mb-0.5">Gold Regime Score</div>
+          <div id="macro-regime-score" class="text-2xl font-bold mono">--</div>
+        </div>
+        <div id="macro-regime-label" class="text-sm font-bold mono px-3 py-1 rounded">--</div>
+        <div id="macro-regime-detail" class="text-[10px] text-[var(--text2)] mono max-w-xs hidden sm:block">--</div>
+      </div>
+    </div>
   </section>
 
   <!-- ============================================================ -->
@@ -5379,6 +5395,129 @@ function renderMacro() {
       fomcDaysEl.style.color = '#00ff88'; // green — far away
     }
   }
+
+  // Macro Regime Panel
+  try {
+    var regimePills = document.getElementById('macro-regime-pills');
+    var regimeScoreEl = document.getElementById('macro-regime-score');
+    var regimeLabelEl = document.getElementById('macro-regime-label');
+    var regimeDetailEl = document.getElementById('macro-regime-detail');
+    if (regimePills) {
+      var factors = [];
+
+      // Factor 1: Real Yields (negative = bullish for gold)
+      var realYield = d.real_yield_10y;
+      if (realYield != null && typeof realYield !== 'object') {
+        var ryBull = realYield < 0;
+        var ryNeutral = realYield >= 0 && realYield < 1.5;
+        factors.push({
+          label: 'Real Yields',
+          value: fmt(realYield, 2) + '%',
+          bullish: ryBull,
+          neutral: ryNeutral,
+          tip: ryBull ? 'Negative real yields → gold has no opportunity cost vs bonds' : (ryNeutral ? 'Low positive real yields — moderate headwind' : 'High positive real yields → bonds compete with gold')
+        });
+      }
+
+      // Factor 2: DXY trend (falling = bullish)
+      // Use DXY value — below 100 historically weak USD
+      var dxy = d.dxy;
+      var dxyBull = false, dxyNeutral = false;
+      if (dxy != null) {
+        dxyBull = dxy < 100;
+        dxyNeutral = dxy >= 100 && dxy < 103;
+        factors.push({
+          label: 'DXY Trend',
+          value: fmt(dxy, 1),
+          bullish: dxyBull,
+          neutral: dxyNeutral,
+          tip: dxyBull ? 'DXY below 100 = weak USD → bullish for gold' : (dxyNeutral ? 'USD roughly neutral range (100–103)' : 'Strong USD (above 103) → headwind for gold')
+        });
+      }
+
+      // Factor 3: M2 Growth (above 3% = bullish, accelerating money supply)
+      var m2 = d.m2;
+      var m2Bull = false, m2Neutral = false;
+      if (m2 != null) {
+        m2Bull = m2 > 3;
+        m2Neutral = m2 >= 0 && m2 <= 3;
+        factors.push({
+          label: 'M2 Growth',
+          value: fmt(m2, 1) + '%',
+          bullish: m2Bull,
+          neutral: m2Neutral,
+          tip: m2Bull ? 'M2 growing above 3% YoY → money supply expansion bullish for gold' : (m2Neutral ? 'M2 growing slowly — neutral for gold' : 'M2 shrinking (QT) → bearish signal for gold')
+        });
+      }
+
+      // Factor 4: Fed Stance (based on fed funds rate direction + CPI)
+      // Proxy: if fed_funds < 4.5 and CPI > 2.5, Fed is behind curve = dovish bias
+      var fedFunds = d.fed_funds;
+      var cpi = d.cpi_yoy;
+      var fedBull = false, fedNeutral = false;
+      if (fedFunds != null && cpi != null) {
+        // Real fed funds = fed_funds - cpi
+        var realFed = fedFunds - cpi;
+        fedBull = realFed < 0.5; // real rate near zero = effectively dovish
+        fedNeutral = realFed >= 0.5 && realFed < 1.5;
+        factors.push({
+          label: 'Fed Stance',
+          value: 'FFR ' + fmt(fedFunds, 2) + '%',
+          bullish: fedBull,
+          neutral: fedNeutral,
+          tip: fedBull ? 'Real Fed Funds Rate below 0.5% → effectively dovish, supportive of gold' : (fedNeutral ? 'Real FFR 0.5–1.5% → neutral stance' : 'Real FFR above 1.5% → restrictive policy, headwind for gold')
+        });
+      }
+
+      // Render pills
+      regimePills.innerHTML = '';
+      var bullScore = 0;
+      factors.forEach(function(f) {
+        var color, bg, border, icon;
+        if (f.bullish) {
+          color = '#00ff88'; bg = 'rgba(0,255,136,0.12)'; border = 'rgba(0,255,136,0.35)'; icon = '▲'; bullScore++;
+        } else if (f.neutral) {
+          color = '#aaaaaa'; bg = 'rgba(170,170,170,0.08)'; border = 'rgba(170,170,170,0.25)'; icon = '●';
+        } else {
+          color = '#ff4444'; bg = 'rgba(255,68,68,0.12)'; border = 'rgba(255,68,68,0.35)'; icon = '▼';
+        }
+        var pill = document.createElement('div');
+        pill.style.cssText = 'display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:20px;border:1px solid ' + border + ';background:' + bg + ';cursor:default;';
+        pill.title = f.tip;
+        pill.innerHTML =
+          '<span style="color:' + color + ';font-size:10px;">' + icon + '</span>' +
+          '<span style="font-size:10px;font-family:JetBrains Mono,monospace;color:#ccc;">' + f.label + '</span>' +
+          '<span style="font-size:10px;font-family:JetBrains Mono,monospace;color:' + color + ';font-weight:bold;">' + f.value + '</span>';
+        regimePills.appendChild(pill);
+      });
+
+      // Composite score
+      var total = factors.length || 4;
+      var scoreLabels = [
+        { min: 0, max: 0, label: 'STRONGLY BEARISH', color: '#ff2222', bg: 'rgba(255,34,34,0.15)', detail: 'All macro factors working against gold — high opportunity cost, strong USD, tight policy.' },
+        { min: 1, max: 1, label: 'BEARISH', color: '#ff6644', bg: 'rgba(255,100,68,0.15)', detail: 'Most macro factors are headwinds for gold.' },
+        { min: 2, max: 2, label: 'NEUTRAL', color: '#aaaaaa', bg: 'rgba(170,170,170,0.12)', detail: 'Mixed macro environment — gold driven by risk events and positioning rather than macro.' },
+        { min: 3, max: 3, label: 'BULLISH', color: '#44cc88', bg: 'rgba(68,204,136,0.15)', detail: 'Most macro factors support higher gold prices.' },
+        { min: 4, max: 99, label: 'STRONGLY BULLISH', color: '#00ff88', bg: 'rgba(0,255,136,0.15)', detail: 'All macro factors aligned bullish — negative real rates, weak USD, expanding money supply, dovish Fed.' }
+      ];
+
+      var found = scoreLabels.find(function(s) { return bullScore >= s.min && bullScore <= s.max; }) || scoreLabels[2];
+
+      if (regimeScoreEl) {
+        regimeScoreEl.textContent = bullScore + '/' + total;
+        regimeScoreEl.style.color = found.color;
+      }
+      if (regimeLabelEl) {
+        regimeLabelEl.textContent = found.label;
+        regimeLabelEl.style.color = found.color;
+        regimeLabelEl.style.background = found.bg;
+        regimeLabelEl.style.border = '1px solid ' + found.color.replace(')', ',0.4)').replace('rgb', 'rgba');
+      }
+      if (regimeDetailEl) {
+        regimeDetailEl.textContent = found.detail;
+      }
+    }
+  } catch(e) { console.warn('Macro regime error:', e); }
 }
 
 function renderDualAxisChart(canvasId, chartKey, data1, data2, label1, label2, color1, color2, invert1, invert2) {
