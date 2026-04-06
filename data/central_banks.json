@@ -886,7 +886,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 58.1,
+      "pct_of_reserves": 58.4,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2327.0,
@@ -1113,7 +1113,7 @@
     },
     {
       "country": "China",
-      "pct_of_reserves": 9.9,
+      "pct_of_reserves": 10.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2306.0,
@@ -1348,7 +1348,7 @@
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 17.0,
+      "pct_of_reserves": 17.1,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 1040.0,
@@ -1570,7 +1570,7 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 20.4,
+      "pct_of_reserves": 20.5,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 880.0,
@@ -1801,7 +1801,7 @@
     },
     {
       "country": "Japan",
-      "pct_of_reserves": 10.2,
+      "pct_of_reserves": 10.3,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 846.0,
@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 59.1,
+      "pct_of_reserves": 59.4,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 614.0,
@@ -2487,7 +2487,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 36.7,
+      "pct_of_reserves": 36.9,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 550.0,
@@ -3173,7 +3173,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 26.5,
+      "pct_of_reserves": 26.6,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 310.0,
@@ -3395,7 +3395,7 @@
     },
     {
       "country": "Singapore",
-      "pct_of_reserves": 7.5,
+      "pct_of_reserves": 7.6,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 194.0,
@@ -3848,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 28.7,
+      "pct_of_reserves": 28.8,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4070,7 +4070,7 @@
     },
     {
       "country": "Australia",
-      "pct_of_reserves": 19.7,
+      "pct_of_reserves": 19.8,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 79.9,
@@ -4536,12 +4536,48 @@
   },
   "pace_vs_avg": 0.4,
   "source": "Trading Economics (multi-source, IMF unavailable)",
-  "cb_news": [],
+  "cb_news": [
+    {
+      "title": "TCMB Survey: Household Inflation Expectations Near 50% as Gold Remains Top Investment Choice - PA Turkey",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdnQ1U3FTdmFrT2ViQ0FDWmpsekFleWV6dG52TVRwa1NZd19yeWZjZVNuMERZNlMyN2FaZjF1X1JMcE05azM3T1FlR04yOTdJX2h1Tm41NnBFZEt6NTBmeW1TMjFVYXpCZER5QmZFQ2lSekVaUTVZVGRPY28zNGFSZW9uSmcxWG1YWGFmaXdOOXQxbm5LdEs5WGhnRmdOdk9wc3puUWhDT3JKaHQ4T2VRNk53cjloSkQ4eGduZ3RlWGd6VUdYZ0E5V2FDMm4?oc=5",
+      "source": "Google News Turkey Gold",
+      "published": "Wed, 25 Mar 2026 20:42:19 GMT",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Central Bank Gold Buying - Robin J Brooks | Substack",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85d2thWUdsOThRQldGZHhHT1cwVGZJU2lRb3R5ZzNTM0lUTHBlQTVJaTN1Zm5vREgwY3d4bUo0SWRiZ0txbHhHeC1rTmgzUzFBdGhSZkptRk9jX3Mxd25EZWRrT3hDYU9uVXRacA?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 12 Nov 2025 08:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Central Banks Are Hoarding Gold for a Reason - Bloomberg.com",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOWDI3ZFYycnJvc0ZIOGpZVU04UzhxOE5HYURyaGxKeXZKTHkzV0h1eFVKVUFRUFpwLU9LM2wyYzRrS3BKYUNRNld0UTVoaGgtZ051UVhKenJURDRkMzBsN2QyMG1IeS05ZXVOWHhUY0tGcjd4a25yZkFMZnJxek1scnFUWUk3a2t5S1FnWEpFd2ZiTG9STkxBc05QM3FLSXRjRXB1SGdBWDgzSFVGYzhVdmVjUXdheHBqbjY4cm5HNVhIejQ?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 10 Dec 2025 08:00:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "China\u2019s central bank buys gold for 14th consecutive month - Mining.com",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNYkp5SmRWM2xIVXUzR2NaZS1wOEtSSzVqcWNSdVh5V3UyUzE3Tnp0V3ItRXVpYTE1eTdBd3NLY1NuNHpjVVRRTDBtLXRoOThmSUdXMGZlc2JvbFd6YlZmT1VHQzdvcFVQWmJfN1F1UGZkTU9RbjJBWmU0M0R1WDhXWmdZNTl5WWd5cmx1MA?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "sentiment": "negative"
+    },
+    {
+      "title": "Central bank gold buying picks up in May | Post by Marissa Salim | Gold Focus blog - World Gold Council",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPT2V3V0RuTDJUVnJKQWNaUE12Z2FUWGNHTGFCemtIeUhvYmFWTV85dUstMUJpY0x6T2d5MjJnV3Q4WTd0X3FDSkpUOER4eDZKUktFZ1E2aTZiX25sZ2RHaHNFY2NMa1Q3Q2k1cTFZZFBpTlA5V2hNc1hNWW9EVjl1dzFmVEw0djd3NWc?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 02 Jul 2025 07:00:00 GMT",
+      "sentiment": "positive"
+    }
+  ],
   "data_quality": {
     "source": "Trading Economics HTML scrape",
     "freshness": "monthly",
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-05T23:42:24Z"
+  "last_updated": "2026-04-06T03:23:54Z"
 }
