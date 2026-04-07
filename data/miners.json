@@ -4,8 +4,8 @@
       "name": "VanEck Gold Miners ETF",
       "type": "etf",
       "price": 93.82,
-      "change": -0.63,
-      "change_pct": -0.67,
+      "change": -0.57,
+      "change_pct": -0.6,
       "ytd_pct": 9.44,
       "week4_pct": -7.86,
       "market_cap": null,
@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 55.0,
-      "vs_gold_ytd": 0.94,
+      "vs_gold_ytd": 1.13,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -526,7 +526,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 171.0,
-      "vs_gold_ytd": -1.42,
+      "vs_gold_ytd": -1.23,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -1039,10 +1039,10 @@
       "forward_pe": null,
       "ev_ebitda": 21.5,
       "dividend_yield": 194.0,
-      "vs_gold_ytd": 14.38,
+      "vs_gold_ytd": 14.57,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3631.3,
+      "margin": 3623.5,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -1555,10 +1555,10 @@
       "forward_pe": 10.4,
       "ev_ebitda": 8.8,
       "dividend_yield": 91.0,
-      "vs_gold_ytd": 3.2,
+      "vs_gold_ytd": 3.39,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 3281.3,
+      "margin": 3273.5,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -2071,10 +2071,10 @@
       "forward_pe": 15.2,
       "ev_ebitda": 12.4,
       "dividend_yield": 86.0,
-      "vs_gold_ytd": 14.04,
+      "vs_gold_ytd": 14.23,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3531.3,
+      "margin": 3523.5,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -2578,8 +2578,8 @@
       "name": "Alamos Gold",
       "type": "miner",
       "price": 46.31,
-      "change": 0.22,
-      "change_pct": 0.48,
+      "change": 0.3,
+      "change_pct": 0.65,
       "ytd_pct": 20.67,
       "week4_pct": -6.14,
       "market_cap": 19505688576,
@@ -2587,10 +2587,10 @@
       "forward_pe": 14.0,
       "ev_ebitda": 17.5,
       "dividend_yield": 25.0,
-      "vs_gold_ytd": 12.17,
+      "vs_gold_ytd": 12.36,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3631.3,
+      "margin": 3623.5,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -3094,8 +3094,8 @@
       "name": "Wheaton Precious Metals",
       "type": "miner",
       "price": 134.09,
-      "change": -1.87,
-      "change_pct": -1.38,
+      "change": -1.63,
+      "change_pct": -1.2,
       "ytd_pct": 13.94,
       "week4_pct": -9.15,
       "market_cap": 61066760192,
@@ -3103,10 +3103,10 @@
       "forward_pe": 22.4,
       "ev_ebitda": 31.8,
       "dividend_yield": 58.0,
-      "vs_gold_ytd": 5.44,
+      "vs_gold_ytd": 5.63,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 4231.3,
+      "margin": 4223.5,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -3619,10 +3619,10 @@
       "forward_pe": 25.9,
       "ev_ebitda": 29.8,
       "dividend_yield": 68.0,
-      "vs_gold_ytd": 14.65,
+      "vs_gold_ytd": 14.84,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 4281.3,
+      "margin": 4273.5,
       "sparkline": [
         {
           "t": "2025-10-07",
@@ -4123,7 +4123,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.020041,
+  "gdx_gold_ratio": 0.020075,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-04-07",
@@ -5123,7 +5123,7 @@
     },
     {
       "t": "2026-04-06",
-      "v": 0.020041
+      "v": 0.020075
     }
   ],
   "mining_production": {
@@ -5227,5 +5227,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-04-06T23:43:55Z"
+  "last_updated": "2026-04-07T02:57:13Z"
 }
