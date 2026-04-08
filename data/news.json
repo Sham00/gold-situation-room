@@ -1,8 +1,29 @@
 {
   "articles": [
     {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold prices rebound on Iran ceasefire. Here's why.",
+      "link": "https://finance.yahoo.com/video/gold-prices-rebound-on-iran-ceasefire-heres-why-211610230.html?.tsrc=rss",
+      "published": "Wed, 08 Apr 2026 21:16:10 +0000",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Talent Infinity Provides Highlights of the Buster Antimony-Gold Project in British Columbia",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/talent-infinity-provides-highlights-buster-211400671.html?.tsrc=rss",
+      "published": "Wed, 08 Apr 2026 21:14:00 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold Pares Gains After Iran Says Ceasefire Deal With US Violated",
+      "link": "https://finance.yahoo.com/news/gold-climbs-trump-agrees-two-001130402.html?.tsrc=rss",
+      "published": "Wed, 08 Apr 2026 20:41:03 +0000",
+      "sentiment": "positive"
+    },
+    {
       "source": "Google News Gold Investment",
-      "title": "Gold: Wars And Jungle Economics (Commodity:XAUUSD:CUR) - seekingalpha.com",
+      "title": "Gold: Wars And Jungle Economics (Commodity:XAUUSD:CUR) - Seeking Alpha",
       "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5uRk9SZVNaWXlibnBabEYwcXgzVklWdlRlRFh3aFhIXzA5VUZtTFdpc0ZuaFdEbU1BNEFyTGZuWUxxU0NJYmVNbUNEQXBCZDA3MUlNeXFCN0RLZE9YN0dLZWZPX1Z5b18ybC1IbHJrN1RpOVphUnlmUEk2cw?oc=5",
       "published": "Wed, 08 Apr 2026 20:33:44 GMT",
       "sentiment": "positive"
@@ -37,13 +58,6 @@
     },
     {
       "source": "Yahoo Finance Gold",
-      "title": "Gold Pares Gains After Iran Says Ceasefire Deal With US Violated",
-      "link": "https://finance.yahoo.com/news/gold-climbs-trump-agrees-two-001130402.html?.tsrc=rss",
-      "published": "Wed, 08 Apr 2026 18:57:01 +0000",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Yahoo Finance Gold",
       "title": "Gold, Silver Prices Jump. They Could Reach This High by the End of 2026.",
       "link": "https://finance.yahoo.com/m/7183fba2-eb2e-3a57-93a4-9f1f4130680f/gold%2C-silver-prices-jump..html?.tsrc=rss",
       "published": "Wed, 08 Apr 2026 18:40:00 +0000",
@@ -55,13 +69,6 @@
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNb2dabjFmUG03dVJGdVR0QkNrVUxvdWt1TktTUV9ESEtKMkZpWU9JQ3ZBbDdTamRYTlE4S1pfcy1aSlFrTjdJRjBwZlNaZGZTRHpVYkRvRjFqV2xjZWRaR000UjQ1Z0diLUdrNWZQakRzX2dsaXkzOVFQdDIwb3d6TW5ucFZPc19i?oc=5",
       "published": "Wed, 08 Apr 2026 18:40:00 GMT",
       "sentiment": "positive"
-    },
-    {
-      "source": "Mining.com",
-      "title": "The Metals Royalty debuts on Nasdaq with deep-sea bet",
-      "link": "https://www.mining.com/the-metals-royalty-debuts-on-nasdaq-with-deep-sea-bet/",
-      "published": "Wed, 08 Apr 2026 18:39:43 +0000",
-      "sentiment": "neutral"
     },
     {
       "source": "FXStreet",
@@ -155,13 +162,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Mining.com",
-      "title": "Gold price climbs to three-week high on US-Iran ceasefire",
-      "link": "https://www.mining.com/gold-price-climbs-to-three-week-high-on-us-iran-ceasefire/",
-      "published": "Wed, 08 Apr 2026 15:49:50 +0000",
-      "sentiment": "positive"
-    },
-    {
       "source": "FXStreet",
       "title": "Gold struggles to build on gains despite weaker US Dollar",
       "link": "https://www.fxstreet.com/news/gold-climbs-as-us-iran-ceasefire-weighs-on-us-dollar-202604081221",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 45.3,
-  "bull_count": 48,
-  "bear_count": 9,
-  "neutral_count": 29,
-  "bull_pct": 55.8,
+  "sentiment_score": 48.7,
+  "bull_count": 46,
+  "bear_count": 8,
+  "neutral_count": 24,
+  "bull_pct": 59.0,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-08T20:55:46Z"
+  "last_updated": "2026-04-08T21:52:46Z"
 }
