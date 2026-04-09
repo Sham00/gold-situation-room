@@ -2,20 +2,16 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 438.36,
-      "change": 5.31,
-      "change_pct": 1.23,
-      "tonnes_est": 738.6,
+      "price": 437.91,
+      "change": 4.86,
+      "change_pct": 1.12,
+      "tonnes_est": 740.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 3.6,
-      "ytd_pct": 10.06,
-      "week7_pct": 5.74,
-      "week4_pct": -8.27,
+      "daily_change_est": 3.3,
+      "ytd_pct": 9.95,
+      "week7_pct": 5.63,
+      "week4_pct": -8.36,
       "chart_1y": [
-        {
-          "t": "2025-04-09",
-          "v": 285.38
-        },
         {
           "t": "2025-04-10",
           "v": 292.35
@@ -1014,26 +1010,22 @@
         },
         {
           "t": "2026-04-09",
-          "v": 438.36
+          "v": 437.91
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 89.82,
-      "change": 1.11,
-      "change_pct": 1.25,
-      "tonnes_est": 564.0,
+      "price": 89.72,
+      "change": 1.01,
+      "change_pct": 1.14,
+      "tonnes_est": 565.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.8,
-      "ytd_pct": 10.13,
-      "week7_pct": 5.76,
-      "week4_pct": -8.21,
+      "daily_change_est": 2.6,
+      "ytd_pct": 10.0,
+      "week7_pct": 5.64,
+      "week4_pct": -8.31,
       "chart_1y": [
-        {
-          "t": "2025-04-09",
-          "v": 58.38
-        },
         {
           "t": "2025-04-10",
           "v": 59.81
@@ -2032,26 +2024,22 @@
         },
         {
           "t": "2026-04-09",
-          "v": 89.82
+          "v": 89.72
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 36.19,
-      "change": 0.53,
-      "change_pct": 1.47,
-      "tonnes_est": 111.4,
+      "price": 36.14,
+      "change": 0.48,
+      "change_pct": 1.35,
+      "tonnes_est": 111.6,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.7,
-      "ytd_pct": 9.24,
-      "week7_pct": 6.0,
-      "week4_pct": -8.54,
+      "daily_change_est": 0.6,
+      "ytd_pct": 9.09,
+      "week7_pct": 5.86,
+      "week4_pct": -8.67,
       "chart_1y": [
-        {
-          "t": "2025-04-09",
-          "v": 23.67
-        },
         {
           "t": "2025-04-10",
           "v": 24.32
@@ -3050,26 +3038,22 @@
         },
         {
           "t": "2026-04-09",
-          "v": 36.19
+          "v": 36.14
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 47.02,
-      "change": 0.61,
-      "change_pct": 1.31,
+      "price": 46.97,
+      "change": 0.56,
+      "change_pct": 1.2,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.1,
-      "ytd_pct": 10.19,
-      "week7_pct": 5.76,
-      "week4_pct": -8.16,
+      "ytd_pct": 10.08,
+      "week7_pct": 5.65,
+      "week4_pct": -8.26,
       "chart_1y": [
-        {
-          "t": "2025-04-09",
-          "v": 30.53
-        },
         {
           "t": "2025-04-10",
           "v": 31.26
@@ -4068,26 +4052,22 @@
         },
         {
           "t": "2026-04-09",
-          "v": 47.02
+          "v": 46.97
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 45.47,
-      "change": 0.53,
-      "change_pct": 1.18,
+      "price": 45.43,
+      "change": 0.49,
+      "change_pct": 1.09,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.2,
-      "ytd_pct": 10.15,
-      "week7_pct": 5.74,
-      "week4_pct": -8.2,
+      "ytd_pct": 10.05,
+      "week7_pct": 5.65,
+      "week4_pct": -8.28,
       "chart_1y": [
-        {
-          "t": "2025-04-09",
-          "v": 29.51
-        },
         {
           "t": "2025-04-10",
           "v": 30.26
@@ -5086,17 +5066,17 @@
         },
         {
           "t": "2026-04-09",
-          "v": 45.47
+          "v": 45.43
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1474.0,
+  "total_holdings_tonnes_est": 1477.2,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-04-09T19:19:42Z"
+  "last_updated": "2026-04-09T21:00:13Z"
 }

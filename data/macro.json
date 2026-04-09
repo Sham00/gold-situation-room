@@ -1,11 +1,7 @@
 {
   "real_yield_10y": 1.96,
-  "real_yield_10y_date": "2026-04-07",
+  "real_yield_10y_date": "2026-04-08",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-04-03",
-      "v": 1.78
-    },
     {
       "t": "2025-04-04",
       "v": 1.83
@@ -1008,6 +1004,10 @@
     },
     {
       "t": "2026-04-07",
+      "v": 1.96
+    },
+    {
+      "t": "2026-04-08",
       "v": 1.96
     }
   ],
@@ -4047,13 +4047,9 @@
       "v": 22695.9
     }
   ],
-  "us_10y": 4.33,
-  "us_10y_date": "2026-04-07",
+  "us_10y": 4.29,
+  "us_10y_date": "2026-04-08",
   "us_10y_chart": [
-    {
-      "t": "2025-04-03",
-      "v": 4.06
-    },
     {
       "t": "2025-04-04",
       "v": 4.01
@@ -5057,9 +5053,13 @@
     {
       "t": "2026-04-07",
       "v": 4.33
+    },
+    {
+      "t": "2026-04-08",
+      "v": 4.29
     }
   ],
-  "dxy": 98.78,
+  "dxy": 98.84,
   "dxy_date": "2026-04-09",
   "dxy_chart": [
     {
@@ -6064,14 +6064,14 @@
     },
     {
       "t": "2026-04-08",
-      "v": 99.03
+      "v": 99.13
     },
     {
       "t": "2026-04-09",
-      "v": 98.78
+      "v": 98.84
     }
   ],
-  "vix": 19.79,
+  "vix": 19.49,
   "vix_date": "2026-04-09",
   "vix_chart": [
     {
@@ -7076,7 +7076,7 @@
     },
     {
       "t": "2026-04-09",
-      "v": 19.79
+      "v": 19.49
     }
   ],
   "data_sources": {
@@ -8095,7 +8095,7 @@
     },
     {
       "t": "2026-04-09",
-      "v": 4805.6
+      "v": 4789.5
     }
   ],
   "next_fomc_date": "2026-05-06",
@@ -8106,11 +8106,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": 2.291,
-  "lease_rate_1m": 0.944,
-  "lease_rate_3m": 1.349,
-  "lease_rate_6m": 1.754,
+  "gofo_annualized": 2.349,
+  "lease_rate_1m": 0.904,
+  "lease_rate_3m": 1.291,
+  "lease_rate_6m": 1.678,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-04-09T19:19:46Z"
+  "last_updated": "2026-04-09T21:00:17Z"
 }
