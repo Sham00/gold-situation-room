@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 64.2781,
-    "gold_oil": 48.0161,
-    "gold_spx": 0.7033,
-    "gold_btc": 0.0669,
-    "gold_copper": 837.0591
+    "gold_silver": 63.5972,
+    "gold_oil": 47.9746,
+    "gold_spx": 0.7078,
+    "gold_btc": 0.0678,
+    "gold_copper": 833.0873
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-04-09",
-        "v": 64.2781
+        "v": 63.5505
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-04-09",
-        "v": 48.0064
+        "v": 47.9424
       }
     ],
     "gold_spx": [
@@ -3027,6 +3027,10 @@
       {
         "t": "2026-04-08",
         "v": 0.7002
+      },
+      {
+        "t": "2026-04-09",
+        "v": 0.7076
       }
     ],
     "gold_btc": [
@@ -4036,7 +4040,7 @@
       },
       {
         "t": "2026-04-09",
-        "v": 0.0669
+        "v": 0.0678
       }
     ],
     "gold_copper": [
@@ -5046,7 +5050,7 @@
       },
       {
         "t": "2026-04-09",
-        "v": 837.0592
+        "v": 832.8615
       }
     ]
   },
@@ -5054,32 +5058,32 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.9343,
-      "current_percentile": 2.1
+      "mean": 80.933,
+      "current_percentile": 1.9
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.27,
+      "mean": 31.2699,
       "current_percentile": 87.4
     },
     "gold_spx": {
       "min": 0.3784,
       "max": 0.7635,
       "mean": 0.4947,
-      "current_percentile": 98.1
+      "current_percentile": 98.5
     },
     "gold_btc": {
       "min": 0.0255,
       "max": 2.8851,
       "mean": 0.2964,
-      "current_percentile": 39.7
+      "current_percentile": 40.0
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 535.2086,
-      "current_percentile": 98.1
+      "mean": 535.2015,
+      "current_percentile": 97.9
     }
   },
   "dxy_chart": [
@@ -6089,7 +6093,7 @@
     },
     {
       "t": "2026-04-09",
-      "v": 99.02
+      "v": 98.87
     }
   ],
   "gold_1y_chart": [
@@ -7099,7 +7103,7 @@
     },
     {
       "t": "2026-04-09",
-      "v": 4770.4
+      "v": 4795.2
     }
   ],
   "data_quality": {
@@ -7108,5 +7112,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-04-09T11:05:47Z"
+  "last_updated": "2026-04-09T13:58:11Z"
 }
