@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 62.5811,
-    "gold_oil": 48.5803,
-    "gold_spx": 0.7017,
+    "gold_silver": 62.6247,
+    "gold_oil": 49.8606,
+    "gold_spx": 0.7025,
     "gold_btc": 0.0655,
-    "gold_copper": 814.871
+    "gold_copper": 815.7147
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-04-10",
-        "v": 62.5785
+        "v": 62.6247
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-04-10",
-        "v": 48.5832
+        "v": 49.8657
       }
     ],
     "gold_spx": [
@@ -3030,7 +3030,7 @@
       },
       {
         "t": "2026-04-10",
-        "v": 0.7016
+        "v": 0.7026
       }
     ],
     "gold_btc": [
@@ -5050,7 +5050,7 @@
       },
       {
         "t": "2026-04-10",
-        "v": 814.8369
+        "v": 815.7147
       }
     ]
   },
@@ -5058,14 +5058,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.931,
-      "current_percentile": 2.1
+      "mean": 80.9311,
+      "current_percentile": 1.9
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.2711,
-      "current_percentile": 87.4
+      "mean": 31.2735,
+      "current_percentile": 88.9
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5082,8 +5082,8 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 535.1659,
-      "current_percentile": 97.7
+      "mean": 535.1677,
+      "current_percentile": 97.5
     }
   },
   "dxy_chart": [
@@ -6093,7 +6093,7 @@
     },
     {
       "t": "2026-04-10",
-      "v": 98.7
+      "v": 98.65
     }
   ],
   "gold_1y_chart": [
@@ -7103,7 +7103,7 @@
     },
     {
       "t": "2026-04-10",
-      "v": 4783.5
+      "v": 4791.1
     }
   ],
   "data_quality": {
@@ -7112,5 +7112,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-04-10T17:52:24Z"
+  "last_updated": "2026-04-10T19:03:52Z"
 }
