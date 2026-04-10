@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 438.54,
-      "change": 1.12,
-      "change_pct": 0.26,
-      "tonnes_est": 739.0,
+      "price": 436.9,
+      "change": -0.52,
+      "change_pct": -0.12,
+      "tonnes_est": 738.2,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.8,
-      "ytd_pct": 10.11,
-      "week7_pct": 1.92,
-      "week4_pct": -7.92,
+      "daily_change_est": -0.4,
+      "ytd_pct": 9.7,
+      "week7_pct": 1.54,
+      "week4_pct": -8.26,
       "chart_1y": [
         {
           "t": "2025-04-10",
@@ -1014,21 +1014,21 @@
         },
         {
           "t": "2026-04-10",
-          "v": 438.54
+          "v": 436.9
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 89.85,
-      "change": 0.28,
-      "change_pct": 0.31,
-      "tonnes_est": 564.3,
+      "price": 89.52,
+      "change": -0.05,
+      "change_pct": -0.06,
+      "tonnes_est": 563.8,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.7,
-      "ytd_pct": 10.16,
-      "week7_pct": 1.92,
-      "week4_pct": -7.89,
+      "daily_change_est": -0.1,
+      "ytd_pct": 9.76,
+      "week7_pct": 1.54,
+      "week4_pct": -8.23,
       "chart_1y": [
         {
           "t": "2025-04-10",
@@ -2032,21 +2032,21 @@
         },
         {
           "t": "2026-04-10",
-          "v": 89.85
+          "v": 89.52
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 36.2,
-      "change": 0.19,
-      "change_pct": 0.52,
-      "tonnes_est": 111.4,
+      "price": 36.04,
+      "change": 0.03,
+      "change_pct": 0.09,
+      "tonnes_est": 111.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.2,
-      "ytd_pct": 9.27,
-      "week7_pct": 2.14,
-      "week4_pct": -8.22,
+      "daily_change_est": 0.0,
+      "ytd_pct": 8.78,
+      "week7_pct": 1.69,
+      "week4_pct": -8.62,
       "chart_1y": [
         {
           "t": "2025-04-10",
@@ -3050,21 +3050,21 @@
         },
         {
           "t": "2026-04-10",
-          "v": 36.2
+          "v": 36.04
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 47.0,
-      "change": -0.04,
-      "change_pct": -0.09,
+      "price": 46.92,
+      "change": -0.12,
+      "change_pct": -0.26,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": -0.0,
-      "ytd_pct": 10.15,
-      "week7_pct": 1.89,
-      "week4_pct": -7.95,
+      "ytd_pct": 9.96,
+      "week7_pct": 1.71,
+      "week4_pct": -8.11,
       "chart_1y": [
         {
           "t": "2025-04-10",
@@ -4068,21 +4068,21 @@
         },
         {
           "t": "2026-04-10",
-          "v": 47.0
+          "v": 46.92
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 45.5,
-      "change": 0.18,
-      "change_pct": 0.4,
+      "price": 45.33,
+      "change": 0.01,
+      "change_pct": 0.03,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.1,
-      "ytd_pct": 10.22,
-      "week7_pct": 1.97,
-      "week4_pct": -7.88,
+      "daily_change_est": 0.0,
+      "ytd_pct": 9.81,
+      "week7_pct": 1.59,
+      "week4_pct": -8.22,
       "chart_1y": [
         {
           "t": "2025-04-10",
@@ -5086,17 +5086,17 @@
         },
         {
           "t": "2026-04-10",
-          "v": 45.5
+          "v": 45.33
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1474.7,
+  "total_holdings_tonnes_est": 1473.3,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-04-10T14:56:57Z"
+  "last_updated": "2026-04-10T16:02:17Z"
 }
