@@ -4538,13 +4538,6 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
-      "title": "Central Bank Gold Buying - Robin J Brooks | Substack",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85d2thWUdsOThRQldGZHhHT1cwVGZJU2lRb3R5ZzNTM0lUTHBlQTVJaTN1Zm5vREgwY3d4bUo0SWRiZ0txbHhHeC1rTmgzUzFBdGhSZkptRk9jX3Mxd25EZWRrT3hDYU9uVXRacA?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 12 Nov 2025 08:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "title": "Gold Prices Dip, but China's Central Bank Continues 17-Month Gold Buying Streak - \uc544\uc2dc\uc544\uacbd\uc81c",
       "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1aUzF1X2QyQzN3VXZETWhweDlISkgtU3hNdzktZHZfbFNMbUJPMVUxWFA0UFdQX1lWUkw0M3p6U2FKLUFsNUh2MVRjbEtrdkRIOHFxcEtUUFpSZjRWaDg2blhaTTA?oc=5",
       "source": "Google News PBOC Gold",
@@ -4571,6 +4564,13 @@
       "source": "Google News PBOC Gold",
       "published": "Wed, 07 Jan 2026 08:00:00 GMT",
       "sentiment": "negative"
+    },
+    {
+      "title": "Central Bank Gold Statistics: Central bank gold buying in July slows but remains firm - World Gold Council",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZkJYMTM4N01Kb2Rxa0lRNG5JX21ycUJIc3dJb1c0c1hTcktaeDRFYnlLcmRGYzlfUUs5aHJNaXlvSi1CTHI4b0pKNlNiY3QtcERxX2F2WDNRdFl4VEpSR0s0RGZRbHNWOTgyZ2JtcXlDMVZaTktpY3ozV3FjX05uSERDd20zRnZZRDAzVU9ndG5RTU4tNEhTVC1JYXNRcnRKZDBZQWFWTnhHdFlXUEVzZHZiREVlbmFNdzlLZA?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 03 Sep 2025 07:00:00 GMT",
+      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-11T19:41:00Z"
+  "last_updated": "2026-04-11T20:42:45Z"
 }
