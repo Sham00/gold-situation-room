@@ -4538,13 +4538,6 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
-      "title": "Central banks are selling gold to raise cash. Is Turkey\u2019s 50-tonne sale just the start? - The Financial Express",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdXQ1Q3JBMnNZQU1nb1Q3TkdZdDM1ZVYxRHJjUWdhY0dMcjZNT3QtV0FLYTBpV1U4eXBRT1ZodFF1LWNkakFOVW9ORTl5OHFTelpTVmpXOGtTMlhUQ2p2ZHhYcW5nWVBCQWwwT1ppU1ZwS0M5eWVKQTIzR2s1b2oxaGFrZXdDQ2tac3g2OXo1a2dlZkRkQTlGemVsOWNTVE840gGnAUFVX3lxTFA5dkpkZ285b2JTaHdmUE10cHJadkVEYjBjNnNNRE5BeERCT1NTbkxxNWZHd3RIcU1UcE93bzNHYjIxcUhyeno2TkZzV3RJNGZleVhQMUZEc08xTnlBU0x4NDc3SmxyWDJpbkxndC1RNGVhTkdHWjdweTBKOTZKY3ZRS09iTWgwVFZoODM0ellPN3FneTg5Um93ZUFIX2VDVF92eVU1NU5v?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 08 Apr 2026 07:22:51 GMT",
-      "sentiment": "negative"
-    },
-    {
       "title": "Gold Prices Dip, but China's Central Bank Continues 17-Month Gold Buying Streak - \uc544\uc2dc\uc544\uacbd\uc81c",
       "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1aUzF1X2QyQzN3VXZETWhweDlISkgtU3hNdzktZHZfbFNMbUJPMVUxWFA0UFdQX1lWUkw0M3p6U2FKLUFsNUh2MVRjbEtrdkRIOHFxcEtUUFpSZjRWaDg2blhaTTA?oc=5",
       "source": "Google News PBOC Gold",
@@ -4571,6 +4564,13 @@
       "source": "Google News PBOC Gold",
       "published": "Wed, 07 Jan 2026 08:00:00 GMT",
       "sentiment": "negative"
+    },
+    {
+      "title": "\u2018Gold's liquidity works against it\u2019 in oil shock, central bank selling and ETF liquidations still possible \u2013 Morgan Stanley\u2019s Gower - KITCO",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQndVUl84QUtCeWd2R0F3NXo3RFdJdGVDVXN5eTk4Vmt0UXRXZ0I1UXpfX280SmpucTVpemRYR1NJUG5MMjBCSFF0UEZwdGRSRUVUajAwVVphQUdncVM0YVdyREFtM0t3YUg3MU5JWFplWjNfdTVPZ0tXUGlPeWtPODM2WlJDZ05CakZXSlZTaHhLVkpybVRCQXFzVzhPdmF2UzRtTW5CaFA4dVVWYkJ3MWpuN1VlTFdS?oc=5",
+      "source": "Google News CB",
+      "published": "Tue, 31 Mar 2026 12:47:00 GMT",
+      "sentiment": "negative"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-11T21:41:04Z"
+  "last_updated": "2026-04-11T22:40:43Z"
 }

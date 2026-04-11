@@ -120,13 +120,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News Gold Investment",
-      "title": "Gold offers some independence in a fragmented world - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdUhuTEp1TUQyaUpGemJpMzRiTE8wdGVwdHBiMWwtTEhJSjh3YzRxYTVYbGNqbldZTWxHTmN4Y0FaY0x6bWlhWHFzcWdGZlV5NjhkeWlxNjgwbHQwbFkyTUpRb19tUm1WRjNXU0Nrem1ybVVNb1dTbjNuZVdlTlBJWWdBTnpCeGZwUFRWN1NkQTZYOEdocjJn?oc=5",
-      "published": "Fri, 10 Apr 2026 22:44:25 GMT",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Trans Canada Gold Corp. Announces Proposed Warrant Extension",
       "link": "https://finance.yahoo.com/markets/stocks/articles/trans-canada-gold-corp-announces-223000536.html?.tsrc=rss",
@@ -139,6 +132,13 @@
       "link": "https://finance.yahoo.com/markets/stocks/articles/bulgold-announces-filing-fourth-quarter-205500928.html?.tsrc=rss",
       "published": "Fri, 10 Apr 2026 20:55:00 +0000",
       "sentiment": "neutral"
+    },
+    {
+      "source": "Google News Gold Investment",
+      "title": "Central Bank Gold buying has slowed but the bullish case remains - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTVRMZlMyS1J5MEZmd3ZaQlJFZExNTW5nMTB3VUNIdjJLWThnb1NscTF3R2N5T3VLTVNyeTRvUFFoMG5aYTNuaEhNXzlWXzg0aXZUelVTYkNJTDFjT1ExY1hocnJDaENUWm1uTjF4dFZkZFhRM0J4NVJoZmZsT1BMMWNZV2NpT1QtUkxoUV9HX2FpLUxLZFJVYml1OHJ2VVVEcHZ1SmViaENOSmc5b0xCNdIBtgFBVV95cUxQSmRjUnJWamtVZlI0aVhrU2ItcVJHUjRRWGY1ak9vRko3RUx5a19BbTRNWUFXUHhkOTN4aElCOF80QzVwbHRhZjdEbGdNNW5UVWNfSFF4M1hmYmlBekFkeWl0ZGVTZWVrLU9FTmk0eFhvYXkySk1XSXRsTzZtTWpZbUYxN1lIM1dTYVZGQ0pYeksxYzJFRGU3WjJHRlV3RWNQQlJ2bXE0Qk5VT1hiTlNZUnNGX2F2Zw?oc=5",
+      "published": "Fri, 10 Apr 2026 20:19:44 GMT",
+      "sentiment": "positive"
     },
     {
       "source": "Yahoo Finance Gold",
@@ -162,30 +162,30 @@
       "sentiment": "neutral"
     },
     {
+      "source": "Google News Gold Investment",
+      "title": "Gold offers some independence in a fragmented world - KITCO",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdUhuTEp1TUQyaUpGemJpMzRiTE8wdGVwdHBiMWwtTEhJSjh3YzRxYTVYbGNqbldZTWxHTmN4Y0FaY0x6bWlhWHFzcWdGZlV5NjhkeWlxNjgwbHQwbFkyTUpRb19tUm1WRjNXU0Nrem1ybVVNb1dTbjNuZVdlTlBJWWdBTnpCeGZwUFRWN1NkQTZYOEdocjJn?oc=5",
+      "published": "Fri, 10 Apr 2026 19:40:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Google News",
       "title": "Gold Market Forecast 2026: ANZ Sees $5,800, JP Morgan Cautions on Rally - News and Statistics - IndexBox",
       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTndheThmTjdoeVdvVVc5UlVPY2EyYThVN0syRllwUDJ2Wm5KYklfcERUdFJ5VTRvU041UmhFWkNIekdjU0lKNng2em42dFAybm16c2hCQTdBaXRqVnhXMXNsVEtIMF9oS0R1bkkxaTFkaV9oM0FUZmt5U1JGUkdqWDFFTUNKZ1Z3cHh6NGMzUTRXa1RSUkZZQ3R2d3BrOUJqSUE?oc=5",
       "published": "Fri, 10 Apr 2026 19:20:00 GMT",
       "sentiment": "positive"
-    },
-    {
-      "source": "FXStreet",
-      "title": "Gold steady near $4,760 as Iran talks weigh on US Dollar",
-      "link": "https://www.fxstreet.com/news/gold-steady-near-4-760-as-iran-talks-weigh-on-us-dollar-202604101914",
-      "published": "Fri, 10 Apr 2026 19:14:45 Z",
-      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 53.7,
-  "bull_count": 50,
+  "sentiment_score": 55.8,
+  "bull_count": 49,
   "bear_count": 6,
-  "neutral_count": 26,
-  "bull_pct": 61.0,
+  "neutral_count": 22,
+  "bull_pct": 63.6,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-11T21:41:37Z"
+  "last_updated": "2026-04-11T22:41:12Z"
 }
