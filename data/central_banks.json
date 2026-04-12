@@ -886,7 +886,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 57.4,
+      "pct_of_reserves": 57.5,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2327.0,
@@ -4538,6 +4538,13 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
+      "title": "Why France Sold 129 Tonnes of Gold in New York, to Buy It Back in Europe? Inside BdF's Profitable Repatriation - International Business Times",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNenVUX21BeE1BS1JOcjBVTEN3TG9zcmZ3UEFXTGtqbnh3WTBiM3dDZVNlcDFfdUs0ZVFmQjZHdnhDRWhET2Vwbk42TG40cVB6Z01tVk1GNEVUb1NuX1cwREVoV2NSZkNJWUloMUFsQ2NydmhkYnhPSzNzY0xBWnA0X190OXNEOWxvRVg3Uk1jNmFOM3BrVzB0U1pTOUdBaHlOWEdkZFB6d2FYcV9aendGV040TEE?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 08 Apr 2026 11:52:17 GMT",
+      "sentiment": "negative"
+    },
+    {
       "title": "Gold Prices Dip, but China's Central Bank Continues 17-Month Gold Buying Streak - \uc544\uc2dc\uc544\uacbd\uc81c",
       "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1aUzF1X2QyQzN3VXZETWhweDlISkgtU3hNdzktZHZfbFNMbUJPMVUxWFA0UFdQX1lWUkw0M3p6U2FKLUFsNUh2MVRjbEtrdkRIOHFxcEtUUFpSZjRWaDg2blhaTTA?oc=5",
       "source": "Google News PBOC Gold",
@@ -4564,13 +4571,6 @@
       "source": "Google News Turkey Gold",
       "published": "Tue, 31 Mar 2026 07:00:00 GMT",
       "sentiment": "neutral"
-    },
-    {
-      "title": "Gold Erases 2026 Gains as Central Bank Selling Hits Headlines - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeFQ4Y0dHNWx4WHNVdnE3Wk5GZzFVUjc3YjByWWtYczhyalVhaHlYd1I5bGhEcDE5TzljTkJCOTh6VGVRQ2Z1alhwMjM3Z183WkxldC1CejJ3aS10ZHRFdW9kcUdNSzRJWkExQjMtanFCaEVHcmFqUnZkMHphcUhvYjdrQmhwTXE1T0RILS1IN3hKRFU4?oc=5",
-      "source": "Google News CB",
-      "published": "Tue, 24 Mar 2026 07:00:00 GMT",
-      "sentiment": "negative"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-12T22:43:10Z"
+  "last_updated": "2026-04-12T23:43:51Z"
 }
