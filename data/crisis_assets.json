@@ -561,9 +561,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 71752.62,
+      "price": 71726.65,
       "start_price": 88731.98,
-      "ytd_pct": -19.14,
+      "ytd_pct": -19.16,
       "color": "#ff8800",
       "chart": [
         {
@@ -967,8 +967,12 @@
           "v": 82.25
         },
         {
+          "t": "2026-04-11",
+          "v": 82.33
+        },
+        {
           "t": "2026-04-12",
-          "v": 80.86
+          "v": 80.84
         }
       ]
     },
@@ -2099,5 +2103,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-04-12T05:59:50Z"
+  "last_updated": "2026-04-12T07:40:44Z"
 }
