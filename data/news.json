@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "source": "Google News",
+      "title": "Analysts offer hot take on gold price surge - MSN",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNV1d5b3dLOUxvbzkxTWRud3dGcDl4LVZoc3lRWHgxTTZrMl9MZ2wxMjdnTC1sY091TTUwMXZ2Sm1Obk5SNl9vOFlqN2VmemtSbnR0UEl5UDQ0WVVhRkQ2Sm9VX0V1cWV0TndNTVR6Y2dpT21tNTZLRGp4Mnl2VlMySzRUZXZqZThLc19ZSXFCVmNibTAydlhyZEVXYVV4NVFoM3F5NV8zZ0pwX1FIMzIwd2FmemlaWHp2ZExobFh3?oc=5",
+      "published": "Sun, 12 Apr 2026 00:34:48 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Google News",
+      "title": "Gold Soars to Record High: Geopolitics, Rate Cuts, and Market Insights - National Today",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQU1VfMGhuTTFqM3FZQlRIQnlwU1g1ZU5sellXTEYyVDUyeGxaVUFXZmFxdkVwZzdDRWl2em1HY1NRQ2k4bTVMSC1tVG9BRDNSSk9QWVNvNlY1d3dRaTJfclZDY1NzYV9VSlZZNmRLXzliN3hEZWIxTDBmTklub2VYTFlGcFV2MHJLX0VVQ0JKZHZxMDU5NEdoLUdlN1ZBZU5zc3VkYjRPSGZtQm1MNXpZc19zZWNkd2N1SER0VVhmSGU2UQ?oc=5",
+      "published": "Sat, 11 Apr 2026 23:31:27 GMT",
+      "sentiment": "positive"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "Hedge Funds Build Core Stakes In Freeport-McMoRan For Copper Gold Themes",
       "link": "https://finance.yahoo.com/markets/stocks/articles/hedge-funds-build-core-stakes-200849500.html?.tsrc=rss",
@@ -26,13 +40,6 @@
       "title": "Wealth Megatrends Claims Evaluated: Latest Report Highlights Shifting Gold Market Conditions, $6,900 Price Outlook, and Mining Stock Trends Drawing Increased Attention in 2026",
       "link": "https://finance.yahoo.com/markets/commodities/articles/wealth-megatrends-claims-evaluated-latest-184300699.html?.tsrc=rss",
       "published": "Sat, 11 Apr 2026 18:43:00 +0000",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Google News",
-      "title": "Analysts offer hot take on gold price surge - MSN",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNV1d5b3dLOUxvbzkxTWRud3dGcDl4LVZoc3lRWHgxTTZrMl9MZ2wxMjdnTC1sY091TTUwMXZ2Sm1Obk5SNl9vOFlqN2VmemtSbnR0UEl5UDQ0WVVhRkQ2Sm9VX0V1cWV0TndNTVR6Y2dpT21tNTZLRGp4Mnl2VlMySzRUZXZqZThLc19ZSXFCVmNibTAydlhyZEVXYVV4NVFoM3F5NV8zZ0pwX1FIMzIwd2FmemlaWHp2ZExobFh3?oc=5",
-      "published": "Sat, 11 Apr 2026 18:34:48 GMT",
       "sentiment": "positive"
     },
     {
@@ -106,13 +113,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Google News",
-      "title": "Gold Price Weekly Gain: Market Eyes Iran Talks, Inflation Data | 2026 - News and Statistics - IndexBox",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPVm1BeHpmTFFTVkh2TERpSkppam1rWE5yNm5aOGx1R2E1MklYSHc4eFNoQW1EcWtOTUVHUFM2RHU3Um05VzdsUEFWMHBkczZaWFBVZUl1SXlEMjVkbUV2Q3FwaFgzZVg4c3YtZkFCZnU3TWpkUlhWeVNCcFNsZ0tIdl9DLXA4RDZnT1NRaUtGUmI5Q2c?oc=5",
-      "published": "Sat, 11 Apr 2026 03:10:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Silver vs. Gold: Is SIL or IAU the Stronger Precious Metals ETF Right Now?",
       "link": "https://www.fool.com/coverage/etfs/2026/04/10/silver-vs-gold-is-sil-or-iau-the-stronger-precious-metals-etf-right-now/?.tsrc=rss",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 52.4,
-  "bull_count": 49,
-  "bear_count": 6,
-  "neutral_count": 27,
-  "bull_pct": 59.8,
+  "sentiment_score": 59.7,
+  "bull_count": 51,
+  "bear_count": 5,
+  "neutral_count": 21,
+  "bull_pct": 66.2,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-11T23:43:40Z"
+  "last_updated": "2026-04-12T03:28:43Z"
 }
