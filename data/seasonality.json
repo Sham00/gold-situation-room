@@ -3,101 +3,101 @@
     {
       "month": 1,
       "name": "Jan",
-      "avg_return": 3.21,
-      "std_dev": 3.83,
-      "years_of_data": 10
+      "avg_return": 2.96,
+      "std_dev": 4.39,
+      "years_of_data": 8
     },
     {
       "month": 2,
       "name": "Feb",
-      "avg_return": 0.6,
-      "std_dev": 5.14,
-      "years_of_data": 10
+      "avg_return": 0.67,
+      "std_dev": 4.43,
+      "years_of_data": 9
     },
     {
       "month": 3,
       "name": "Mar",
-      "avg_return": 1.66,
-      "std_dev": 6.14,
-      "years_of_data": 10
+      "avg_return": 3.32,
+      "std_dev": 4.67,
+      "years_of_data": 8
     },
     {
       "month": 4,
       "name": "Apr",
-      "avg_return": 1.99,
-      "std_dev": 2.92,
-      "years_of_data": 9
+      "avg_return": 2.46,
+      "std_dev": 3.24,
+      "years_of_data": 8
     },
     {
       "month": 5,
       "name": "May",
-      "avg_return": 0.88,
-      "std_dev": 3.21,
-      "years_of_data": 9
+      "avg_return": 1.36,
+      "std_dev": 3.02,
+      "years_of_data": 8
     },
     {
       "month": 6,
       "name": "Jun",
-      "avg_return": -0.65,
-      "std_dev": 4.29,
-      "years_of_data": 9
+      "avg_return": -1.18,
+      "std_dev": 4.87,
+      "years_of_data": 8
     },
     {
       "month": 7,
       "name": "Jul",
-      "avg_return": 1.93,
-      "std_dev": 3.57,
-      "years_of_data": 9
+      "avg_return": 2.47,
+      "std_dev": 3.42,
+      "years_of_data": 8
     },
     {
       "month": 8,
       "name": "Aug",
-      "avg_return": 1.41,
-      "std_dev": 3.4,
-      "years_of_data": 9
+      "avg_return": 1.3,
+      "std_dev": 3.96,
+      "years_of_data": 8
     },
     {
       "month": 9,
       "name": "Sep",
-      "avg_return": -0.62,
-      "std_dev": 5.22,
-      "years_of_data": 9
+      "avg_return": -1.09,
+      "std_dev": 5.29,
+      "years_of_data": 7
     },
     {
       "month": 10,
       "name": "Oct",
       "avg_return": 2.02,
-      "std_dev": 2.88,
-      "years_of_data": 9
+      "std_dev": 3.86,
+      "years_of_data": 7
     },
     {
       "month": 11,
       "name": "Nov",
-      "avg_return": 0.5,
-      "std_dev": 4.09,
-      "years_of_data": 9
+      "avg_return": 2.05,
+      "std_dev": 4.95,
+      "years_of_data": 8
     },
     {
       "month": 12,
       "name": "Dec",
-      "avg_return": 3.07,
-      "std_dev": 2.18,
-      "years_of_data": 9
+      "avg_return": 2.74,
+      "std_dev": 1.44,
+      "years_of_data": 7
     }
   ],
   "best_months": [
+    "Mar",
     "Jan",
-    "Dec",
-    "Oct"
+    "Dec"
   ],
   "worst_months": [
-    "Nov",
+    "Feb",
     "Sep",
     "Jun"
   ],
   "current_month": "Apr",
-  "current_month_avg": 1.99,
+  "current_month_avg": 2.46,
   "years_analyzed": 10,
   "source": "yfinance GC=F 10-year monthly returns",
-  "last_updated": "2026-04-12T16:51:32Z"
+  "last_updated": "2026-04-12T17:42:50Z"
 }
