@@ -4,8 +4,8 @@
       "name": "VanEck Gold Miners ETF",
       "type": "etf",
       "price": 99.39,
-      "change": 1.1,
-      "change_pct": 1.12,
+      "change": 0.28,
+      "change_pct": 0.28,
       "ytd_pct": 15.93,
       "week4_pct": -1.94,
       "market_cap": null,
@@ -517,8 +517,8 @@
       "name": "VanEck Junior Gold Miners ETF",
       "type": "etf",
       "price": 128.84,
-      "change": 1.35,
-      "change_pct": 1.06,
+      "change": 0.74,
+      "change_pct": 0.58,
       "ytd_pct": 13.82,
       "week4_pct": -4.82,
       "market_cap": null,
@@ -1030,8 +1030,8 @@
       "name": "Barrick Gold",
       "type": "miner",
       "price": 43.98,
-      "change": -0.28,
-      "change_pct": -0.63,
+      "change": -0.01,
+      "change_pct": -0.02,
       "ytd_pct": 26.92,
       "week4_pct": -12.86,
       "market_cap": 1237484544,
@@ -1042,7 +1042,7 @@
       "vs_gold_ytd": 16.86,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3697.9,
+      "margin": 3698.6,
       "sparkline": [
         {
           "t": "2025-10-13",
@@ -1546,8 +1546,8 @@
       "name": "Newmont Corp",
       "type": "miner",
       "price": 120.9,
-      "change": 1.89,
-      "change_pct": 1.59,
+      "change": 0.31,
+      "change_pct": 0.26,
       "ytd_pct": 19.68,
       "week4_pct": 4.04,
       "market_cap": 131523993600,
@@ -1558,7 +1558,7 @@
       "vs_gold_ytd": 9.62,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 3347.9,
+      "margin": 3348.6,
       "sparkline": [
         {
           "t": "2025-10-13",
@@ -2062,8 +2062,8 @@
       "name": "Agnico Eagle",
       "type": "miner",
       "price": 218.75,
-      "change": 2.95,
-      "change_pct": 1.37,
+      "change": -0.2,
+      "change_pct": -0.09,
       "ytd_pct": 28.57,
       "week4_pct": -1.82,
       "market_cap": 110221991936,
@@ -2074,7 +2074,7 @@
       "vs_gold_ytd": 18.51,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3597.9,
+      "margin": 3598.6,
       "sparkline": [
         {
           "t": "2025-10-13",
@@ -2578,8 +2578,8 @@
       "name": "Alamos Gold",
       "type": "miner",
       "price": 48.48,
-      "change": 1.11,
-      "change_pct": 2.34,
+      "change": 0.32,
+      "change_pct": 0.66,
       "ytd_pct": 26.32,
       "week4_pct": -1.82,
       "market_cap": 20419686400,
@@ -2590,7 +2590,7 @@
       "vs_gold_ytd": 16.26,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3697.9,
+      "margin": 3698.6,
       "sparkline": [
         {
           "t": "2025-10-13",
@@ -3094,8 +3094,8 @@
       "name": "Wheaton Precious Metals",
       "type": "miner",
       "price": 144.84,
-      "change": 3.69,
-      "change_pct": 2.61,
+      "change": -0.51,
+      "change_pct": -0.35,
       "ytd_pct": 23.08,
       "week4_pct": -2.42,
       "market_cap": 65921323008,
@@ -3106,7 +3106,7 @@
       "vs_gold_ytd": 13.02,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 4297.9,
+      "margin": 4298.6,
       "sparkline": [
         {
           "t": "2025-10-13",
@@ -3610,8 +3610,8 @@
       "name": "Franco-Nevada",
       "type": "miner",
       "price": 261.55,
-      "change": 1.03,
-      "change_pct": 0.4,
+      "change": -1.42,
+      "change_pct": -0.54,
       "ytd_pct": 25.6,
       "week4_pct": -1.41,
       "market_cap": 50470518784,
@@ -3622,7 +3622,7 @@
       "vs_gold_ytd": 15.54,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 4347.9,
+      "margin": 4348.6,
       "sparkline": [
         {
           "t": "2025-10-13",
@@ -4123,7 +4123,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.020933,
+  "gdx_gold_ratio": 0.02093,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-04-14",
@@ -5223,5 +5223,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-04-13T06:22:36Z"
+  "last_updated": "2026-04-13T09:06:21Z"
 }
