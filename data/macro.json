@@ -1,11 +1,7 @@
 {
   "real_yield_10y": 1.95,
-  "real_yield_10y_date": "2026-04-09",
+  "real_yield_10y_date": "2026-04-10",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-04-07",
-      "v": 1.96
-    },
     {
       "t": "2025-04-08",
       "v": 2.04
@@ -1008,6 +1004,10 @@
     },
     {
       "t": "2026-04-09",
+      "v": 1.95
+    },
+    {
+      "t": "2026-04-10",
       "v": 1.95
     }
   ],
@@ -4047,13 +4047,9 @@
       "v": 22695.9
     }
   ],
-  "us_10y": 4.29,
-  "us_10y_date": "2026-04-09",
+  "us_10y": 4.31,
+  "us_10y_date": "2026-04-10",
   "us_10y_chart": [
-    {
-      "t": "2025-04-07",
-      "v": 4.15
-    },
     {
       "t": "2025-04-08",
       "v": 4.26
@@ -5057,9 +5053,13 @@
     {
       "t": "2026-04-09",
       "v": 4.29
+    },
+    {
+      "t": "2026-04-10",
+      "v": 4.31
     }
   ],
-  "dxy": 98.41,
+  "dxy": 98.42,
   "dxy_date": "2026-04-13",
   "dxy_chart": [
     {
@@ -6064,10 +6064,10 @@
     },
     {
       "t": "2026-04-13",
-      "v": 98.41
+      "v": 98.42
     }
   ],
-  "vix": 19.38,
+  "vix": 19.12,
   "vix_date": "2026-04-13",
   "vix_chart": [
     {
@@ -7068,7 +7068,7 @@
     },
     {
       "t": "2026-04-13",
-      "v": 19.38
+      "v": 19.12
     }
   ],
   "data_sources": {
@@ -8083,7 +8083,7 @@
     },
     {
       "t": "2026-04-13",
-      "v": 4760.0
+      "v": 4763.4
     }
   ],
   "next_fomc_date": "2026-05-06",
@@ -8094,11 +8094,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": 2.118,
-  "lease_rate_1m": 1.065,
-  "lease_rate_3m": 1.522,
-  "lease_rate_6m": 1.979,
+  "gofo_annualized": 2.393,
+  "lease_rate_1m": 0.873,
+  "lease_rate_3m": 1.247,
+  "lease_rate_6m": 1.621,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-04-13T19:27:06Z"
+  "last_updated": "2026-04-13T21:04:04Z"
 }
