@@ -4,8 +4,8 @@
       "name": "VanEck Gold Miners ETF",
       "type": "etf",
       "price": 98.78,
-      "change": -0.33,
-      "change_pct": -0.33,
+      "change": -0.1,
+      "change_pct": -0.1,
       "ytd_pct": 15.22,
       "week4_pct": -0.52,
       "market_cap": null,
@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 69.0,
-      "vs_gold_ytd": 4.16,
+      "vs_gold_ytd": 4.36,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -526,7 +526,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 223.0,
-      "vs_gold_ytd": 2.94,
+      "vs_gold_ytd": 3.14,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -1039,10 +1039,10 @@
       "forward_pe": null,
       "ev_ebitda": 22.3,
       "dividend_yield": 182.0,
-      "vs_gold_ytd": 15.8,
+      "vs_gold_ytd": 16.0,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3741.8,
+      "margin": 3732.8,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -1555,10 +1555,10 @@
       "forward_pe": 10.6,
       "ev_ebitda": 9.0,
       "dividend_yield": 89.0,
-      "vs_gold_ytd": 4.27,
+      "vs_gold_ytd": 4.47,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 3391.8,
+      "margin": 3382.8,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -2071,10 +2071,10 @@
       "forward_pe": 15.7,
       "ev_ebitda": 13.0,
       "dividend_yield": 83.0,
-      "vs_gold_ytd": 16.7,
+      "vs_gold_ytd": 16.9,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3641.8,
+      "margin": 3632.8,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -2587,10 +2587,10 @@
       "forward_pe": 14.5,
       "ev_ebitda": 18.4,
       "dividend_yield": 24.0,
-      "vs_gold_ytd": 14.5,
+      "vs_gold_ytd": 14.7,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3741.8,
+      "margin": 3732.8,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -3103,10 +3103,10 @@
       "forward_pe": 24.5,
       "ev_ebitda": 34.1,
       "dividend_yield": 54.0,
-      "vs_gold_ytd": 12.01,
+      "vs_gold_ytd": 12.21,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 4341.8,
+      "margin": 4332.8,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -3615,14 +3615,14 @@
       "ytd_pct": 24.87,
       "week4_pct": -1.32,
       "market_cap": 50177212416,
-      "pe_ratio": 45.2,
+      "pe_ratio": 45.1,
       "forward_pe": 26.2,
       "ev_ebitda": 30.0,
       "dividend_yield": 68.0,
-      "vs_gold_ytd": 13.81,
+      "vs_gold_ytd": 14.01,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 4391.8,
+      "margin": 4382.8,
       "sparkline": [
         {
           "t": "2025-10-14",
@@ -4123,7 +4123,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.020614,
+  "gdx_gold_ratio": 0.020653,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-04-14",
@@ -5123,7 +5123,7 @@
     },
     {
       "t": "2026-04-13",
-      "v": 0.020614
+      "v": 0.020829
     }
   ],
   "mining_production": {
@@ -5227,5 +5227,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-04-14T03:24:46Z"
+  "last_updated": "2026-04-14T06:06:20Z"
 }
