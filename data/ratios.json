@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 60.8507,
-    "gold_oil": 52.6743,
-    "gold_spx": 0.6855,
+    "gold_silver": 60.7199,
+    "gold_oil": 53.0223,
+    "gold_spx": 0.687,
     "gold_btc": 0.0644,
-    "gold_copper": 791.9553
+    "gold_copper": 792.9164
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-04-15",
-        "v": 60.8507
+        "v": 60.7249
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-04-15",
-        "v": 52.6743
+        "v": 53.0267
       }
     ],
     "gold_spx": [
@@ -3026,7 +3026,7 @@
       },
       {
         "t": "2026-04-15",
-        "v": 0.6855
+        "v": 0.687
       }
     ],
     "gold_btc": [
@@ -5046,7 +5046,7 @@
       },
       {
         "t": "2026-04-15",
-        "v": 791.9553
+        "v": 792.9822
       }
     ]
   },
@@ -5054,14 +5054,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.8923,
+      "mean": 80.892,
       "current_percentile": 1.1
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.3134,
-      "current_percentile": 91.6
+      "mean": 31.3141,
+      "current_percentile": 91.8
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5078,8 +5078,8 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 535.6499,
-      "current_percentile": 95.0
+      "mean": 535.6517,
+      "current_percentile": 95.2
     }
   },
   "dxy_chart": [
@@ -6089,7 +6089,7 @@
     },
     {
       "t": "2026-04-15",
-      "v": 98.07
+      "v": 98.05
     }
   ],
   "gold_1y_chart": [
@@ -7099,7 +7099,7 @@
     },
     {
       "t": "2026-04-15",
-      "v": 4813.9
+      "v": 4824.9
     }
   ],
   "data_quality": {
@@ -7108,5 +7108,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-04-15T22:00:13Z"
+  "last_updated": "2026-04-15T22:56:09Z"
 }
