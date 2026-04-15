@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4826.0,
+      "price": 4845.3,
       "start_price": 4314.4,
-      "ytd_pct": 11.86,
+      "ytd_pct": 12.31,
       "color": "#ffd700",
       "chart": [
         {
@@ -288,7 +288,7 @@
         },
         {
           "t": "2026-04-15",
-          "v": 111.86
+          "v": 112.31
         }
       ]
     },
@@ -585,9 +585,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 74960.88,
+      "price": 74834.33,
       "start_price": 88731.98,
-      "ytd_pct": -15.52,
+      "ytd_pct": -15.66,
       "color": "#ff8800",
       "chart": [
         {
@@ -1008,14 +1008,14 @@
         },
         {
           "t": "2026-04-15",
-          "v": 84.48
+          "v": 84.34
         }
       ]
     },
     "Silver": {
-      "price": 79.46,
+      "price": 79.72,
       "start_price": 70.56,
-      "ytd_pct": 12.62,
+      "ytd_pct": 13.0,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1300,7 +1300,7 @@
         },
         {
           "t": "2026-04-15",
-          "v": 112.62
+          "v": 113.0
         }
       ]
     },
@@ -2187,5 +2187,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-04-15T22:57:40Z"
+  "last_updated": "2026-04-15T23:54:52Z"
 }
