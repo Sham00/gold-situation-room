@@ -50,6 +50,13 @@
       "sentiment": "positive"
     },
     {
+      "source": "Google News",
+      "title": "Gold slips as easing Mideast risks boost US Dollar, curb haven bids - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPWTJDNFRodWp6ZmVqQUNqR0pISGV3OVF1UUk4aTl2bXhXNnplVV9CRnBCLU9KZzBITzRrZTBuOEtBQkhSZ1NBQXBrdWpIQXZnRl9YajdxNkhGZUVNek0ycmNuWUNsMThZcnZINTY2RUxERXhucDZsTGk5dkJsRHFWVTgyLU5mdlY5V0tLSnZ1LWZEY3ZuZW5WRTdMblBmQWRPaTdDM19hZ1F3MlhOb3c?oc=5",
+      "published": "Thu, 16 Apr 2026 18:35:14 GMT",
+      "sentiment": "positive"
+    },
+    {
       "source": "FXStreet",
       "title": "Gold slips as easing Mideast risks boost US Dollar, curb haven bids",
       "link": "https://www.fxstreet.com/news/gold-slips-as-easing-mideast-risks-boost-us-dollar-curb-haven-bids-202604161835",
@@ -120,27 +127,6 @@
       "sentiment": "negative"
     },
     {
-      "source": "Google News Gold Investment",
-      "title": "Gold's safe-haven appeal weakening as Philly Fed Survey jumps in April - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaDVYb0ZKTS1BNmJUUFBrcjhqWFFtYkpEdlVQTXVQM1o2RFVWVmtHc053VWVCYlRBU2lkRWxxS0M1emVzM3dmTVptdVg0aTRTUlhoMW1YRzBqZkxjOFJ0ZHRnZUdEbmxzeWozQkFuVFJTRy1odUZBREIxa2FTclFndzAweGp2cm10MG5hSV9seV9VTnFfLU1WdDZnMnc1UU1tWEhudXNXdXJ5TzdDbFE?oc=5",
-      "published": "Thu, 16 Apr 2026 16:25:11 GMT",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Mining.com",
-      "title": "Canada\u2019s antimony gap shows as Iran war sharpens focus on defence metals",
-      "link": "https://www.mining.com/canadas-antimony-gap-shows-as-iran-war-sharpens-focus-on-defence-metals/",
-      "published": "Thu, 16 Apr 2026 16:12:17 +0000",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Mining.com",
-      "title": "USCM, Columbia University eye defence-critical metals in red mud",
-      "link": "https://www.mining.com/uscm-columbia-university-eye-defence-critical-metals-in-red-mud/",
-      "published": "Thu, 16 Apr 2026 16:09:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "BC exploration spending hits record $751M in 2025 as copper overtakes gold",
       "link": "https://finance.yahoo.com/markets/commodities/articles/bc-exploration-spending-hits-record-155800337.html?.tsrc=rss",
@@ -169,23 +155,37 @@
       "sentiment": "positive"
     },
     {
-      "source": "Mining.com",
-      "title": "Gold Basin fires CEO for alleged misconduct",
-      "link": "https://www.mining.com/gold-basin-fires-ceo-for-alleged-misconduct/",
-      "published": "Thu, 16 Apr 2026 15:06:00 +0000",
+      "source": "Yahoo Finance Gold",
+      "title": "FireFox Gold Reported Remaining Results from 2025 Drilling at Sarvi Project in Lapland, Finland",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/firefox-gold-reported-remaining-results-145626864.html?.tsrc=rss",
+      "published": "Thu, 16 Apr 2026 14:56:26 +0000",
       "sentiment": "neutral"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Is AngloGold Ashanti Positioned for Further Adjusted EBITDA Upside?",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/anglogold-ashanti-positioned-further-adjusted-141900444.html?.tsrc=rss",
+      "published": "Thu, 16 Apr 2026 14:19:00 +0000",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Eldorado Gold Boosts Portfolio With Acquisition of Foran",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/eldorado-gold-boosts-portfolio-acquisition-141700618.html?.tsrc=rss",
+      "published": "Thu, 16 Apr 2026 14:17:00 +0000",
+      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 51.2,
-  "bull_count": 49,
-  "bear_count": 6,
-  "neutral_count": 29,
-  "bull_pct": 58.3,
+  "sentiment_score": 52.6,
+  "bull_count": 47,
+  "bear_count": 7,
+  "neutral_count": 22,
+  "bull_pct": 61.8,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-16T21:54:27Z"
+  "last_updated": "2026-04-16T22:52:35Z"
 }
