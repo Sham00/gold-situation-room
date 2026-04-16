@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4845.4,
+      "price": 4831.1,
       "start_price": 4314.4,
-      "ytd_pct": 12.31,
+      "ytd_pct": 11.98,
       "color": "#ffd700",
       "chart": [
         {
@@ -292,7 +292,7 @@
         },
         {
           "t": "2026-04-16",
-          "v": 112.31
+          "v": 111.98
         }
       ]
     },
@@ -589,9 +589,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 75088.13,
+      "price": 74740.75,
       "start_price": 88731.98,
-      "ytd_pct": -15.38,
+      "ytd_pct": -15.77,
       "color": "#ff8800",
       "chart": [
         {
@@ -1011,15 +1011,19 @@
           "v": 83.6
         },
         {
+          "t": "2026-04-15",
+          "v": 84.3
+        },
+        {
           "t": "2026-04-16",
-          "v": 84.62
+          "v": 84.23
         }
       ]
     },
     "Silver": {
-      "price": 80.61,
+      "price": 79.81,
       "start_price": 70.56,
-      "ytd_pct": 14.24,
+      "ytd_pct": 13.12,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1308,7 +1312,7 @@
         },
         {
           "t": "2026-04-16",
-          "v": 114.24
+          "v": 113.12
         }
       ]
     },
@@ -1605,9 +1609,9 @@
       ]
     },
     "VIX": {
-      "price": 18.17,
+      "price": 18.12,
       "start_price": 14.51,
-      "ytd_pct": 25.22,
+      "ytd_pct": 24.88,
       "color": "#ff4444",
       "chart": [
         {
@@ -1893,13 +1897,17 @@
         {
           "t": "2026-04-15",
           "v": 125.22
+        },
+        {
+          "t": "2026-04-16",
+          "v": 124.88
         }
       ]
     },
     "DXY": {
-      "price": 98.01,
+      "price": 98.19,
       "start_price": 98.42,
-      "ytd_pct": -0.42,
+      "ytd_pct": -0.24,
       "color": "#aa44ff",
       "chart": [
         {
@@ -2188,7 +2196,7 @@
         },
         {
           "t": "2026-04-16",
-          "v": 99.58
+          "v": 99.76
         }
       ]
     }
@@ -2199,5 +2207,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-04-16T06:08:54Z"
+  "last_updated": "2026-04-16T08:50:16Z"
 }
