@@ -43,6 +43,13 @@
       "sentiment": "neutral"
     },
     {
+      "source": "Google News",
+      "title": "Gold (XAU/USD) Price Forecast for Today, Tomorrow, Next Week, and the Next 30 Days - LiteFinance",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ1BXeVdPR08tTmQ4MHdZMkloUzlsNjRjSE5VVmxyeVRrdDZqbDI3Tm5VVUdfYTdZM0dOYjkzVFBuMGhJUzZEM3E0RDBkc0RTUXd2VFdMdm5uenpPXzJobUNvRklvRkt0S0pfYkZ0UWRXaWRDc09MR1pBUkVDRXN2Y2FINkVmUDBlRkZHNGhzZkNyNk5LUzZrM2VUV1pVOV9N?oc=5",
+      "published": "Sat, 18 Apr 2026 09:58:14 GMT",
+      "sentiment": "positive"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "A Look At K92 Mining (TSX:KNT) Valuation After Strong Recent Share Price And Return Performance",
       "link": "https://finance.yahoo.com/markets/stocks/articles/look-k92-mining-tsx-knt-060621353.html?.tsrc=rss",
@@ -167,19 +174,12 @@
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxORkdwUnp5M0tMOWZad1lOQWRaYklBc0Zaa2swSnJ2dWhuNmhJdGQyMVVNazFBQ1JwaEc2RmtmZzZnNjBRc0tvRnBrMDlqdmkxZ1h6UkZHTEplQ0FtUnF0cU9HVEo0WGFlOFJoNkJxYzFnZFA1N2JtODJDaUZRR1RBQlRoTVltVmlFWjZnVmZqN2hNc3k4VHVIQ2FqUWNPSUNXd2dmNDdRV2xhVEstM1E?oc=5",
       "published": "Fri, 17 Apr 2026 19:01:36 GMT",
       "sentiment": "positive"
-    },
-    {
-      "source": "Yahoo Finance Gold",
-      "title": "Precious Metals Close Higher as Stronger Demand Eyed",
-      "link": "https://finance.yahoo.com/m/0f9842b4-7814-3968-962a-1bc381b34873/precious-metals-close-higher.html?.tsrc=rss",
-      "published": "Fri, 17 Apr 2026 18:33:00 +0000",
-      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 59.1,
+  "sentiment_score": 58.0,
   "bull_count": 57,
-  "bear_count": 5,
-  "neutral_count": 26,
+  "bear_count": 6,
+  "neutral_count": 25,
   "bull_pct": 64.8,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
@@ -187,5 +187,5 @@
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-18T16:52:51Z"
+  "last_updated": "2026-04-18T17:43:28Z"
 }
