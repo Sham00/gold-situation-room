@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "Yahoo Finance Gold",
+      "title": "Binance Has 'Reached The Scale' Of Major Asian National Commodities Exchanges In Gold Perpetuals Trading, Says Co-CEO Teng",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/binance-reached-scale-major-asian-153110679.html?.tsrc=rss",
+      "published": "Sat, 18 Apr 2026 15:31:10 +0000",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Google News",
       "title": "Gold, Copper Forecasts & Central Bank Activity: 2026 Commodity Market Analysis - News and Statistics - IndexBox",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNOW1VTzNVRFl5enNrZ0JPRWJCUEVLdGFxTjlmQmRLaG00RjkweHZVbloyM0tDcUV6WlpEdGR5NWluRmF1UGk5NWFnRmotWG4wTjB1bmpaYWc1U0lEajZ6cGhCZG5yMjIza0lzN1FNYzU0LW8wVVktYVExUEllRHdaSG9TVTZ2QUdxdzRPWm9FVkVuRHppcXJsNzhvQ29PZTg?oc=5",
@@ -113,13 +120,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News Gold Investment",
-      "title": "Gold ETF outflows misleading investors? WGC challenges the narrative - Mining.com",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOeFpJazNSZUt3OHZuMFRVUlpaZ3BvTEJOQ0pVT1BuSkg5STMyZEdsX2lnMnVLVENmdHRTcHdMTFRHNXgzYl9jdkRzUnliN2xBYWt4Q0xoT19jMk52S0lzZ01GOHZ4NFhBMU5jdFg1LTlyc1BEVTVwS3J2c0QzckJqcTQ0RDA2cVh3Vkhwb01FeWdveFg1cFVVUkJlV28xNXZNdVUtYnl3QlR3WG5kbjhEN0Nn?oc=5",
-      "published": "Fri, 17 Apr 2026 19:14:22 GMT",
-      "sentiment": "negative"
-    },
-    {
       "source": "FXStreet",
       "title": "Gold surges past $4,850 as Hormuz reopening crushes the US Dollar",
       "link": "https://www.fxstreet.com/news/gold-surges-past-4-850-as-hormuz-reopening-crushes-the-us-dollar-202604171909",
@@ -176,16 +176,16 @@
       "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 60.5,
-  "bull_count": 55,
-  "bear_count": 6,
+  "sentiment_score": 63.0,
+  "bull_count": 56,
+  "bear_count": 5,
   "neutral_count": 20,
-  "bull_pct": 67.9,
+  "bull_pct": 69.1,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-18T14:49:52Z"
+  "last_updated": "2026-04-18T15:44:28Z"
 }
