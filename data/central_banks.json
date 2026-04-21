@@ -4525,11 +4525,25 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
+      "title": "TCMB Survey: Household Inflation Expectations Near 50% as Gold Remains Top Investment Choice - PA Turkey",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdnQ1U3FTdmFrT2ViQ0FDWmpsekFleWV6dG52TVRwa1NZd19yeWZjZVNuMERZNlMyN2FaZjF1X1JMcE05azM3T1FlR04yOTdJX2h1Tm41NnBFZEt6NTBmeW1TMjFVYXpCZER5QmZFQ2lSekVaUTVZVGRPY28zNGFSZW9uSmcxWG1YWGFmaXdOOXQxbm5LdEs5WGhnRmdOdk9wc3puUWhDT3JKaHQ4T2VRNk53cjloSkQ4eGduZ3RlWGd6VUdYZ0E5V2FDMm4?oc=5",
+      "source": "Google News Turkey Gold",
+      "published": "Wed, 25 Mar 2026 07:00:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "title": "T\u00fcrkiye\u2019s CDS Risk Premium Hits Annual Low - PA Turkey",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNeHFPTkJ6elQ1RUE1NUFqZGhYLUpSNWZOcHY2SkdtdFNuTHhKUXItVjdfc19BOUpuWFBRWmtBWV84emVMdHNFalJPUjUza2tCalV1LWRrU3U3TDU3aDZHRHlPaktQb3ZJaWhYOUN6R003cHpCaWl5VnhJd0IyZFZzMEN4VUhhUHpVUEFJ?oc=5",
       "source": "Google News Turkey Gold",
       "published": "Wed, 15 Apr 2026 10:35:34 GMT",
       "sentiment": "neutral"
+    },
+    {
+      "title": "What secrets lie behind central banks' shift from purchasing thousands of tons annually to selling? Is gold still a worthwhile asset to hold? - Moomoo",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeGNDYl8wZWhhTDNsSWJyNW5iWDBNVDVNM2pxNi1ieWliSHBNekh1S3pPMWRFdFo2RjlJcU1GZXdlR2hXSUxvc2ZMdndRdDNEcnJIMmN4eUE1RDllcGk2QmJVVUw5cFBYcGpoZndjQ2F1eUFnWDNsWnplOXBRSXdSMEtqQVdjdzdVVU9SWUxKVU5XdUtENnJaVXJTTUxSV2xWeElkUnhwUl9GTXp4Nkg2Zw?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 15 Apr 2026 02:07:17 GMT",
+      "sentiment": "negative"
     },
     {
       "title": "China\u2019s PBOC Adds Gold for 14th Month As Prices Hit Record - Bloomberg.com",
@@ -4544,20 +4558,6 @@
       "source": "Google News PBOC Gold",
       "published": "Wed, 03 Sep 2025 07:00:00 GMT",
       "sentiment": "positive"
-    },
-    {
-      "title": "Central banks still have busy schedule ahead of year's end - Anadolu Ajans\u0131",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSHBBQXBkMlI5am0wa1pVb3BtdEVBNkl5Y0hEU0NKeFZCYW01UzhhTklWNXZaVzZ1RDVZS0g3Vmlmb3FhY1VlZTBpMnZYdHFUNko0QWNySnRjcF85QzR2SzJGZDEzZldLeDJzbzhEUE1TdmVWdGlrQURFNmwxRTBNR0w5anFrbU1xODQ3eFFBNkx0dkNRS2VSbVBuQnFEMnc?oc=5",
-      "source": "Google News Turkey Gold",
-      "published": "Wed, 03 Dec 2025 08:00:00 GMT",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Gold Erases 2026 Gains as Central Bank Selling Hits Headlines - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeFQ4Y0dHNWx4WHNVdnE3Wk5GZzFVUjc3YjByWWtYczhyalVhaHlYd1I5bGhEcDE5TzljTkJCOTh6VGVRQ2Z1alhwMjM3Z183WkxldC1CejJ3aS10ZHRFdW9kcUdNSzRJWkExQjMtanFCaEVHcmFqUnZkMHphcUhvYjdrQmhwTXE1T0RILS1IN3hKRFU4?oc=5",
-      "source": "Google News CB",
-      "published": "Tue, 24 Mar 2026 07:00:00 GMT",
-      "sentiment": "negative"
     }
   ],
   "data_quality": {
@@ -4566,5 +4566,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-21T21:53:18Z"
+  "last_updated": "2026-04-21T22:46:17Z"
 }
