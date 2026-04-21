@@ -5059,7 +5059,7 @@
       "v": 4.26
     }
   ],
-  "dxy": 98.13,
+  "dxy": 98.12,
   "dxy_date": "2026-04-21",
   "dxy_chart": [
     {
@@ -6068,7 +6068,11 @@
     },
     {
       "t": "2026-04-20",
-      "v": 98.13
+      "v": 98.05
+    },
+    {
+      "t": "2026-04-21",
+      "v": 98.12
     }
   ],
   "vix": 18.87,
@@ -8095,7 +8099,11 @@
     },
     {
       "t": "2026-04-20",
-      "v": 4821.2
+      "v": 4806.6
+    },
+    {
+      "t": "2026-04-21",
+      "v": 4804.1
     }
   ],
   "next_fomc_date": "2026-05-06",
@@ -8106,11 +8114,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": 2.165,
-  "lease_rate_1m": 1.032,
-  "lease_rate_3m": 1.475,
-  "lease_rate_6m": 1.918,
+  "gofo_annualized": 2.342,
+  "lease_rate_1m": 0.909,
+  "lease_rate_3m": 1.298,
+  "lease_rate_6m": 1.687,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-04-21T03:27:29Z"
+  "last_updated": "2026-04-21T06:08:29Z"
 }
