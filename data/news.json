@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "source": "FXStreet",
+      "title": "Gold slumps below $4,750 as Middle East tensions and robust US Retail Sales weigh",
+      "link": "https://www.fxstreet.com/news/gold-slumps-below-4-750-as-middle-east-tensions-and-robust-us-retail-sales-weigh-202604212324",
+      "published": "Tue, 21 Apr 2026 23:24:57 Z",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold Port Announces Option Grants",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/gold-port-announces-option-grants-225500001.html?.tsrc=rss",
+      "published": "Tue, 21 Apr 2026 22:55:00 +0000",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "Grande Portage Resources Announces SEDAR+ Filing of Preliminary Economic Assessment (PEA) Study for the New Amalga Gold Project in SE Alaska",
       "link": "https://finance.yahoo.com/sectors/energy/articles/grande-portage-resources-announces-sedar-220000693.html?.tsrc=rss",
@@ -160,32 +174,18 @@
       "link": "https://finance.yahoo.com/markets/stocks/articles/analysts-project-25-upside-fortuna-173944680.html?.tsrc=rss",
       "published": "Tue, 21 Apr 2026 17:39:44 +0000",
       "sentiment": "positive"
-    },
-    {
-      "source": "Yahoo Finance Gold",
-      "title": "Coeur Mining\u00a0(CDE) Is Among The Best Junior Silver Mining Stocks",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/coeur-mining-cde-among-best-173942317.html?.tsrc=rss",
-      "published": "Tue, 21 Apr 2026 17:39:42 +0000",
-      "sentiment": "neutral"
-    },
-    {
-      "source": "Google News",
-      "title": "Gold Market Reflects Rising Debt, War Spending, and Food Supply Risks - Investing.com",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcnlXMm10c1d1SWdRdWJwdHQwT2hKaE5uR01GN00wUXlKRmdpM2FhZkNQRXNtc3dCLUNMNVZWT3BDMHlBaEZTZllTR0d5OTBaZm9pcnhkMUltSXBSczNIWGI1b2FIbXpFYlVuRlF6VHZ6bl8yX1Q1ZHpid2g3QXpXNFFnd1lUWFVzZzZCRjA3alRJX3ZQbVRQOXEzZTBlWXBxaVJjNm4wOXI4SU1CU3RxcURR?oc=5",
-      "published": "Tue, 21 Apr 2026 17:39:21 GMT",
-      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 42.5,
+  "sentiment_score": 41.5,
   "bull_count": 46,
   "bear_count": 12,
-  "neutral_count": 22,
-  "bull_pct": 57.5,
+  "neutral_count": 24,
+  "bull_pct": 56.1,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-21T22:46:45Z"
+  "last_updated": "2026-04-21T23:42:46Z"
 }
