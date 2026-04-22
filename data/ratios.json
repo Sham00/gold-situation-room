@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 60.991,
-    "gold_oil": 54.0357,
-    "gold_spx": 0.6778,
-    "gold_btc": 0.0614,
-    "gold_copper": 790.1155
+    "gold_silver": 61.1572,
+    "gold_oil": 52.3257,
+    "gold_spx": 0.6756,
+    "gold_btc": 0.0612,
+    "gold_copper": 786.8261
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1018,7 +1018,7 @@
       },
       {
         "t": "2026-04-22",
-        "v": 60.9949
+        "v": 61.1808
       }
     ],
     "gold_oil": [
@@ -2032,7 +2032,7 @@
       },
       {
         "t": "2026-04-22",
-        "v": 54.0357
+        "v": 52.3084
       }
     ],
     "gold_spx": [
@@ -4047,8 +4047,12 @@
         "v": 0.0634
       },
       {
+        "t": "2026-04-21",
+        "v": 0.0615
+      },
+      {
         "t": "2026-04-22",
-        "v": 0.0614
+        "v": 0.0612
       }
     ],
     "gold_copper": [
@@ -5062,7 +5066,7 @@
       },
       {
         "t": "2026-04-22",
-        "v": 790.1155
+        "v": 786.826
       }
     ]
   },
@@ -5070,14 +5074,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.8616,
+      "mean": 80.862,
       "current_percentile": 1.5
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.3684,
-      "current_percentile": 92.0
+      "mean": 31.3651,
+      "current_percentile": 90.8
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5094,8 +5098,8 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 536.0724,
-      "current_percentile": 94.8
+      "mean": 536.0663,
+      "current_percentile": 94.6
     }
   },
   "dxy_chart": [
@@ -6109,7 +6113,7 @@
     },
     {
       "t": "2026-04-22",
-      "v": 98.28
+      "v": 98.32
     }
   ],
   "gold_1y_chart": [
@@ -7123,7 +7127,7 @@
     },
     {
       "t": "2026-04-22",
-      "v": 4788.1
+      "v": 4772.1
     }
   ],
   "data_quality": {
@@ -7132,5 +7136,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-04-22T06:04:35Z"
+  "last_updated": "2026-04-22T08:51:22Z"
 }
