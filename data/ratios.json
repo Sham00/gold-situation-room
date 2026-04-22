@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 61.277,
-    "gold_oil": 52.4191,
-    "gold_spx": 0.6745,
-    "gold_btc": 0.0611,
-    "gold_copper": 785.5094
+    "gold_silver": 61.0261,
+    "gold_oil": 52.9448,
+    "gold_spx": 0.6752,
+    "gold_btc": 0.0609,
+    "gold_copper": 788.2664
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1018,7 +1018,7 @@
       },
       {
         "t": "2026-04-22",
-        "v": 61.277
+        "v": 61.0261
       }
     ],
     "gold_oil": [
@@ -2032,7 +2032,7 @@
       },
       {
         "t": "2026-04-22",
-        "v": 52.4134
+        "v": 52.9507
       }
     ],
     "gold_spx": [
@@ -4052,7 +4052,7 @@
       },
       {
         "t": "2026-04-22",
-        "v": 0.0611
+        "v": 0.0609
       }
     ],
     "gold_copper": [
@@ -5066,7 +5066,7 @@
       },
       {
         "t": "2026-04-22",
-        "v": 785.6389
+        "v": 788.2664
       }
     ]
   },
@@ -5074,14 +5074,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.8622,
+      "mean": 80.8617,
       "current_percentile": 1.5
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.3653,
-      "current_percentile": 91.0
+      "mean": 31.3663,
+      "current_percentile": 91.2
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5098,8 +5098,8 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 536.0641,
-      "current_percentile": 94.5
+      "mean": 536.069,
+      "current_percentile": 94.8
     }
   },
   "dxy_chart": [
@@ -6113,7 +6113,7 @@
     },
     {
       "t": "2026-04-22",
-      "v": 98.36
+      "v": 98.39
     }
   ],
   "gold_1y_chart": [
@@ -7127,7 +7127,7 @@
     },
     {
       "t": "2026-04-22",
-      "v": 4764.9
+      "v": 4769.8
     }
   ],
   "data_quality": {
@@ -7136,5 +7136,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-04-22T10:23:46Z"
+  "last_updated": "2026-04-22T12:02:28Z"
 }
