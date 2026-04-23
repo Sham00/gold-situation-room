@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "FXStreet",
+      "title": "Gold drops below $4,700 on stronger US Dollar, Middle East tensions",
+      "link": "https://www.fxstreet.com/news/gold-drops-below-4-700-on-stronger-us-dollar-middle-east-tensions-202604232310",
+      "published": "Thu, 23 Apr 2026 23:10:03 Z",
+      "sentiment": "positive"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "West Red Lake Gold Reports 2025 Production Results and Provides 2026 Production Guidance",
       "link": "https://finance.yahoo.com/markets/stocks/articles/west-red-lake-gold-reports-212149087.html?.tsrc=rss",
@@ -142,13 +149,6 @@
     },
     {
       "source": "Google News Gold Investment",
-      "title": "Uganda Launches Domestic Gold-Buying Program to Boost Reserves - LinkedIn",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOcGthUElRZDlYOFcxd242ZlNCeHN1bE9keXRERm1xRHV4dERiWUlKOTROandwbVRFTkUyNFVPZkVnS3FGUlhMQVhJUUlFbzFYa09SS1pGOVlRQ2RyVG9HRXdzZ0Q0d0VCMW5GS0h4ZFhSMTdLQTJsTGN3cERkaDdqNjBQcGdpT21QOHd5NEQwNVEyYUR5Tm1YUW82VFA?oc=5",
-      "published": "Thu, 23 Apr 2026 18:12:06 GMT",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Google News Gold Investment",
       "title": "Gold demand anchored in mispriced risk as China buying signals \u2018dip\u2019 opportunity - KITCO",
       "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxORnpzeFlWNGxjU1RjemVXcGhsM2hWODEteUgxWGhBNnh6TmtBLU9wMDZ6MXBKMWNCY2pyeVZfbWxncmhDQnI4MVZzdGFOaGM2YnQyRzlJc2pOemZpd29EQW00NDNVZS1ZZTlHNFREVnpROFAyaF9MYXZFTkRxdmRnLVNOOEFvbndnY0N3NWVLY0FGTld0NTNXcWhOYlBHNDdueWZORDdKUXRXWGV3VS1IUFA0bEtBT3JTc3c?oc=5",
       "published": "Thu, 23 Apr 2026 18:01:52 GMT",
@@ -176,16 +176,16 @@
       "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 44.4,
-  "bull_count": 40,
-  "bear_count": 8,
-  "neutral_count": 24,
-  "bull_pct": 55.6,
+  "sentiment_score": 45.6,
+  "bull_count": 45,
+  "bear_count": 9,
+  "neutral_count": 25,
+  "bull_pct": 57.0,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-23T22:59:25Z"
+  "last_updated": "2026-04-23T23:57:40Z"
 }
