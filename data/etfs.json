@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 435.26,
-      "change": 1.06,
-      "change_pct": 0.24,
-      "tonnes_est": 745.5,
+      "price": 435.04,
+      "change": 0.84,
+      "change_pct": 0.19,
+      "tonnes_est": 742.1,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.7,
-      "ytd_pct": 9.28,
-      "week7_pct": -0.02,
-      "week4_pct": 7.73,
+      "daily_change_est": 0.6,
+      "ytd_pct": 9.23,
+      "week7_pct": -2.26,
+      "week4_pct": 7.65,
       "chart_1y": [
         {
           "t": "2025-04-23",
@@ -1015,20 +1015,24 @@
         {
           "t": "2026-04-22",
           "v": 435.26
+        },
+        {
+          "t": "2026-04-23",
+          "v": 435.04
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 89.19,
-      "change": 0.21,
-      "change_pct": 0.24,
-      "tonnes_est": 569.3,
+      "price": 89.14,
+      "change": 0.16,
+      "change_pct": 0.19,
+      "tonnes_est": 566.8,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.5,
-      "ytd_pct": 9.36,
-      "week7_pct": -0.02,
-      "week4_pct": 7.74,
+      "daily_change_est": 0.4,
+      "ytd_pct": 9.29,
+      "week7_pct": -2.24,
+      "week4_pct": 7.71,
       "chart_1y": [
         {
           "t": "2025-04-23",
@@ -2033,6 +2037,10 @@
         {
           "t": "2026-04-22",
           "v": 89.19
+        },
+        {
+          "t": "2026-04-23",
+          "v": 89.14
         }
       ]
     },
@@ -2040,13 +2048,13 @@
       "name": "Sprott Physical Gold",
       "price": 35.9,
       "change": 0.1,
-      "change_pct": 0.28,
-      "tonnes_est": 112.3,
+      "change_pct": 0.27,
+      "tonnes_est": 111.8,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 0.1,
       "ytd_pct": 8.36,
-      "week7_pct": -0.11,
-      "week4_pct": 8.1,
+      "week7_pct": -2.26,
+      "week4_pct": 8.0,
       "chart_1y": [
         {
           "t": "2025-04-23",
@@ -3051,20 +3059,24 @@
         {
           "t": "2026-04-22",
           "v": 35.9
+        },
+        {
+          "t": "2026-04-23",
+          "v": 35.9
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 46.67,
-      "change": 0.01,
-      "change_pct": 0.02,
+      "price": 46.56,
+      "change": -0.1,
+      "change_pct": -0.21,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.0,
-      "ytd_pct": 9.37,
-      "week7_pct": -0.06,
-      "week4_pct": 7.73,
+      "daily_change_est": -0.0,
+      "ytd_pct": 9.12,
+      "week7_pct": -2.45,
+      "week4_pct": 7.48,
       "chart_1y": [
         {
           "t": "2025-04-23",
@@ -4069,20 +4081,24 @@
         {
           "t": "2026-04-22",
           "v": 46.67
+        },
+        {
+          "t": "2026-04-23",
+          "v": 46.56
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 45.14,
-      "change": 0.13,
-      "change_pct": 0.29,
+      "price": 45.13,
+      "change": 0.12,
+      "change_pct": 0.27,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.0,
-      "ytd_pct": 9.35,
-      "week7_pct": -0.07,
-      "week4_pct": 7.73,
+      "ytd_pct": 9.33,
+      "week7_pct": -2.23,
+      "week4_pct": 7.68,
       "chart_1y": [
         {
           "t": "2025-04-23",
@@ -5087,16 +5103,20 @@
         {
           "t": "2026-04-22",
           "v": 45.14
+        },
+        {
+          "t": "2026-04-23",
+          "v": 45.13
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1487.1,
+  "total_holdings_tonnes_est": 1480.7,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-04-23T12:03:56Z"
+  "last_updated": "2026-04-23T15:19:23Z"
 }
