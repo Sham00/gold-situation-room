@@ -886,7 +886,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 58.0,
+      "pct_of_reserves": 58.2,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2327.0,
@@ -1348,7 +1348,7 @@
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 17.3,
+      "pct_of_reserves": 17.4,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 1040.0,
@@ -1801,7 +1801,7 @@
     },
     {
       "country": "Japan",
-      "pct_of_reserves": 10.4,
+      "pct_of_reserves": 10.5,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 846.0,
@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 59.9,
+      "pct_of_reserves": 60.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 614.0,
@@ -2487,7 +2487,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 37.4,
+      "pct_of_reserves": 37.5,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 550.0,
@@ -3173,7 +3173,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 26.9,
+      "pct_of_reserves": 27.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 310.0,
@@ -3848,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 29.2,
+      "pct_of_reserves": 29.3,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4552,13 +4552,6 @@
       "sentiment": "neutral"
     },
     {
-      "title": "Central Banks Now Hold More Gold Than U.S. Treasuries - Visual Capitalist",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNeVYwbGVVVlVHa1Z6amVJRXNpSjFXbF9QMG5xczJjZnlpRFp6Z0I3cXkyZFNBQjJadUMxbVhsWFg1NVBEcVlBcjFkUmg3enVhX0lUUVByWmhzcGRjbjdrUjJTR1dPY19SbE1Kd0p2ZHFxZFFDcG55ZmVtTVNreV9rV2o4aVlOOE53MVNzLWMxQQ?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 08 Oct 2025 07:00:00 GMT",
-      "sentiment": "neutral"
-    },
-    {
       "title": "China\u2019s PBOC Adds Gold for 14th Month As Prices Hit Record - Bloomberg.com",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPY2w4WlkxbnhBYVRUTUYwMDhkd0w4NTZVWUQxTGY2R0pXNGcwRjJUdGl2bDZYYm5KdTIzUzZoYXoxdEhNWHBPU3d5QzlQcmF5djZ3em55Qm9lYVhEUEFEODBLUDhJT1dDS2tZMlBic040Ums5eFBPLTlYWkN4NzViXzZVdGVwWjdHNW0zVlNmcEFGZEN6ZXRoRmN3VjRObVNYSTlicDRadWVwRVlidEE?oc=5",
       "source": "Google News PBOC Gold",
@@ -4571,6 +4564,13 @@
       "source": "Google News PBOC Gold",
       "published": "Wed, 03 Sep 2025 07:00:00 GMT",
       "sentiment": "positive"
+    },
+    {
+      "title": "Central banks still have busy schedule ahead of year's end - Anadolu Ajans\u0131",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSHBBQXBkMlI5am0wa1pVb3BtdEVBNkl5Y0hEU0NKeFZCYW01UzhhTklWNXZaVzZ1RDVZS0g3Vmlmb3FhY1VlZTBpMnZYdHFUNko0QWNySnRjcF85QzR2SzJGZDEzZldLeDJzbzhEUE1TdmVWdGlrQURFNmwxRTBNR0w5anFrbU1xODQ3eFFBNkx0dkNRS2VSbVBuQnFEMnc?oc=5",
+      "source": "Google News Turkey Gold",
+      "published": "Wed, 03 Dec 2025 08:00:00 GMT",
+      "sentiment": "neutral"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-23T03:29:03Z"
+  "last_updated": "2026-04-23T06:11:45Z"
 }
