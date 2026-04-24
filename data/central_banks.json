@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 59.9,
+      "pct_of_reserves": 60.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 614.0,
@@ -2487,7 +2487,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 37.4,
+      "pct_of_reserves": 37.5,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 550.0,
@@ -3848,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 29.2,
+      "pct_of_reserves": 29.3,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4559,18 +4559,18 @@
       "sentiment": "positive"
     },
     {
-      "title": "Central Bank Gold Statistics: Central bank gold buying in July slows but remains firm - World Gold Council",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZkJYMTM4N01Kb2Rxa0lRNG5JX21ycUJIc3dJb1c0c1hTcktaeDRFYnlLcmRGYzlfUUs5aHJNaXlvSi1CTHI4b0pKNlNiY3QtcERxX2F2WDNRdFl4VEpSR0s0RGZRbHNWOTgyZ2JtcXlDMVZaTktpY3ozV3FjX05uSERDd20zRnZZRDAzVU9ndG5RTU4tNEhTVC1JYXNRcnRKZDBZQWFWTnhHdFlXUEVzZHZiREVlbmFNdzlLZA?oc=5",
-      "source": "Google News PBOC Gold",
-      "published": "Wed, 03 Sep 2025 07:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "title": "Central banks still have busy schedule ahead of year's end - Anadolu Ajans\u0131",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSHBBQXBkMlI5am0wa1pVb3BtdEVBNkl5Y0hEU0NKeFZCYW01UzhhTklWNXZaVzZ1RDVZS0g3Vmlmb3FhY1VlZTBpMnZYdHFUNko0QWNySnRjcF85QzR2SzJGZDEzZldLeDJzbzhEUE1TdmVWdGlrQURFNmwxRTBNR0w5anFrbU1xODQ3eFFBNkx0dkNRS2VSbVBuQnFEMnc?oc=5",
       "source": "Google News Turkey Gold",
       "published": "Wed, 03 Dec 2025 08:00:00 GMT",
       "sentiment": "neutral"
+    },
+    {
+      "title": "Gold Erases 2026 Gains as Central Bank Selling Hits Headlines - BullionVault",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeFQ4Y0dHNWx4WHNVdnE3Wk5GZzFVUjc3YjByWWtYczhyalVhaHlYd1I5bGhEcDE5TzljTkJCOTh6VGVRQ2Z1alhwMjM3Z183WkxldC1CejJ3aS10ZHRFdW9kcUdNSzRJWkExQjMtanFCaEVHcmFqUnZkMHphcUhvYjdrQmhwTXE1T0RILS1IN3hKRFU4?oc=5",
+      "source": "Google News CB",
+      "published": "Tue, 24 Mar 2026 07:00:00 GMT",
+      "sentiment": "negative"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-24T20:58:24Z"
+  "last_updated": "2026-04-24T21:55:59Z"
 }
