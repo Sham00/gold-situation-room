@@ -2,27 +2,11 @@
   "alerts": [
     {
       "type": "macro_catalyst",
-      "headline": "\ud83c\udfe6 FOMC MEETING in 12d (May 6-7): Fed rate decision \u2014 gold sensitive to rate path guidance amid tariff-driven inflation",
+      "headline": "\ud83c\udfe6 FOMC MEETING in 11d (May 6-7): Fed rate decision \u2014 gold sensitive to rate path guidance amid tariff-driven inflation",
       "detail": "Fed caught between tariff-driven inflation (hawkish) and slowing growth (dovish). Gold benefits if Fed pauses or signals cuts.",
       "significance": "high",
-      "ts": "2026-04-23T23:57:50Z",
+      "ts": "2026-04-24T03:40:35Z",
       "link": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
-    },
-    {
-      "type": "correlation_breakdown",
-      "headline": "\ud83d\udcc9 GOLD-STOCKS CORRELATION BREAKDOWN: Gold fell with equities on Apr 2-3 \u2014 unusual risk-off liquidation vs traditional safe-haven behavior",
-      "detail": "Gold typically rises when stocks fall. Post-Liberation Day, forced liquidation to cover margin calls temporarily pushed gold lower. Historically resolves bullishly as safe-haven demand resumes.",
-      "significance": "high",
-      "ts": "Thu, 03 Apr 2026 02:00:00 GMT",
-      "link": ""
-    },
-    {
-      "type": "tariff_catalyst",
-      "headline": "\u26a1 LIBERATION DAY: Trump announces sweeping reciprocal tariffs (Apr 2) \u2014 gold surges as flight-to-safety demand spikes",
-      "detail": "10% baseline tariff on all imports + higher country-specific rates. Gold rally reflects dollar weakness and safe-haven demand.",
-      "significance": "critical",
-      "ts": "Wed, 02 Apr 2026 20:00:00 GMT",
-      "link": "https://www.whitehouse.gov/presidential-actions/"
     },
     {
       "type": "cb_buying",
@@ -31,6 +15,14 @@
       "significance": "high",
       "ts": "Wed, 22 Apr 2026 10:02:23 GMT",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQkVCTUZ1SmtCNmdGWDJteDd5bXhDaGV3UnBuMmhTdm1GYWZNRTBSX1hhM3NyLWVBNEtNYXJPRkxxcVpiNUlMWFRsekl2REZFZF9XdnByOUF2dl9Sek15dkhlTThSeHRhZUFKWEF4b2h1Z3NrZDUzOE1PWnZZOVJSZzRpNk04R29yZFNXYjFn?oc=5"
+    },
+    {
+      "type": "cb_selling",
+      "headline": "Turkey\u2019s gold sales deepen bullion slump - Financial Times",
+      "detail": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxQaE1Fd0lHdGVpODl5ZHR3dF9aMGZWRzduc2tNU2VpMlJTUEtZSF94TVlYYUIzMExZYWxSQjlHSVNDTHhXWlZaZzhqT2h6dXRoenNFMWFHNGR4WVpRcnluQlZCakcwdVh3VjMyNUpaeV",
+      "significance": "high",
+      "ts": "Tue, 07 Apr 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQaE1Fd0lHdGVpODl5ZHR3dF9aMGZWRzduc2tNU2VpMlJTUEtZSF94TVlYYUIzMExZYWxSQjlHSVNDTHhXWlZaZzhqT2h6dXRoenNFMWFHNGR4WVpRcnluQlZCakcwdVh3VjMyNUpaeVJKVzVDX3M3ZzBkVlNCcGotdGNmVHU?oc=5"
     },
     {
       "type": "cb_selling",
@@ -50,21 +42,21 @@
     },
     {
       "type": "ma50_break",
-      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $4,712 trading under 50-DMA ($4,875) \u2014 watch for support",
+      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $4,691 trading under 50-DMA ($4,875) \u2014 watch for support",
       "detail": "Price below 50-day moving average can signal short-term bearish momentum.",
       "significance": "medium",
-      "ts": "2026-04-23T23:57:47Z",
+      "ts": "2026-04-24T03:40:32Z",
       "link": ""
     },
     {
       "type": "ath_pullback",
-      "headline": "\ud83d\udfe1 ATH PULLBACK: Gold is 11.4% below its all-time high of $5,318 \u2014 historically a re-entry zone",
+      "headline": "\ud83d\udfe1 ATH PULLBACK: Gold is 11.8% below its all-time high of $5,318 \u2014 historically a re-entry zone",
       "detail": "Gold set its ATH of $5,318 on 2026-01-29. Pullbacks of 8-20% below ATH have historically been strong accumulation opportunities in bull markets.",
       "significance": "medium",
-      "ts": "2026-04-23T23:57:47Z",
+      "ts": "2026-04-24T03:40:32Z",
       "link": ""
     }
   ],
-  "last_scan": "2026-04-23T23:57:47Z",
-  "last_updated": "2026-04-23T23:57:50Z"
+  "last_scan": "2026-04-24T03:40:32Z",
+  "last_updated": "2026-04-24T03:40:35Z"
 }
