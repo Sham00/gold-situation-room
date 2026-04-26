@@ -86,13 +86,6 @@
     },
     {
       "source": "Google News",
-      "title": "IAUI: Built For A Slower Gold Market (BATS:IAUI) - Seeking Alpha",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTjUzbHRKcWwya3RjbXlCdGhLNHhUUEVoQ2ppTERaNmkyS1haZUVBR0xSRTg2WkQ5Y3ZIbUhjS2tfQW0tbjAyenNvd3lPdEJpZk1TcjEwX05TNm56c0IwUVluUmpkVXZDRnVWeEIxeDBMNkZMSGwyUHRzUXlFRVd0NQ?oc=5",
-      "published": "Fri, 24 Apr 2026 23:47:36 GMT",
-      "sentiment": "negative"
-    },
-    {
-      "source": "Google News",
       "title": "Gold Funds Have Dipped. Are They Still a Good Hedge in This Market? - Barron's",
       "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE91M1J2ZVc1MmliS0NNNXd6X29naktEMWM1X2lOZTl6THk3RE41c3RLbUJHWGlsbnJCcWZoLVo5cEViTVoyMGdJUUxoZXE2dFpCcmF1aFI4TUZCVzlJMGhtSGJEQ2tBX1BSNEtROW13WlNDOTA?oc=5",
       "published": "Fri, 24 Apr 2026 23:03:00 GMT",
@@ -174,12 +167,19 @@
       "link": "https://finance.yahoo.com/markets/commodities/articles/newmont-nem-best-gold-stock-183219723.html?.tsrc=rss",
       "published": "Fri, 24 Apr 2026 18:32:19 +0000",
       "sentiment": "neutral"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Fortuna Mining (FSM) Signs Earn-In Deal for Quartzstone Project in Guyana",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/fortuna-mining-fsm-signs-earn-183145261.html?.tsrc=rss",
+      "published": "Fri, 24 Apr 2026 18:31:45 +0000",
+      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 37.2,
+  "sentiment_score": 38.5,
   "bull_count": 38,
-  "bear_count": 9,
-  "neutral_count": 31,
+  "bear_count": 8,
+  "neutral_count": 32,
   "bull_pct": 48.7,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
@@ -187,5 +187,5 @@
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-04-26T11:49:39Z"
+  "last_updated": "2026-04-26T13:21:33Z"
 }
