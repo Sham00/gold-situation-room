@@ -4538,13 +4538,6 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
-      "title": "TCMB Survey: Household Inflation Expectations Near 50% as Gold Remains Top Investment Choice - paturkey.com",
-      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdnQ1U3FTdmFrT2ViQ0FDWmpsekFleWV6dG52TVRwa1NZd19yeWZjZVNuMERZNlMyN2FaZjF1X1JMcE05azM3T1FlR04yOTdJX2h1Tm41NnBFZEt6NTBmeW1TMjFVYXpCZER5QmZFQ2lSekVaUTVZVGRPY28zNGFSZW9uSmcxWG1YWGFmaXdOOXQxbm5LdEs5WGhnRmdOdk9wc3puUWhDT3JKaHQ4T2VRNk53cjloSkQ4eGduZ3RlWGd6VUdYZ0E5V2FDMm4?oc=5",
-      "source": "Google News Turkey Gold",
-      "published": "Wed, 25 Mar 2026 07:00:00 GMT",
-      "sentiment": "neutral"
-    },
-    {
       "title": "T\u00fcrkiye\u2019s CDS Risk Premium Hits Annual Low - paturkey.com",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNeHFPTkJ6elQ1RUE1NUFqZGhYLUpSNWZOcHY2SkdtdFNuTHhKUXItVjdfc19BOUpuWFBRWmtBWV84emVMdHNFalJPUjUza2tCalV1LWRrU3U3TDU3aDZHRHlPaktQb3ZJaWhYOUN6R003cHpCaWl5VnhJd0IyZFZzMEN4VUhhUHpVUEFJ?oc=5",
       "source": "Google News Turkey Gold",
@@ -4571,6 +4564,13 @@
       "source": "Google News CB",
       "published": "Tue, 24 Mar 2026 07:00:00 GMT",
       "sentiment": "negative"
+    },
+    {
+      "title": "French central bank books $15 billion gain on gold reserve upgrade - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPSjdMLWJKdGdLYU5nNG9wRnVMR1BTdDVhaUpnUGlzVkZ2UG1CNGJGMGo4RkxiOWY0OFMybkRUNEFESmxwMXpYa19GamFmaVRpSmFmbHhGOFlta2ZWc25HZUpRSzF0ckxWMWRnZXdHcWFkNE5paEFvQUpqX0tvaWozR0R5OXlTRlhEaUlPUGZzbll1SXB3WWpvYVd1N2lOODBFLTYxVUNMQllTNUE?oc=5",
+      "source": "Google News CB",
+      "published": "Tue, 24 Mar 2026 07:00:00 GMT",
+      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-25T23:47:25Z"
+  "last_updated": "2026-04-26T03:38:01Z"
 }
