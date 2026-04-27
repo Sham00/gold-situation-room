@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 62.4393,
-    "gold_oil": 49.5807,
-    "gold_spx": 0.6584,
+    "gold_silver": 62.4245,
+    "gold_oil": 49.2145,
+    "gold_spx": 0.6579,
     "gold_btc": 0.0606,
-    "gold_copper": 775.6659
+    "gold_copper": 774.3303
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-04-27",
-        "v": 62.4393
+        "v": 62.441
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-04-27",
-        "v": 49.5807
+        "v": 49.2094
       }
     ],
     "gold_spx": [
@@ -3027,6 +3027,10 @@
       {
         "t": "2026-04-24",
         "v": 0.6591
+      },
+      {
+        "t": "2026-04-27",
+        "v": 0.658
       }
     ],
     "gold_btc": [
@@ -5046,7 +5050,7 @@
       },
       {
         "t": "2026-04-27",
-        "v": 775.6659
+        "v": 774.3303
       }
     ]
   },
@@ -5055,30 +5059,30 @@
       "min": 49.3059,
       "max": 120.1717,
       "mean": 80.8435,
-      "current_percentile": 2.5
+      "current_percentile": 2.3
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.4018,
-      "current_percentile": 88.1
+      "mean": 31.401,
+      "current_percentile": 88.0
     },
     "gold_spx": {
       "min": 0.3784,
       "max": 0.7635,
-      "mean": 0.495,
+      "mean": 0.4953,
       "current_percentile": 97.1
     },
     "gold_btc": {
       "min": 0.0255,
       "max": 2.853,
       "mean": 0.2855,
-      "current_percentile": 36.5
+      "current_percentile": 36.7
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 536.5084,
+      "mean": 536.5056,
       "current_percentile": 94.1
     }
   },
@@ -6089,7 +6093,7 @@
     },
     {
       "t": "2026-04-27",
-      "v": 98.32
+      "v": 98.36
     }
   ],
   "gold_1y_chart": [
@@ -7099,7 +7103,7 @@
     },
     {
       "t": "2026-04-27",
-      "v": 4717.6
+      "v": 4711.8
     }
   ],
   "data_quality": {
@@ -7108,5 +7112,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-04-27T11:50:09Z"
+  "last_updated": "2026-04-27T14:10:13Z"
 }
