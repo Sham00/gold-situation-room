@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 69.0,
-      "vs_gold_ytd": -0.99,
+      "vs_gold_ytd": -0.65,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -526,7 +526,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 223.0,
-      "vs_gold_ytd": -1.68,
+      "vs_gold_ytd": -1.34,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -1038,11 +1038,11 @@
       "pe_ratio": 98.4,
       "forward_pe": null,
       "ev_ebitda": 23.2,
-      "dividend_yield": 170.0,
-      "vs_gold_ytd": 27.25,
+      "dividend_yield": 169.0,
+      "vs_gold_ytd": 27.59,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3652.4,
+      "margin": 3637.1,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -1553,12 +1553,12 @@
       "market_cap": 123921530880,
       "pe_ratio": 15.1,
       "forward_pe": 10.4,
-      "ev_ebitda": 7.7,
-      "dividend_yield": 86.0,
-      "vs_gold_ytd": 5.92,
+      "ev_ebitda": 7.4,
+      "dividend_yield": 90.0,
+      "vs_gold_ytd": 6.26,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 3302.4,
+      "margin": 3287.1,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -2069,12 +2069,12 @@
       "market_cap": 99261046784,
       "pe_ratio": 22.4,
       "forward_pe": 14.3,
-      "ev_ebitda": 11.9,
-      "dividend_yield": 90.0,
-      "vs_gold_ytd": 7.46,
+      "ev_ebitda": 11.8,
+      "dividend_yield": 91.0,
+      "vs_gold_ytd": 7.8,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3552.4,
+      "margin": 3537.1,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -2578,19 +2578,19 @@
       "name": "Alamos Gold",
       "type": "miner",
       "price": 43.56,
-      "change": -1.86,
-      "change_pct": -4.1,
+      "change": -0.96,
+      "change_pct": -2.16,
       "ytd_pct": 13.5,
       "week4_pct": 8.06,
       "market_cap": 18293694464,
       "pe_ratio": 20.7,
       "forward_pe": 13.1,
-      "ev_ebitda": 17.2,
-      "dividend_yield": 25.0,
-      "vs_gold_ytd": 4.51,
+      "ev_ebitda": 16.6,
+      "dividend_yield": 26.0,
+      "vs_gold_ytd": 4.85,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3652.4,
+      "margin": 3637.1,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -3101,12 +3101,12 @@
       "market_cap": 61983391744,
       "pe_ratio": 42.1,
       "forward_pe": 24.3,
-      "ev_ebitda": 32.8,
-      "dividend_yield": 56.0,
-      "vs_gold_ytd": 7.01,
+      "ev_ebitda": 32.1,
+      "dividend_yield": 57.0,
+      "vs_gold_ytd": 7.35,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 4252.4,
+      "margin": 4237.1,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -3617,12 +3617,12 @@
       "market_cap": 46466412544,
       "pe_ratio": 41.8,
       "forward_pe": 24.2,
-      "ev_ebitda": 27.9,
+      "ev_ebitda": 27.8,
       "dividend_yield": 73.0,
-      "vs_gold_ytd": 6.75,
+      "vs_gold_ytd": 7.09,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 4302.4,
+      "margin": 4287.1,
       "sparkline": [
         {
           "t": "2025-10-28",
@@ -4123,7 +4123,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.01969,
+  "gdx_gold_ratio": 0.019754,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-04-28",
@@ -5127,7 +5127,7 @@
     },
     {
       "t": "2026-04-27",
-      "v": 0.01969
+      "v": 0.019753
     }
   ],
   "mining_production": {
@@ -5231,5 +5231,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-04-27T23:04:13Z"
+  "last_updated": "2026-04-28T03:48:18Z"
 }
