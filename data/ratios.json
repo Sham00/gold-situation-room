@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 63.5926,
-    "gold_oil": 47.3505,
-    "gold_spx": 0.6467,
-    "gold_btc": 0.0603,
-    "gold_copper": 766.4629
+    "gold_silver": 62.8246,
+    "gold_oil": 46.5977,
+    "gold_spx": 0.6464,
+    "gold_btc": 0.0604,
+    "gold_copper": 769.0547
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1018,7 +1018,7 @@
       },
       {
         "t": "2026-04-28",
-        "v": 63.5926
+        "v": 62.8246
       }
     ],
     "gold_oil": [
@@ -2032,7 +2032,7 @@
       },
       {
         "t": "2026-04-28",
-        "v": 47.3553
+        "v": 46.5977
       }
     ],
     "gold_spx": [
@@ -4052,7 +4052,7 @@
       },
       {
         "t": "2026-04-28",
-        "v": 0.0603
+        "v": 0.0604
       }
     ],
     "gold_copper": [
@@ -5066,7 +5066,7 @@
       },
       {
         "t": "2026-04-28",
-        "v": 766.4629
+        "v": 769.0547
       }
     ]
   },
@@ -5074,14 +5074,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.8458,
+      "mean": 80.8443,
       "current_percentile": 2.5
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.3976,
-      "current_percentile": 85.9
+      "mean": 31.3961,
+      "current_percentile": 85.3
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5098,8 +5098,8 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 536.4911,
-      "current_percentile": 93.1
+      "mean": 536.4961,
+      "current_percentile": 93.7
     }
   },
   "dxy_chart": [
@@ -6113,7 +6113,7 @@
     },
     {
       "t": "2026-04-28",
-      "v": 98.62
+      "v": 98.68
     }
   ],
   "gold_1y_chart": [
@@ -7127,7 +7127,7 @@
     },
     {
       "t": "2026-04-28",
-      "v": 4639.4
+      "v": 4637.4
     }
   ],
   "data_quality": {
@@ -7136,5 +7136,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-04-28T06:34:42Z"
+  "last_updated": "2026-04-28T09:28:19Z"
 }
