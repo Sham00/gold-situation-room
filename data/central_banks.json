@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 58.7,
+      "pct_of_reserves": 58.8,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 614.0,
@@ -3848,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 28.6,
+      "pct_of_reserves": 28.7,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4538,25 +4538,11 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
-      "title": "Market Update: Are Central Banks Selling Their Gold? - Holland Gold",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQR3pvcW01YlZ6OWtrTlFBOVVZQl9mQXYwUVZpcVp4RDFDOU9HQXlvZXdRZHg4bDhFc19RMVVTOXkyNVdpRFRhZ3dXRWo1Z2tCaDVZREkxdTM3VmhjN3J6em9qZTlYVFhDUTl2MTJsekF6UUw4anZDVDZxYkxWX3dlakl4SWRZSlNk?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 29 Apr 2026 20:05:39 GMT",
-      "sentiment": "negative"
-    },
-    {
       "title": "Why Turkey Sold Its Gold Reserves \u2014 And What It Proves About Sound Money - GoldSilver",
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQYXdRNGthbllTZFUtaWJuRVZlNHRkZlRLZVFOazlacmhRanRMSVl2SzJjcDJuSk1KVktsa0JLWEtCbjFsVmpPTGhwbUhWWl85TnB5YUJwY2hxM1c0YnNCd3N1R3Fpd0Z6OHZiaHhLMjR4U0pLNTdjbHdQTlpNWi15VGsxWWF6VUdNUVFNZ0hZUXEyb1dYcUpyemJpZzNuRnpQWVJxN3F2QnZ5ZlQxcFlGUFlaX05YbzN0RlBsLU43dlFXQQ?oc=5",
       "source": "Google News CB",
       "published": "Wed, 29 Apr 2026 14:25:01 GMT",
       "sentiment": "positive"
-    },
-    {
-      "title": "TCMB Survey: Household Inflation Expectations Near 50% as Gold Remains Top Investment Choice - paturkey.com",
-      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdnQ1U3FTdmFrT2ViQ0FDWmpsekFleWV6dG52TVRwa1NZd19yeWZjZVNuMERZNlMyN2FaZjF1X1JMcE05azM3T1FlR04yOTdJX2h1Tm41NnBFZEt6NTBmeW1TMjFVYXpCZER5QmZFQ2lSekVaUTVZVGRPY28zNGFSZW9uSmcxWG1YWGFmaXdOOXQxbm5LdEs5WGhnRmdOdk9wc3puUWhDT3JKaHQ4T2VRNk53cjloSkQ4eGduZ3RlWGd6VUdYZ0E5V2FDMm4?oc=5",
-      "source": "Google News Turkey Gold",
-      "published": "Wed, 25 Mar 2026 07:00:00 GMT",
-      "sentiment": "neutral"
     },
     {
       "title": "T\u00fcrkiye\u2019s CDS Risk Premium Hits Annual Low - paturkey.com",
@@ -4571,6 +4557,20 @@
       "source": "Google News CB",
       "published": "Wed, 12 Nov 2025 08:00:00 GMT",
       "sentiment": "positive"
+    },
+    {
+      "title": "China\u2019s central bank buys gold for 14th consecutive month - Mining.com",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNYkp5SmRWM2xIVXUzR2NaZS1wOEtSSzVqcWNSdVh5V3UyUzE3Tnp0V3ItRXVpYTE1eTdBd3NLY1NuNHpjVVRRTDBtLXRoOThmSUdXMGZlc2JvbFd6YlZmT1VHQzdvcFVQWmJfN1F1UGZkTU9RbjJBWmU0M0R1WDhXWmdZNTl5WWd5cmx1MA?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "sentiment": "negative"
+    },
+    {
+      "title": "Gold Price Holds Near USD4,700 as Central Banks Split on Buying Strategy - Yicai Global",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQkZPQVE0V0pFblJKU1k2VzIwdVR0NVdqNXN5UmM5eGxoQ24xMEJfWDBGWld1Y2R1OFctWXpfTG1VMFhINkxHNTc0cnZISmZsLTdISkxOZjJBR2tqaFpTNTUtN01acEVqUFpxNmoyNWhFMHlGV2FFb1ZPbVpmbWpZVEZFU1N4ZVEwZzBZVFluaF9GSzVkVmxxSjVVLVhfdkp1NERyN1JkMA?oc=5",
+      "source": "Google News CB",
+      "published": "Tue, 28 Apr 2026 12:45:59 GMT",
+      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-30T17:27:35Z"
+  "last_updated": "2026-04-30T19:43:01Z"
 }
