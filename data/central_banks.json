@@ -886,7 +886,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 57.0,
+      "pct_of_reserves": 57.1,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2327.0,
@@ -1113,7 +1113,7 @@
     },
     {
       "country": "China",
-      "pct_of_reserves": 9.9,
+      "pct_of_reserves": 10.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2306.0,
@@ -1348,7 +1348,7 @@
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 17.0,
+      "pct_of_reserves": 17.1,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 1040.0,
@@ -1801,7 +1801,7 @@
     },
     {
       "country": "Japan",
-      "pct_of_reserves": 10.2,
+      "pct_of_reserves": 10.3,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 846.0,
@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 58.8,
+      "pct_of_reserves": 58.9,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 614.0,
@@ -2487,7 +2487,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 36.7,
+      "pct_of_reserves": 36.8,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 550.0,
@@ -4545,6 +4545,13 @@
       "sentiment": "positive"
     },
     {
+      "title": "TCMB Survey: Household Inflation Expectations Near 50% as Gold Remains Top Investment Choice - paturkey.com",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdnQ1U3FTdmFrT2ViQ0FDWmpsekFleWV6dG52TVRwa1NZd19yeWZjZVNuMERZNlMyN2FaZjF1X1JMcE05azM3T1FlR04yOTdJX2h1Tm41NnBFZEt6NTBmeW1TMjFVYXpCZER5QmZFQ2lSekVaUTVZVGRPY28zNGFSZW9uSmcxWG1YWGFmaXdOOXQxbm5LdEs5WGhnRmdOdk9wc3puUWhDT3JKaHQ4T2VRNk53cjloSkQ4eGduZ3RlWGd6VUdYZ0E5V2FDMm4?oc=5",
+      "source": "Google News Turkey Gold",
+      "published": "Wed, 25 Mar 2026 07:00:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "title": "T\u00fcrkiye\u2019s CDS Risk Premium Hits Annual Low - paturkey.com",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNeHFPTkJ6elQ1RUE1NUFqZGhYLUpSNWZOcHY2SkdtdFNuTHhKUXItVjdfc19BOUpuWFBRWmtBWV84emVMdHNFalJPUjUza2tCalV1LWRrU3U3TDU3aDZHRHlPaktQb3ZJaWhYOUN6R003cHpCaWl5VnhJd0IyZFZzMEN4VUhhUHpVUEFJ?oc=5",
       "source": "Google News Turkey Gold",
@@ -4564,13 +4571,6 @@
       "source": "Google News PBOC Gold",
       "published": "Wed, 07 Jan 2026 08:00:00 GMT",
       "sentiment": "positive"
-    },
-    {
-      "title": "Gold Price Holds Near USD4,700 as Central Banks Split on Buying Strategy - Yicai Global",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQkZPQVE0V0pFblJKU1k2VzIwdVR0NVdqNXN5UmM5eGxoQ24xMEJfWDBGWld1Y2R1OFctWXpfTG1VMFhINkxHNTc0cnZISmZsLTdISkxOZjJBR2tqaFpTNTUtN01acEVqUFpxNmoyNWhFMHlGV2FFb1ZPbVpmbWpZVEZFU1N4ZVEwZzBZVFluaF9GSzVkVmxxSjVVLVhfdkp1NERyN1JkMA?oc=5",
-      "source": "Google News CB",
-      "published": "Tue, 28 Apr 2026 12:45:59 GMT",
-      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-04-30T21:08:10Z"
+  "last_updated": "2026-04-30T22:59:15Z"
 }
