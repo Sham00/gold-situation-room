@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4644.4,
+      "price": 4640.1,
       "start_price": 4314.4,
-      "ytd_pct": 7.65,
+      "ytd_pct": 7.55,
       "color": "#ffd700",
       "chart": [
         {
@@ -332,7 +332,11 @@
         },
         {
           "t": "2026-04-30",
-          "v": 107.65
+          "v": 106.96
+        },
+        {
+          "t": "2026-05-01",
+          "v": 107.55
         }
       ]
     },
@@ -673,9 +677,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 76352.01,
+      "price": 77118.07,
       "start_price": 88731.98,
-      "ytd_pct": -13.95,
+      "ytd_pct": -13.09,
       "color": "#ff8800",
       "chart": [
         {
@@ -1156,14 +1160,14 @@
         },
         {
           "t": "2026-05-01",
-          "v": 86.05
+          "v": 86.91
         }
       ]
     },
     "Silver": {
-      "price": 74.93,
+      "price": 74.84,
       "start_price": 70.56,
-      "ytd_pct": 6.21,
+      "ytd_pct": 6.07,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1492,7 +1496,11 @@
         },
         {
           "t": "2026-04-30",
-          "v": 106.21
+          "v": 104.22
+        },
+        {
+          "t": "2026-05-01",
+          "v": 106.07
         }
       ]
     },
@@ -2169,9 +2177,9 @@
       ]
     },
     "DXY": {
-      "price": 98.14,
+      "price": 98.15,
       "start_price": 98.42,
-      "ytd_pct": -0.29,
+      "ytd_pct": -0.28,
       "color": "#aa44ff",
       "chart": [
         {
@@ -2500,7 +2508,11 @@
         },
         {
           "t": "2026-04-30",
-          "v": 99.71
+          "v": 99.65
+        },
+        {
+          "t": "2026-05-01",
+          "v": 99.72
         }
       ]
     }
@@ -2511,5 +2523,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-05-01T00:01:16Z"
+  "last_updated": "2026-05-01T04:12:53Z"
 }
