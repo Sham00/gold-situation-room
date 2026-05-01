@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4582.0,
+      "price": 4578.0,
       "start_price": 4314.4,
-      "ytd_pct": 6.2,
+      "ytd_pct": 6.11,
       "color": "#ffd700",
       "chart": [
         {
@@ -336,7 +336,7 @@
         },
         {
           "t": "2026-05-01",
-          "v": 106.2
+          "v": 106.11
         }
       ]
     },
@@ -677,9 +677,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 77216.01,
+      "price": 77322.39,
       "start_price": 88731.98,
-      "ytd_pct": -12.98,
+      "ytd_pct": -12.86,
       "color": "#ff8800",
       "chart": [
         {
@@ -1164,14 +1164,14 @@
         },
         {
           "t": "2026-05-01",
-          "v": 87.02
+          "v": 87.14
         }
       ]
     },
     "Silver": {
-      "price": 73.76,
+      "price": 73.65,
       "start_price": 70.56,
-      "ytd_pct": 4.55,
+      "ytd_pct": 4.39,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1504,7 +1504,7 @@
         },
         {
           "t": "2026-05-01",
-          "v": 104.55
+          "v": 104.39
         }
       ]
     },
@@ -1845,9 +1845,9 @@
       ]
     },
     "VIX": {
-      "price": 17.07,
+      "price": 17.08,
       "start_price": 14.51,
-      "ytd_pct": 17.64,
+      "ytd_pct": 17.71,
       "color": "#ff4444",
       "chart": [
         {
@@ -2180,14 +2180,14 @@
         },
         {
           "t": "2026-05-01",
-          "v": 117.64
+          "v": 117.71
         }
       ]
     },
     "DXY": {
-      "price": 98.06,
+      "price": 98.01,
       "start_price": 98.42,
-      "ytd_pct": -0.36,
+      "ytd_pct": -0.42,
       "color": "#aa44ff",
       "chart": [
         {
@@ -2520,7 +2520,7 @@
         },
         {
           "t": "2026-05-01",
-          "v": 99.64
+          "v": 99.58
         }
       ]
     }
@@ -2531,5 +2531,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-05-01T09:53:43Z"
+  "last_updated": "2026-05-01T11:14:27Z"
 }
