@@ -886,7 +886,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 57.1,
+      "pct_of_reserves": 57.2,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2327.0,
@@ -1570,7 +1570,7 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 20.4,
+      "pct_of_reserves": 20.5,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 880.0,
@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 58.9,
+      "pct_of_reserves": 59.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 614.0,
@@ -2487,7 +2487,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 36.8,
+      "pct_of_reserves": 36.9,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 550.0,
@@ -3173,7 +3173,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 26.5,
+      "pct_of_reserves": 26.6,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 310.0,
@@ -3395,7 +3395,7 @@
     },
     {
       "country": "Singapore",
-      "pct_of_reserves": 7.5,
+      "pct_of_reserves": 7.6,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 194.0,
@@ -4538,13 +4538,6 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
-      "title": "Market Update: Are Central Banks Selling Their Gold? - Holland Gold",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQR3pvcW01YlZ6OWtrTlFBOVVZQl9mQXYwUVZpcVp4RDFDOU9HQXlvZXdRZHg4bDhFc19RMVVTOXkyNVdpRFRhZ3dXRWo1Z2tCaDVZREkxdTM3VmhjN3J6em9qZTlYVFhDUTl2MTJsekF6UUw4anZDVDZxYkxWX3dlakl4SWRZSlNk?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 29 Apr 2026 20:05:39 GMT",
-      "sentiment": "negative"
-    },
-    {
       "title": "Why Turkey Sold Its Gold Reserves \u2014 And What It Proves About Sound Money - GoldSilver",
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQYXdRNGthbllTZFUtaWJuRVZlNHRkZlRLZVFOazlacmhRanRMSVl2SzJjcDJuSk1KVktsa0JLWEtCbjFsVmpPTGhwbUhWWl85TnB5YUJwY2hxM1c0YnNCd3N1R3Fpd0Z6OHZiaHhLMjR4U0pLNTdjbHdQTlpNWi15VGsxWWF6VUdNUVFNZ0hZUXEyb1dYcUpyemJpZzNuRnpQWVJxN3F2QnZ5ZlQxcFlGUFlaX05YbzN0RlBsLU43dlFXQQ?oc=5",
       "source": "Google News CB",
@@ -4566,7 +4559,14 @@
       "sentiment": "neutral"
     },
     {
-      "title": "China\u2019s PBOC Adds Gold for 14th Month As Prices Hit Record - Bloomberg",
+      "title": "Central Bank Gold Buying - Robin J Brooks | Substack",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85d2thWUdsOThRQldGZHhHT1cwVGZJU2lRb3R5ZzNTM0lUTHBlQTVJaTN1Zm5vREgwY3d4bUo0SWRiZ0txbHhHeC1rTmgzUzFBdGhSZkptRk9jX3Mxd25EZWRrT3hDYU9uVXRacA?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 12 Nov 2025 08:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "China\u2019s PBOC Adds Gold for 14th Month As Prices Hit Record - Bloomberg.com",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPY2w4WlkxbnhBYVRUTUYwMDhkd0w4NTZVWUQxTGY2R0pXNGcwRjJUdGl2bDZYYm5KdTIzUzZoYXoxdEhNWHBPU3d5QzlQcmF5djZ3em55Qm9lYVhEUEFEODBLUDhJT1dDS2tZMlBic040Ums5eFBPLTlYWkN4NzViXzZVdGVwWjdHNW0zVlNmcEFGZEN6ZXRoRmN3VjRObVNYSTlicDRadWVwRVlidEE?oc=5",
       "source": "Google News PBOC Gold",
       "published": "Wed, 07 Jan 2026 08:00:00 GMT",
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-05-01T15:03:16Z"
+  "last_updated": "2026-05-01T17:05:01Z"
 }
