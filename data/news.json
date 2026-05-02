@@ -162,30 +162,30 @@
       "sentiment": "positive"
     },
     {
+      "source": "Google News",
+      "title": "Gold prices trading near session highs following disappointing ISM data - KITCO",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQbjh3aEJFZTg3QVphRjVhYmVUdHgyVU1mRGd6UTdiQ3N6Yzl3aWxOU2MteVVuOGRuSWdrbWtXaG5mZGRnVUhVVFNXUTNOUWNuZFlRZGxDeDhKVkRNNklaVkR1WDQxU0lSa29ON1RYYVdlYnB3OHAzRWdrYWc3X3F5Tm5lenpqejh1Qnh5NlhqZTV0LXRoSUZ0bUw0MWVrczJnTjhiWlRrS2lTcFpLS2IzWTltOVRiWDNV?oc=5",
+      "published": "Fri, 01 May 2026 17:26:37 GMT",
+      "sentiment": "negative"
+    },
+    {
       "source": "FXStreet",
       "title": "Silver price advances despite restrictive Fed stance, persistent inflation risks",
       "link": "https://www.fxstreet.com/news/silver-price-advances-despite-restrictive-fed-stance-persistent-inflation-risks-202605011624",
       "published": "Fri, 01 May 2026 16:24:05 Z",
       "sentiment": "neutral"
-    },
-    {
-      "source": "Mining.com",
-      "title": "Torex sees potential to extend life of Mexico gold mine",
-      "link": "https://www.mining.com/torex-sees-potential-to-extend-life-of-mexico-gold-mine/",
-      "published": "Fri, 01 May 2026 15:46:40 +0000",
-      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 36.7,
-  "bull_count": 42,
-  "bear_count": 9,
-  "neutral_count": 39,
-  "bull_pct": 46.7,
+  "sentiment_score": 32.2,
+  "bull_count": 41,
+  "bear_count": 12,
+  "neutral_count": 37,
+  "bull_pct": 45.6,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-02T20:53:17Z"
+  "last_updated": "2026-05-02T21:52:35Z"
 }
