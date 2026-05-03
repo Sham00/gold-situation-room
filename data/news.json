@@ -29,13 +29,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News",
-      "title": "Gold Price Forecast: Can Bulls Break $5,000 as Oil Shock Fuels Inflation? - FXEmpire",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPbFhKVXpqX2d1X29Pc3Z2cXVFa2pmQ29Zb3EzZ0wxbGtOeW1lVHc4eVBLeHpLamFwMVBMM0wxSDhOczhEVF8xR0pZd2NSYjZHVEtQaGE0bE44WTNCcndpRUdEdXUtN0FBeE5RdGY5REVxMlNWWjZpal9Sb2EyQ3ppUDl6Z3JWclpWNmViYVR5dEFnSE1MZmlyOUhld1RZbFZCWWFFQnExMUx2WkNUcjdQb0VVaFA5dGVfUW1qcENfX3ZIdFl2ZjZR?oc=5",
-      "published": "Sun, 03 May 2026 14:39:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Citi Bank has a message for investors on gold",
       "link": "https://www.thestreet.com/investing/citi-bank-has-a-message-for-investors-on-gold?.tsrc=rss",
@@ -174,18 +167,25 @@
       "link": "https://www.fxstreet.com/news/gold-extends-rally-as-japan-intervention-hammers-us-dollar-202605011743",
       "published": "Fri, 01 May 2026 17:43:19 Z",
       "sentiment": "positive"
+    },
+    {
+      "source": "Google News",
+      "title": "Kinross Earnings: Gushing With Cash as Gold Bull Market Continues - Morningstar",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxONzhYZFR3VEdHaW5VTkpzRU1ydmMzTDNBdzVuWkJ5aENiUVlURk5uR0tlN1V1aTMxYmJ6a2twQzgwZGZ1cTVHUDNkTlFhQXE2Ylk2RVE3b0tZTmlkS1hQRzNiZjhvOGU1enAtV1dpY2FaQWNPcloxaHN4NzRsc3lubDU4NTFtNWxIWnZ3WEdPeGFVelNJczQxa3NPdlhwTE5ja0FIUGdDMVY?oc=5",
+      "published": "Fri, 01 May 2026 17:22:00 GMT",
+      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 45.5,
-  "bull_count": 46,
+  "sentiment_score": 46.6,
+  "bull_count": 47,
   "bear_count": 6,
-  "neutral_count": 36,
-  "bull_pct": 52.3,
+  "neutral_count": 35,
+  "bull_pct": 53.4,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-03T17:00:28Z"
+  "last_updated": "2026-05-03T17:57:08Z"
 }
