@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "Yahoo Finance Gold",
+      "title": "Eldorado Gold (TSX:ELD) Is Down 7.4% After Earnings Double On Lower Output And Buybacks - Has The Bull Case Changed?",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/eldorado-gold-tsx-eld-down-150908469.html?.tsrc=rss",
+      "published": "Sun, 03 May 2026 15:09:08 +0000",
+      "sentiment": "positive"
+    },
+    {
       "source": "Google News",
       "title": "Gold Price Forecast: Can Bulls Break $5,000 as Oil Shock Fuels Inflation? - FXEmpire",
       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPbFhKVXpqX2d1X29Pc3Z2cXVFa2pmQ29Zb3EzZ0wxbGtOeW1lVHc4eVBLeHpLamFwMVBMM0wxSDhOczhEVF8xR0pZd2NSYjZHVEtQaGE0bE44WTNCcndpRUdEdXUtN0FBeE5RdGY5REVxMlNWWjZpal9Sb2EyQ3ppUDl6Z3JWclpWNmViYVR5dEFnSE1MZmlyOUhld1RZbFZCWWFFQnExMUx2WkNUcjdQb0VVaFA5dGVfUW1qcENfX3ZIdFl2ZjZR?oc=5",
@@ -99,13 +106,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Yahoo Finance Gold",
-      "title": "Gold Notches Second Weekly Loss as US-Iran Talks Hang in Limbo",
-      "link": "https://finance.yahoo.com/markets/commodities/articles/gold-steady-dollar-weakens-reports-060505755.html?.tsrc=rss",
-      "published": "Fri, 01 May 2026 21:41:51 +0000",
-      "sentiment": "negative"
-    },
-    {
       "source": "Google News",
       "title": "Gold maintains strong fundamentals despite oil shock - KITCO",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYjRpdHB1bUUwNXRocG9JNHZNTUJKU3lBX1YxOGFaalcyTzhxb2xKOVFJZmM0QVB0aGphSHRhSVFrMGRFa29VUGliUlVFRmlubm5uRG8tUXVUYlhHWGUzRHhDZG4tbUY1UTN4UW5HZzdoeHl1R1JLNzh2NUN4Y25Kd2xLUG9LUXRGZU9XVXZVNHpoenZuXzJZSHVCblhHNXM?oc=5",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 42.9,
-  "bull_count": 41,
-  "bear_count": 8,
+  "sentiment_score": 48.1,
+  "bull_count": 43,
+  "bear_count": 6,
   "neutral_count": 28,
-  "bull_pct": 53.2,
+  "bull_pct": 55.8,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-03T14:56:38Z"
+  "last_updated": "2026-05-03T15:56:15Z"
 }
