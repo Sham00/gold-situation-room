@@ -113,13 +113,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Yahoo Finance Gold",
-      "title": "Best Place to Sell Gold in Anaheim Hills? Glitter Bug Gold Buyers Opens New Location Serving North Orange County with Highest Payouts",
-      "link": "https://finance.yahoo.com/markets/commodities/articles/best-place-sell-gold-anaheim-210400319.html?.tsrc=rss",
-      "published": "Fri, 01 May 2026 21:04:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Google News",
       "title": "Gold maintains strong fundamentals despite oil shock - KITCO",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYjRpdHB1bUUwNXRocG9JNHZNTUJKU3lBX1YxOGFaalcyTzhxb2xKOVFJZmM0QVB0aGphSHRhSVFrMGRFa29VUGliUlVFRmlubm5uRG8tUXVUYlhHWGUzRHhDZG4tbUY1UTN4UW5HZzdoeHl1R1JLNzh2NUN4Y25Kd2xLUG9LUXRGZU9XVXZVNHpoenZuXzJZSHVCblhHNXM?oc=5",
@@ -163,10 +156,10 @@
     },
     {
       "source": "Google News",
-      "title": "Gold prices trading near session highs following disappointing ISM data - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQbjh3aEJFZTg3QVphRjVhYmVUdHgyVU1mRGd6UTdiQ3N6Yzl3aWxOU2MteVVuOGRuSWdrbWtXaG5mZGRnVUhVVFNXUTNOUWNuZFlRZGxDeDhKVkRNNklaVkR1WDQxU0lSa29ON1RYYVdlYnB3OHAzRWdrYWc3X3F5Tm5lenpqejh1Qnh5NlhqZTV0LXRoSUZ0bUw0MWVrczJnTjhiWlRrS2lTcFpLS2IzWTltOVRiWDNV?oc=5",
-      "published": "Fri, 01 May 2026 17:26:37 GMT",
-      "sentiment": "negative"
+      "title": "Kinross Earnings: Gushing With Cash as Gold Bull Market Continues - Morningstar",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxONzhYZFR3VEdHaW5VTkpzRU1ydmMzTDNBdzVuWkJ5aENiUVlURk5uR0tlN1V1aTMxYmJ6a2twQzgwZGZ1cTVHUDNkTlFhQXE2Ylk2RVE3b0tZTmlkS1hQRzNiZjhvOGU1enAtV1dpY2FaQWNPcloxaHN4NzRsc3lubDU4NTFtNWxIWnZ3WEdPeGFVelNJczQxa3NPdlhwTE5ja0FIUGdDMVY?oc=5",
+      "published": "Fri, 01 May 2026 17:22:00 GMT",
+      "sentiment": "positive"
     },
     {
       "source": "FXStreet",
@@ -174,18 +167,25 @@
       "link": "https://www.fxstreet.com/news/silver-price-advances-despite-restrictive-fed-stance-persistent-inflation-risks-202605011624",
       "published": "Fri, 01 May 2026 16:24:05 Z",
       "sentiment": "neutral"
+    },
+    {
+      "source": "FXStreet",
+      "title": "Gold rebounds on Middle East headlines but higher-for-longer rates cap gains",
+      "link": "https://www.fxstreet.com/news/gold-heads-for-second-weekly-loss-as-higher-for-longer-rate-bets-dominate-202605011215",
+      "published": "Fri, 01 May 2026 14:26:50 Z",
+      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 36.7,
-  "bull_count": 39,
-  "bear_count": 10,
-  "neutral_count": 30,
-  "bull_pct": 49.4,
+  "sentiment_score": 41.0,
+  "bull_count": 41,
+  "bear_count": 9,
+  "neutral_count": 28,
+  "bull_pct": 52.6,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-02T23:54:48Z"
+  "last_updated": "2026-05-03T03:53:09Z"
 }
