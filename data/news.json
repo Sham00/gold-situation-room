@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "Google News",
+      "title": "Gold Price Falls, Silver Rises in Nepali Market - Ratopati",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNckw2aEVJMGVlVjFzMlBvQTFrMHotQXBUU3JqMDB1RUJWdGFySkpzQk5KUTFvVy1CdXNEelpKQ3UxY2VvWEQySXM4RHF5Q2lIYXBLd2J6cnNCRHp2SW04SE1UQ0RNY0d3VW1UVTd4TlYxS0FuY24xQ29NeHo0M2J2dmNB?oc=5",
+      "published": "Sun, 03 May 2026 05:35:38 GMT",
+      "sentiment": "positive"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "Citi Bank has a message for investors on gold",
       "link": "https://www.thestreet.com/investing/citi-bank-has-a-message-for-investors-on-gold?.tsrc=rss",
@@ -155,13 +162,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News",
-      "title": "Kinross Earnings: Gushing With Cash as Gold Bull Market Continues - Morningstar",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxONzhYZFR3VEdHaW5VTkpzRU1ydmMzTDNBdzVuWkJ5aENiUVlURk5uR0tlN1V1aTMxYmJ6a2twQzgwZGZ1cTVHUDNkTlFhQXE2Ylk2RVE3b0tZTmlkS1hQRzNiZjhvOGU1enAtV1dpY2FaQWNPcloxaHN4NzRsc3lubDU4NTFtNWxIWnZ3WEdPeGFVelNJczQxa3NPdlhwTE5ja0FIUGdDMVY?oc=5",
-      "published": "Fri, 01 May 2026 17:22:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "FXStreet",
       "title": "Silver price advances despite restrictive Fed stance, persistent inflation risks",
       "link": "https://www.fxstreet.com/news/silver-price-advances-despite-restrictive-fed-stance-persistent-inflation-risks-202605011624",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 41.0,
-  "bull_count": 41,
+  "sentiment_score": 39.7,
+  "bull_count": 40,
   "bear_count": 9,
-  "neutral_count": 28,
-  "bull_pct": 52.6,
+  "neutral_count": 29,
+  "bull_pct": 51.3,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-03T03:53:09Z"
+  "last_updated": "2026-05-03T06:33:16Z"
 }
