@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 418.36,
-      "change": 3.36,
-      "change_pct": 0.81,
-      "tonnes_est": 741.1,
+      "price": 419.05,
+      "change": 4.05,
+      "change_pct": 0.98,
+      "tonnes_est": 742.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.4,
-      "ytd_pct": 5.04,
-      "week7_pct": -3.44,
-      "week4_pct": -2.17,
+      "daily_change_est": 2.9,
+      "ytd_pct": 5.21,
+      "week7_pct": -3.28,
+      "week4_pct": -2.01,
       "chart_1y": [
         {
           "t": "2025-05-05",
@@ -1018,21 +1018,21 @@
         },
         {
           "t": "2026-05-05",
-          "v": 418.36
+          "v": 419.05
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 85.72,
-      "change": 0.69,
-      "change_pct": 0.82,
-      "tonnes_est": 566.0,
+      "price": 85.85,
+      "change": 0.8,
+      "change_pct": 0.95,
+      "tonnes_est": 566.8,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 1.9,
-      "ytd_pct": 5.1,
-      "week7_pct": -3.41,
-      "week4_pct": -2.16,
+      "daily_change_est": 2.1,
+      "ytd_pct": 5.26,
+      "week7_pct": -3.27,
+      "week4_pct": -2.01,
       "chart_1y": [
         {
           "t": "2025-05-05",
@@ -2040,21 +2040,21 @@
         },
         {
           "t": "2026-05-05",
-          "v": 85.72
+          "v": 85.85
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 34.47,
-      "change": 0.27,
-      "change_pct": 0.79,
-      "tonnes_est": 111.5,
+      "price": 34.51,
+      "change": 0.32,
+      "change_pct": 0.93,
+      "tonnes_est": 111.7,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 0.4,
-      "ytd_pct": 4.04,
-      "week7_pct": -3.61,
-      "week4_pct": -2.16,
+      "ytd_pct": 4.17,
+      "week7_pct": -3.5,
+      "week4_pct": -2.04,
       "chart_1y": [
         {
           "t": "2025-05-05",
@@ -3062,21 +3062,21 @@
         },
         {
           "t": "2026-05-05",
-          "v": 34.47
+          "v": 34.51
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 44.85,
-      "change": 0.17,
-      "change_pct": 0.37,
+      "price": 44.94,
+      "change": 0.26,
+      "change_pct": 0.58,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.0,
-      "ytd_pct": 5.11,
-      "week7_pct": -3.47,
-      "week4_pct": -2.18,
+      "ytd_pct": 5.32,
+      "week7_pct": -3.27,
+      "week4_pct": -1.98,
       "chart_1y": [
         {
           "t": "2025-05-05",
@@ -4084,21 +4084,21 @@
         },
         {
           "t": "2026-05-05",
-          "v": 44.85
+          "v": 44.94
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 43.39,
-      "change": 0.33,
-      "change_pct": 0.78,
+      "price": 43.47,
+      "change": 0.41,
+      "change_pct": 0.95,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.1,
-      "ytd_pct": 5.11,
-      "week7_pct": -3.45,
-      "week4_pct": -2.16,
+      "daily_change_est": 0.2,
+      "ytd_pct": 5.31,
+      "week7_pct": -3.27,
+      "week4_pct": -1.98,
       "chart_1y": [
         {
           "t": "2025-05-05",
@@ -5106,17 +5106,17 @@
         },
         {
           "t": "2026-05-05",
-          "v": 43.39
+          "v": 43.47
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1478.6,
+  "total_holdings_tonnes_est": 1480.8,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-05-05T16:47:36Z"
+  "last_updated": "2026-05-05T18:17:04Z"
 }
