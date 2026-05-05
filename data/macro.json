@@ -5059,8 +5059,8 @@
       "v": 4.39
     }
   ],
-  "dxy": 98.46,
-  "dxy_date": "2026-05-04",
+  "dxy": 98.47,
+  "dxy_date": "2026-05-05",
   "dxy_chart": [
     {
       "t": "2025-05-05",
@@ -6068,11 +6068,11 @@
     },
     {
       "t": "2026-05-04",
-      "v": 98.46
+      "v": 98.47
     }
   ],
   "vix": 18.29,
-  "vix_date": "2026-05-04",
+  "vix_date": "2026-05-05",
   "vix_chart": [
     {
       "t": "2025-05-05",
@@ -8095,22 +8095,22 @@
     },
     {
       "t": "2026-05-04",
-      "v": 4532.4
+      "v": 4527.0
     }
   ],
   "next_fomc_date": "2026-05-06",
-  "days_to_fomc": 2,
+  "days_to_fomc": 1,
   "data_quality": {
     "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
     "freshness": "daily",
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": 2.277,
-  "lease_rate_1m": 0.954,
-  "lease_rate_3m": 1.363,
-  "lease_rate_6m": 1.772,
+  "gofo_annualized": 2.359,
+  "lease_rate_1m": 0.897,
+  "lease_rate_3m": 1.281,
+  "lease_rate_6m": 1.665,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-05-04T22:09:39Z"
+  "last_updated": "2026-05-05T00:01:32Z"
 }
