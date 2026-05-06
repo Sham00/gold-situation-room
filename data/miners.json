@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 69.0,
-      "vs_gold_ytd": -6.47,
+      "vs_gold_ytd": -7.79,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -522,7 +522,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 223.0,
-      "vs_gold_ytd": -6.6,
+      "vs_gold_ytd": -7.92,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -1029,12 +1029,12 @@
       "market_cap": 1207940352,
       "pe_ratio": 89.4,
       "forward_pe": null,
-      "ev_ebitda": 21.9,
-      "dividend_yield": 188.0,
-      "vs_gold_ytd": 17.33,
+      "ev_ebitda": 22.0,
+      "dividend_yield": 186.0,
+      "vs_gold_ytd": 16.01,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3547.3,
+      "margin": 3604.5,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -1534,19 +1534,19 @@
       "name": "Newmont Corp",
       "type": "miner",
       "price": 109.01,
-      "change": 0.57,
-      "change_pct": 0.53,
+      "change": 0.61,
+      "change_pct": 0.56,
       "ytd_pct": 7.91,
       "week4_pct": -3.39,
       "market_cap": 116373929984,
       "pe_ratio": 14.1,
       "forward_pe": 9.6,
       "ev_ebitda": 6.9,
-      "dividend_yield": 96.0,
-      "vs_gold_ytd": 1.35,
+      "dividend_yield": 95.0,
+      "vs_gold_ytd": 0.03,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 3197.3,
+      "margin": 3254.5,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -2053,12 +2053,12 @@
       "market_cap": 89076449280,
       "pe_ratio": 16.8,
       "forward_pe": 12.6,
-      "ev_ebitda": 9.1,
-      "dividend_yield": 100.0,
-      "vs_gold_ytd": -1.86,
+      "ev_ebitda": 9.0,
+      "dividend_yield": 101.0,
+      "vs_gold_ytd": -3.18,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3447.3,
+      "margin": 3504.5,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -2565,12 +2565,12 @@
       "market_cap": 16328255488,
       "pe_ratio": 15.5,
       "forward_pe": 11.7,
-      "ev_ebitda": 11.8,
-      "dividend_yield": 29.0,
-      "vs_gold_ytd": -5.25,
+      "ev_ebitda": 11.7,
+      "dividend_yield": 30.0,
+      "vs_gold_ytd": -6.57,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3547.3,
+      "margin": 3604.5,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -3075,14 +3075,14 @@
       "ytd_pct": 6.42,
       "week4_pct": -6.6,
       "market_cap": 56866164736,
-      "pe_ratio": 38.7,
+      "pe_ratio": 38.8,
       "forward_pe": 21.9,
-      "ev_ebitda": 29.1,
-      "dividend_yield": 63.0,
-      "vs_gold_ytd": -0.14,
+      "ev_ebitda": 29.4,
+      "dividend_yield": 62.0,
+      "vs_gold_ytd": -1.46,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 4147.3,
+      "margin": 4204.5,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -3582,19 +3582,19 @@
       "name": "Franco-Nevada",
       "type": "miner",
       "price": 225.07,
-      "change": -0.81,
-      "change_pct": -0.36,
+      "change": 1.34,
+      "change_pct": 0.6,
       "ytd_pct": 8.08,
       "week4_pct": -12.24,
       "market_cap": 43393200128,
       "pe_ratio": 39.1,
       "forward_pe": 22.5,
-      "ev_ebitda": 25.8,
-      "dividend_yield": 79.0,
-      "vs_gold_ytd": 1.52,
+      "ev_ebitda": 25.9,
+      "dividend_yield": 78.0,
+      "vs_gold_ytd": 0.2,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 4197.3,
+      "margin": 4254.5,
       "sparkline": [
         {
           "t": "2025-11-06",
@@ -4091,7 +4091,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.018665,
+  "gdx_gold_ratio": 0.018436,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-05-06",
@@ -5095,7 +5095,7 @@
     },
     {
       "t": "2026-05-05",
-      "v": 0.018666
+      "v": 0.018439
     }
   ],
   "mining_production": {
@@ -5199,5 +5199,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-05-05T23:57:14Z"
+  "last_updated": "2026-05-06T03:46:51Z"
 }
