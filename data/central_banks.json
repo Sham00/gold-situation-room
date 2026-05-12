@@ -1121,7 +1121,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 57.4,
+      "pct_of_reserves": 57.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2305.0,
@@ -1348,7 +1348,7 @@
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 17.3,
+      "pct_of_reserves": 17.2,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 1040.0,
@@ -1570,7 +1570,7 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 20.8,
+      "pct_of_reserves": 20.6,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 881.0,
@@ -1801,7 +1801,7 @@
     },
     {
       "country": "Japan",
-      "pct_of_reserves": 10.4,
+      "pct_of_reserves": 10.3,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 846.0,
@@ -2244,7 +2244,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 39.5,
+      "pct_of_reserves": 39.2,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 582.0,
@@ -2483,7 +2483,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 52.1,
+      "pct_of_reserves": 51.7,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 535.0,
@@ -3173,7 +3173,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 26.9,
+      "pct_of_reserves": 26.7,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 310.0,
@@ -3395,7 +3395,7 @@
     },
     {
       "country": "Singapore",
-      "pct_of_reserves": 7.7,
+      "pct_of_reserves": 7.6,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 194.0,
@@ -3626,7 +3626,7 @@
     },
     {
       "country": "Brazil",
-      "pct_of_reserves": 7.9,
+      "pct_of_reserves": 7.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 172.0,
@@ -3848,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 29.2,
+      "pct_of_reserves": 29.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4070,7 +4070,7 @@
     },
     {
       "country": "Australia",
-      "pct_of_reserves": 20.0,
+      "pct_of_reserves": 19.9,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 79.9,
@@ -4538,10 +4538,24 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
+      "title": "Gold Sinks Again But Central Banks 'Still Buying Heavily' - BullionVault",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNT0tLNFJpOTYyRUtPQnphbGRNUlc3aFBSYkt0UFlVQjdLdEU3VjJQMTJVUVgyNWduVkd0RGFMay1QT09OcFU1WHgtd1BUa3FMajRWSi1ueEZJOGlmNTJXN0RxRkNIYXhrZ3FFWFRubVU3LUtwck5YUGt4cWFZN0xycG1sU1B2eWJwMjNEQjhWcWM?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 29 Apr 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
       "title": "China\u2019s PBOC Adds Gold for 14th Month As Prices Hit Record - Bloomberg.com",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPY2w4WlkxbnhBYVRUTUYwMDhkd0w4NTZVWUQxTGY2R0pXNGcwRjJUdGl2bDZYYm5KdTIzUzZoYXoxdEhNWHBPU3d5QzlQcmF5djZ3em55Qm9lYVhEUEFEODBLUDhJT1dDS2tZMlBic040Ums5eFBPLTlYWkN4NzViXzZVdGVwWjdHNW0zVlNmcEFGZEN6ZXRoRmN3VjRObVNYSTlicDRadWVwRVlidEE?oc=5",
       "source": "Google News PBOC Gold",
       "published": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Central Bank Gold Statistics: Central bank gold buying in July slows but remains firm | Post by Marissa Salim | Insights - World Gold Council",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZkJYMTM4N01Kb2Rxa0lRNG5JX21ycUJIc3dJb1c0c1hTcktaeDRFYnlLcmRGYzlfUUs5aHJNaXlvSi1CTHI4b0pKNlNiY3QtcERxX2F2WDNRdFl4VEpSR0s0RGZRbHNWOTgyZ2JtcXlDMVZaTktpY3ozV3FjX05uSERDd20zRnZZRDAzVU9ndG5RTU4tNEhTVC1JYXNRcnRKZDBZQWFWTnhHdFlXUEVzZHZiREVlbmFNdzlLZA?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 03 Sep 2025 07:00:00 GMT",
       "sentiment": "positive"
     },
     {
@@ -4557,20 +4571,6 @@
       "source": "Google News CB",
       "published": "Tue, 28 Apr 2026 07:00:00 GMT",
       "sentiment": "positive"
-    },
-    {
-      "title": "Gold Erases 2026 Gains as Central Bank Selling Hits Headlines - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeFQ4Y0dHNWx4WHNVdnE3Wk5GZzFVUjc3YjByWWtYczhyalVhaHlYd1I5bGhEcDE5TzljTkJCOTh6VGVRQ2Z1alhwMjM3Z183WkxldC1CejJ3aS10ZHRFdW9kcUdNSzRJWkExQjMtanFCaEVHcmFqUnZkMHphcUhvYjdrQmhwTXE1T0RILS1IN3hKRFU4?oc=5",
-      "source": "Google News CB",
-      "published": "Tue, 24 Mar 2026 07:00:00 GMT",
-      "sentiment": "negative"
-    },
-    {
-      "title": "China Courts Foreign Gold Reserves to Boost Global Clout - Bloomberg.com",
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOY2tsaWZ6X2hKcTgxVWVqQ2VsNjZPblZ0ekRTaUZrOERyQ3N1eW1CeURiQ20taTNpVE1qb0gydWw3WXF4cWxVdWhtaExheDFFeldlcjNjUDFnQTJUaElpNkJTMnZCVGIyUDlDVmc2S1Y3WTJyVnBlam40Z0MyZ1BhQzkzTTd2QlFJZVRyNzRDbmlEZjdObjl5eHBLek1SVnVJcXh4aVVCMVJjRklHaDcxMnl2NHE?oc=5",
-      "source": "Google News PBOC Gold",
-      "published": "Tue, 23 Sep 2025 07:00:00 GMT",
-      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-05-12T13:08:34Z"
+  "last_updated": "2026-05-12T16:25:37Z"
 }
