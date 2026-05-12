@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4709.8,
+      "price": 4712.9,
       "start_price": 4314.4,
-      "ytd_pct": 9.16,
+      "ytd_pct": 9.24,
       "color": "#ffd700",
       "chart": [
         {
@@ -364,7 +364,7 @@
         },
         {
           "t": "2026-05-12",
-          "v": 109.16
+          "v": 109.24
         }
       ]
     },
@@ -733,9 +733,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 80710.84,
+      "price": 80884.19,
       "start_price": 88731.98,
-      "ytd_pct": -9.04,
+      "ytd_pct": -8.84,
       "color": "#ff8800",
       "chart": [
         {
@@ -1264,14 +1264,14 @@
         },
         {
           "t": "2026-05-12",
-          "v": 90.96
+          "v": 91.16
         }
       ]
     },
     "Silver": {
-      "price": 84.79,
+      "price": 85.21,
       "start_price": 70.56,
-      "ytd_pct": 20.18,
+      "ytd_pct": 20.76,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1632,7 +1632,7 @@
         },
         {
           "t": "2026-05-12",
-          "v": 120.18
+          "v": 120.76
         }
       ]
     },
@@ -2001,9 +2001,9 @@
       ]
     },
     "VIX": {
-      "price": 18.92,
+      "price": 18.64,
       "start_price": 14.51,
-      "ytd_pct": 30.39,
+      "ytd_pct": 28.46,
       "color": "#ff4444",
       "chart": [
         {
@@ -2364,12 +2364,12 @@
         },
         {
           "t": "2026-05-12",
-          "v": 130.39
+          "v": 128.46
         }
       ]
     },
     "DXY": {
-      "price": 98.24,
+      "price": 98.25,
       "start_price": 98.42,
       "ytd_pct": -0.18,
       "color": "#aa44ff",
@@ -2743,5 +2743,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-05-12T10:39:05Z"
+  "last_updated": "2026-05-12T13:09:08Z"
 }
