@@ -886,7 +886,7 @@
     },
     {
       "country": "China",
-      "pct_of_reserves": 5.4,
+      "pct_of_reserves": 10.1,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2313.0,
@@ -1116,11 +1116,12 @@
           "date": "2024-12",
           "label": "PBOC resumes buying"
         }
-      ]
+      ],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 28.1,
+      "pct_of_reserves": 57.3,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2305.0,
@@ -1342,11 +1343,12 @@
           "date": "2022-03",
           "label": "Western sanctions freeze $300B reserves"
         }
-      ]
+      ],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 6.1,
+      "pct_of_reserves": 17.3,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 1040.0,
@@ -1563,11 +1565,12 @@
           "tonnes": 1040.0
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "India",
-      "pct_of_reserves": 10.2,
+      "pct_of_reserves": 20.7,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 881.0,
@@ -1793,11 +1796,12 @@
           "date": "2024-01",
           "label": "India surpasses 800t"
         }
-      ]
+      ],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Japan",
-      "pct_of_reserves": 4.6,
+      "pct_of_reserves": 10.4,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 846.0,
@@ -2014,7 +2018,8 @@
           "tonnes": 846.0
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Netherlands",
@@ -2239,7 +2244,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 16.4,
+      "pct_of_reserves": 39.4,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 582.0,
@@ -2473,11 +2478,12 @@
           "date": "2026-02",
           "label": "NBP proposes $13B gold sale"
         }
-      ]
+      ],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 34.1,
+      "pct_of_reserves": 52.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 535.0,
@@ -2715,7 +2721,8 @@
           "date": "2026-02",
           "label": "Renewed selling \u2014 defense budget"
         }
-      ]
+      ],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Uzbekistan",
@@ -3166,7 +3173,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 10.5,
+      "pct_of_reserves": 26.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 310.0,
@@ -3383,11 +3390,12 @@
           "tonnes": 310.0
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Singapore",
-      "pct_of_reserves": 4.5,
+      "pct_of_reserves": 7.6,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 194.0,
@@ -3613,11 +3621,12 @@
           "date": "2024-06",
           "label": "Singapore surpasses 220t"
         }
-      ]
+      ],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Brazil",
-      "pct_of_reserves": 2.8,
+      "pct_of_reserves": 7.9,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 172.0,
@@ -3834,11 +3843,12 @@
           "tonnes": 130.0
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 13.1,
+      "pct_of_reserves": 29.1,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4055,11 +4065,12 @@
           "tonnes": 125.0
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Australia",
-      "pct_of_reserves": 6.2,
+      "pct_of_reserves": 20.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 79.9,
@@ -4276,11 +4287,12 @@
           "tonnes": 80.0
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "pct_source": "World Bank API (live)"
     },
     {
       "country": "Czech Republic",
-      "pct_of_reserves": 3.9,
+      "pct_of_reserves": 7.9,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 76.6,
@@ -4506,7 +4518,8 @@
           "date": "2024-01",
           "label": "Reaches 40t milestone"
         }
-      ]
+      ],
+      "pct_source": "World Bank API (live)"
     }
   ],
   "net_monthly_pace_tonnes": 14.6,
@@ -4525,17 +4538,17 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
-      "title": "Gold Sinks Again But Central Banks 'Still Buying Heavily' - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNT0tLNFJpOTYyRUtPQnphbGRNUlc3aFBSYkt0UFlVQjdLdEU3VjJQMTJVUVgyNWduVkd0RGFMay1QT09OcFU1WHgtd1BUa3FMajRWSi1ueEZJOGlmNTJXN0RxRkNIYXhrZ3FFWFRubVU3LUtwck5YUGt4cWFZN0xycG1sU1B2eWJwMjNEQjhWcWM?oc=5",
+      "title": "Why Turkey Sold Its Gold Reserves \u2014 And What It Proves About Sound Money - GoldSilver",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQYXdRNGthbllTZFUtaWJuRVZlNHRkZlRLZVFOazlacmhRanRMSVl2SzJjcDJuSk1KVktsa0JLWEtCbjFsVmpPTGhwbUhWWl85TnB5YUJwY2hxM1c0YnNCd3N1R3Fpd0Z6OHZiaHhLMjR4U0pLNTdjbHdQTlpNWi15VGsxWWF6VUdNUVFNZ0hZUXEyb1dYcUpyemJpZzNuRnpQWVJxN3F2QnZ5ZlQxcFlGUFlaX05YbzN0RlBsLU43dlFXQQ?oc=5",
       "source": "Google News CB",
       "published": "Wed, 29 Apr 2026 07:00:00 GMT",
       "sentiment": "positive"
     },
     {
-      "title": "Why Turkey Sold Its Gold Reserves \u2014 And What It Proves About Sound Money - GoldSilver",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQYXdRNGthbllTZFUtaWJuRVZlNHRkZlRLZVFOazlacmhRanRMSVl2SzJjcDJuSk1KVktsa0JLWEtCbjFsVmpPTGhwbUhWWl85TnB5YUJwY2hxM1c0YnNCd3N1R3Fpd0Z6OHZiaHhLMjR4U0pLNTdjbHdQTlpNWi15VGsxWWF6VUdNUVFNZ0hZUXEyb1dYcUpyemJpZzNuRnpQWVJxN3F2QnZ5ZlQxcFlGUFlaX05YbzN0RlBsLU43dlFXQQ?oc=5",
+      "title": "De-Dollarization: Central Bank Gold Holdings Top USD Reserves - Watcher Guru",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeUc5cFpsRlU4Y2hyQ2NYSXF1TEZQLWFhQUxpVEVqSWJWZEx2UXBtRl9iQzNZekRteEpDUE8zTlYtYnRwdlV4TEhlZWVoYVhRVXdPUHAzWEJONEtrOHQzaVVKOHY1cnF4QVNfd3p3Q2hoOU5uZ1FseExFMHExWXJyQjdOVV9RT2Z4b0J2UVFMYw?oc=5",
       "source": "Google News CB",
-      "published": "Wed, 29 Apr 2026 07:00:00 GMT",
+      "published": "Wed, 13 May 2026 06:00:08 GMT",
       "sentiment": "positive"
     },
     {
@@ -4566,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-05-13T22:19:34Z"
+  "last_updated": "2026-05-14T00:08:12Z"
 }
