@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4703.1,
+      "price": 4713.6,
       "start_price": 4314.4,
-      "ytd_pct": 9.01,
+      "ytd_pct": 9.25,
       "color": "#ffd700",
       "chart": [
         {
@@ -368,7 +368,11 @@
         },
         {
           "t": "2026-05-13",
-          "v": 109.01
+          "v": 108.88
+        },
+        {
+          "t": "2026-05-14",
+          "v": 109.25
         }
       ]
     },
@@ -745,9 +749,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 79436.02,
+      "price": 79391.73,
       "start_price": 88731.98,
-      "ytd_pct": -10.48,
+      "ytd_pct": -10.53,
       "color": "#ff8800",
       "chart": [
         {
@@ -1280,14 +1284,14 @@
         },
         {
           "t": "2026-05-14",
-          "v": 89.52
+          "v": 89.47
         }
       ]
     },
     "Silver": {
-      "price": 88.39,
+      "price": 87.72,
       "start_price": 70.56,
-      "ytd_pct": 25.28,
+      "ytd_pct": 24.33,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1652,7 +1656,11 @@
         },
         {
           "t": "2026-05-13",
-          "v": 125.28
+          "v": 125.98
+        },
+        {
+          "t": "2026-05-14",
+          "v": 124.33
         }
       ]
     },
@@ -2401,9 +2409,9 @@
       ]
     },
     "DXY": {
-      "price": 98.47,
+      "price": 98.46,
       "start_price": 98.42,
-      "ytd_pct": 0.05,
+      "ytd_pct": 0.04,
       "color": "#aa44ff",
       "chart": [
         {
@@ -2768,7 +2776,11 @@
         },
         {
           "t": "2026-05-13",
-          "v": 100.05
+          "v": 100.06
+        },
+        {
+          "t": "2026-05-14",
+          "v": 100.04
         }
       ]
     }
@@ -2779,5 +2791,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-05-14T00:08:51Z"
+  "last_updated": "2026-05-14T04:51:59Z"
 }
