@@ -176,16 +176,16 @@
       "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 50.6,
-  "bull_count": 47,
-  "bear_count": 8,
-  "neutral_count": 22,
-  "bull_pct": 61.0,
+  "sentiment_score": 54.5,
+  "bull_count": 49,
+  "bear_count": 7,
+  "neutral_count": 21,
+  "bull_pct": 63.6,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-16T20:57:59Z"
+  "last_updated": "2026-05-16T21:58:08Z"
 }
