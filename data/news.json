@@ -8,6 +8,13 @@
       "sentiment": "positive"
     },
     {
+      "source": "Google News",
+      "title": "Gold Price for 21-Karat Reaches JOD 92.3 in the Local Market... - jordannews.jo",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNUy1hMHVUSXRJckR2Qks0UWdpWUtQS0d5dElpZUY5LUtiZFI5emxEOU9fWEV5djFyc00yZ0Q3WnNQeFd4OE5uSDlmTkQyZmszME11d1NoZlRpd0dLX2J2cWg1c1htTjZ1dy11eDU4MzNUdFFqNjljSW5nYU1BYmwwSmZwN1o0dTJBa2dLM0Z4ZGgyekp0NEdtaERPbXNBQnVWNUduQnF5N0ZabEFTS1l5UTNR?oc=5",
+      "published": "Sun, 17 May 2026 10:51:24 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Google News Gold Investment",
       "title": "Gold prices drop resulting from Strait of Hormuz closure, dealer says - NewsNation",
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPS09fUnBCUERNR2cyZTliU29vSGpHdjc4ZktydVZzZlJpMXNLaVlFVVhNVzJUR01lRFJGbHJOQ19INUtRc2pUYnJIVno2OUk3Z0lBSFRpcUJOc21wUjlmSzNNaVNFMGlCSG9QUXJvU1pDNExhU0s4eE0wNldaakNCaHJzN09SblhrcnZ3VjRKeU53S2ZoV1BQaWdHYVbSAaIBQVVfeXFMTkNQNmhwSmdGT0F5RmdIV1A3OXpSTkdOV2FiSmw0WXhvcTlkRWFyakI4T2lUWVBhLU5LOGRVSUFTVmk0WjZaZVNWVlFZak9vaHBadjNaMWRFRW9oejExaVk4VFFXa3lxczV0bjh3RTN4cGdRc1NsU1RWR01KcWZmN2QyZFVjeXdIMTFMeUl4UllLWElRRGdObmdDSmZ3ZDBxYmN3?oc=5",
@@ -92,13 +99,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Mining.com",
-      "title": "MAX Power Mining, Moose Jaw to advance natural hydrogen commercialization",
-      "link": "https://www.mining.com/max-power-mining-moose-jaw-ink-mou-to-advance-natural-hydrogen-commercialization/",
-      "published": "Fri, 15 May 2026 21:46:39 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Why one analyst sees 81 per cent upside in this TSX gold mining play",
       "link": "https://financialpost.com/investing/tsx-stock-upside-largest-gold-mine-us?.tsrc=rss",
@@ -141,13 +141,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Mining.com",
-      "title": "Water shortages are quietly killing mining projects \u2014 new tech rises to fix it",
-      "link": "https://www.mining.com/water-shortages-are-quietly-killing-mining-projects-new-tech-rises-to-fix-it/",
-      "published": "Fri, 15 May 2026 20:17:07 +0000",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Gold Falls Toward $4,550 as Fed-Cut Hopes Fade",
       "link": "https://finance.yahoo.com/markets/commodities/articles/gold-falls-toward-4-550-201103107.html?.tsrc=rss",
@@ -174,18 +167,25 @@
       "link": "https://finance.yahoo.com/markets/commodities/articles/gold-silver-fall-us-inflation-084649785.html?.tsrc=rss",
       "published": "Fri, 15 May 2026 18:36:36 +0000",
       "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "A2 Entrepreneurs Fund Names  Goldco Best Overall Gold IRA Company  In 2026 Industry Review",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/a2-entrepreneurs-fund-names-goldco-183600863.html?.tsrc=rss",
+      "published": "Fri, 15 May 2026 18:36:00 +0000",
+      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 52.9,
-  "bull_count": 53,
-  "bear_count": 7,
-  "neutral_count": 27,
-  "bull_pct": 60.9,
+  "sentiment_score": 53.2,
+  "bull_count": 48,
+  "bear_count": 6,
+  "neutral_count": 25,
+  "bull_pct": 60.8,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-17T15:03:07Z"
+  "last_updated": "2026-05-17T17:04:40Z"
 }
