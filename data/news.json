@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "source": "Google News",
+      "title": "Gold declines below $4,550 on rising Fed hike expectations - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOOXFjNkpWQWF4emdEdnlCVXU0SlduT2ZlNnRVQXZVdEpfRTZqaUttQ01ZM2E4bFZYeUJMTkJpTVVlaGNQOWU1OFVkRXR4NGlkeFJkenUtVFllWWhZQ1Q2aUFpeXJpMlZMSFY2VlhyNndBNUpGaVVqZVE2VG43QU5wcmZod1R5b2s0c2dqNjE2MDVDSnBUSUp0cFhTSmpqaC1jZmc?oc=5",
+      "published": "Mon, 18 May 2026 00:03:19 GMT",
+      "sentiment": "negative"
+    },
+    {
+      "source": "FXStreet",
+      "title": "Gold declines below $4,550 on rising Fed hike expectations",
+      "link": "https://www.fxstreet.com/news/gold-declines-below-4-550-on-rising-fed-hike-expectations-202605180003",
+      "published": "Mon, 18 May 2026 00:03:19 Z",
+      "sentiment": "negative"
+    },
+    {
       "source": "Google News Gold Investment",
       "title": "Goldman says central bank gold-buying stronger than thought, to reaccelerate - Mining Weekly",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWFZ3TkxwenNJUTdwdE9EQXdwUWtzMnoyNmQtakdXN2o4UVZBWURzdDlLZkFLNFNCZEluYnRmYXhkU1U1TUNIOEtTa3Q3Q055OFhpT2luU1lvNzV2ckNqakJIU3pjYXZaOGpHRFlkQmMyR2k3TnZVaGtYalRhWkUta24ydEI2NjJyTmVIUll4WldMNUV2bDkxUkZiSDlyMUNaS0RNbHJ3VHpWUVQ1enBlbVpMSnQ0THZ4bl9PRHFoeFA?oc=5",
@@ -160,32 +174,18 @@
       "link": "https://financialpost.com/investing/tsx-stock-upside-largest-gold-mine-us?.tsrc=rss",
       "published": "Fri, 15 May 2026 21:05:45 +0000",
       "sentiment": "positive"
-    },
-    {
-      "source": "Yahoo Finance Gold",
-      "title": "Blue Gold Provides Update on Cayman Islands Court Ruling in Shareholder Litigation",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/blue-gold-provides-cayman-islands-210000260.html?.tsrc=rss",
-      "published": "Fri, 15 May 2026 21:00:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
-      "source": "Google News",
-      "title": "What Moves Gold Prices? 6 Key Gold Price Factors Explained - GoldSilver",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTmgzaEktTUVYMGNzRTIzVHpmZUhZZnNpRnZiOERyVGNuMGc4dzVDUXFyRm1XSWxQMWRWRzM3WXljUW1McHhZSEZxS1B0U0tKOV9ZM1c1Ujkwek1VeTdpbDc5MVlKMU1leU9IM1d4d2NiRnhYWm50NmJJRkpDSEU2WW82NFQ3djM5WEtKYUtKUC1yc1IyYk1QdmcyLXVHc1hSaDhIZzNB?oc=5",
-      "published": "Fri, 15 May 2026 20:49:25 GMT",
-      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 58.4,
+  "sentiment_score": 55.1,
   "bull_count": 51,
-  "bear_count": 6,
-  "neutral_count": 20,
-  "bull_pct": 66.2,
+  "bear_count": 8,
+  "neutral_count": 19,
+  "bull_pct": 65.4,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-17T22:58:29Z"
+  "last_updated": "2026-05-18T00:05:01Z"
 }
