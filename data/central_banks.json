@@ -1121,7 +1121,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 55.2,
+      "pct_of_reserves": 55.3,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2305.0,
@@ -2483,7 +2483,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 50.1,
+      "pct_of_reserves": 50.2,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 535.0,
@@ -4552,13 +4552,6 @@
       "sentiment": "positive"
     },
     {
-      "title": "China\u2019s PBOC Adds Gold for 14th Month As Prices Hit Record - Bloomberg.com",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPY2w4WlkxbnhBYVRUTUYwMDhkd0w4NTZVWUQxTGY2R0pXNGcwRjJUdGl2bDZYYm5KdTIzUzZoYXoxdEhNWHBPU3d5QzlQcmF5djZ3em55Qm9lYVhEUEFEODBLUDhJT1dDS2tZMlBic040Ums5eFBPLTlYWkN4NzViXzZVdGVwWjdHNW0zVlNmcEFGZEN6ZXRoRmN3VjRObVNYSTlicDRadWVwRVlidEE?oc=5",
-      "source": "Google News PBOC Gold",
-      "published": "Wed, 07 Jan 2026 08:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "title": "Central Banks Are Buying Gold: Here\u2019s What They See Coming - GoldSilver",
       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPT1RwUV9Tb1RyRlhaRUVvQnhXMENFWDV3ekJjcE9SUS1sTXZ2UnQ5T04wY2ZUSEFfRV8yVFpaRU5LLUhaN2hNY1RhS1RFTDVqSXFUWVUzOVpUdkQyZEtpTGFkYmp2Y25vVHZXRkUtQ01sYlNEdm5LZ0tJb05iS29QQ2xBc2pfd1JZNVEyOUotSE1VZVlyRkxlT05PNjhqTnBudmc?oc=5",
       "source": "Google News CB",
@@ -4571,6 +4564,13 @@
       "source": "Google News Turkey Gold",
       "published": "Tue, 28 Jan 2025 00:24:08 GMT",
       "sentiment": "neutral"
+    },
+    {
+      "title": "Gold Price Holds Near USD4,700 as Central Banks Split on Buying Strategy - \u4e00\u8d22\u5168\u7403Yicai Global",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQkZPQVE0V0pFblJKU1k2VzIwdVR0NVdqNXN5UmM5eGxoQ24xMEJfWDBGWld1Y2R1OFctWXpfTG1VMFhINkxHNTc0cnZISmZsLTdISkxOZjJBR2tqaFpTNTUtN01acEVqUFpxNmoyNWhFMHlGV2FFb1ZPbVpmbWpZVEZFU1N4ZVEwZzBZVFluaF9GSzVkVmxxSjVVLVhfdkp1NERyN1JkMA?oc=5",
+      "source": "Google News CB",
+      "published": "Tue, 28 Apr 2026 07:00:00 GMT",
+      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-05-20T15:38:34Z"
+  "last_updated": "2026-05-20T18:24:04Z"
 }
