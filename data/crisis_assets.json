@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4543.0,
+      "price": 4530.1,
       "start_price": 4314.4,
-      "ytd_pct": 5.3,
+      "ytd_pct": 5.0,
       "color": "#ffd700",
       "chart": [
         {
@@ -392,7 +392,11 @@
         },
         {
           "t": "2026-05-21",
-          "v": 105.3
+          "v": 105.22
+        },
+        {
+          "t": "2026-05-22",
+          "v": 105.0
         }
       ]
     },
@@ -793,9 +797,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 77632.33,
+      "price": 77791.88,
       "start_price": 88731.98,
-      "ytd_pct": -12.51,
+      "ytd_pct": -12.33,
       "color": "#ff8800",
       "chart": [
         {
@@ -1359,15 +1363,15 @@
           "v": 87.29
         },
         {
-          "t": "2026-05-21",
-          "v": 87.49
+          "t": "2026-05-22",
+          "v": 87.67
         }
       ]
     },
     "Silver": {
-      "price": 77.04,
+      "price": 76.79,
       "start_price": 70.56,
-      "ytd_pct": 9.18,
+      "ytd_pct": 8.83,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1756,7 +1760,11 @@
         },
         {
           "t": "2026-05-21",
-          "v": 109.18
+          "v": 108.3
+        },
+        {
+          "t": "2026-05-22",
+          "v": 108.83
         }
       ]
     },
@@ -2553,9 +2561,9 @@
       ]
     },
     "DXY": {
-      "price": 99.19,
+      "price": 99.25,
       "start_price": 98.42,
-      "ytd_pct": 0.78,
+      "ytd_pct": 0.84,
       "color": "#aa44ff",
       "chart": [
         {
@@ -2945,6 +2953,10 @@
         {
           "t": "2026-05-21",
           "v": 100.78
+        },
+        {
+          "t": "2026-05-22",
+          "v": 100.84
         }
       ]
     }
@@ -2955,5 +2967,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-05-21T23:08:56Z"
+  "last_updated": "2026-05-22T04:13:07Z"
 }
