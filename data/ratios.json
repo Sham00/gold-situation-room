@@ -3,7 +3,7 @@
     "gold_silver": 59.4151,
     "gold_oil": 46.5,
     "gold_spx": 0.6035,
-    "gold_btc": 0.0596,
+    "gold_btc": 0.0597,
     "gold_copper": 706.9195
   },
   "ratio_charts": {
@@ -3043,10 +3043,6 @@
     ],
     "gold_btc": [
       {
-        "t": "2025-05-22",
-        "v": 0.0295
-      },
-      {
         "t": "2025-05-23",
         "v": 0.0314
       },
@@ -4049,10 +4045,6 @@
       {
         "t": "2026-05-21",
         "v": 0.0585
-      },
-      {
-        "t": "2026-05-22",
-        "v": 0.0596
       }
     ],
     "gold_copper": [
@@ -7136,5 +7128,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-05-22T23:08:17Z"
+  "last_updated": "2026-05-23T03:51:19Z"
 }
