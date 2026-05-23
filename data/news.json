@@ -85,13 +85,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News",
-      "title": "Gold and Silver Near-Term Support Amid Bond Market Volatility and Rate Hike Expectations - News and Statistics - IndexBox",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZHExQ2xETUZ3eUNiN0Z4bXBKNFFSaUdmU0ZaT0lISkdrTlpHUUd6NEtLcWVpVTJEbTVha05hRlVkMUZ2V01Cc0QtVlZwdVYyalNyVzEtLXl3aWVTdkxMMzJ0b1BWSVJmd1lveDdpNlAtVEtnSmtiUy1VaWViMVNqY0hjcThDUDBWal8tZGM2dVN3bERqZVk0emd3RVdmc1NZNV9DT01lS3AtZw?oc=5",
-      "published": "Fri, 22 May 2026 20:31:00 GMT",
-      "sentiment": "negative"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "De-Escalation Headlines Weigh on Gold Ahead of Memorial Day",
       "link": "https://finance.yahoo.com/markets/commodities/articles/escalation-headlines-weigh-gold-ahead-194747942.html?.tsrc=rss",
@@ -174,18 +167,25 @@
       "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPS0tUQ0RtSml0MHhoSkdBMXZuaV9OQWxXejFlMDhDalc0YXpGTnBhc2YtbWNTX25MUFBtRG9WQXdmdkZ0LXU4OUhCNkM4dTlfU19zQTVQY1EzVGFGdTg3ZUJKMk5wWmk0aHVDUURDVHdKVE1nV3duckVxMEJCWExXZ2pGNEFRQjllaXl2Ykh6LVlZeFVXQmZXTDYtbDhrY0tkWWpTVg?oc=5",
       "published": "Fri, 22 May 2026 16:14:00 GMT",
       "sentiment": "neutral"
+    },
+    {
+      "source": "FXStreet",
+      "title": "Gold holds within weekly range as US-Iran talks remain in focus",
+      "link": "https://www.fxstreet.com/news/gold-holds-within-weekly-range-as-us-iran-talks-remain-in-focus-202605221204",
+      "published": "Fri, 22 May 2026 16:02:18 Z",
+      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 24.0,
-  "bull_count": 34,
-  "bear_count": 16,
-  "neutral_count": 25,
-  "bull_pct": 45.3,
+  "sentiment_score": 29.3,
+  "bull_count": 37,
+  "bear_count": 15,
+  "neutral_count": 23,
+  "bull_pct": 49.3,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-23T03:51:45Z"
+  "last_updated": "2026-05-23T06:41:48Z"
 }
