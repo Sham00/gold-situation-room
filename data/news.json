@@ -85,6 +85,13 @@
       "sentiment": "positive"
     },
     {
+      "source": "Google News Gold Investment",
+      "title": "Why Central Banks Are Trading Dollars for Gold - ETF Database",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPSEVydkJ6SU84WG83UnA2OGRFNHZuTzVILTUzR1lhbjdsOGRqRDAzWjhEdFN0dVNSLXhzUlEycEhWcWVJUURZekNmN3ZqUjh5Tm5VYzR3Y0ZvYXlTNjlqQ0JQTS1jUEtKQzZmZ04zOUpFTGF0R3RNQ29LZVZWWW1WVkVtQ04yanFCSXRsaUpkcUJnbDJZNVdkdWpuMWhoTHUyOTFjUA?oc=5",
+      "published": "Fri, 22 May 2026 20:14:13 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "De-Escalation Headlines Weigh on Gold Ahead of Memorial Day",
       "link": "https://finance.yahoo.com/markets/commodities/articles/escalation-headlines-weigh-gold-ahead-194747942.html?.tsrc=rss",
@@ -97,13 +104,6 @@
       "link": "https://finance.yahoo.com/markets/commodities/articles/gold-steady-us-iran-signals-235735175.html?.tsrc=rss",
       "published": "Fri, 22 May 2026 19:47:04 +0000",
       "sentiment": "negative"
-    },
-    {
-      "source": "Google News Gold Investment",
-      "title": "Why Central Banks Are Trading Dollars for Gold - ETF Trends",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYTFTZTVLOW5qTmszZnRyRnpfZTlsSlFKZGtiYzZuZkRscDRMbmxRRVZOc0dNUW1Uc0ZPcUpLZ2c5ME8wZFd4V1ViazBNc2tWTVYtZnI2VEYyVkM5dVpIdGZCUkRqbS10eDFhRWFreTBCcTdYM216TEpHaGs4Z0RqaFp6dklyeGZISGNHMG9wOFdDaHlPbWFQUWI3Rk5qUXBTOWJvRWxqLTB3OWs?oc=5",
-      "published": "Fri, 22 May 2026 19:27:16 GMT",
-      "sentiment": "neutral"
     },
     {
       "source": "Yahoo Finance Gold",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 36.0,
-  "bull_count": 38,
-  "bear_count": 11,
-  "neutral_count": 26,
-  "bull_pct": 50.7,
+  "sentiment_score": 40.0,
+  "bull_count": 40,
+  "bear_count": 10,
+  "neutral_count": 25,
+  "bull_pct": 53.3,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-05-24T08:38:39Z"
+  "last_updated": "2026-05-24T10:45:57Z"
 }
