@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4561.5,
+      "price": 4602.1,
       "start_price": 4314.4,
-      "ytd_pct": 5.73,
+      "ytd_pct": 6.67,
       "color": "#ffd700",
       "chart": [
         {
@@ -412,14 +412,14 @@
         },
         {
           "t": "2026-05-29",
-          "v": 105.73
+          "v": 106.67
         }
       ]
     },
     "S&P 500": {
-      "price": 7563.63,
+      "price": 7590.48,
       "start_price": 6858.47,
-      "ytd_pct": 10.28,
+      "ytd_pct": 10.67,
       "color": "#00cc88",
       "chart": [
         {
@@ -825,13 +825,17 @@
         {
           "t": "2026-05-28",
           "v": 110.28
+        },
+        {
+          "t": "2026-05-29",
+          "v": 110.67
         }
       ]
     },
     "Bitcoin": {
-      "price": 73261.98,
+      "price": 73945.99,
       "start_price": 88731.98,
-      "ytd_pct": -17.43,
+      "ytd_pct": -16.66,
       "color": "#ff8800",
       "chart": [
         {
@@ -1428,14 +1432,14 @@
         },
         {
           "t": "2026-05-29",
-          "v": 82.57
+          "v": 83.34
         }
       ]
     },
     "Silver": {
-      "price": 75.76,
+      "price": 76.14,
       "start_price": 70.56,
-      "ytd_pct": 7.38,
+      "ytd_pct": 7.92,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -1844,14 +1848,14 @@
         },
         {
           "t": "2026-05-29",
-          "v": 107.38
+          "v": 107.92
         }
       ]
     },
     "Long Bonds (TLT)": {
-      "price": 85.74,
+      "price": 85.84,
       "start_price": 85.75,
-      "ytd_pct": -0.01,
+      "ytd_pct": 0.11,
       "color": "#4488ff",
       "chart": [
         {
@@ -2257,13 +2261,17 @@
         {
           "t": "2026-05-28",
           "v": 99.99
+        },
+        {
+          "t": "2026-05-29",
+          "v": 100.11
         }
       ]
     },
     "VIX": {
-      "price": 15.82,
+      "price": 15.33,
       "start_price": 14.51,
-      "ytd_pct": 9.03,
+      "ytd_pct": 5.65,
       "color": "#ff4444",
       "chart": [
         {
@@ -2676,14 +2684,14 @@
         },
         {
           "t": "2026-05-29",
-          "v": 109.03
+          "v": 105.65
         }
       ]
     },
     "DXY": {
-      "price": 99.06,
+      "price": 98.84,
       "start_price": 98.42,
-      "ytd_pct": 0.65,
+      "ytd_pct": 0.43,
       "color": "#aa44ff",
       "chart": [
         {
@@ -3092,7 +3100,7 @@
         },
         {
           "t": "2026-05-29",
-          "v": 100.65
+          "v": 100.43
         }
       ]
     }
@@ -3103,5 +3111,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-05-29T12:21:29Z"
+  "last_updated": "2026-05-29T16:48:31Z"
 }
