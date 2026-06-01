@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4568.0
+      "price": 4546.0
     }
   ],
   "decade_returns": [
@@ -1251,7 +1251,11 @@
     },
     {
       "t": "2026-05-01",
-      "v": 4568.1
+      "v": 4560.5
+    },
+    {
+      "t": "2026-06-01",
+      "v": 4546.3
     }
   ],
   "real_gold_chart": [
@@ -2727,8 +2731,13 @@
     },
     {
       "t": "2026-05-01",
-      "v": 4568.1,
-      "nominal": 4568.1
+      "v": 4560.5,
+      "nominal": 4560.5
+    },
+    {
+      "t": "2026-06-01",
+      "v": 4546.3,
+      "nominal": 4546.3
     }
   ],
   "seasonal_monthly": [
@@ -2758,15 +2767,15 @@
     },
     {
       "month": "May",
-      "avg_return": 1.2,
+      "avg_return": 1.19,
       "positive_pct": 59.0,
       "n": 22
     },
     {
       "month": "Jun",
-      "avg_return": -1.56,
-      "positive_pct": 38.0,
-      "n": 21
+      "avg_return": -1.5,
+      "positive_pct": 36.0,
+      "n": 22
     },
     {
       "month": "Jul",
@@ -2956,5 +2965,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-05-31T23:07:16Z"
+  "last_updated": "2026-06-01T04:54:22Z"
 }

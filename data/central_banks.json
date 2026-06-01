@@ -1121,7 +1121,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 55.6,
+      "pct_of_reserves": 55.4,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2305.0,
@@ -1348,7 +1348,7 @@
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 16.8,
+      "pct_of_reserves": 16.7,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 1040.0,
@@ -1570,7 +1570,7 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 20.1,
+      "pct_of_reserves": 20.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 881.0,
@@ -1801,7 +1801,7 @@
     },
     {
       "country": "Japan",
-      "pct_of_reserves": 10.1,
+      "pct_of_reserves": 10.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 846.0,
@@ -2244,7 +2244,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 38.3,
+      "pct_of_reserves": 38.1,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 582.0,
@@ -2483,7 +2483,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 50.5,
+      "pct_of_reserves": 50.3,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 535.0,
@@ -3173,7 +3173,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 26.1,
+      "pct_of_reserves": 26.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 310.0,
@@ -3626,7 +3626,7 @@
     },
     {
       "country": "Brazil",
-      "pct_of_reserves": 7.7,
+      "pct_of_reserves": 7.6,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 172.0,
@@ -3848,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 28.3,
+      "pct_of_reserves": 28.1,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4070,7 +4070,7 @@
     },
     {
       "country": "Australia",
-      "pct_of_reserves": 19.4,
+      "pct_of_reserves": 19.3,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 79.9,
@@ -4522,7 +4522,7 @@
       "pct_source": "World Bank API (live)"
     }
   ],
-  "net_monthly_pace_tonnes": 14.6,
+  "net_monthly_pace_tonnes": 12.2,
   "total_cb_buying_ytd": 73,
   "cb_annual": {
     "10Y_average": 500,
@@ -4532,7 +4532,7 @@
     "2023": 1037,
     "2024": 1045,
     "2025": 980,
-    "2026_annualized": 175
+    "2026_annualized": 146
   },
   "pace_vs_avg": 0.3,
   "source": "Trading Economics (multi-source, IMF unavailable)",
@@ -4566,11 +4566,11 @@
       "sentiment": "neutral"
     },
     {
-      "title": "Central banks still have busy schedule ahead of year's end - Anadolu Ajans\u0131",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSHBBQXBkMlI5am0wa1pVb3BtdEVBNkl5Y0hEU0NKeFZCYW01UzhhTklWNXZaVzZ1RDVZS0g3Vmlmb3FhY1VlZTBpMnZYdHFUNko0QWNySnRjcF85QzR2SzJGZDEzZldLeDJzbzhEUE1TdmVWdGlrQURFNmwxRTBNR0w5anFrbU1xODQ3eFFBNkx0dkNRS2VSbVBuQnFEMnc?oc=5",
-      "source": "Google News Turkey Gold",
-      "published": "Wed, 03 Dec 2025 08:00:00 GMT",
-      "sentiment": "neutral"
+      "title": "China\u2019s PBOC Adds Gold for 14th Month As Prices Hit Record - Bloomberg.com",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPY2w4WlkxbnhBYVRUTUYwMDhkd0w4NTZVWUQxTGY2R0pXNGcwRjJUdGl2bDZYYm5KdTIzUzZoYXoxdEhNWHBPU3d5QzlQcmF5djZ3em55Qm9lYVhEUEFEODBLUDhJT1dDS2tZMlBic040Ums5eFBPLTlYWkN4NzViXzZVdGVwWjdHNW0zVlNmcEFGZEN6ZXRoRmN3VjRObVNYSTlicDRadWVwRVlidEE?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-05-31T23:06:48Z"
+  "last_updated": "2026-06-01T04:53:48Z"
 }
