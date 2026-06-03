@@ -3,10 +3,10 @@
     {
       "country": "United States",
       "pct_of_reserves": 71.3,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 8133.0,
-      "last_month_change": 0.0,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 8133,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -224,10 +224,10 @@
     {
       "country": "Germany",
       "pct_of_reserves": 68.7,
-      "data_source": "Trading Economics (2025-12)",
+      "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
-      "reserves_tonnes": 3350.0,
-      "last_month_change": -2.0,
+      "reserves_tonnes": 3352,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -445,10 +445,10 @@
     {
       "country": "Italy",
       "pct_of_reserves": 65.5,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 2452.0,
-      "last_month_change": 0.0,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 2452,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -666,10 +666,10 @@
     {
       "country": "France",
       "pct_of_reserves": 67.2,
-      "data_source": "Trading Economics (2025-12)",
+      "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
-      "reserves_tonnes": 2437.0,
-      "last_month_change": 0.0,
+      "reserves_tonnes": 2437,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -885,12 +885,239 @@
       "annotations": []
     },
     {
+      "country": "Russia",
+      "pct_of_reserves": 55.2,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 2335,
+      "last_month_change": -12,
+      "change_ytd": -36,
+      "status": "selling",
+      "history": [
+        {
+          "date": "2022-01",
+          "tonnes": 2298.0
+        },
+        {
+          "date": "2022-02",
+          "tonnes": 2300.0
+        },
+        {
+          "date": "2022-03",
+          "tonnes": 2302.0
+        },
+        {
+          "date": "2022-04",
+          "tonnes": 2304.0
+        },
+        {
+          "date": "2022-05",
+          "tonnes": 2306.0
+        },
+        {
+          "date": "2022-06",
+          "tonnes": 2308.0
+        },
+        {
+          "date": "2022-07",
+          "tonnes": 2310.0
+        },
+        {
+          "date": "2022-08",
+          "tonnes": 2312.0
+        },
+        {
+          "date": "2022-09",
+          "tonnes": 2314.0
+        },
+        {
+          "date": "2022-10",
+          "tonnes": 2316.0
+        },
+        {
+          "date": "2022-11",
+          "tonnes": 2318.0
+        },
+        {
+          "date": "2022-12",
+          "tonnes": 2320.0
+        },
+        {
+          "date": "2023-01",
+          "tonnes": 2322.0
+        },
+        {
+          "date": "2023-02",
+          "tonnes": 2322.3
+        },
+        {
+          "date": "2023-03",
+          "tonnes": 2322.7
+        },
+        {
+          "date": "2023-04",
+          "tonnes": 2323.0
+        },
+        {
+          "date": "2023-05",
+          "tonnes": 2323.3
+        },
+        {
+          "date": "2023-06",
+          "tonnes": 2323.6
+        },
+        {
+          "date": "2023-07",
+          "tonnes": 2324.0
+        },
+        {
+          "date": "2023-08",
+          "tonnes": 2324.3
+        },
+        {
+          "date": "2023-09",
+          "tonnes": 2324.6
+        },
+        {
+          "date": "2023-10",
+          "tonnes": 2325.0
+        },
+        {
+          "date": "2023-11",
+          "tonnes": 2325.3
+        },
+        {
+          "date": "2023-12",
+          "tonnes": 2325.6
+        },
+        {
+          "date": "2024-01",
+          "tonnes": 2326.0
+        },
+        {
+          "date": "2024-02",
+          "tonnes": 2326.3
+        },
+        {
+          "date": "2024-03",
+          "tonnes": 2326.6
+        },
+        {
+          "date": "2024-04",
+          "tonnes": 2326.9
+        },
+        {
+          "date": "2024-05",
+          "tonnes": 2327.3
+        },
+        {
+          "date": "2024-06",
+          "tonnes": 2327.6
+        },
+        {
+          "date": "2024-07",
+          "tonnes": 2327.9
+        },
+        {
+          "date": "2024-08",
+          "tonnes": 2328.3
+        },
+        {
+          "date": "2024-09",
+          "tonnes": 2328.6
+        },
+        {
+          "date": "2024-10",
+          "tonnes": 2328.9
+        },
+        {
+          "date": "2024-11",
+          "tonnes": 2329.3
+        },
+        {
+          "date": "2024-12",
+          "tonnes": 2329.6
+        },
+        {
+          "date": "2025-01",
+          "tonnes": 2329.9
+        },
+        {
+          "date": "2025-02",
+          "tonnes": 2330.2
+        },
+        {
+          "date": "2025-03",
+          "tonnes": 2330.6
+        },
+        {
+          "date": "2025-04",
+          "tonnes": 2330.9
+        },
+        {
+          "date": "2025-05",
+          "tonnes": 2331.2
+        },
+        {
+          "date": "2025-06",
+          "tonnes": 2331.6
+        },
+        {
+          "date": "2025-07",
+          "tonnes": 2331.9
+        },
+        {
+          "date": "2025-08",
+          "tonnes": 2332.2
+        },
+        {
+          "date": "2025-09",
+          "tonnes": 2332.6
+        },
+        {
+          "date": "2025-10",
+          "tonnes": 2332.9
+        },
+        {
+          "date": "2025-11",
+          "tonnes": 2333.2
+        },
+        {
+          "date": "2025-12",
+          "tonnes": 2333.5
+        },
+        {
+          "date": "2026-01",
+          "tonnes": 2333.9
+        },
+        {
+          "date": "2026-02",
+          "tonnes": 2334.2
+        },
+        {
+          "date": "2026-03",
+          "tonnes": 2334.5
+        },
+        {
+          "date": "2026-04",
+          "tonnes": 2334.9
+        }
+      ],
+      "annotations": [
+        {
+          "date": "2022-03",
+          "label": "Western sanctions freeze $300B reserves"
+        }
+      ],
+      "pct_source": "World Bank API (live)"
+    },
+    {
       "country": "China",
-      "pct_of_reserves": 9.7,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 2313.0,
-      "last_month_change": 33.0,
+      "pct_of_reserves": 9.5,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 2280,
+      "last_month_change": 5,
       "change_ytd": 15,
       "status": "buying",
       "history": [
@@ -1120,239 +1347,12 @@
       "pct_source": "World Bank API (live)"
     },
     {
-      "country": "Russia",
-      "pct_of_reserves": 54.8,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 2305.0,
-      "last_month_change": -30.0,
-      "change_ytd": -36,
-      "status": "sell_watch",
-      "history": [
-        {
-          "date": "2022-01",
-          "tonnes": 2298.0
-        },
-        {
-          "date": "2022-02",
-          "tonnes": 2300.0
-        },
-        {
-          "date": "2022-03",
-          "tonnes": 2302.0
-        },
-        {
-          "date": "2022-04",
-          "tonnes": 2304.0
-        },
-        {
-          "date": "2022-05",
-          "tonnes": 2306.0
-        },
-        {
-          "date": "2022-06",
-          "tonnes": 2308.0
-        },
-        {
-          "date": "2022-07",
-          "tonnes": 2310.0
-        },
-        {
-          "date": "2022-08",
-          "tonnes": 2312.0
-        },
-        {
-          "date": "2022-09",
-          "tonnes": 2314.0
-        },
-        {
-          "date": "2022-10",
-          "tonnes": 2316.0
-        },
-        {
-          "date": "2022-11",
-          "tonnes": 2318.0
-        },
-        {
-          "date": "2022-12",
-          "tonnes": 2320.0
-        },
-        {
-          "date": "2023-01",
-          "tonnes": 2322.0
-        },
-        {
-          "date": "2023-02",
-          "tonnes": 2322.3
-        },
-        {
-          "date": "2023-03",
-          "tonnes": 2322.7
-        },
-        {
-          "date": "2023-04",
-          "tonnes": 2323.0
-        },
-        {
-          "date": "2023-05",
-          "tonnes": 2323.3
-        },
-        {
-          "date": "2023-06",
-          "tonnes": 2323.6
-        },
-        {
-          "date": "2023-07",
-          "tonnes": 2324.0
-        },
-        {
-          "date": "2023-08",
-          "tonnes": 2324.3
-        },
-        {
-          "date": "2023-09",
-          "tonnes": 2324.6
-        },
-        {
-          "date": "2023-10",
-          "tonnes": 2325.0
-        },
-        {
-          "date": "2023-11",
-          "tonnes": 2325.3
-        },
-        {
-          "date": "2023-12",
-          "tonnes": 2325.6
-        },
-        {
-          "date": "2024-01",
-          "tonnes": 2326.0
-        },
-        {
-          "date": "2024-02",
-          "tonnes": 2326.3
-        },
-        {
-          "date": "2024-03",
-          "tonnes": 2326.6
-        },
-        {
-          "date": "2024-04",
-          "tonnes": 2326.9
-        },
-        {
-          "date": "2024-05",
-          "tonnes": 2327.3
-        },
-        {
-          "date": "2024-06",
-          "tonnes": 2327.6
-        },
-        {
-          "date": "2024-07",
-          "tonnes": 2327.9
-        },
-        {
-          "date": "2024-08",
-          "tonnes": 2328.3
-        },
-        {
-          "date": "2024-09",
-          "tonnes": 2328.6
-        },
-        {
-          "date": "2024-10",
-          "tonnes": 2328.9
-        },
-        {
-          "date": "2024-11",
-          "tonnes": 2329.3
-        },
-        {
-          "date": "2024-12",
-          "tonnes": 2329.6
-        },
-        {
-          "date": "2025-01",
-          "tonnes": 2329.9
-        },
-        {
-          "date": "2025-02",
-          "tonnes": 2330.2
-        },
-        {
-          "date": "2025-03",
-          "tonnes": 2330.6
-        },
-        {
-          "date": "2025-04",
-          "tonnes": 2330.9
-        },
-        {
-          "date": "2025-05",
-          "tonnes": 2331.2
-        },
-        {
-          "date": "2025-06",
-          "tonnes": 2331.6
-        },
-        {
-          "date": "2025-07",
-          "tonnes": 2331.9
-        },
-        {
-          "date": "2025-08",
-          "tonnes": 2332.2
-        },
-        {
-          "date": "2025-09",
-          "tonnes": 2332.6
-        },
-        {
-          "date": "2025-10",
-          "tonnes": 2332.9
-        },
-        {
-          "date": "2025-11",
-          "tonnes": 2333.2
-        },
-        {
-          "date": "2025-12",
-          "tonnes": 2333.5
-        },
-        {
-          "date": "2026-01",
-          "tonnes": 2333.9
-        },
-        {
-          "date": "2026-02",
-          "tonnes": 2334.2
-        },
-        {
-          "date": "2026-03",
-          "tonnes": 2334.5
-        },
-        {
-          "date": "2026-04",
-          "tonnes": 2334.9
-        }
-      ],
-      "annotations": [
-        {
-          "date": "2022-03",
-          "label": "Western sanctions freeze $300B reserves"
-        }
-      ],
-      "pct_source": "World Bank API (live)"
-    },
-    {
       "country": "Switzerland",
       "pct_of_reserves": 16.5,
-      "data_source": "Trading Economics (2025-12)",
+      "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
-      "reserves_tonnes": 1040.0,
-      "last_month_change": 0.0,
+      "reserves_tonnes": 1040,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -1570,11 +1570,11 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 19.8,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 881.0,
-      "last_month_change": 5.0,
+      "pct_of_reserves": 19.6,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 876,
+      "last_month_change": 5,
       "change_ytd": 15,
       "status": "buying",
       "history": [
@@ -1802,10 +1802,10 @@
     {
       "country": "Japan",
       "pct_of_reserves": 9.9,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 846.0,
-      "last_month_change": 0.0,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 846,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -2022,474 +2022,14 @@
       "pct_source": "World Bank API (live)"
     },
     {
-      "country": "Netherlands",
-      "pct_of_reserves": 59.2,
-      "data_source": "Trading Economics (2025-12)",
-      "as_of_date": "2025-12",
-      "reserves_tonnes": 612.0,
-      "last_month_change": 0.0,
-      "change_ytd": 0,
-      "status": "unchanged",
-      "history": [
-        {
-          "date": "2022-01",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-02",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-03",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-04",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-05",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-06",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-07",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-08",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-09",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-10",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-11",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2022-12",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-01",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-02",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-03",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-04",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-05",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-06",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-07",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-08",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-09",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-10",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-11",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2023-12",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-01",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-02",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-03",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-04",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-05",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-06",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-07",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-08",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-09",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-10",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-11",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2024-12",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-01",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-02",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-03",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-04",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-05",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-06",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-07",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-08",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-09",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-10",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-11",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2025-12",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2026-01",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2026-02",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2026-03",
-          "tonnes": 612.0
-        },
-        {
-          "date": "2026-04",
-          "tonnes": 612.0
-        }
-      ],
-      "annotations": []
-    },
-    {
-      "country": "Poland",
-      "pct_of_reserves": 37.7,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 582.0,
-      "last_month_change": 162.0,
-      "change_ytd": 0,
-      "status": "buying",
-      "history": [
-        {
-          "date": "2022-01",
-          "tonnes": 228.0
-        },
-        {
-          "date": "2022-02",
-          "tonnes": 233.0
-        },
-        {
-          "date": "2022-03",
-          "tonnes": 238.0
-        },
-        {
-          "date": "2022-04",
-          "tonnes": 243.0
-        },
-        {
-          "date": "2022-05",
-          "tonnes": 248.0
-        },
-        {
-          "date": "2022-06",
-          "tonnes": 253.0
-        },
-        {
-          "date": "2022-07",
-          "tonnes": 258.0
-        },
-        {
-          "date": "2022-08",
-          "tonnes": 263.0
-        },
-        {
-          "date": "2022-09",
-          "tonnes": 268.0
-        },
-        {
-          "date": "2022-10",
-          "tonnes": 273.0
-        },
-        {
-          "date": "2022-11",
-          "tonnes": 278.0
-        },
-        {
-          "date": "2022-12",
-          "tonnes": 283.0
-        },
-        {
-          "date": "2023-01",
-          "tonnes": 288.0
-        },
-        {
-          "date": "2023-02",
-          "tonnes": 296.0
-        },
-        {
-          "date": "2023-03",
-          "tonnes": 304.0
-        },
-        {
-          "date": "2023-04",
-          "tonnes": 312.0
-        },
-        {
-          "date": "2023-05",
-          "tonnes": 320.0
-        },
-        {
-          "date": "2023-06",
-          "tonnes": 328.0
-        },
-        {
-          "date": "2023-07",
-          "tonnes": 336.0
-        },
-        {
-          "date": "2023-08",
-          "tonnes": 344.0
-        },
-        {
-          "date": "2023-09",
-          "tonnes": 352.0
-        },
-        {
-          "date": "2023-10",
-          "tonnes": 360.0
-        },
-        {
-          "date": "2023-11",
-          "tonnes": 368.0
-        },
-        {
-          "date": "2023-12",
-          "tonnes": 376.0
-        },
-        {
-          "date": "2024-01",
-          "tonnes": 384.0
-        },
-        {
-          "date": "2024-02",
-          "tonnes": 387.0
-        },
-        {
-          "date": "2024-03",
-          "tonnes": 390.0
-        },
-        {
-          "date": "2024-04",
-          "tonnes": 393.0
-        },
-        {
-          "date": "2024-05",
-          "tonnes": 396.0
-        },
-        {
-          "date": "2024-06",
-          "tonnes": 399.0
-        },
-        {
-          "date": "2024-07",
-          "tonnes": 402.0
-        },
-        {
-          "date": "2024-08",
-          "tonnes": 405.0
-        },
-        {
-          "date": "2024-09",
-          "tonnes": 408.0
-        },
-        {
-          "date": "2024-10",
-          "tonnes": 411.0
-        },
-        {
-          "date": "2024-11",
-          "tonnes": 414.0
-        },
-        {
-          "date": "2024-12",
-          "tonnes": 417.0
-        },
-        {
-          "date": "2025-01",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-02",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-03",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-04",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-05",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-06",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-07",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-08",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-09",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-10",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-11",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2025-12",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2026-01",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2026-02",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2026-03",
-          "tonnes": 420.0
-        },
-        {
-          "date": "2026-04",
-          "tonnes": 420.0
-        }
-      ],
-      "annotations": [
-        {
-          "date": "2022-06",
-          "label": "NBP 100t target announced"
-        },
-        {
-          "date": "2023-09",
-          "label": "Poland hits 300t milestone"
-        },
-        {
-          "date": "2024-04",
-          "label": "NBP reaches 400t milestone"
-        },
-        {
-          "date": "2026-02",
-          "label": "NBP proposes $13B gold sale"
-        }
-      ],
-      "pct_source": "World Bank API (live)"
-    },
-    {
       "country": "Turkey",
-      "pct_of_reserves": 49.8,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 535.0,
-      "last_month_change": -78.0,
+      "pct_of_reserves": 56.7,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 613,
+      "last_month_change": -27,
       "change_ytd": -28,
-      "status": "sell_watch",
+      "status": "selling",
       "history": [
         {
           "date": "2022-01",
@@ -2725,12 +2265,472 @@
       "pct_source": "World Bank API (live)"
     },
     {
+      "country": "Netherlands",
+      "pct_of_reserves": 59.2,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 612,
+      "last_month_change": 0,
+      "change_ytd": 0,
+      "status": "unchanged",
+      "history": [
+        {
+          "date": "2022-01",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-02",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-03",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-04",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-05",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-06",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-07",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-08",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-09",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-10",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-11",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2022-12",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-01",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-02",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-03",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-04",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-05",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-06",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-07",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-08",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-09",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-10",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-11",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2023-12",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-01",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-02",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-03",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-04",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-05",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-06",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-07",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-08",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-09",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-10",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-11",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2024-12",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-01",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-02",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-03",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-04",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-05",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-06",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-07",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-08",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-09",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-10",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-11",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2025-12",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2026-01",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2026-02",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2026-03",
+          "tonnes": 612.0
+        },
+        {
+          "date": "2026-04",
+          "tonnes": 612.0
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "country": "Poland",
+      "pct_of_reserves": 27.1,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 420,
+      "last_month_change": 0,
+      "change_ytd": 0,
+      "status": "sell_watch",
+      "history": [
+        {
+          "date": "2022-01",
+          "tonnes": 228.0
+        },
+        {
+          "date": "2022-02",
+          "tonnes": 233.0
+        },
+        {
+          "date": "2022-03",
+          "tonnes": 238.0
+        },
+        {
+          "date": "2022-04",
+          "tonnes": 243.0
+        },
+        {
+          "date": "2022-05",
+          "tonnes": 248.0
+        },
+        {
+          "date": "2022-06",
+          "tonnes": 253.0
+        },
+        {
+          "date": "2022-07",
+          "tonnes": 258.0
+        },
+        {
+          "date": "2022-08",
+          "tonnes": 263.0
+        },
+        {
+          "date": "2022-09",
+          "tonnes": 268.0
+        },
+        {
+          "date": "2022-10",
+          "tonnes": 273.0
+        },
+        {
+          "date": "2022-11",
+          "tonnes": 278.0
+        },
+        {
+          "date": "2022-12",
+          "tonnes": 283.0
+        },
+        {
+          "date": "2023-01",
+          "tonnes": 288.0
+        },
+        {
+          "date": "2023-02",
+          "tonnes": 296.0
+        },
+        {
+          "date": "2023-03",
+          "tonnes": 304.0
+        },
+        {
+          "date": "2023-04",
+          "tonnes": 312.0
+        },
+        {
+          "date": "2023-05",
+          "tonnes": 320.0
+        },
+        {
+          "date": "2023-06",
+          "tonnes": 328.0
+        },
+        {
+          "date": "2023-07",
+          "tonnes": 336.0
+        },
+        {
+          "date": "2023-08",
+          "tonnes": 344.0
+        },
+        {
+          "date": "2023-09",
+          "tonnes": 352.0
+        },
+        {
+          "date": "2023-10",
+          "tonnes": 360.0
+        },
+        {
+          "date": "2023-11",
+          "tonnes": 368.0
+        },
+        {
+          "date": "2023-12",
+          "tonnes": 376.0
+        },
+        {
+          "date": "2024-01",
+          "tonnes": 384.0
+        },
+        {
+          "date": "2024-02",
+          "tonnes": 387.0
+        },
+        {
+          "date": "2024-03",
+          "tonnes": 390.0
+        },
+        {
+          "date": "2024-04",
+          "tonnes": 393.0
+        },
+        {
+          "date": "2024-05",
+          "tonnes": 396.0
+        },
+        {
+          "date": "2024-06",
+          "tonnes": 399.0
+        },
+        {
+          "date": "2024-07",
+          "tonnes": 402.0
+        },
+        {
+          "date": "2024-08",
+          "tonnes": 405.0
+        },
+        {
+          "date": "2024-09",
+          "tonnes": 408.0
+        },
+        {
+          "date": "2024-10",
+          "tonnes": 411.0
+        },
+        {
+          "date": "2024-11",
+          "tonnes": 414.0
+        },
+        {
+          "date": "2024-12",
+          "tonnes": 417.0
+        },
+        {
+          "date": "2025-01",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-02",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-03",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-04",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-05",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-06",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-07",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-08",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-09",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-10",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-11",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2025-12",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2026-01",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2026-02",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2026-03",
+          "tonnes": 420.0
+        },
+        {
+          "date": "2026-04",
+          "tonnes": 420.0
+        }
+      ],
+      "annotations": [
+        {
+          "date": "2022-06",
+          "label": "NBP 100t target announced"
+        },
+        {
+          "date": "2023-09",
+          "label": "Poland hits 300t milestone"
+        },
+        {
+          "date": "2024-04",
+          "label": "NBP reaches 400t milestone"
+        },
+        {
+          "date": "2026-02",
+          "label": "NBP proposes $13B gold sale"
+        }
+      ],
+      "pct_source": "World Bank API (live)"
+    },
+    {
       "country": "Uzbekistan",
       "pct_of_reserves": 72.1,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 416.0,
-      "last_month_change": 36.0,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 380,
+      "last_month_change": 2,
       "change_ytd": 10,
       "status": "buying",
       "history": [
@@ -2946,12 +2946,234 @@
       "annotations": []
     },
     {
+      "country": "United Kingdom",
+      "pct_of_reserves": 25.5,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 310,
+      "last_month_change": 0,
+      "change_ytd": 0,
+      "status": "unchanged",
+      "history": [
+        {
+          "date": "2022-01",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-02",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-03",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-04",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-05",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-06",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-07",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-08",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-09",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-10",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-11",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2022-12",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-01",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-02",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-03",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-04",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-05",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-06",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-07",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-08",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-09",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-10",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-11",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2023-12",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-01",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-02",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-03",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-04",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-05",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-06",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-07",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-08",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-09",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-10",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-11",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2024-12",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-01",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-02",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-03",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-04",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-05",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-06",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-07",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-08",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-09",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-10",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-11",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2025-12",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2026-01",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2026-02",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2026-03",
+          "tonnes": 310.0
+        },
+        {
+          "date": "2026-04",
+          "tonnes": 310.0
+        }
+      ],
+      "annotations": [],
+      "pct_source": "World Bank API (live)"
+    },
+    {
       "country": "Kazakhstan",
-      "pct_of_reserves": 68.2,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 354.0,
-      "last_month_change": 59.0,
+      "pct_of_reserves": 92.6,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 295,
+      "last_month_change": 8,
       "change_ytd": 24,
       "status": "buying",
       "history": [
@@ -3169,239 +3391,18 @@
           "date": "2023-01",
           "label": "NBK mandated accumulation programme"
         }
-      ]
-    },
-    {
-      "country": "United Kingdom",
-      "pct_of_reserves": 25.7,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 310.0,
-      "last_month_change": 0.0,
-      "change_ytd": 0,
-      "status": "unchanged",
-      "history": [
-        {
-          "date": "2022-01",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-02",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-03",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-04",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-05",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-06",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-07",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-08",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-09",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-10",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-11",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2022-12",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-01",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-02",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-03",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-04",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-05",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-06",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-07",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-08",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-09",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-10",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-11",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2023-12",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-01",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-02",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-03",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-04",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-05",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-06",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-07",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-08",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-09",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-10",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-11",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2024-12",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-01",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-02",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-03",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-04",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-05",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-06",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-07",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-08",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-09",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-10",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-11",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2025-12",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2026-01",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2026-02",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2026-03",
-          "tonnes": 310.0
-        },
-        {
-          "date": "2026-04",
-          "tonnes": 310.0
-        }
       ],
-      "annotations": [],
       "pct_source": "World Bank API (live)"
     },
     {
       "country": "Singapore",
-      "pct_of_reserves": 7.3,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 194.0,
-      "last_month_change": -31.0,
+      "pct_of_reserves": 8.4,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 225,
+      "last_month_change": 1,
       "change_ytd": 3,
-      "status": "sell_watch",
+      "status": "buying",
       "history": [
         {
           "date": "2022-01",
@@ -3626,13 +3627,13 @@
     },
     {
       "country": "Brazil",
-      "pct_of_reserves": 7.5,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 172.0,
-      "last_month_change": 42.0,
+      "pct_of_reserves": 5.7,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 130,
+      "last_month_change": 0,
       "change_ytd": 0,
-      "status": "buying",
+      "status": "unchanged",
       "history": [
         {
           "date": "2022-01",
@@ -3848,11 +3849,11 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 27.9,
-      "data_source": "Trading Economics (2025-12)",
+      "pct_of_reserves": 27.5,
+      "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
-      "reserves_tonnes": 126.0,
-      "last_month_change": 1.0,
+      "reserves_tonnes": 125,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -4071,10 +4072,10 @@
     {
       "country": "Australia",
       "pct_of_reserves": 19.1,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 79.9,
-      "last_month_change": -0.1,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 80,
+      "last_month_change": 0,
       "change_ytd": 0,
       "status": "unchanged",
       "history": [
@@ -4292,11 +4293,11 @@
     },
     {
       "country": "Czech Republic",
-      "pct_of_reserves": 7.6,
-      "data_source": "Trading Economics (2026-03)",
-      "as_of_date": "2026-03",
-      "reserves_tonnes": 76.6,
-      "last_month_change": 31.6,
+      "pct_of_reserves": 4.4,
+      "data_source": "hardcoded (2025-12)",
+      "as_of_date": "2025-12",
+      "reserves_tonnes": 45,
+      "last_month_change": 2,
       "change_ytd": 6,
       "status": "buying",
       "history": [
@@ -4535,7 +4536,7 @@
     "2026_annualized": 146
   },
   "pace_vs_avg": 0.3,
-  "source": "Trading Economics (multi-source, IMF unavailable)",
+  "source": "hardcoded WGC estimates (all live sources unavailable)",
   "cb_news": [
     {
       "title": "Gold Sinks Again But Central Banks 'Still Buying Heavily' - BullionVault",
@@ -4566,18 +4567,18 @@
       "sentiment": "positive"
     },
     {
-      "title": "Reserve Bank may have sold gold to save forex reserves, shows analysis - Business Standard",
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPNWVQLWFoRF9ZbkdfQWhNZWFqNXIwNHFaOTdCcXl5Zm9NdmFmNlVxNWNMcUxsN1M0SkF4ZWtENnd2M0VMQk4wVkZUMzh2bk10UlloUFp0V2w3UU5ZRXM3cHdwVktJdjNuWXVaRWdSbHo1cDgwQi1Hb3VYWjl2bkZIMWN0NXF1WF9JLVNTNXVCbEZ2RkU3NG1QZV9RLU16eDk1ZXFGWjBnVGJXbXJndF85TTYzN1BzWHFVZ3JaeUQ0NUp3cGVtdll6OUIxTVQ2ZmJTMnfSAdcBQVVfeXFMTTF5VmdOMGwwUllSMjdwZE1Sb2lubE5DRmV6dmFPSE0xVFF0Ml8tX1NBUmdfOHR2TW93ZkotOXprSXRfZ0FnMUFyQmV5R2Z3aEppRThyZm9fT2dzQ3BkWWIxOGpOclFWRzJTYW1jLUxlR0VuRmo1TnB0SjdNRktzNEFaYjZuRUt4ejgwS04yQlUzV1dwcGhpUDI0b2hkaUkwVF9tdGpkZG9jUDhRdEh0R3hCMWExRVo4QUxSem4yZlR5RV9BQlE3M3FlcFA3STRHUzY3b2hxcEk?oc=5",
+      "title": "RBI says report on selling gold incorrect, physical stock remains unchanged - ThePrint",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTEJ0bThRN0p5RTc4M2lUNWVxNWtReGJFNXktYlRxTFRuei1iY1dWQ0Y4RENXNjVpb0VsZHRyWFBzUzBEUFVvVVoyOUJiR0Y1d2dUamRFVTdfV1k4Q0hDSnR6eHdna1Rfa0RWWmhsNUl2QzcwRG1HUmNVNFUzOHdlVzFhc2FCZ0pjQWVPOUZrcTduSGJoM05BSGxNRUliXzJXU0h5NjZpWEpFQ0NSXzdrY9IBtgFBVV95cUxQWWJSb3dhQVRUc2RaeVlNbk84ak9TU0dQdlFjOGR2aUNyY1dxdWVYNm0zNV8yM2dUNC1KekI4Z3RvZXhlRXcxU0dYOHZCZ216WVBJMDFOUzRuOS1vTWV6alo0MHlVMkhkSFlRcVBNR3BGOVlsNHNVWTBrZ1JYNUx6YVdrWkpZSXZoMDdJTjJOekhVdGdiUWUzbG1NUVJqblBvX2RldUFJakgxdTBBZFBNcFhTcEZqUQ?oc=5",
       "source": "Google News CB",
-      "published": "Wed, 03 Jun 2026 03:21:56 GMT",
-      "sentiment": "positive"
+      "published": "Wed, 03 Jun 2026 08:30:06 GMT",
+      "sentiment": "negative"
     }
   ],
   "data_quality": {
-    "source": "Trading Economics HTML scrape",
-    "freshness": "monthly",
-    "reliability": "live",
-    "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
+    "source": "hardcoded estimates based on WGC quarterly reports",
+    "freshness": "quarterly",
+    "reliability": "estimate",
+    "notes": "All live sources unavailable. Data from WGC quarterly reports."
   },
-  "last_updated": "2026-06-03T04:51:09Z"
+  "last_updated": "2026-06-03T09:58:41Z"
 }
