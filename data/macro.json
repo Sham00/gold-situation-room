@@ -1,5 +1,5 @@
 {
-  "real_yield_10y": 2.19,
+  "real_yield_10y": 2.16,
   "fed_funds": 3.63,
   "fed_funds_date": "2026-05-01",
   "fed_funds_chart": [
@@ -2025,8 +2025,8 @@
     }
   ],
   "m2": 3.5,
-  "us_10y": 4.49,
-  "dxy": 99.19,
+  "us_10y": 4.46,
+  "dxy": 99.31,
   "dxy_date": "2026-06-04",
   "dxy_chart": [
     {
@@ -3035,10 +3035,10 @@
     },
     {
       "t": "2026-06-04",
-      "v": 99.2
+      "v": 99.31
     }
   ],
-  "vix": 16.51,
+  "vix": 15.53,
   "vix_date": "2026-06-04",
   "vix_chart": [
     {
@@ -4051,15 +4051,11 @@
     },
     {
       "t": "2026-06-04",
-      "v": 16.51
+      "v": 15.53
     }
   ],
   "us_10y_date": "2026-06-04",
   "us_10y_chart": [
-    {
-      "t": "2025-06-03",
-      "v": 4.46
-    },
     {
       "t": "2025-06-04",
       "v": 4.36
@@ -5063,14 +5059,14 @@
     {
       "t": "2026-06-03",
       "v": 4.49
+    },
+    {
+      "t": "2026-06-04",
+      "v": 4.46
     }
   ],
   "real_yield_10y_date": "2026-06-04",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-06-03",
-      "v": 2.16
-    },
     {
       "t": "2025-06-04",
       "v": 2.06
@@ -6074,6 +6070,10 @@
     {
       "t": "2026-06-03",
       "v": 2.19
+    },
+    {
+      "t": "2026-06-04",
+      "v": 2.16
     }
   ],
   "data_sources": {
@@ -7096,7 +7096,7 @@
     },
     {
       "t": "2026-06-04",
-      "v": 4532.9
+      "v": 4511.8
     }
   ],
   "next_fomc_date": "2026-06-17",
@@ -7107,11 +7107,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": -0.013,
-  "lease_rate_1m": 2.55,
-  "lease_rate_3m": 3.643,
-  "lease_rate_6m": 4.736,
+  "gofo_annualized": 0.0,
+  "lease_rate_1m": 2.541,
+  "lease_rate_3m": 3.63,
+  "lease_rate_6m": 4.719,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-06-04T12:13:53Z"
+  "last_updated": "2026-06-04T16:33:42Z"
 }
