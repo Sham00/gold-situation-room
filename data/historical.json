@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4337.0
+      "price": 4365.0
     }
   ],
   "decade_returns": [
@@ -2864,8 +2864,8 @@
       "trough_date": "2026-06-05",
       "recovery_date": null,
       "peak_price": 5318.4,
-      "trough_price": 4337.1,
-      "drawdown_pct": -18.45,
+      "trough_price": 4365.3,
+      "drawdown_pct": -17.92,
       "days_to_trough": 88,
       "days_to_recovery": null,
       "recovered": false
@@ -2965,5 +2965,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-06-07T00:20:53Z"
+  "last_updated": "2026-06-07T05:31:48Z"
 }
