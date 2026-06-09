@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "source": "FXStreet",
+      "title": "Gold slumps below $4,250 on renewed US-Iran tensions, US CPI data in focus",
+      "link": "https://www.fxstreet.com/news/gold-slumps-below-4-250-on-renewed-us-iran-tensions-us-cpi-data-in-focus-202606092315",
+      "published": "Tue, 09 Jun 2026 23:15:10 Z",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Why Hecla Mining Stock Slumped Today",
+      "link": "https://www.fool.com/investing/2026/06/09/why-hecla-mining-stock-slumped-today/?.tsrc=rss",
+      "published": "Tue, 09 Jun 2026 23:00:35 +0000",
+      "sentiment": "negative"
+    },
+    {
       "source": "Google News",
       "title": "How Gold Price Is Set: The East-West Tide Explained - GoldSilver",
       "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9hWmQzSDl3SUFHYTJTUnl1aGRtcFdsbmJ4UFFGV3JFb0JkT3Z5a2FETWtPbVdlRy1SbDg3Ymw0WHpYY2JTbHRpUW5GWXNlbFlXbW90TWU2OG1rQzNPejhsUDRnajVVdDNpbHZKR0N2VTJFWDVsekE?oc=5",
@@ -69,20 +83,6 @@
       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZ1BXeVdPR08tTmQ4MHdZMkloUzlsNjRjSE5VVmxyeVRrdDZqbDI3Tm5VVUdfYTdZM0dOYjkzVFBuMGhJUzZEM3E0RDBkc0RTUXd2VFdMdm5uenpPXzJobUNvRklvRkt0S0pfYkZ0UWRXaWRDc09MR1pBUkVDRXN2Y2FINkVmUDBlRkZHNGhzZkNyNk5LUzZrM2VUV1pVOV9N?oc=5",
       "published": "Tue, 09 Jun 2026 19:01:19 GMT",
       "sentiment": "positive"
-    },
-    {
-      "source": "Google News",
-      "title": "Gold and silver will gain as rising debt and inflation reprice bonds and the broader market \u2013 Sprott\u2019s Wong - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTi0tbEliNTBOUTVydVo0Z2g3VFlaMW8zeEZTbFVqbm90UTV3N1RjNWhFdkt4akZoUmEteVoxeEp2OHFjZlZzTVdzZDlXWVpwZHBUTHR1VUkzb2Z0MXg5THZPNzhhSHZrRXgyNHd1NkNqc3NBVnpWczlDYWUwa2F4Z3A4RURpVllIT2xNS0hFeHpVbVNUWnZaQk85aGNaY3paaEYycndoQTE4RmdscDNYUE9QbW9kUQ?oc=5",
-      "published": "Tue, 09 Jun 2026 18:48:17 GMT",
-      "sentiment": "neutral"
-    },
-    {
-      "source": "Google News Gold Investment",
-      "title": "Gold and silver will gain as rising debt and inflation reprice bonds and the broader market \u2013 Sprott\u2019s Wong - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTi0tbEliNTBOUTVydVo0Z2g3VFlaMW8zeEZTbFVqbm90UTV3N1RjNWhFdkt4akZoUmEteVoxeEp2OHFjZlZzTVdzZDlXWVpwZHBUTHR1VUkzb2Z0MXg5THZPNzhhSHZrRXgyNHd1NkNqc3NBVnpWczlDYWUwa2F4Z3A4RURpVllIT2xNS0hFeHpVbVNUWnZaQk85aGNaY3paaEYycndoQTE4RmdscDNYUE9QbW9kUQ?oc=5",
-      "published": "Tue, 09 Jun 2026 18:48:17 GMT",
-      "sentiment": "neutral"
     },
     {
       "source": "FXStreet",
@@ -176,16 +176,16 @@
       "sentiment": "negative"
     }
   ],
-  "sentiment_score": 50.6,
-  "bull_count": 49,
-  "bear_count": 10,
-  "neutral_count": 18,
-  "bull_pct": 63.6,
+  "sentiment_score": 51.3,
+  "bull_count": 51,
+  "bear_count": 11,
+  "neutral_count": 16,
+  "bull_pct": 65.4,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-06-09T21:59:53Z"
+  "last_updated": "2026-06-09T23:31:29Z"
 }
