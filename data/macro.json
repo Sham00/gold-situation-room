@@ -1,5 +1,5 @@
 {
-  "real_yield_10y": 2.25,
+  "real_yield_10y": 2.23,
   "fed_funds": 3.63,
   "fed_funds_date": "2026-05-01",
   "fed_funds_chart": [
@@ -2025,8 +2025,8 @@
     }
   ],
   "m2": 3.5,
-  "us_10y": 4.55,
-  "dxy": 99.7,
+  "us_10y": 4.53,
+  "dxy": 99.88,
   "dxy_date": "2026-06-09",
   "dxy_chart": [
     {
@@ -3035,10 +3035,10 @@
     },
     {
       "t": "2026-06-09",
-      "v": 99.7
+      "v": 99.88
     }
   ],
-  "vix": 18.13,
+  "vix": 20.72,
   "vix_date": "2026-06-09",
   "vix_chart": [
     {
@@ -4051,7 +4051,7 @@
     },
     {
       "t": "2026-06-09",
-      "v": 18.13
+      "v": 20.72
     }
   ],
   "us_10y_date": "2026-06-09",
@@ -5059,6 +5059,10 @@
     {
       "t": "2026-06-08",
       "v": 4.55
+    },
+    {
+      "t": "2026-06-09",
+      "v": 4.53
     }
   ],
   "real_yield_10y_date": "2026-06-09",
@@ -6066,6 +6070,10 @@
     {
       "t": "2026-06-08",
       "v": 2.25
+    },
+    {
+      "t": "2026-06-09",
+      "v": 2.23
     }
   ],
   "data_sources": {
@@ -7088,7 +7096,7 @@
     },
     {
       "t": "2026-06-09",
-      "v": 4367.5
+      "v": 4294.9
     }
   ],
   "next_fomc_date": "2026-06-17",
@@ -7105,5 +7113,5 @@
   "lease_rate_6m": 4.719,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-06-09T12:17:31Z"
+  "last_updated": "2026-06-09T16:17:08Z"
 }
