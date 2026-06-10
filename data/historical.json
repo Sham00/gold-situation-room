@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4257.0
+      "price": 4205.0
     }
   ],
   "decade_returns": [
@@ -1255,7 +1255,7 @@
     },
     {
       "t": "2026-06-01",
-      "v": 4257.4
+      "v": 4205.4
     }
   ],
   "real_gold_chart": [
@@ -2736,8 +2736,8 @@
     },
     {
       "t": "2026-06-01",
-      "v": 4257.4,
-      "nominal": 4257.4
+      "v": 4205.4,
+      "nominal": 4205.4
     }
   ],
   "seasonal_monthly": [
@@ -2773,7 +2773,7 @@
     },
     {
       "month": "Jun",
-      "avg_return": -1.79,
+      "avg_return": -1.84,
       "positive_pct": 36.0,
       "n": 22
     },
@@ -2849,6 +2849,17 @@
       "recovered": true
     },
     {
+      "peak_date": "2026-01-29",
+      "trough_date": "2026-06-10",
+      "recovery_date": null,
+      "peak_price": 5318.4,
+      "trough_price": 4205.4,
+      "drawdown_pct": -20.93,
+      "days_to_trough": 91,
+      "days_to_recovery": null,
+      "recovered": false
+    },
+    {
       "peak_date": "2020-08-06",
       "trough_date": "2022-09-26",
       "recovery_date": "2023-12-01",
@@ -2858,17 +2869,6 @@
       "days_to_trough": 538,
       "days_to_recovery": 836,
       "recovered": true
-    },
-    {
-      "peak_date": "2026-01-29",
-      "trough_date": "2026-06-09",
-      "recovery_date": null,
-      "peak_price": 5318.4,
-      "trough_price": 4257.4,
-      "drawdown_pct": -19.95,
-      "days_to_trough": 90,
-      "days_to_recovery": null,
-      "recovered": false
     },
     {
       "peak_date": "2016-07-06",
@@ -2965,5 +2965,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-06-09T23:31:32Z"
+  "last_updated": "2026-06-10T04:24:19Z"
 }
