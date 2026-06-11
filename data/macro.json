@@ -1,5 +1,5 @@
 {
-  "real_yield_10y": 2.18,
+  "real_yield_10y": 2.16,
   "fed_funds": 3.63,
   "fed_funds_date": "2026-05-01",
   "fed_funds_chart": [
@@ -3036,8 +3036,8 @@
       "v": 22879.0
     }
   ],
-  "us_10y": 4.48,
-  "dxy": 99.86,
+  "us_10y": 4.46,
+  "dxy": 99.69,
   "dxy_date": "2026-06-11",
   "dxy_chart": [
     {
@@ -4046,10 +4046,10 @@
     },
     {
       "t": "2026-06-11",
-      "v": 99.86
+      "v": 99.69
     }
   ],
-  "vix": 20.09,
+  "vix": 19.44,
   "vix_date": "2026-06-11",
   "vix_chart": [
     {
@@ -5062,7 +5062,7 @@
     },
     {
       "t": "2026-06-11",
-      "v": 20.08
+      "v": 19.44
     }
   ],
   "us_10y_date": "2026-06-11",
@@ -6073,7 +6073,7 @@
     },
     {
       "t": "2026-06-11",
-      "v": 4.48
+      "v": 4.46
     }
   ],
   "real_yield_10y_date": "2026-06-11",
@@ -7084,7 +7084,7 @@
     },
     {
       "t": "2026-06-11",
-      "v": 2.18
+      "v": 2.16
     }
   ],
   "data_sources": {
@@ -8107,7 +8107,7 @@
     },
     {
       "t": "2026-06-11",
-      "v": 4174.7
+      "v": 4233.8
     }
   ],
   "next_fomc_date": "2026-06-17",
@@ -8118,11 +8118,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": -0.014,
-  "lease_rate_1m": 2.551,
-  "lease_rate_3m": 3.644,
-  "lease_rate_6m": 4.737,
+  "gofo_annualized": 0.0,
+  "lease_rate_1m": 2.541,
+  "lease_rate_3m": 3.63,
+  "lease_rate_6m": 4.719,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-06-11T18:27:03Z"
+  "last_updated": "2026-06-11T21:32:49Z"
 }
