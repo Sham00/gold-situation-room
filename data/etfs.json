@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
-      "tonnes_est": 870,
-      "tonnes_source": "hardcoded estimate",
-      "daily_change_est": NaN,
-      "ytd_pct": NaN,
-      "week7_pct": NaN,
-      "week4_pct": NaN,
+      "price": 374.58,
+      "change": 3.14,
+      "change_pct": 0.85,
+      "tonnes_est": 737.5,
+      "tonnes_source": "yfinance AUM\u00f7gold_price",
+      "daily_change_est": 2.5,
+      "ytd_pct": -5.95,
+      "week7_pct": -8.92,
+      "week4_pct": -13.82,
       "chart_1y": [
         {
           "t": "2025-06-11",
@@ -1014,21 +1014,21 @@
         },
         {
           "t": "2026-06-10",
-          "v": NaN
+          "v": 374.58
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
-      "tonnes_est": 460,
-      "tonnes_source": "hardcoded estimate",
-      "daily_change_est": NaN,
-      "ytd_pct": NaN,
-      "week7_pct": NaN,
-      "week4_pct": NaN,
+      "price": 76.79,
+      "change": 0.65,
+      "change_pct": 0.85,
+      "tonnes_est": 563.5,
+      "tonnes_source": "yfinance AUM\u00f7gold_price",
+      "daily_change_est": 1.9,
+      "ytd_pct": -5.85,
+      "week7_pct": -8.88,
+      "week4_pct": -13.78,
       "chart_1y": [
         {
           "t": "2025-06-11",
@@ -2032,21 +2032,21 @@
         },
         {
           "t": "2026-06-10",
-          "v": NaN
+          "v": 76.79
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
-      "tonnes_est": 68,
-      "tonnes_source": "hardcoded estimate",
-      "daily_change_est": NaN,
-      "ytd_pct": NaN,
-      "week7_pct": NaN,
-      "week4_pct": NaN,
+      "price": 30.78,
+      "change": 0.2,
+      "change_pct": 0.65,
+      "tonnes_est": 111.0,
+      "tonnes_source": "yfinance AUM\u00f7gold_price",
+      "daily_change_est": 0.3,
+      "ytd_pct": -7.09,
+      "week7_pct": -9.07,
+      "week4_pct": -14.21,
       "chart_1y": [
         {
           "t": "2025-06-11",
@@ -3050,21 +3050,21 @@
         },
         {
           "t": "2026-06-10",
-          "v": NaN
+          "v": 30.78
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 40.2,
+      "change": 0.25,
+      "change_pct": 0.63,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": NaN,
-      "ytd_pct": NaN,
-      "week7_pct": NaN,
-      "week4_pct": NaN,
+      "daily_change_est": 0.0,
+      "ytd_pct": -5.79,
+      "week7_pct": -8.84,
+      "week4_pct": -13.79,
       "chart_1y": [
         {
           "t": "2025-06-11",
@@ -4068,21 +4068,21 @@
         },
         {
           "t": "2026-06-10",
-          "v": NaN
+          "v": 40.2
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 38.88,
+      "change": 0.36,
+      "change_pct": 0.93,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": NaN,
-      "ytd_pct": NaN,
-      "week7_pct": NaN,
-      "week4_pct": NaN,
+      "daily_change_est": 0.2,
+      "ytd_pct": -5.81,
+      "week7_pct": -8.86,
+      "week4_pct": -13.77,
       "chart_1y": [
         {
           "t": "2025-06-11",
@@ -5086,17 +5086,17 @@
         },
         {
           "t": "2026-06-10",
-          "v": NaN
+          "v": 38.88
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1458,
+  "total_holdings_tonnes_est": 1472.0,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-06-11T05:56:14Z"
+  "last_updated": "2026-06-11T10:51:11Z"
 }
