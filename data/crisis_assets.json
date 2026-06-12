@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4238.7,
+      "price": 4219.1,
       "start_price": 4314.4,
-      "ytd_pct": -1.75,
+      "ytd_pct": -2.21,
       "color": "#ffd700",
       "chart": [
         {
@@ -448,7 +448,11 @@
         },
         {
           "t": "2026-06-11",
-          "v": 98.25
+          "v": 94.81
+        },
+        {
+          "t": "2026-06-12",
+          "v": 97.79
         }
       ]
     },
@@ -905,9 +909,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 63544.81,
+      "price": 63623.15,
       "start_price": 88731.98,
-      "ytd_pct": -28.39,
+      "ytd_pct": -28.3,
       "color": "#ff8800",
       "chart": [
         {
@@ -1555,15 +1559,15 @@
           "v": 69.25
         },
         {
-          "t": "2026-06-11",
-          "v": 71.61
+          "t": "2026-06-12",
+          "v": 71.7
         }
       ]
     },
     "Silver": {
-      "price": 67.61,
+      "price": 67.15,
       "start_price": 70.56,
-      "ytd_pct": -4.17,
+      "ytd_pct": -4.83,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2008,7 +2012,11 @@
         },
         {
           "t": "2026-06-11",
-          "v": 95.83
+          "v": 90.55
+        },
+        {
+          "t": "2026-06-12",
+          "v": 95.17
         }
       ]
     },
@@ -2921,9 +2929,9 @@
       ]
     },
     "DXY": {
-      "price": 99.67,
+      "price": 99.76,
       "start_price": 98.42,
-      "ytd_pct": 1.27,
+      "ytd_pct": 1.36,
       "color": "#aa44ff",
       "chart": [
         {
@@ -3368,7 +3376,11 @@
         },
         {
           "t": "2026-06-11",
-          "v": 101.27
+          "v": 101.46
+        },
+        {
+          "t": "2026-06-12",
+          "v": 101.36
         }
       ]
     }
@@ -3379,5 +3391,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-06-11T23:49:25Z"
+  "last_updated": "2026-06-12T04:48:57Z"
 }
