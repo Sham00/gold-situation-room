@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "Google News",
+      "title": "GOLD Price Chart - eToro",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1CU0F0RmVIamFONmltYTlrMDg4YjZ3ZnJWVUFsREtHcVFNekJvcEdackZ4U1piX3IyUU9vcWxXc0h2a1UxTW9VQ21B?oc=5",
+      "published": "Sun, 14 Jun 2026 08:28:22 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "Major Drilling Wins Multi Year Brazil Gold Contract As Valuation Gap Widens",
       "link": "https://finance.yahoo.com/markets/stocks/articles/major-drilling-wins-multi-brazil-060537649.html?.tsrc=rss",
@@ -123,7 +130,7 @@
       "source": "Google News",
       "title": "UBS cuts gold price forecasts on delayed Fed easing outlook - Investing.com",
       "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc0V0cl9EU0k3QlcwX2FFbnFfU2lXOXJUTXRwY0RuNW51NkdSd0Y2N1h3MkM2U29TeWJDaEV0eFdvVGtkVXJwazdGVmZUN0pjaFRiNW9iN25LS0p5dWpqZFpqMi0xbE9uTWhvd180OGlCRWJpTS1EbjRnaE9feDc0NURNN0tWMFczT3p0d0RhTnVyMXI5YTNxRjUzd0gwN1pZdG1LTFp2S0p4MHdlbGlUOFp4clp1Zw?oc=5",
-      "published": "Sat, 13 Jun 2026 12:29:13 GMT",
+      "published": "Sat, 13 Jun 2026 12:29:42 GMT",
       "sentiment": "positive"
     },
     {
@@ -167,25 +174,18 @@
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBtVFBpdTdlakRiM3JNNGlUUGlYb1pweTBMcW91TUNJcC1MQ3Qxek40QkltbGIwM21ibUhFbkdSYXFiZlVQT0RMNnhRU1NhaWJhTlJJNV9zNFQ0dmMyb3ZGdk54TlhPenM?oc=5",
       "published": "Sat, 13 Jun 2026 00:50:54 GMT",
       "sentiment": "neutral"
-    },
-    {
-      "source": "Google News Gold Investment",
-      "title": "Gold heads for second weekly loss on rate rise expectations - Reuters",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQTEJYZGtxMlI2WjgwUnJhSzcwNnM0Z3pWTzVYZngyT2F5YUJZY2JESWE4Yl84YXI1dVZVQUFrNnBxTXZadHZLWmtwSmxNNF82QXFoX0ZxOUkzdXR2OTM1TGlQZzcwUHpYRmIwVEIyVnhZOU1JRlZJWlpxSEE3M0o0VC0xU1RDQTdrLTJ2TVNzdTk3QVZVdVpHWkFn?oc=5",
-      "published": "Sat, 13 Jun 2026 00:19:16 GMT",
-      "sentiment": "negative"
     }
   ],
   "sentiment_score": 43.8,
-  "bull_count": 46,
-  "bear_count": 11,
-  "neutral_count": 23,
-  "bull_pct": 57.5,
+  "bull_count": 45,
+  "bear_count": 10,
+  "neutral_count": 25,
+  "bull_pct": 56.2,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-06-14T09:53:46Z"
+  "last_updated": "2026-06-14T12:09:38Z"
 }
