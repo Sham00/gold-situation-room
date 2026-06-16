@@ -3057,11 +3057,11 @@
     "BAR": {
       "name": "GraniteShares Gold",
       "price": 42.54,
-      "change": 0.74,
-      "change_pct": 1.77,
+      "change": 0.07,
+      "change_pct": 0.16,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.1,
+      "daily_change_est": 0.0,
       "ytd_pct": -0.3,
       "week7_pct": -3.56,
       "week4_pct": -7.14,
@@ -5098,5 +5098,5 @@
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-06-16T05:07:05Z"
+  "last_updated": "2026-06-16T11:23:39Z"
 }

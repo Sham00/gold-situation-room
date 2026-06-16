@@ -1030,8 +1030,8 @@
       "name": "Barrick Gold",
       "type": "miner",
       "price": 43.66,
-      "change": -0.57,
-      "change_pct": -1.29,
+      "change": -0.34,
+      "change_pct": -0.77,
       "ytd_pct": 26.64,
       "week4_pct": 8.19,
       "market_cap": 1266331008,
@@ -1039,10 +1039,10 @@
       "forward_pe": 12.0,
       "ev_ebitda": 16.2,
       "dividend_yield": 183.0,
-      "vs_gold_ytd": 25.88,
+      "vs_gold_ytd": 25.56,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3296.8,
+      "margin": 3310.9,
       "sparkline": [
         {
           "t": "2025-12-16",
@@ -1558,7 +1558,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2946.8,
+      "margin": 2960.9,
       "sparkline": [
         {
           "t": "2025-12-16",
@@ -2074,7 +2074,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3196.8,
+      "margin": 3210.9,
       "sparkline": [
         {
           "t": "2025-12-16",
@@ -2590,7 +2590,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3296.8,
+      "margin": 3310.9,
       "sparkline": [
         {
           "t": "2025-12-16",
@@ -3106,7 +3106,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3896.8,
+      "margin": 3910.9,
       "sparkline": [
         {
           "t": "2025-12-16",
@@ -3622,7 +3622,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3946.8,
+      "margin": 3960.9,
       "sparkline": [
         {
           "t": "2025-12-16",
@@ -5231,5 +5231,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-06-16T05:14:15Z"
+  "last_updated": "2026-06-16T11:33:07Z"
 }
