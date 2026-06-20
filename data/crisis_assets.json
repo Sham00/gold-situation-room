@@ -477,9 +477,9 @@
       ]
     },
     "S&P 500": {
-      "price": 7500.58,
+      "price": NaN,
       "start_price": 6858.47,
-      "ytd_pct": 9.36,
+      "ytd_pct": NaN,
       "color": "#00cc88",
       "chart": [
         {
@@ -944,14 +944,14 @@
         },
         {
           "t": "2026-06-18",
-          "v": 109.36
+          "v": NaN
         }
       ]
     },
     "Bitcoin": {
-      "price": 63239.92,
+      "price": 63380.52,
       "start_price": 88731.98,
-      "ytd_pct": -28.73,
+      "ytd_pct": -28.57,
       "color": "#ff8800",
       "chart": [
         {
@@ -1623,12 +1623,12 @@
           "v": 73.93
         },
         {
-          "t": "2026-06-18",
-          "v": 70.88
+          "t": "2026-06-17",
+          "v": 72.6
         },
         {
-          "t": "2026-06-19",
-          "v": 71.27
+          "t": "2026-06-20",
+          "v": 71.43
         }
       ]
     },
@@ -3051,10 +3051,6 @@
           "v": 127.08
         },
         {
-          "t": "2026-06-18",
-          "v": 113.03
-        },
-        {
           "t": "2026-06-19",
           "v": 115.64
         }
@@ -3527,10 +3523,6 @@
           "v": 101.7
         },
         {
-          "t": "2026-06-18",
-          "v": 102.47
-        },
-        {
           "t": "2026-06-19",
           "v": 102.47
         }
@@ -3543,5 +3535,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-06-19T23:04:39Z"
+  "last_updated": "2026-06-20T04:14:08Z"
 }
