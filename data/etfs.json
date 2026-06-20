@@ -3056,15 +3056,15 @@
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 41.53,
+      "change": -0.62,
+      "change_pct": -1.47,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": NaN,
-      "ytd_pct": NaN,
-      "week7_pct": NaN,
-      "week4_pct": NaN,
+      "daily_change_est": -0.1,
+      "ytd_pct": -2.67,
+      "week7_pct": -0.93,
+      "week4_pct": -5.91,
       "chart_1y": [
         {
           "t": "2025-06-20",
@@ -4068,7 +4068,7 @@
         },
         {
           "t": "2026-06-18",
-          "v": NaN
+          "v": 41.53
         }
       ]
     },
@@ -5098,5 +5098,5 @@
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-06-20T18:17:42Z"
+  "last_updated": "2026-06-20T20:19:33Z"
 }

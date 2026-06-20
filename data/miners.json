@@ -1029,17 +1029,17 @@
     "GOLD": {
       "name": "Barrick Gold",
       "type": "miner",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
-      "ytd_pct": NaN,
-      "week4_pct": NaN,
+      "price": 42.25,
+      "change": -0.35,
+      "change_pct": -0.82,
+      "ytd_pct": 22.55,
+      "week4_pct": 7.02,
       "market_cap": 1225434752,
       "pe_ratio": 13.8,
       "forward_pe": 11.6,
       "ev_ebitda": 16.0,
       "dividend_yield": 189.0,
-      "vs_gold_ytd": NaN,
+      "vs_gold_ytd": 25.83,
       "aisc": 1050,
       "production_koz": 4100,
       "margin": 3122.9,
@@ -1538,7 +1538,7 @@
         },
         {
           "t": "2026-06-18",
-          "v": NaN
+          "v": 42.25
         }
       ]
     },
@@ -5231,5 +5231,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-06-20T18:17:55Z"
+  "last_updated": "2026-06-20T20:19:48Z"
 }
