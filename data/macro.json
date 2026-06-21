@@ -5059,7 +5059,7 @@
       "v": 4.49
     }
   ],
-  "dxy": 100.85,
+  "dxy": 100.83,
   "dxy_date": "2026-06-21",
   "dxy_chart": [
     {
@@ -6061,6 +6061,10 @@
     {
       "t": "2026-06-18",
       "v": 100.85
+    },
+    {
+      "t": "2026-06-21",
+      "v": 100.83
     }
   ],
   "vix": 16.4,
@@ -8090,8 +8094,8 @@
       "v": 4224.1
     },
     {
-      "t": "2026-06-19",
-      "v": 4172.9
+      "t": "2026-06-21",
+      "v": 4179.0
     }
   ],
   "next_fomc_date": "2026-07-29",
@@ -8108,5 +8112,5 @@
   "lease_rate_6m": 4.719,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-06-21T21:21:02Z"
+  "last_updated": "2026-06-21T23:21:35Z"
 }
