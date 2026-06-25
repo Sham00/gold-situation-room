@@ -1121,7 +1121,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 48.8,
+      "pct_of_reserves": 48.7,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2305.0,
@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Netherlands",
-      "pct_of_reserves": 99.5,
+      "pct_of_reserves": 99.3,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 612.0,
@@ -2245,7 +2245,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 33.6,
+      "pct_of_reserves": 33.5,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 582.0,
@@ -2484,7 +2484,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 44.3,
+      "pct_of_reserves": 44.2,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 535.0,
@@ -2948,7 +2948,7 @@
     },
     {
       "country": "Kazakhstan",
-      "pct_of_reserves": 99.5,
+      "pct_of_reserves": 99.2,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 354.0,
@@ -3175,7 +3175,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 22.9,
+      "pct_of_reserves": 22.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 310.0,
@@ -3850,7 +3850,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 24.8,
+      "pct_of_reserves": 24.7,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4554,6 +4554,13 @@
       "sentiment": "positive"
     },
     {
+      "title": "Gold at the core of China\u2019s bid to reshape global finance - equiti.com",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPM2Y4Y29uWVAzU3BmWUJ1d0lRVjI3ZDM5dWVSRFJuVER0Y3VYZmNlUDJ5N0ROSVdUMlE3SzlyNEJ0M0VZcDd6emZPbHB2ZGc0N2tOalNUVUhQdUowaElMVVJqRWJsLWpFS2NTWldOeS1vQVFtc3VsTFdkbGZReFFNcmU3UC04ZDhoSlhDWWxlcVZGT2JHX0pkVXdTZk1qUVVubmRaNTgxYnpGY1pGQ2VIVWNmV3RxV05yWWg5aHE4Ylc?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 24 Sep 2025 07:00:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "title": "Reserve Diversification & 244 Tonnes of Central Bank Buying Strengthen Gold-Equity Fundamentals - Crux Investor",
       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQb042S0RZV1BwRklwelBEY2pfTGFGUmVXVVdaQXlCWE1Ya1VET3U5bnpuem1qNDVCTjFLTDhrdUM4MXNiQkpSMGYyWkQzVjJzSlNNczdEMXQzUVdhYllINEp2SlhXclZpc2F6LWtnMGpfQ1BQakY5YUhPbnIyaWU2NG5XRVhHb2tKUDRGYk5NNjE5VjJkLURHV1hFMkt4VDF5OVNOSDd4UlpJck9YT19PZEVINjFVbmVyd2xxMjhIa095cUI0X09N?oc=5",
       "source": "Google News CB",
@@ -4566,13 +4573,6 @@
       "source": "Google News Turkey Gold",
       "published": "Wed, 22 Apr 2026 07:00:00 GMT",
       "sentiment": "neutral"
-    },
-    {
-      "title": "Central banks are bringing gold reserves home as geopolitical risks rise - CNBC",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONTA2VTc1TnpxMXJMTm1NY0lJVHk4a1ZXOWxqUmZrRTZWT0RLTnBkVGxfYmlOQ05yN2dRb1Y5YXZJaDZHZHdSbnZWMklFU3h6bVZLOG5TSldIOUNSWWtTT2djdlZhR095TzBFV1lrby1RRXoyZzhfY0VDeHRfM3diQXpmUUhaRHhS0gGOAUFVX3lxTFBwajNmWXBVYW5KdHAyRlpkVjlaSGJiSXJIU01fOVhEcEFfTlNfQ0o0bm5PSnU4a1BXQUQzR3l2bW5HU0JSaXNOSEJFUUVnLXVJWU1JUXhSTzdabHp4ZGNKOHAza1FxRzduYUYydnpNX0ZFaXc5eWxqT1lxV1ctTTRzR2s5cVdLR1BrdWZsS0E?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 17 Jun 2026 07:28:36 GMT",
-      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4581,5 +4581,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-06-25T08:26:50Z"
+  "last_updated": "2026-06-25T11:44:00Z"
 }
