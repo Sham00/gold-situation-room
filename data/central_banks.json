@@ -1121,7 +1121,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 49.2,
+      "pct_of_reserves": 49.1,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2305.0,
@@ -1570,7 +1570,7 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 17.8,
+      "pct_of_reserves": 17.7,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 881.0,
@@ -2244,7 +2244,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 33.9,
+      "pct_of_reserves": 33.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 582.0,
@@ -2483,7 +2483,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 44.7,
+      "pct_of_reserves": 44.5,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 535.0,
@@ -3173,7 +3173,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 23.1,
+      "pct_of_reserves": 23.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 310.0,
@@ -3395,7 +3395,7 @@
     },
     {
       "country": "Singapore",
-      "pct_of_reserves": 6.6,
+      "pct_of_reserves": 6.5,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 194.0,
@@ -3848,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 25.0,
+      "pct_of_reserves": 24.9,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4070,7 +4070,7 @@
     },
     {
       "country": "Australia",
-      "pct_of_reserves": 17.2,
+      "pct_of_reserves": 17.1,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 79.9,
@@ -4538,6 +4538,13 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
+      "title": "Gold Sinks Again But Central Banks 'Still Buying Heavily' - BullionVault",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNT0tLNFJpOTYyRUtPQnphbGRNUlc3aFBSYkt0UFlVQjdLdEU3VjJQMTJVUVgyNWduVkd0RGFMay1QT09OcFU1WHgtd1BUa3FMajRWSi1ueEZJOGlmNTJXN0RxRkNIYXhrZ3FFWFRubVU3LUtwck5YUGt4cWFZN0xycG1sU1B2eWJwMjNEQjhWcWM?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 29 Apr 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
       "title": "China\u2019s Gold Holdings Rise Again as Central Bank Extends Buying Streak - The Jerusalem Post",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSnBtYmNBWkNwZnZMb3Jpd3JaMDQ1WTE1VDVNcTczaGhEcXIxUXd3U0tkR1VJY0drY1FYUUFYa3NhTUZTb2FOR05mRWlUSS11QW81VW43Z2MwcjJVS1MyQ3JHeUJPd0ZEZzdrRm1IRWpLOFBZdWQyX2dZcEpBX29RUlln?oc=5",
       "source": "Google News PBOC Gold",
@@ -4564,13 +4571,6 @@
       "source": "Google News CB",
       "published": "Wed, 17 Jun 2026 07:00:00 GMT",
       "sentiment": "positive"
-    },
-    {
-      "title": "Central banks around the world are selling gold, why? - IDNFinancials.com",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcGFyeTBqVnhFVWRFQlI4UUZLZjBDNy1Mc01vTlZWV19teUFrNm5pSWFKeEpLQjZTeU9zNnBJc1VUVE1NMmRpcUxBemxENFJtTDFEZlVQM25uU196R3J0MzBLd1A4cFFwdjRtSFVpRTBJem1ma1doWm5PYmhjUldmR2NtMDZFcmdBWU9RNVoyLW00dE1RamFR?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 15 Apr 2026 07:00:00 GMT",
-      "sentiment": "negative"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-06-25T22:24:42Z"
+  "last_updated": "2026-06-26T00:15:38Z"
 }
