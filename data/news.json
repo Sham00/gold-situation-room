@@ -50,13 +50,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Mining.com",
-      "title": "Integra grows reserve by 74% at Florida Canyon gold mine",
-      "link": "https://www.mining.com/integra-grows-reserve-74-at-florida-canyon-gold-mine/",
-      "published": "Fri, 26 Jun 2026 22:08:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "AngloGold Ashanti (AU) Increases Despite Market Slip: Here's What You Need to Know",
       "link": "https://finance.yahoo.com/markets/stocks/articles/anglogold-ashanti-au-increases-despite-220006776.html?.tsrc=rss",
@@ -162,30 +155,37 @@
       "sentiment": "negative"
     },
     {
-      "source": "Mining.com",
-      "title": "i-80 Gold terminates Vox Royalty offtake with $4.8M payment",
-      "link": "https://www.mining.com/i-80-gold-terminates-vox-royalty-offtake-with-4-8m-payment/",
-      "published": "Fri, 26 Jun 2026 16:30:38 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Google News Gold Investment",
       "title": "Gold and Silver Rally on Doubts Over US Inflation and Fed Rate Hikes - BullionVault",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPS19PZ3Vjc0N1UnE2S0xrSmFxRlVrcTZDTk9Ca1JWX1dTMU9maTRLWlMxT2xTUTVWUUxBTm9IYmktLVpJVkpDRTVzNVR1c3ZNSEtCZ2Z4R1VqNUYyRWFLRFQ4SWtSRVkwUTJoaEE0bmNIanJ5N2JEMGx3Um12ZDV0b1hLR2pEcDRvQk52aEZ3Z01xbG94WktNODBVTWNIR2s?oc=5",
       "published": "Fri, 26 Jun 2026 15:02:30 GMT",
       "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Star Minerals acquires gold project in Merredin, Western Australia",
+      "link": "https://www.mining-technology.com/news/star-minerals-acquires-gold-project-merredin/?.tsrc=rss",
+      "published": "Fri, 26 Jun 2026 13:57:32 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Google News",
+      "title": "Current price of gold: Month Day, Year - Fortune",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5VaUdDaDJqdXBuRHZxOTZEdk9ZeVRRXzRHTnJvQ3VaLVpSNGd5QXA2ZnhwUzZmQ1poVVZqRFUyR2FDSXM2dVpBeEZWSXROUFRyQ1ZRTzN3RXhiWHRiV3pqZ2NqaDJxd1BDNWFUTEVB?oc=5",
+      "published": "Fri, 26 Jun 2026 13:10:00 GMT",
+      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 32.9,
-  "bull_count": 43,
-  "bear_count": 15,
-  "neutral_count": 27,
-  "bull_pct": 50.6,
+  "sentiment_score": 34.2,
+  "bull_count": 40,
+  "bear_count": 14,
+  "neutral_count": 22,
+  "bull_pct": 52.6,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-06-27T18:10:10Z"
+  "last_updated": "2026-06-27T20:13:16Z"
 }
