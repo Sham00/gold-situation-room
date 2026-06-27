@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4103.0,
+      "price": 4078.7,
       "start_price": 4314.4,
-      "ytd_pct": -4.9,
+      "ytd_pct": -5.46,
       "color": "#ffd700",
       "chart": [
         {
@@ -488,7 +488,7 @@
         },
         {
           "t": "2026-06-26",
-          "v": 95.1
+          "v": 94.54
         }
       ]
     },
@@ -985,9 +985,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 59974.79,
+      "price": 60223.98,
       "start_price": 88731.98,
-      "ytd_pct": -32.41,
+      "ytd_pct": -32.13,
       "color": "#ff8800",
       "chart": [
         {
@@ -1695,15 +1695,15 @@
           "v": 67.31
         },
         {
-          "t": "2026-06-26",
-          "v": 67.59
+          "t": "2026-06-27",
+          "v": 67.87
         }
       ]
     },
     "Silver": {
-      "price": 59.6,
+      "price": 59.22,
       "start_price": 70.56,
-      "ytd_pct": -15.52,
+      "ytd_pct": -16.07,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2188,7 +2188,7 @@
         },
         {
           "t": "2026-06-26",
-          "v": 84.48
+          "v": 83.93
         }
       ]
     },
@@ -2685,9 +2685,9 @@
       ]
     },
     "VIX": {
-      "price": 18.89,
+      "price": 18.41,
       "start_price": 14.51,
-      "ytd_pct": 30.19,
+      "ytd_pct": 26.88,
       "color": "#ff4444",
       "chart": [
         {
@@ -3173,11 +3173,15 @@
         {
           "t": "2026-06-25",
           "v": 130.19
+        },
+        {
+          "t": "2026-06-26",
+          "v": 126.88
         }
       ]
     },
     "DXY": {
-      "price": 101.37,
+      "price": 101.36,
       "start_price": 98.42,
       "ytd_pct": 2.99,
       "color": "#aa44ff",
@@ -3675,5 +3679,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-06-26T23:14:23Z"
+  "last_updated": "2026-06-27T04:00:15Z"
 }

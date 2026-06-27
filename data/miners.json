@@ -1030,20 +1030,24 @@
       "name": "Barrick Gold",
       "type": "miner",
       "price": 41.92,
-      "change": 0.37,
-      "change_pct": 0.89,
+      "change": 0.42,
+      "change_pct": 1.01,
       "ytd_pct": 21.59,
       "week4_pct": -0.92,
       "market_cap": 1215863296,
       "pe_ratio": 13.7,
       "forward_pe": 11.5,
       "ev_ebitda": 15.9,
-      "dividend_yield": 193.0,
+      "dividend_yield": 191.0,
       "vs_gold_ytd": 26.49,
       "aisc": 1050,
       "production_koz": 4100,
       "margin": 3053.0,
       "sparkline": [
+        {
+          "t": "2025-12-26",
+          "v": 34.3
+        },
         {
           "t": "2025-12-29",
           "v": 33.14
@@ -1551,10 +1555,10 @@
       "ytd_pct": -4.61,
       "week4_pct": -10.35,
       "market_cap": 102623846400,
-      "pe_ratio": 12.5,
+      "pe_ratio": 12.4,
       "forward_pe": 8.5,
-      "ev_ebitda": 6.0,
-      "dividend_yield": 109.0,
+      "ev_ebitda": 6.1,
+      "dividend_yield": 108.0,
       "vs_gold_ytd": 0.29,
       "aisc": 1400,
       "production_koz": 5500,
@@ -2070,7 +2074,7 @@
       "pe_ratio": 14.8,
       "forward_pe": 10.9,
       "ev_ebitda": 7.9,
-      "dividend_yield": 115.0,
+      "dividend_yield": 114.0,
       "vs_gold_ytd": -2.46,
       "aisc": 1150,
       "production_koz": 3500,
@@ -2585,7 +2589,7 @@
       "market_cap": 13153316864,
       "pe_ratio": 12.5,
       "forward_pe": 9.1,
-      "ev_ebitda": 9.3,
+      "ev_ebitda": 9.4,
       "dividend_yield": 51.0,
       "vs_gold_ytd": -13.39,
       "aisc": 1050,
@@ -3099,7 +3103,7 @@
       "ytd_pct": -3.56,
       "week4_pct": -10.84,
       "market_cap": 51461455872,
-      "pe_ratio": 28.6,
+      "pe_ratio": 28.7,
       "forward_pe": 20.1,
       "ev_ebitda": 21.6,
       "dividend_yield": 69.0,
@@ -3617,8 +3621,8 @@
       "market_cap": 41490939904,
       "pe_ratio": 30.3,
       "forward_pe": 22.4,
-      "ev_ebitda": 20.8,
-      "dividend_yield": 84.0,
+      "ev_ebitda": 21.3,
+      "dividend_yield": 82.0,
       "vs_gold_ytd": 8.43,
       "aisc": 400,
       "production_koz": 720,
@@ -5127,7 +5131,7 @@
     },
     {
       "t": "2026-06-26",
-      "v": 0.018767
+      "v": 0.018879
     }
   ],
   "mining_production": {
@@ -5231,5 +5235,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-06-26T23:14:12Z"
+  "last_updated": "2026-06-27T04:00:05Z"
 }
