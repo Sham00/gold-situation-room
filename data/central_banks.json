@@ -4538,13 +4538,6 @@
   "source": "Trading Economics (multi-source, IMF unavailable)",
   "cb_news": [
     {
-      "title": "Gold Sinks Again But Central Banks 'Still Buying Heavily' - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNT0tLNFJpOTYyRUtPQnphbGRNUlc3aFBSYkt0UFlVQjdLdEU3VjJQMTJVUVgyNWduVkd0RGFMay1QT09OcFU1WHgtd1BUa3FMajRWSi1ueEZJOGlmNTJXN0RxRkNIYXhrZ3FFWFRubVU3LUtwck5YUGt4cWFZN0xycG1sU1B2eWJwMjNEQjhWcWM?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 29 Apr 2026 07:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "title": "China\u2019s Gold Holdings Rise Again as Central Bank Extends Buying Streak - The Jerusalem Post",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSnBtYmNBWkNwZnZMb3Jpd3JaMDQ1WTE1VDVNcTczaGhEcXIxUXd3U0tkR1VJY0drY1FYUUFYa3NhTUZTb2FOR05mRWlUSS11QW81VW43Z2MwcjJVS1MyQ3JHeUJPd0ZEZzdrRm1IRWpLOFBZdWQyX2dZcEpBX29RUlln?oc=5",
       "source": "Google News PBOC Gold",
@@ -4571,6 +4564,13 @@
       "source": "Google News CB",
       "published": "Wed, 17 Jun 2026 07:00:00 GMT",
       "sentiment": "positive"
+    },
+    {
+      "title": "Central Banks Now Hold More Gold Than U.S. Treasuries - Visual Capitalist",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNeVYwbGVVVlVHa1Z6amVJRXNpSjFXbF9QMG5xczJjZnlpRFp6Z0I3cXkyZFNBQjJadUMxbVhsWFg1NVBEcVlBcjFkUmg3enVhX0lUUVByWmhzcGRjbjdrUjJTR1dPY19SbE1Kd0p2ZHFxZFFDcG55ZmVtTVNreV9rV2o4aVlOOE53MVNzLWMxQQ?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 08 Oct 2025 07:00:00 GMT",
+      "sentiment": "neutral"
     }
   ],
   "data_quality": {
@@ -4579,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-06-28T09:20:01Z"
+  "last_updated": "2026-06-28T11:50:38Z"
 }
