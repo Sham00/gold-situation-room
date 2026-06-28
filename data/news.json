@@ -2,6 +2,13 @@
   "articles": [
     {
       "source": "Google News",
+      "title": "Gold down EGP 985 in June as local market tracks global decline more closely: Marsad Al Dahab - Dailynewsegypt",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVkRRcmFJb0czOTZYY3RYVm9KTFcydEIzV3JoRkYyS0dsaWtlN1hZWjlrbF9oUHUzeC1ocG1QWVZQdXcxUFRaMWtWN1Y5N3RBcU1YcjdlSGNTUmlSOVlMNmFDMGhDbzBIUHF6SWFqWWFkV2pvOEpPbnJsejBOR2hkNC1xczVBWl80X21oNjhfZWhMQUl2TmNHNHZRaFFucWpPakF5T19jWEtfaDU2dml4X25GamtvVFdST0ctWVpqZjVBOGpsUjh2REJCeVBVR0tH?oc=5",
+      "published": "Sun, 28 Jun 2026 17:22:41 GMT",
+      "sentiment": "negative"
+    },
+    {
+      "source": "Google News",
       "title": "Gold Price Forecast: Gold Defends $3,950 as Hormuz Risk Supports Rebound - FXEmpire",
       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOb0czWk5lMC1sRHNUQ1ZrYVpPa2k1al96T1dDMVQ2X1RNblRZM0xQb2JMZkc2eERPYk1kMGVDc0dtLWRiNzRKano0MUU5dDhiQnRjRWhZWWt2dXcwNXRHTGxPR2ladU5yb0ZGVkpSNjg5eGhYYnZfTC1sN2p6d0FRb1QzV3F2b2xYcDk3MWdlWFN5SXhibWVaS19jSEQySVdGWVctWF9JcUxhRVBBSEJRcXB6RU9hd01RUzlkMEdFTl81MmNCckln?oc=5",
       "published": "Sun, 28 Jun 2026 15:12:00 GMT",
@@ -26,6 +33,13 @@
       "title": "Where Are Gold Prices Headed in the Second Half of the Year?",
       "link": "https://www.investopedia.com/what-to-expect-from-gold-precious-metals-in-the-second-half-11990869?.tsrc=rss",
       "published": "Sun, 28 Jun 2026 10:50:00 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Google News",
+      "title": "Where Are Gold Prices Headed in the Second Half of the Year? - Investopedia",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQjdmYm12SzFBUVQ3NjZ2YnI2N3NOUTNSWTF1Mjh5SndqeHpweURIU1FKdkR2VE9SMGlhcHlPMHlEdVlBRXhscm5rdkJPZlVvdUhjU01EXzRKcUlJYmpQRkZNMmpBa2lvWG82YmttazgtRWZXTDZaY3lpcTM1ekhZZndhYjg4bHpucmxmQm92TFREYW1tNHFZX1VQOGxTQQ?oc=5",
+      "published": "Sun, 28 Jun 2026 10:50:00 GMT",
       "sentiment": "neutral"
     },
     {
@@ -106,13 +120,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Mining.com",
-      "title": "Integra grows reserve by 74% at Florida Canyon gold mine",
-      "link": "https://www.mining.com/integra-grows-reserve-74-at-florida-canyon-gold-mine/",
-      "published": "Fri, 26 Jun 2026 22:08:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "AngloGold Ashanti (AU) Increases Despite Market Slip: Here's What You Need to Know",
       "link": "https://finance.yahoo.com/markets/stocks/articles/anglogold-ashanti-au-increases-despite-220006776.html?.tsrc=rss",
@@ -162,13 +169,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Google News",
-      "title": "Gold looks broken, but the only thing that has changed is the price - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNam9UZmJsaHR3LXpHb0Z5ak9nQlo3dW5xbXBlMkV6RnRRV2l4eHUteFlYNlV1bERUQURrNVhCbWFQS1dPT0MwWERoY2hDd1RfTXN4b1JYS2xSU0pSYzdjcHYzeGhQZkxva004SHREZ2ZWazdyRzFCRVh0NVIzcHUzV3QxTmlUTnFKTF9fNDlFcmR4eGhhRnVR?oc=5",
-      "published": "Fri, 26 Jun 2026 20:14:00 GMT",
-      "sentiment": "neutral"
-    },
-    {
       "source": "FXStreet",
       "title": "Silver Price Forecast: XAG breaks below $60, bears eye $55",
       "link": "https://www.fxstreet.com/news/silver-price-forecast-xag-breaks-below-60-bears-eye-55-202606262000",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 47.6,
-  "bull_count": 50,
+  "sentiment_score": 46.7,
+  "bull_count": 45,
   "bear_count": 10,
-  "neutral_count": 24,
-  "bull_pct": 59.5,
+  "neutral_count": 20,
+  "bull_pct": 60.0,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-06-28T16:17:44Z"
+  "last_updated": "2026-06-28T18:09:42Z"
 }
