@@ -886,7 +886,7 @@
     },
     {
       "country": "China",
-      "pct_of_reserves": 8.6,
+      "pct_of_reserves": 8.7,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2313.0,
@@ -1121,7 +1121,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 48.7,
+      "pct_of_reserves": 49.1,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 2305.0,
@@ -1348,7 +1348,7 @@
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 14.7,
+      "pct_of_reserves": 14.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 1040.0,
@@ -1570,7 +1570,7 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 17.6,
+      "pct_of_reserves": 17.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 881.0,
@@ -1801,7 +1801,7 @@
     },
     {
       "country": "Japan",
-      "pct_of_reserves": 8.8,
+      "pct_of_reserves": 8.9,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 846.0,
@@ -2023,7 +2023,7 @@
     },
     {
       "country": "Netherlands",
-      "pct_of_reserves": 99.5,
+      "pct_of_reserves": 59.2,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 612.0,
@@ -2240,12 +2240,11 @@
           "tonnes": 612.0
         }
       ],
-      "annotations": [],
-      "pct_source": "World Bank API (live)"
+      "annotations": []
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 33.5,
+      "pct_of_reserves": 33.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 582.0,
@@ -2484,7 +2483,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 44.2,
+      "pct_of_reserves": 44.6,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 535.0,
@@ -2948,7 +2947,7 @@
     },
     {
       "country": "Kazakhstan",
-      "pct_of_reserves": 99.4,
+      "pct_of_reserves": 68.2,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 354.0,
@@ -3170,12 +3169,11 @@
           "date": "2023-01",
           "label": "NBK mandated accumulation programme"
         }
-      ],
-      "pct_source": "World Bank API (live)"
+      ]
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 22.8,
+      "pct_of_reserves": 23.0,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 310.0,
@@ -3628,7 +3626,7 @@
     },
     {
       "country": "Brazil",
-      "pct_of_reserves": 6.7,
+      "pct_of_reserves": 6.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 172.0,
@@ -3850,7 +3848,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 24.8,
+      "pct_of_reserves": 25.0,
       "data_source": "Trading Economics (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 126.0,
@@ -4072,7 +4070,7 @@
     },
     {
       "country": "Australia",
-      "pct_of_reserves": 17.0,
+      "pct_of_reserves": 17.1,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 79.9,
@@ -4294,7 +4292,7 @@
     },
     {
       "country": "Czech Republic",
-      "pct_of_reserves": 6.7,
+      "pct_of_reserves": 6.8,
       "data_source": "Trading Economics (2026-03)",
       "as_of_date": "2026-03",
       "reserves_tonnes": 76.6,
@@ -4581,5 +4579,5 @@
     "reliability": "live",
     "notes": "IMF API unavailable. Using Trading Economics current data. History arrays from hardcoded WGC/IMF estimates. pct_of_reserves from WGC hardcoded estimates."
   },
-  "last_updated": "2026-06-30T05:10:05Z"
+  "last_updated": "2026-06-30T09:51:49Z"
 }
