@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4031.1,
+      "price": 4044.7,
       "start_price": 4314.4,
-      "ytd_pct": -6.57,
+      "ytd_pct": -6.25,
       "color": "#ffd700",
       "chart": [
         {
@@ -496,7 +496,7 @@
         },
         {
           "t": "2026-06-30",
-          "v": 93.43
+          "v": 93.75
         }
       ]
     },
@@ -997,9 +997,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 59295.66,
+      "price": 58924.23,
       "start_price": 88731.98,
-      "ytd_pct": -33.17,
+      "ytd_pct": -33.59,
       "color": "#ff8800",
       "chart": [
         {
@@ -1724,14 +1724,14 @@
         },
         {
           "t": "2026-06-30",
-          "v": 66.83
+          "v": 66.41
         }
       ]
     },
     "Silver": {
-      "price": 59.1,
+      "price": 59.36,
       "start_price": 70.56,
-      "ytd_pct": -16.24,
+      "ytd_pct": -15.87,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2224,7 +2224,7 @@
         },
         {
           "t": "2026-06-30",
-          "v": 83.76
+          "v": 84.13
         }
       ]
     },
@@ -2725,9 +2725,9 @@
       ]
     },
     "VIX": {
-      "price": 17.64,
+      "price": 17.45,
       "start_price": 14.51,
-      "ytd_pct": 21.57,
+      "ytd_pct": 20.26,
       "color": "#ff4444",
       "chart": [
         {
@@ -3224,14 +3224,14 @@
         },
         {
           "t": "2026-06-30",
-          "v": 121.57
+          "v": 120.26
         }
       ]
     },
     "DXY": {
-      "price": 101.36,
+      "price": 101.39,
       "start_price": 98.42,
-      "ytd_pct": 2.99,
+      "ytd_pct": 3.02,
       "color": "#aa44ff",
       "chart": [
         {
@@ -3724,7 +3724,7 @@
         },
         {
           "t": "2026-06-30",
-          "v": 102.99
+          "v": 103.02
         }
       ]
     }
@@ -3735,5 +3735,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-06-30T09:52:27Z"
+  "last_updated": "2026-06-30T12:15:40Z"
 }
