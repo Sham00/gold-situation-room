@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4194.0,
+      "price": 4184.8,
       "start_price": 4314.4,
-      "ytd_pct": -2.79,
+      "ytd_pct": -3.0,
       "color": "#ffd700",
       "chart": [
         {
@@ -504,7 +504,11 @@
         },
         {
           "t": "2026-07-02",
-          "v": 97.21
+          "v": 95.32
+        },
+        {
+          "t": "2026-07-03",
+          "v": 97.0
         }
       ]
     },
@@ -1017,9 +1021,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 61308.14,
+      "price": 61652.36,
       "start_price": 88731.98,
-      "ytd_pct": -30.91,
+      "ytd_pct": -30.52,
       "color": "#ff8800",
       "chart": [
         {
@@ -1751,15 +1755,19 @@
           "v": 67.62
         },
         {
+          "t": "2026-07-02",
+          "v": 69.29
+        },
+        {
           "t": "2026-07-03",
-          "v": 69.09
+          "v": 69.48
         }
       ]
     },
     "Silver": {
-      "price": 62.72,
+      "price": 62.85,
       "start_price": 70.56,
-      "ytd_pct": -11.1,
+      "ytd_pct": -10.91,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2260,7 +2268,11 @@
         },
         {
           "t": "2026-07-02",
-          "v": 88.9
+          "v": 85.95
+        },
+        {
+          "t": "2026-07-03",
+          "v": 89.09
         }
       ]
     },
@@ -3285,9 +3297,9 @@
       ]
     },
     "DXY": {
-      "price": 100.81,
+      "price": 100.69,
       "start_price": 98.42,
-      "ytd_pct": 2.43,
+      "ytd_pct": 2.31,
       "color": "#aa44ff",
       "chart": [
         {
@@ -3788,7 +3800,11 @@
         },
         {
           "t": "2026-07-02",
-          "v": 102.43
+          "v": 102.48
+        },
+        {
+          "t": "2026-07-03",
+          "v": 102.31
         }
       ]
     }
@@ -3799,5 +3815,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-07-03T03:50:29Z"
+  "last_updated": "2026-07-03T07:29:28Z"
 }

@@ -50,13 +50,9 @@
     }
   ],
   "dxy_signal": "NEUTRAL",
-  "dxy_30d_change_pct": 1.63,
-  "dxy_now": 100.81,
+  "dxy_30d_change_pct": 1.52,
+  "dxy_now": 100.7,
   "dxy_1y": [
-    {
-      "t": "2025-07-02",
-      "v": 96.78
-    },
     {
       "t": "2025-07-03",
       "v": 97.18
@@ -1059,14 +1055,14 @@
     },
     {
       "t": "2026-07-02",
-      "v": 100.81
+      "v": 100.86
+    },
+    {
+      "t": "2026-07-03",
+      "v": 100.7
     }
   ],
   "gold_1y": [
-    {
-      "t": "2025-07-02",
-      "v": 3348.0
-    },
     {
       "t": "2025-07-03",
       "v": 3331.6
@@ -2073,7 +2069,11 @@
     },
     {
       "t": "2026-07-02",
-      "v": 4193.8
+      "v": 4112.7
+    },
+    {
+      "t": "2026-07-03",
+      "v": 4184.8
     }
   ],
   "bullion_status": {
@@ -2161,5 +2161,5 @@
     "status": "ACTIVE",
     "description": "10% baseline tariff on all imports + higher country-specific reciprocal rates announced Apr 2, 2026. Gold surged as flight-to-safety demand spiked and the dollar weakened."
   },
-  "last_updated": "2026-07-03T03:50:42Z"
+  "last_updated": "2026-07-03T07:29:40Z"
 }
