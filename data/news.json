@@ -1,6 +1,55 @@
 {
   "articles": [
     {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold Jumps After Weak Jobs Report",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/gold-jumps-weak-jobs-report-125834663.html?.tsrc=rss",
+      "published": "Fri, 03 Jul 2026 12:58:34 +0000",
+      "sentiment": "positive"
+    },
+    {
+      "source": "FXStreet",
+      "title": "Gold extends gains as weak US NFP data dents Fed rate hike expectations",
+      "link": "https://www.fxstreet.com/news/gold-extends-gains-as-weak-us-nfp-data-dents-fed-rate-hike-expectations-202607031159",
+      "published": "Fri, 03 Jul 2026 11:59:50 Z",
+      "sentiment": "positive"
+    },
+    {
+      "source": "FXStreet",
+      "title": "Silver climbs above $62 on fading Fed rate hike expectations",
+      "link": "https://www.fxstreet.com/news/silver-climbs-above-62-on-fading-fed-rate-hike-expectations-202607031149",
+      "published": "Fri, 03 Jul 2026 11:49:40 Z",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Google News",
+      "title": "Thailand gold price jumps as weak US labour data boosts demand - Nation Thailand",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE96Qk5PY3NOblRWTjBaZllHTkV4UnVPM2pHWjFFZUhLdGVQUS04dkhZQ1RpZ3NhcEZHY2IzNkp1WlhpX0oycnJXaDctYXR4c016RVBiVWVYMkpvbXQxX3dfSTZlZDd1YlhETUxDVmkxOTNWN2N5U2c?oc=5",
+      "published": "Fri, 03 Jul 2026 11:26:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "source": "FXStreet",
+      "title": "Gold: Rebound tests major resistance band \u2013 Societe Generale",
+      "link": "https://www.fxstreet.com/news/gold-rebound-tests-major-resistance-band-societe-generale-202607031117",
+      "published": "Fri, 03 Jul 2026 11:17:20 Z",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Google News Gold Investment",
+      "title": "Why central banks are loading up on Gold during the current 30% correction - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNU3VfcnNJVVZvX2M2c3VkMXV5T2phUVN1NlY0UnhMNG5mdTNReWVfcTRlLVp6SFFrSFp5ZXNobGpGM1lkME9LZ1dzM1FaNk0tUjY1V2t5SXpvSk13OFlCRGN2YU1MallXMmZyUWlLWmJrM29OUG5wcF9XREZRVmF4NVBUM3NLQ1ZjLWIwUl9NcTcxcUQ2Y0NJLXpfejVYWW85QjF1TjVlWEdPbkRSOXVPZl9pWWU1bGQ0WW1NYQ?oc=5",
+      "published": "Fri, 03 Jul 2026 11:02:00 GMT",
+      "sentiment": "negative"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Mining Americas Inc. Begins Trading on the TSX",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/mining-americas-inc-begins-trading-110000858.html?.tsrc=rss",
+      "published": "Fri, 03 Jul 2026 11:00:00 +0000",
+      "sentiment": "neutral"
+    },
+    {
       "source": "FXStreet",
       "title": "Silver price today: Silver rises, according to FXStreet data",
       "link": "https://www.fxstreet.com/news/silver-price-today-silver-rises-according-to-fxstreet-data-202607030930",
@@ -16,31 +65,10 @@
     },
     {
       "source": "Google News Gold Investment",
-      "title": "First Majestic Silver Minting Strategy in Gold Silver Boom - Streetwise Reports",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRGY2LVEtNVdpWHFkQWxhY05GOHlYVUFCaTlfVGdVYUFESnZ2UDFDSVVoOV9ydDk4cU96Qjc4T2tFLUtlaVJaSnJleGExWk5rc3pmOEpWbkZZclNRb0t1VkRZUDZBa21laE9KRVRSNF9PcEw2ZXJockRYYWtqOGo4ajNqakhYamE3V1hOR3B6ODdMYnBIQXo5SC1ZcEo1M3FrTGZOMDJUamV1YldLdkYtbUtlQUx6MWM?oc=5",
-      "published": "Fri, 03 Jul 2026 09:22:30 GMT",
-      "sentiment": "neutral"
-    },
-    {
-      "source": "Google News Gold Investment",
       "title": "Gold prices set for first weekly rise in a month as investors scale back Fed rate hike bets - CNBC",
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNbWVmbHRNYi1WMk5Yb2pzT2h5RmVuWmVhMHg2SXRQVGxiem9zQ1owQzBCZjZLYkJQRnRmYWdsM3ZmNzlmX2RnVWlCblRKZUIyeGdGRlctaldzN25FRllsQjJxazduSVpaQ010czM2VWtGZFktaFRGWThJSks1cUlGR01wRUbSAYoBQVVfeXFMUEFaT0ZKa09lbC1xVzREMjhDSm5CVnp0OW11SDhKaHhHYXBKOVFmZ2ZwTjVmY2h1cWhyLUtydm9tM2cwbV9SUzVZQTFzeTh3Yk5xZ1REODNUMWRva2tkb1FlaUEzbkFVR2VXQlN1R3ZzdTdMMWtWUC1NbkRaVnlGNW1CYk1CM3I2aVNR?oc=5",
       "published": "Fri, 03 Jul 2026 08:53:52 GMT",
       "sentiment": "positive"
-    },
-    {
-      "source": "FXStreet",
-      "title": "Gold: Higher range forming as Fed risks ease \u2013 TD Securities",
-      "link": "https://www.fxstreet.com/news/gold-higher-range-forming-as-fed-risks-ease-td-securities-202607030851",
-      "published": "Fri, 03 Jul 2026 08:51:20 Z",
-      "sentiment": "positive"
-    },
-    {
-      "source": "FXStreet",
-      "title": "Gold stays on track to snap four-week losing streak amid fading Fed hike bets, weak USD",
-      "link": "https://www.fxstreet.com/news/gold-advances-to-4-200-neighborhood-as-reduced-fed-hike-bets-keep-usd-depressed-202607030355",
-      "published": "Fri, 03 Jul 2026 08:22:57 Z",
-      "sentiment": "negative"
     },
     {
       "source": "Google News",
@@ -58,13 +86,6 @@
     },
     {
       "source": "Google News",
-      "title": "XAU/USD: Gold Prices Shoot Above $4,170 as Rate-Hike Anxiety Cools After Jobs Report - TradingView",
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQSmx2cm9zT2YtMHUzeGt0aUNtWkdWcWZaRkZuV0FZc2VuNnl5dzhuS05NR1NlWkxwVXBwZXY1d0R4bzU4dlhiaWpRcGVfdHNiR3hGTXd1UWFEY3NwNGNBRHRYVGNLbFJCYmNzR1dkRERmM2FSQVd1RDdVd3NEOUxlQ0dXVERCM2RvaXlHRHVtMTJCdkF1dmgyTlVjeVA3SXozM1doMnFrVml5N0ktZ2t1MG1BMnRHaUVsZHpzblE2TFRXQ0tjOF9fSldYR2t6VjdDWGU3YlQ2V091ZUI2?oc=5",
-      "published": "Fri, 03 Jul 2026 07:17:03 GMT",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Google News",
       "title": "Asian investors turn into sellers of gold ETFs as market rally slows - Nikkei Asia",
       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZVBUWmZNZWxQMzh3TnB3a2FacHJSakNScGpMODBJWU1OSnNMYVBjSHhyNmlweDZDaXFRS0ZWOHREeHZqMEdyR2VoOWtsUlVmWHpaYW9SdFBFWjRqcHJJUGZYNlRSM1Jsejd2TmJpVVJjWVFnRmhaQ0g1R01iNUhKbVh0aFoxLXd3U1lRb1Z5eGtWdHdnTjBsenBrMUFWdTVRdTJDcWxDei1iclc1dWZBMzItRWg4NWtNV0pOekZ3?oc=5",
       "published": "Fri, 03 Jul 2026 06:35:00 GMT",
@@ -79,23 +100,16 @@
     },
     {
       "source": "Google News",
-      "title": "Can Laopu Gold Break Out of the Gold Sector? - 36 Kr",
-      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9PaHRJZTFVUFZmMEpIN0N2VTJmLVJSUm1zTlZlYkNKV0pSQlNMc2V5WEpLUzl1SVpxN0hnb3pSUEJrOEtLX2tOLUdPU21PeUQ4czhn?oc=5",
-      "published": "Fri, 03 Jul 2026 05:13:39 GMT",
+      "title": "Gold price prediction: Will gold price rally continue & should investors buy on dips? Check July 3, 2026 - The Times of India",
+      "link": "https://news.google.com/rss/articles/CBMinAJBVV95cUxOQjhmZklDMHVXbmdNVHhTdlRFQzJsVnA5Zll3eVBvN2VzUThiNWYzT1p1TjFFWm0yYTdseElWM3FCN19rWWlIWGhKdTFxQ0xzQnJVSHdQY0ZOcVRHV2pzX2l3aHMyZm0yVU5oTnBKRkdldnZKMjg1QjY2My01SG5YRkctNGV0OEdraThtSVpyQTBoT0VQNVRLMVdIWFpRLXd3UzgzOGd4Rl9UV1BMc2tuaExzOU5sNE5VeG1WalF5Q01GZmlvanBCMEJXTDBDeUtpZjFSY0pXdGpPaWNHRDhQbUFIUFp0WXNmRXlnc3hra2VDYnJQZjJ0YmluRGdPV1Ytd3dSMVlLLWg0cXVmaGY5czJZR2NoS240SGhIMdIBogJBVV95cUxNb29RRWRMQThhTnFpXy0xRVpHUEZmSVdUa3BWVnFCc3RVTWtsR3NEc2c1dFUya3pNVUxLODNmWi0wWHRncXhRQ3NUU015TEpkZ0d3U25jdzVlS2VmRzM1b2pRSFZJVzlEbG9CSVM3T2RqYU9NNHRyOE5QNHNjMGNhV05NVjZYUC1pWmpqZUlIdFIwNGs2Q21UaC0tTzl1MzFoS0RGbkNlNFFEZ2M2S3hadVdHLWpycTE1RzJQOEtJaGtjQkx2WEliWjcyWTY2OVBsSDhCalhtZndaT2hrelFxMXgtQ3I5aEJ5TWhWajVLc2Z5dWY1Nzctc3JCNEJnSkdGNW9WSk9tdExDMkZrbHhXZXhobzBkaUR0SGUtR0NIZnBQdw?oc=5",
+      "published": "Fri, 03 Jul 2026 06:04:00 GMT",
       "sentiment": "positive"
     },
     {
       "source": "Google News",
-      "title": "Gold prices gain - VnExpress International",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQWlNCZFRWWjJ1aGRUMzZXS1BHdk5ZUGtpaW5rd3NoSTQxQkRUcnY1QkdIN2xsRURXT05sNUR2TEJza1BYUTcxZjdRakJ6RGc0WkZndC1yLVBfWHVtY0pEd1NacWFCdFd5aEVqMkNGbG1kODRJcDhXSG5Fa2VoR0UxXw?oc=5",
-      "published": "Fri, 03 Jul 2026 04:22:22 GMT",
-      "sentiment": "neutral"
-    },
-    {
-      "source": "Google News",
-      "title": "Gold Price Forecast After US Nonfarm Payrolls: Gold Bounces Back Above $4,100\u2014Buy Now or Wait? - Mitrade",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQa0RzcTRnekFFZHR6ZjNNNDJteVlWckFscHB5REF5VjJYR1NyekhscWlPVDBsX3JLN1RSdUNtMzFVb0tNNURHcjdERmtCb1FobGlYLW1kUUc4ZWdSWUtzT2VSV3NuNXdjVm5EWTUzaE4yTGdpbXhNX3F5XzJOY0FFMHhxV3hicG5jZktzUC1GVU0wSzN6eTFfbDZNM3M?oc=5",
-      "published": "Fri, 03 Jul 2026 03:35:38 GMT",
+      "title": "Can Laopu Gold Break Out of the Gold Sector? - 36 Kr",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9PaHRJZTFVUFZmMEpIN0N2VTJmLVJSUm1zTlZlYkNKV0pSQlNMc2V5WEpLUzl1SVpxN0hnb3pSUEJrOEtLX2tOLUdPU21PeUQ4czhn?oc=5",
+      "published": "Fri, 03 Jul 2026 05:13:39 GMT",
       "sentiment": "positive"
     },
     {
@@ -127,8 +141,15 @@
       "sentiment": "positive"
     },
     {
+      "source": "Google News",
+      "title": "Gold gains momentum above $4,100 after weak US NFP data - Mitrade",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZGNEMHVtbmZodmJnSVVUZnJQeTM5Z3d5b0lIQkthVWNTN1dIZXFjbmZPbGZwUGJOQkRyUEZXdWRucEhXQnRfUHVoMlJNNjVJUGRkdDNVc2tyZExpWGxzc044SGJuZlNxQnpTc0Z4dVZZZnJ0a0lyTzJFMGxIbmY0N2lYN1FveW8wREhjVTdYV1Z5M1phR3lN?oc=5",
+      "published": "Fri, 03 Jul 2026 01:51:45 GMT",
+      "sentiment": "positive"
+    },
+    {
       "source": "Reuters Gold",
-      "title": "Gold heads for weekly gain as weak US jobs data lowers rate-hike bets - Reuters",
+      "title": "Gold heads for weekly gain as weak US jobs data tempers rate hike bets - Reuters",
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNclFSSUNFMmZtNVhtRTlWeTdJSElSd1hZSjB1c0tabXAwUVRJY0ZiQkZYc2ZRY184NzFHOURseE8wVXpJd2tVY09IQTlVV1R2R0htNEp6Wm5qT05rN1ZqZjhPeDZZN0JRUWE1VlJJSGpNdEoybFRnUV9TYzVTWGZ6bENIelRIenRQN3Z0T19KMmlUcU4xd0oxT3FTcWtMMTV6LWFocUFmaEo0UUE?oc=5",
       "published": "Fri, 03 Jul 2026 01:17:00 GMT",
       "sentiment": "negative"
@@ -139,13 +160,6 @@
       "link": "https://www.proactiveinvestors.com/companies/news/1094890/small-cap-watch-riversgold-orthocell-archer-and-emc-gold-advance-key-growth-plans-1094890.html?.tsrc=rss",
       "published": "Fri, 03 Jul 2026 00:09:00 +0000",
       "sentiment": "neutral"
-    },
-    {
-      "source": "Google News Gold Investment",
-      "title": "Gold rebounds above $4,100 as soft jobs data curbs Fed rate-hike bets - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNQnJMQ0JKZ09aUzhHMVlXTDVCR3lzLWxHeWZvakVpaVZxdWlfcU11dDdFX0QxUmF3WlU4OFFTR0ZLcnJCWXllMHV2dVFWUGxkbDg1cUJEaTVrVnZOU2tibEUzVndWWFFHVVdUZm5DejItclZQMmU2RW5kVWk3NDFGb1ZhTFMxXzZOME4zVW11U2xmdEktVHRxV3J4LXhVem9NcVNnVFNyVng?oc=5",
-      "published": "Thu, 02 Jul 2026 23:47:02 GMT",
-      "sentiment": "positive"
     },
     {
       "source": "Yahoo Finance Gold",
@@ -160,32 +174,18 @@
       "link": "https://finance.yahoo.com/markets/stocks/articles/tintina-mines-previous-announcement-june-220500591.html?.tsrc=rss",
       "published": "Thu, 02 Jul 2026 22:05:00 +0000",
       "sentiment": "neutral"
-    },
-    {
-      "source": "Google News Gold Investment",
-      "title": "Get Paid to Wait on Gold\u2019s Rebound - ETF Database",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdWtlaUZ4Zm9hWjMzYkZVX2wxUGtjY3Q3MkpXbEdraS1vX2tGSkN3dWZYRmd2SGJUSVpsNzc1RGJCSnpRTVNfbFAyanNTZjJ2N2JYcGRlejhqVE1kRmtTTG5xN01PWEdLa1o0NE52cTlubHYzNDREZ1l5MTlYN1E0aXJJQQ?oc=5",
-      "published": "Thu, 02 Jul 2026 21:46:44 GMT",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Google News Gold Investment",
-      "title": "Goldman Sachs delivers honest verdict on gold\u2019s selloff - thestreet.com",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOb0dkNThmWUtmZF9mUk54MHlhOF9fc2pnc1I0YWFVMTFZbnVYQzh4bkVuQXRzUFJ2OEUwTHVvVEdEWWtoRUsxbXR4aFV5YVhzZmlRSmFSSEZqWWZiNHFmZjRJVzNHV3hMZEM4X0hONm9yTjFrSWUxcFAtd1FrWVliSVBFLUNQNWNOV1l2N0dEcTk5ZGpI?oc=5",
-      "published": "Thu, 02 Jul 2026 20:17:00 GMT",
-      "sentiment": "negative"
     }
   ],
-  "sentiment_score": 46.2,
-  "bull_count": 50,
-  "bear_count": 13,
-  "neutral_count": 17,
-  "bull_pct": 62.5,
+  "sentiment_score": 51.9,
+  "bull_count": 54,
+  "bear_count": 12,
+  "neutral_count": 15,
+  "bull_pct": 66.7,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-07-03T10:44:12Z"
+  "last_updated": "2026-07-03T13:00:52Z"
 }
