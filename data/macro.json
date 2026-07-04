@@ -5060,7 +5060,7 @@
     }
   ],
   "dxy": 100.86,
-  "dxy_date": "2026-07-03",
+  "dxy_date": "2026-07-04",
   "dxy_chart": [
     {
       "t": "2025-07-03",
@@ -6072,7 +6072,7 @@
     }
   ],
   "vix": 15.81,
-  "vix_date": "2026-07-03",
+  "vix_date": "2026-07-04",
   "vix_chart": [
     {
       "t": "2025-07-03",
@@ -8111,7 +8111,7 @@
     }
   ],
   "next_fomc_date": "2026-07-29",
-  "days_to_fomc": 26,
+  "days_to_fomc": 25,
   "data_quality": {
     "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
     "freshness": "daily",
@@ -8124,5 +8124,5 @@
   "lease_rate_6m": 4.719,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-07-03T23:11:46Z"
+  "last_updated": "2026-07-04T03:41:50Z"
 }
