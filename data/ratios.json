@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 66.8374,
-    "gold_oil": 60.8069,
-    "gold_spx": 0.5539,
-    "gold_btc": 0.0655,
-    "gold_copper": 667.7329
+    "gold_silver": 66.8203,
+    "gold_oil": 60.8302,
+    "gold_spx": 0.5541,
+    "gold_btc": 0.065,
+    "gold_copper": 667.6151
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1010,7 +1010,7 @@
       },
       {
         "t": "2026-07-06",
-        "v": 66.8374
+        "v": 66.8203
       }
     ],
     "gold_oil": [
@@ -2016,7 +2016,7 @@
       },
       {
         "t": "2026-07-06",
-        "v": 60.8069
+        "v": 60.8302
       }
     ],
     "gold_spx": [
@@ -3022,7 +3022,7 @@
       },
       {
         "t": "2026-07-06",
-        "v": 0.5539
+        "v": 0.5541
       }
     ],
     "gold_btc": [
@@ -4028,7 +4028,7 @@
       },
       {
         "t": "2026-07-06",
-        "v": 0.0655
+        "v": 0.065
       }
     ],
     "gold_copper": [
@@ -5034,7 +5034,7 @@
       },
       {
         "t": "2026-07-06",
-        "v": 667.7329
+        "v": 667.6685
       }
     ]
   },
@@ -5042,7 +5042,7 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.6311,
+      "mean": 80.631,
       "current_percentile": 7.1
     },
     "gold_oil": {
@@ -5061,13 +5061,13 @@
       "min": 0.0255,
       "max": 2.3416,
       "mean": 0.2418,
-      "current_percentile": 39.8
+      "current_percentile": 39.4
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 538.216,
-      "current_percentile": 86.2
+      "mean": 538.2158,
+      "current_percentile": 86.0
     }
   },
   "dxy_chart": [
@@ -6073,7 +6073,7 @@
     },
     {
       "t": "2026-07-06",
-      "v": 100.88
+      "v": 100.86
     }
   ],
   "gold_1y_chart": [
@@ -7079,7 +7079,7 @@
     },
     {
       "t": "2026-07-06",
-      "v": 4175.0
+      "v": 4176.6
     }
   ],
   "data_quality": {
@@ -7088,5 +7088,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-07-06T20:57:42Z"
+  "last_updated": "2026-07-06T22:21:28Z"
 }
