@@ -94,15 +94,41 @@
   "consensus_low": 4500,
   "consensus_high": 6350,
   "consensus_mid": 5547,
-  "upside_pct": 32.8,
+  "upside_pct": 32.9,
   "most_bullish": "BMO Capital Markets",
-  "current_price": 4176.0,
-  "news_snippets": [],
+  "current_price": 4175.0,
+  "news_snippets": [
+    {
+      "title": "Goldman Sachs Reduced Its Gold Price Target for the End of 2026 - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQOEFhWGxxUWxNMk9Qbl9QRnUwbXliZkgwMWFBZmtDWlRNMzNLZjlWaGxmNUxNcDQ0Y2l2dzhzTjhvWkRZcWxIR29sRUNLSnR5SWhKRWQ3WThRbS1qdFhnSFVpZ1Z5OU5WM2tQSjFLLW5IWTU2MG5JMFZ5bmdhR2lNSDJyNk9fZ3REV29uV0praWNoWEE1MDVCVUxnVXA4eEFjSmJZRg?oc=5",
+      "published": "Fri, 19 Jun 2026 07:00:00 GMT"
+    },
+    {
+      "title": "Goldman Cut Its Gold Target. JPMorgan Didn\u2019t. Here\u2019s What the $1,400 Gap Tells You. - GoldSilver",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbF9BOXMtZ3luRk9XbF82aVdpWnFrNmNWQi1vMkgwS09TSUZxMTF5aVJDVnFLVGd0X3VmVUVUUFFSdlpzWktubmF2cU8xLVFWUUFyNmlhQUZMbDFrcXRoMHhoMzBrS1FKWUVjcEx6RnV6Zm8wV21BMW1IYWtVTzgwLWo5cXJ1ZldFaUtUN2lOX21oeldaOGs0R3ZhanNySENCUDU2RmVn?oc=5",
+      "published": "Mon, 22 Jun 2026 07:00:00 GMT"
+    },
+    {
+      "title": "Goldman Sachs delivers honest verdict on gold\u2019s selloff - thestreet.com",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOb0dkNThmWUtmZF9mUk54MHlhOF9fc2pnc1I0YWFVMTFZbnVYQzh4bkVuQXRzUFJ2OEUwTHVvVEdEWWtoRUsxbXR4aFV5YVhzZmlRSmFSSEZqWWZiNHFmZjRJVzNHV3hMZEM4X0hONm9yTjFrSWUxcFAtd1FrWVliSVBFLUNQNWNOV1l2N0dEcTk5ZGpI?oc=5",
+      "published": "Thu, 02 Jul 2026 20:17:00 GMT"
+    },
+    {
+      "title": "Jobs Miss Forces Fed Rethink, Igniting Gold and Silver's Safe-Haven Rally - Kavout | AI",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPcjRWT190SU1BT1BQVXRDc05nTmlfZzlfZ0I5TnJqSlZrLXBDNXItOUZ5dVBrVVpURUVfYVpDbk9NOWJEVk90cW4yN0JVaWdfN2JZT3p1RWxQc3YzR3FKbUFwMVRZMFFsdE12b3pIV3B3ckFqQmhkelZhd2NaNlJlUkppZWlHZ3Z2ZXpFbll0bWk0M2tjUFhId2FnU0xQcVZVc3BpdFJPNVB3TEU?oc=5",
+      "published": "Mon, 06 Jul 2026 03:18:25 GMT"
+    },
+    {
+      "title": "The Price of Gold Is Flat in 2026. Some Experts Are Still Bullish\u2014But Not in the Short Term. Here's Why. - Investopedia",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVEdZRlczcWl3LU55XzBWT3R2eGlFSXY0elRxa21VNjZYVFdSU3BpTFQ5OHVnNTgyM2cyMWpVbGlZMUxsNWNBRGNIR1VZenlDLUtkWkZWMk9QMnZnVGE2SlE2V280TmRCQW9GWjNPcFRodV9RLVF4WUhJdk83S0MzSzhsOUQtX0ZuMW8xTHVweGdDcFJTYWFGVk1SZWdBc1J5ZVF1amUzUUc4TjhfVTJLX3NFdjdFNGg5SVRkQXdIYnBWSjZ5VGRtc2dWeGJxelJnc1FXX0dycw?oc=5",
+      "published": "Tue, 09 Jun 2026 07:00:00 GMT"
+    }
+  ],
   "data_quality": {
-    "source": "hardcoded published analyst targets (Q1-Q2 2026, post-Liberation Day II revisions)",
+    "source": "hardcoded published analyst targets (Q1-Q2 2026, post-Liberation Day II revisions) + 10 Google News RSS headlines",
     "freshness": "quarterly (price target revisions)",
     "reliability": "published analyst estimates",
     "notes": "Targets from major bank research notes (2025-2026). Updated when banks revise publicly. News snippets from Google News RSS."
   },
-  "last_updated": "2026-07-06T19:02:28Z"
+  "last_updated": "2026-07-06T20:58:25Z"
 }
