@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4168.2,
+      "price": 4141.4,
       "start_price": 4314.4,
-      "ytd_pct": -3.39,
+      "ytd_pct": -4.01,
       "color": "#ffd700",
       "chart": [
         {
@@ -508,7 +508,11 @@
         },
         {
           "t": "2026-07-06",
-          "v": 96.61
+          "v": 96.31
+        },
+        {
+          "t": "2026-07-07",
+          "v": 95.99
         }
       ]
     },
@@ -1025,9 +1029,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 63984.44,
+      "price": 63066.78,
       "start_price": 88731.98,
-      "ytd_pct": -27.89,
+      "ytd_pct": -28.92,
       "color": "#ff8800",
       "chart": [
         {
@@ -1776,14 +1780,14 @@
         },
         {
           "t": "2026-07-07",
-          "v": 72.11
+          "v": 71.08
         }
       ]
     },
     "Silver": {
-      "price": 62.28,
+      "price": 61.42,
       "start_price": 70.56,
-      "ytd_pct": -11.72,
+      "ytd_pct": -12.95,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2288,7 +2292,11 @@
         },
         {
           "t": "2026-07-06",
-          "v": 88.28
+          "v": 87.76
+        },
+        {
+          "t": "2026-07-07",
+          "v": 87.05
         }
       ]
     },
@@ -3321,9 +3329,9 @@
       ]
     },
     "DXY": {
-      "price": 100.87,
+      "price": 100.86,
       "start_price": 98.42,
-      "ytd_pct": 2.49,
+      "ytd_pct": 2.48,
       "color": "#aa44ff",
       "chart": [
         {
@@ -3828,7 +3836,11 @@
         },
         {
           "t": "2026-07-06",
-          "v": 102.49
+          "v": 102.47
+        },
+        {
+          "t": "2026-07-07",
+          "v": 102.48
         }
       ]
     }
@@ -3839,5 +3851,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-07-07T00:15:13Z"
+  "last_updated": "2026-07-07T04:58:39Z"
 }
