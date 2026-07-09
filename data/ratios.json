@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 69.1465,
-    "gold_oil": 56.4554,
-    "gold_spx": 0.55,
+    "gold_silver": 69.3683,
+    "gold_oil": 55.3694,
+    "gold_spx": 0.5489,
     "gold_btc": 0.0655,
-    "gold_copper": 663.2181
+    "gold_copper": 661.4009
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-07-09",
-        "v": 69.1581
+        "v": 69.3684
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-07-09",
-        "v": 56.4554
+        "v": 55.3694
       }
     ],
     "gold_spx": [
@@ -5050,7 +5050,7 @@
       },
       {
         "t": "2026-07-09",
-        "v": 663.2181
+        "v": 661.401
       }
     ]
   },
@@ -5058,14 +5058,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.6604,
-      "current_percentile": 12.6
+      "mean": 80.6609,
+      "current_percentile": 13.2
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.8757,
-      "current_percentile": 92.3
+      "mean": 31.8737,
+      "current_percentile": 92.1
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5077,13 +5077,13 @@
       "min": 0.0255,
       "max": 2.3416,
       "mean": 0.2383,
-      "current_percentile": 39.8
+      "current_percentile": 39.7
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 538.0117,
-      "current_percentile": 84.9
+      "mean": 538.0084,
+      "current_percentile": 84.7
     }
   },
   "dxy_chart": [
@@ -6093,7 +6093,7 @@
     },
     {
       "t": "2026-07-09",
-      "v": 100.89
+      "v": 101.02
     }
   ],
   "gold_1y_chart": [
@@ -7103,7 +7103,7 @@
     },
     {
       "t": "2026-07-09",
-      "v": 4115.6
+      "v": 4107.3
     }
   ],
   "data_quality": {
@@ -7112,5 +7112,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-07-09T07:42:48Z"
+  "last_updated": "2026-07-09T11:10:43Z"
 }
