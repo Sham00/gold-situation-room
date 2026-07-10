@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 68.2597,
-    "gold_oil": 57.5962,
+    "gold_silver": 68.672,
+    "gold_oil": 56.7439,
     "gold_spx": 0.5457,
     "gold_btc": 0.064,
-    "gold_copper": 655.3212
+    "gold_copper": 656.7531
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-07-10",
-        "v": 68.2597
+        "v": 68.672
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-07-10",
-        "v": 57.5962
+        "v": 56.7595
       }
     ],
     "gold_spx": [
@@ -5050,7 +5050,7 @@
       },
       {
         "t": "2026-07-10",
-        "v": 655.3212
+        "v": 656.7531
       }
     ]
   },
@@ -5058,14 +5058,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.6587,
-      "current_percentile": 10.0
+      "mean": 80.6595,
+      "current_percentile": 11.3
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.8779,
-      "current_percentile": 92.9
+      "mean": 31.8763,
+      "current_percentile": 92.5
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5077,13 +5077,13 @@
       "min": 0.0255,
       "max": 2.3416,
       "mean": 0.2383,
-      "current_percentile": 38.9
+      "current_percentile": 39.1
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 537.9965,
-      "current_percentile": 83.9
+      "mean": 537.9992,
+      "current_percentile": 84.5
     }
   },
   "dxy_chart": [
@@ -6093,7 +6093,7 @@
     },
     {
       "t": "2026-07-10",
-      "v": 100.83
+      "v": 100.86
     }
   ],
   "gold_1y_chart": [
@@ -7103,7 +7103,7 @@
     },
     {
       "t": "2026-07-10",
-      "v": 4116.4
+      "v": 4116.2
     }
   ],
   "data_quality": {
@@ -7112,5 +7112,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-07-10T08:30:17Z"
+  "last_updated": "2026-07-10T11:57:53Z"
 }
