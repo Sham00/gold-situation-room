@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "source": "Yahoo Finance Gold",
+      "title": "First Majestic Silver (AG) Receives Construction Permits for Santa Elena Mine Expansion",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/first-majestic-silver-ag-receives-075944774.html?.tsrc=rss",
+      "published": "Sun, 12 Jul 2026 07:59:44 +0000",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Is Equinox Gold (EQX) One of the Stocks Set to Explode in the Next 2 Years?",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/equinox-gold-eqx-one-stocks-075901113.html?.tsrc=rss",
+      "published": "Sun, 12 Jul 2026 07:59:01 +0000",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Google News",
       "title": "Gold (XAUUSD) Price Forecast: Gold Rally Stalls as Oil Fuels Fed Fears - FXEmpire",
       "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOd1gtalJvaXR5cWZtYU5mZkFMa3Nxb2VWLVoxX24xMFV5N1oxM050TUtyeEdnZTlxOXd5LW5Kbkd1MmhBc2stWTRCMUdJOE94ZU9RMUh0cFFjbTJXOGU3SVl2ejZEVDgySGxGNXpWOElRWmZUSlB6Y0NiRWlra2xxaXpMd0hkTTNNMENJNEpKbUhKeHhnQjNyc3liaVRmR1lTeUprOE5yX2QtZDRhdWpnM2dVQ3FDQ2RuQ3c?oc=5",
@@ -106,20 +120,6 @@
       "sentiment": "negative"
     },
     {
-      "source": "Yahoo Finance Gold",
-      "title": "Bernstein revamps gold price target on Fed-rate shift",
-      "link": "https://www.thestreet.com/investing/bernstein-revamps-gold-price-target-on-fed-rate-shift?.tsrc=rss",
-      "published": "Fri, 10 Jul 2026 17:07:00 +0000",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Yahoo Finance Gold",
-      "title": "Surface Metals advances Nevada Gold and Lithium projects toward key milestones",
-      "link": "https://finance.yahoo.com/video/surface-metals-advances-nevada-gold-162923597.html?.tsrc=rss",
-      "published": "Fri, 10 Jul 2026 16:29:23 +0000",
-      "sentiment": "positive"
-    },
-    {
       "source": "FXStreet",
       "title": "Federal Reserve: Monetary policy report cites \u201chigh inflation\u201d due to tariffs",
       "link": "https://www.fxstreet.com/news/federal-reserve-monetary-policy-report-cites-high-inflation-due-to-tariffs-202607101623",
@@ -176,16 +176,16 @@
       "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 42.7,
-  "bull_count": 44,
+  "sentiment_score": 41.3,
+  "bull_count": 43,
   "bear_count": 12,
-  "neutral_count": 19,
-  "bull_pct": 58.7,
+  "neutral_count": 20,
+  "bull_pct": 57.3,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-07-12T06:40:02Z"
+  "last_updated": "2026-07-12T09:07:07Z"
 }
