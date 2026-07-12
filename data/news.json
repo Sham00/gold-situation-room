@@ -113,13 +113,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Google News",
-      "title": "Gold and silver WARNING: The selling is not over - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxORzZLOWhwUVA2cVdrM19mUWVtWXotYUwyczQxeEVPSWRaSWxmbkZ6RTkwMWxHYWZjMTZhMWxvcnJmMUxIQjdHMmhuSjBiZlg4UzNHSVV4UXhWOXYzVnJLY2JrX2pUSmJTdk9CZnFXWFpFdWY3NEEzWnkzU2IydVVCSGs5clZVTU1y?oc=5",
-      "published": "Fri, 10 Jul 2026 17:12:10 GMT",
-      "sentiment": "negative"
-    },
-    {
       "source": "Google News Gold Investment",
       "title": "Gold and silver WARNING: The selling is not over - KITCO",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxORzZLOWhwUVA2cVdrM19mUWVtWXotYUwyczQxeEVPSWRaSWxmbkZ6RTkwMWxHYWZjMTZhMWxvcnJmMUxIQjdHMmhuSjBiZlg4UzNHSVV4UXhWOXYzVnJLY2JrX2pUSmJTdk9CZnFXWFpFdWY3NEEzWnkzU2IydVVCSGs5clZVTU1y?oc=5",
@@ -174,18 +167,25 @@
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPTDJPVzN0ekQyZWNCZW5tVmpsZkVON01BVmRqTHgyYUNYOHM4NGdUb0s1bXI1Y0c2UXpsMmpUT2l2cHJJNEdKaS02QmZZbEV5TlBNR3FPZmJtcUpmZkVEc2tCbHhUYUpwQ3NaM0xGVFBlQ0RvaTJBWS12Q3hZVldhSV9LczhPVWFLYzVMN2dFdjFMT0lucTQwQVVOWU1ZSDVPVFVtZUNTSEg0ZTJYVWlHc19EWkIwOGxX?oc=5",
       "published": "Fri, 10 Jul 2026 15:05:00 GMT",
       "sentiment": "positive"
+    },
+    {
+      "source": "Mining.com",
+      "title": "Fortuna bets $71M on Latin America gold growth",
+      "link": "https://www.mining.com/fortuna-bets-71m-on-latin-america-gold-growth/",
+      "published": "Fri, 10 Jul 2026 14:13:00 +0000",
+      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 35.4,
-  "bull_count": 43,
+  "sentiment_score": 34.1,
+  "bull_count": 42,
   "bear_count": 14,
-  "neutral_count": 25,
-  "bull_pct": 52.4,
+  "neutral_count": 26,
+  "bull_pct": 51.2,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-07-12T13:40:27Z"
+  "last_updated": "2026-07-12T15:03:00Z"
 }
