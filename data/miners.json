@@ -1022,8 +1022,8 @@
       "name": "Barrick Gold",
       "type": "miner",
       "price": 39.07,
-      "change": 0.82,
-      "change_pct": 2.14,
+      "change": -0.03,
+      "change_pct": -0.08,
       "ytd_pct": 13.32,
       "week4_pct": -9.75,
       "market_cap": 1133200896,
@@ -1031,10 +1031,10 @@
       "forward_pe": 10.8,
       "ev_ebitda": 15.5,
       "dividend_yield": 210.0,
-      "vs_gold_ytd": 19.77,
+      "vs_gold_ytd": 19.72,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 2986.1,
+      "margin": 2988.4,
       "sparkline": [
         {
           "t": "2026-01-15",
@@ -1546,7 +1546,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2636.1,
+      "margin": 2638.4,
       "sparkline": [
         {
           "t": "2026-01-15",
@@ -2058,7 +2058,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 2886.1,
+      "margin": 2888.4,
       "sparkline": [
         {
           "t": "2026-01-15",
@@ -2564,13 +2564,13 @@
       "week4_pct": NaN,
       "market_cap": 12334384128,
       "pe_ratio": 11.5,
-      "forward_pe": 9.0,
+      "forward_pe": 9.1,
       "ev_ebitda": 8.8,
       "dividend_yield": 55.0,
       "vs_gold_ytd": NaN,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 2986.1,
+      "margin": 2988.4,
       "sparkline": [
         {
           "t": "2026-01-15",
@@ -3082,7 +3082,7 @@
       "vs_gold_ytd": NaN,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3586.1,
+      "margin": 3588.4,
       "sparkline": [
         {
           "t": "2026-01-15",
@@ -3587,14 +3587,14 @@
       "ytd_pct": NaN,
       "week4_pct": NaN,
       "market_cap": 39140028416,
-      "pe_ratio": 28.6,
+      "pe_ratio": 28.3,
       "forward_pe": 22.0,
       "ev_ebitda": 20.1,
       "dividend_yield": 88.0,
       "vs_gold_ytd": NaN,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3636.1,
+      "margin": 3638.4,
       "sparkline": [
         {
           "t": "2026-01-15",
@@ -5199,5 +5199,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-07-15T06:20:57Z"
+  "last_updated": "2026-07-15T09:13:15Z"
 }
