@@ -2,7 +2,7 @@
   "reserves": [
     {
       "country": "United States",
-      "pct_of_reserves": 75.5,
+      "pct_of_reserves": 75.3,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 8133,
@@ -224,7 +224,7 @@
     },
     {
       "country": "Germany",
-      "pct_of_reserves": 75.3,
+      "pct_of_reserves": 75.1,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 3352,
@@ -446,7 +446,7 @@
     },
     {
       "country": "Italy",
-      "pct_of_reserves": 72.7,
+      "pct_of_reserves": 72.5,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2452,
@@ -668,7 +668,7 @@
     },
     {
       "country": "France",
-      "pct_of_reserves": 73.2,
+      "pct_of_reserves": 73.0,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2437,
@@ -890,7 +890,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 49.4,
+      "pct_of_reserves": 49.2,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2335,
@@ -2027,7 +2027,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 42.5,
+      "pct_of_reserves": 42.4,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 613,
@@ -2270,7 +2270,7 @@
     },
     {
       "country": "Netherlands",
-      "pct_of_reserves": 66.7,
+      "pct_of_reserves": 66.5,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 612,
@@ -2492,7 +2492,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 19.9,
+      "pct_of_reserves": 19.8,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 420,
@@ -3174,7 +3174,7 @@
     },
     {
       "country": "Kazakhstan",
-      "pct_of_reserves": 57.4,
+      "pct_of_reserves": 57.3,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 295,
@@ -4076,7 +4076,7 @@
     },
     {
       "country": "Australia",
-      "pct_of_reserves": 14.2,
+      "pct_of_reserves": 14.1,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 80,
@@ -4542,12 +4542,48 @@
   },
   "pace_vs_avg": 0.2,
   "source": "hardcoded WGC estimates (all live sources unavailable)",
-  "cb_news": [],
+  "cb_news": [
+    {
+      "title": "Gold Sinks Again But Central Banks 'Still Buying Heavily' - BullionVault",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNT0tLNFJpOTYyRUtPQnphbGRNUlc3aFBSYkt0UFlVQjdLdEU3VjJQMTJVUVgyNWduVkd0RGFMay1QT09OcFU1WHgtd1BUa3FMajRWSi1ueEZJOGlmNTJXN0RxRkNIYXhrZ3FFWFRubVU3LUtwck5YUGt4cWFZN0xycG1sU1B2eWJwMjNEQjhWcWM?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 29 Apr 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "China\u2019s Gold Holdings Rise Again as Central Bank Extends Buying Streak - The Jerusalem Post",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSnBtYmNBWkNwZnZMb3Jpd3JaMDQ1WTE1VDVNcTczaGhEcXIxUXd3U0tkR1VJY0drY1FYUUFYa3NhTUZTb2FOR05mRWlUSS11QW81VW43Z2MwcjJVS1MyQ3JHeUJPd0ZEZzdrRm1IRWpLOFBZdWQyX2dZcEpBX29RUlln?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 27 May 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Central Bank leaves rates unchanged in April - FocusEconomics",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOYjdNRHdRc0I3THNTZExON2tQYUtyV0JuWDk0R2UwUjdNSlREUjlfMzc2YXZvdExvOTVlLUVYek1rWE9MdHM1cVBtSjZCaHJmTmtIODIyUWstLU94c1lmR2M1S3Z6NTBFNG1qR0xycWRTNU5TZmxnNHNWMGlEaS0wMXZKYm1Sa2M3eW9WQ1dpVFRPbk9FdGRESDByNXVueXVOa1lTVGJ4UjY4RzJCb0IxMG14X1pKSVQ3UkpRSDBDamhzZDFFSUJFX3dpV0JTVGJqNUIxd3RnSkloaE1aSlc4S21kVnMwN0FjZ2c?oc=5",
+      "source": "Google News Turkey Gold",
+      "published": "Wed, 22 Apr 2026 07:00:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "China buys 15 tons of gold in June as central banks build up reserves - Nikkei Asia",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOUHpvdVNSQXhkMnc1bWptcTljbTJ5M04tcG5PR3lieGk2cG1HdTJSb3Joc0RtSVE1aWcwVmhRaVhPdG1iSVhNdEhkeTZmVGFkenBoNzFvQ2hoSGVWX0hUc1dELUdyYzBUWWFIY3RqMEVsWEFENlZDNDg2bXltTmJkRGZWUnhTblcyU0hXN0RBeUhKd0tjOXJvSF9UQ2V0NkNnOWdScWJHeDhUTHVrcVFhTFREVWpuX0llNTk2T2Jtbw?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 08 Jul 2026 15:40:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Russia\u2019s gold reserves fall below $300 billion in June after sixth straight monthly decline - KITCO",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZ183WDFleFI1TVdDcUprWFhrejYxenluZUJ2b0lRV2hNNTdNRFdWdWxoamF2N1hhRFd4WHdnX0c4LThDcF9yVDBXYnNiNHp6cDZqYmp3MmxYekZ1bHVoTWlwZUdObVRVRDRUaG9JeUNhQ0VETkphQjB2bHA4eUhGeUFQSU1oYTNMdGE0MWx2eHdld3F4RzZfTGwtWU1VczNKakhCN0pZVk1hMmNNWjlmemlLVElRODQ?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 08 Jul 2026 12:09:00 GMT",
+      "sentiment": "positive"
+    }
+  ],
   "data_quality": {
     "source": "hardcoded estimates based on WGC quarterly reports",
     "freshness": "quarterly",
     "reliability": "estimate",
     "notes": "All live sources unavailable. Data from WGC quarterly reports."
   },
-  "last_updated": "2026-07-16T16:22:16Z"
+  "last_updated": "2026-07-16T18:10:54Z"
 }
