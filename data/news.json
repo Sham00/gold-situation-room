@@ -71,13 +71,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News",
-      "title": "Is the Gold Bull Market Over? Two Major Institutions Aren\u2019t Giving Up - NAI500",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOcDI3SkV4Y3RDRk9jeEh5LUd5NnFoS2Q3THBTRkd6QXRGdExLM3dITDhTUVROem9BZFFnb3dWTy1DRnY2emJkNi1sN0dPcU5BSnBleWZSbjMyVG55akd0NDhsN25kOXdhWWJtYTc4bDVxcEc1di10US1tek1zZkNDR2xRTjQ3ZG40cE5QUG1VN3ZJeDRYeTBSbTFpWGdqVkhKUnc?oc=5",
-      "published": "Fri, 17 Jul 2026 23:40:32 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Freedom Gold Corp. Announces Extension of Private Placement Offering",
       "link": "https://finance.yahoo.com/markets/stocks/articles/freedom-gold-corp-announces-extension-215000270.html?.tsrc=rss",
@@ -174,18 +167,25 @@
       "link": "https://www.fxstreet.com/news/gold-climbs-as-iran-war-premium-revives-fed-hike-risk-202607171819",
       "published": "Fri, 17 Jul 2026 18:19:37 Z",
       "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Update: Gold Rises Off Session Lows on a Steady Dollar and Mixed Yields",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/gold-rises-off-session-lows-175450540.html?.tsrc=rss",
+      "published": "Fri, 17 Jul 2026 17:54:50 +0000",
+      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 46.2,
-  "bull_count": 46,
-  "bear_count": 10,
+  "sentiment_score": 43.6,
+  "bull_count": 45,
+  "bear_count": 11,
   "neutral_count": 22,
-  "bull_pct": 59.0,
+  "bull_pct": 57.7,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-07-18T17:59:56Z"
+  "last_updated": "2026-07-18T19:19:03Z"
 }
