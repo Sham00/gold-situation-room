@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "Investing.com Gold",
+      "title": "Bitcoin eyes $72,000 as governance and mining concentration concerns grow",
+      "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-eyes-72000-as-governance-and-mining-concentration-concerns-grow-4799711",
+      "published": "2026-07-19 21:25:21",
+      "sentiment": "positive"
+    },
+    {
       "source": "Google News",
       "title": "Gold Price Forecast: Positive Signals as XAU/USD Holds Above $4,000 Despite Hawkish Fed and Strait of Hormuz Tensions - FXLeaders",
       "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQT3Vxc09DbG5QaFUwT04tTFF1bk16c19JQkgwbHYtY2NPS3hGanJHdWc0eHVDRUZIRHhOd2RPWlIwZlgwck1tbDE5NW05MUdfYjZMdzFUWFg2MVk1M0RlZWNqc056ajRTdG43c0s4VUlJdUJlZy15c0VJbmJpSXhfMzVMWEdXWV9IRTNEeHFYMkxlbkFJSGVYVE5fekhORWFCN2FqSzUwelVNWm9XMjNLZTI0Z2x5eTNFWmlXcHA1QWNPVkppeWlEV3hHZGd4bGVvS2UxS05vOFU3djFOT3piNENLeE9NWHhnY1QwbDNB?oc=5",
@@ -41,20 +48,6 @@
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPamNSakFOZjdBWFNjVEJSaG1VeE04NE5UMk9nSmFYYTlqajA2dkdLSlBuNGpFaWFFalpjTzU4Q2s4NE9HNGpCTDFyUmZWNC03N3pWeUNFbHVNMnlOWUtNMWJpVmNIY0Vma1U5WWx3elFaNWhjaXo4czhjNkpmUEJ5X1RxeUM?oc=5",
       "published": "Sun, 19 Jul 2026 13:17:40 GMT",
       "sentiment": "neutral"
-    },
-    {
-      "source": "Google News",
-      "title": "Experts: Gold pullback strengthens bull market case - MSN",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQY3dnQ3lURHFLUlp0RERlRHpFeEpUX2tqNVR2TmtrMGd1UVl1S19SbzRFTk5wQVlYUFpXT3ZieEl3ZU5jV0Fic2g2dlNLQnJ5aGlTZlFEWWFtOFN4LUdqSEFvQmVKQVJwdm9UV0NSSk1UU1VNNDRZYzUzRjZFaXJLc0pVQU94ajFOai02b0ZvMDdZNVJ1ektLQ3hGdXFoNFRV?oc=5",
-      "published": "Sun, 19 Jul 2026 12:48:42 GMT",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Investing.com Gold",
-      "title": "Bitcoin eyes $72,000 as governance and mining concentration concerns grow",
-      "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-eyes-72000-as-governance-and-mining-concentration-concerns-grow-4799711",
-      "published": "2026-07-19 08:57:01",
-      "sentiment": "positive"
     },
     {
       "source": "Google News",
@@ -174,18 +167,25 @@
       "link": "https://www.kiplinger.com/economic-forecasts/trade-deficit?.tsrc=rss",
       "published": "Fri, 17 Jul 2026 20:37:57 +0000",
       "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "The Hidden Danger in Leveraged Gold ETFs Like UGL and GLL",
+      "link": "https://247wallst.com/investing/etf/2026/07/17/the-hidden-danger-in-leveraged-gold-etfs-like-ugl-and-gll/?.tsrc=rss",
+      "published": "Fri, 17 Jul 2026 20:05:06 +0000",
+      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 45.0,
-  "bull_count": 47,
-  "bear_count": 11,
-  "neutral_count": 22,
-  "bull_pct": 58.8,
+  "sentiment_score": 51.2,
+  "bull_count": 50,
+  "bear_count": 9,
+  "neutral_count": 21,
+  "bull_pct": 62.5,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-07-19T20:58:05Z"
+  "last_updated": "2026-07-19T22:01:13Z"
 }
