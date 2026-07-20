@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 70.1516,
-    "gold_oil": 49.0531,
-    "gold_spx": 0.5398,
-    "gold_btc": 0.0627,
-    "gold_copper": 636.8642
+    "gold_silver": 70.2829,
+    "gold_oil": 50.594,
+    "gold_spx": 0.5414,
+    "gold_btc": 0.0622,
+    "gold_copper": 637.7695
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1010,7 +1010,7 @@
       },
       {
         "t": "2026-07-20",
-        "v": 70.1516
+        "v": 70.2829
       }
     ],
     "gold_oil": [
@@ -2016,7 +2016,7 @@
       },
       {
         "t": "2026-07-20",
-        "v": 49.0651
+        "v": 50.594
       }
     ],
     "gold_spx": [
@@ -4024,7 +4024,7 @@
       },
       {
         "t": "2026-07-20",
-        "v": 0.0627
+        "v": 0.0622
       }
     ],
     "gold_copper": [
@@ -5030,7 +5030,7 @@
       },
       {
         "t": "2026-07-20",
-        "v": 636.8642
+        "v": 637.7695
       }
     ]
   },
@@ -5038,14 +5038,14 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.6502,
+      "mean": 80.6505,
       "current_percentile": 14.5
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.9483,
-      "current_percentile": 86.4
+      "mean": 31.9513,
+      "current_percentile": 88.0
     },
     "gold_spx": {
       "min": 0.3784,
@@ -5062,8 +5062,8 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 538.2884,
-      "current_percentile": 80.1
+      "mean": 538.29,
+      "current_percentile": 80.7
     }
   },
   "dxy_chart": [
@@ -6069,7 +6069,7 @@
     },
     {
       "t": "2026-07-20",
-      "v": 100.69
+      "v": 100.75
     }
   ],
   "gold_1y_chart": [
@@ -7075,7 +7075,7 @@
     },
     {
       "t": "2026-07-20",
-      "v": 4025.3
+      "v": 4037.4
     }
   ],
   "data_quality": {
@@ -7084,5 +7084,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-07-20T08:10:46Z"
+  "last_updated": "2026-07-20T11:50:19Z"
 }
