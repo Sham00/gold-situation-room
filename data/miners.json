@@ -9,11 +9,11 @@
       "ytd_pct": -13.46,
       "week4_pct": -10.08,
       "market_cap": null,
-      "pe_ratio": 13.4,
+      "pe_ratio": null,
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 84.0,
-      "vs_gold_ytd": -8.1,
+      "vs_gold_ytd": -9.48,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -526,7 +526,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 270.0,
-      "vs_gold_ytd": -8.87,
+      "vs_gold_ytd": -10.25,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -1037,12 +1037,12 @@
       "market_cap": 1158434688,
       "pe_ratio": 13.0,
       "forward_pe": 11.0,
-      "ev_ebitda": 15.2,
+      "ev_ebitda": 15.6,
       "dividend_yield": 213.0,
-      "vs_gold_ytd": 21.21,
+      "vs_gold_ytd": 19.83,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3033.2,
+      "margin": 3092.7,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -1553,12 +1553,12 @@
       "market_cap": 98737954816,
       "pe_ratio": 12.0,
       "forward_pe": 8.6,
-      "ev_ebitda": 5.6,
+      "ev_ebitda": 5.9,
       "dividend_yield": 117.0,
-      "vs_gold_ytd": -2.87,
+      "vs_gold_ytd": -4.25,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2683.2,
+      "margin": 2742.7,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -2067,14 +2067,14 @@
       "ytd_pct": -16.56,
       "week4_pct": -15.02,
       "market_cap": 70815129600,
-      "pe_ratio": 13.3,
+      "pe_ratio": 12.8,
       "forward_pe": 10.9,
-      "ev_ebitda": 6.8,
+      "ev_ebitda": 7.1,
       "dividend_yield": 132.0,
-      "vs_gold_ytd": -11.2,
+      "vs_gold_ytd": -12.58,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 2933.2,
+      "margin": 2992.7,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -2582,15 +2582,15 @@
       "change_pct": 4.79,
       "ytd_pct": -22.99,
       "week4_pct": -18.77,
-      "market_cap": 12397378560,
-      "pe_ratio": 11.8,
+      "market_cap": null,
+      "pe_ratio": 11.2,
       "forward_pe": 9.1,
-      "ev_ebitda": 8.4,
+      "ev_ebitda": 8.8,
       "dividend_yield": 57.0,
-      "vs_gold_ytd": -17.63,
+      "vs_gold_ytd": -19.01,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3033.2,
+      "margin": 3092.7,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -3099,14 +3099,14 @@
       "ytd_pct": -6.42,
       "week4_pct": -10.29,
       "market_cap": 49935593472,
-      "pe_ratio": 27.8,
+      "pe_ratio": 26.1,
       "forward_pe": 20.3,
-      "ev_ebitda": 19.7,
+      "ev_ebitda": 20.9,
       "dividend_yield": 75.0,
-      "vs_gold_ytd": -1.06,
+      "vs_gold_ytd": -2.44,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3633.2,
+      "margin": 3692.7,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -3614,15 +3614,15 @@
       "change_pct": 3.61,
       "ytd_pct": -0.19,
       "week4_pct": -5.41,
-      "market_cap": 39998238720,
-      "pe_ratio": 29.2,
+      "market_cap": null,
+      "pe_ratio": 28.2,
       "forward_pe": 22.2,
-      "ev_ebitda": 19.8,
+      "ev_ebitda": 20.5,
       "dividend_yield": 88.0,
-      "vs_gold_ytd": 5.17,
+      "vs_gold_ytd": 3.79,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3683.2,
+      "margin": 3742.7,
       "sparkline": [
         {
           "t": "2026-01-22",
@@ -4123,7 +4123,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.01817,
+  "gdx_gold_ratio": 0.017909,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-07-22",
@@ -5127,7 +5127,7 @@
     },
     {
       "t": "2026-07-21",
-      "v": 0.018169
+      "v": 0.017909
     }
   ],
   "mining_production": {
@@ -5231,5 +5231,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-07-21T23:02:39Z"
+  "last_updated": "2026-07-22T03:19:38Z"
 }
