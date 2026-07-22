@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 68.8286,
-    "gold_oil": 48.1984,
-    "gold_spx": 0.5529,
-    "gold_btc": 0.0631,
-    "gold_copper": 639.7048
+    "gold_silver": 68.837,
+    "gold_oil": 47.7504,
+    "gold_spx": 0.5519,
+    "gold_btc": 0.0628,
+    "gold_copper": 639.6942
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-07-22",
-        "v": 68.8236
+        "v": 68.8248
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-07-22",
-        "v": 48.1949
+        "v": 47.7538
       }
     ],
     "gold_spx": [
@@ -3034,7 +3034,7 @@
       },
       {
         "t": "2026-07-22",
-        "v": 0.5528
+        "v": 0.5519
       }
     ],
     "gold_btc": [
@@ -4044,7 +4044,7 @@
       },
       {
         "t": "2026-07-22",
-        "v": 0.0631
+        "v": 0.0628
       }
     ],
     "gold_copper": [
@@ -5054,7 +5054,7 @@
       },
       {
         "t": "2026-07-22",
-        "v": 639.6586
+        "v": 639.7406
       }
     ]
   },
@@ -5068,26 +5068,26 @@
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 31.9466,
-      "current_percentile": 85.3
+      "mean": 31.9458,
+      "current_percentile": 84.9
     },
     "gold_spx": {
       "min": 0.3784,
       "max": 0.7635,
       "mean": 0.4943,
-      "current_percentile": 80.1
+      "current_percentile": 79.5
     },
     "gold_btc": {
       "min": 0.0255,
       "max": 2.3416,
       "mean": 0.2343,
-      "current_percentile": 39.0
+      "current_percentile": 38.4
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
       "mean": 538.2933,
-      "current_percentile": 81.5
+      "current_percentile": 81.3
     }
   },
   "dxy_chart": [
@@ -7107,7 +7107,7 @@
     },
     {
       "t": "2026-07-22",
-      "v": 4159.7
+      "v": 4143.6
     }
   ],
   "data_quality": {
@@ -7116,5 +7116,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-07-22T16:23:58Z"
+  "last_updated": "2026-07-22T18:12:52Z"
 }
