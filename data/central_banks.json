@@ -2,7 +2,7 @@
   "reserves": [
     {
       "country": "United States",
-      "pct_of_reserves": 77.3,
+      "pct_of_reserves": 77.1,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 8133,
@@ -224,7 +224,7 @@
     },
     {
       "country": "Germany",
-      "pct_of_reserves": 77.1,
+      "pct_of_reserves": 77.0,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 3352,
@@ -446,7 +446,7 @@
     },
     {
       "country": "Italy",
-      "pct_of_reserves": 74.4,
+      "pct_of_reserves": 74.2,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2452,
@@ -668,7 +668,7 @@
     },
     {
       "country": "France",
-      "pct_of_reserves": 74.9,
+      "pct_of_reserves": 74.8,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2437,
@@ -890,7 +890,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 50.5,
+      "pct_of_reserves": 50.4,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2335,
@@ -1574,7 +1574,7 @@
     },
     {
       "country": "India",
-      "pct_of_reserves": 16.5,
+      "pct_of_reserves": 16.4,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 876,
@@ -2027,7 +2027,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 43.5,
+      "pct_of_reserves": 43.4,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 613,
@@ -2270,7 +2270,7 @@
     },
     {
       "country": "Netherlands",
-      "pct_of_reserves": 68.2,
+      "pct_of_reserves": 68.1,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 612,
@@ -3174,7 +3174,7 @@
     },
     {
       "country": "Kazakhstan",
-      "pct_of_reserves": 58.8,
+      "pct_of_reserves": 58.7,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 295,
@@ -3401,7 +3401,7 @@
     },
     {
       "country": "Singapore",
-      "pct_of_reserves": 6.9,
+      "pct_of_reserves": 6.8,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 225,
@@ -4551,13 +4551,6 @@
       "sentiment": "positive"
     },
     {
-      "title": "Gold Sinks on US-Iran Talks as Central Bank Buying and Price Forecasts Revised - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPdHdyUTZQcWwyMnJnQnRoVlZWXzBJZUU0MU1FR1V3bmx6YXVFVzlET2ZGREx6clB6MjBRbkpXdTg1ZkptSmJadHNKSzZ3aHZYc3kweGhRbURETER5T19Zd3FSQlFhNW42S0MxekZBQTRjZnQ3b0lFLVdtSDFaNDNoTlBrd09nZnlKdnc?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 27 May 2026 07:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "title": "China\u2019s Gold Holdings Rise Again as Central Bank Extends Buying Streak - The Jerusalem Post",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSnBtYmNBWkNwZnZMb3Jpd3JaMDQ1WTE1VDVNcTczaGhEcXIxUXd3U0tkR1VJY0drY1FYUUFYa3NhTUZTb2FOR05mRWlUSS11QW81VW43Z2MwcjJVS1MyQ3JHeUJPd0ZEZzdrRm1IRWpLOFBZdWQyX2dZcEpBX29RUlln?oc=5",
       "source": "Google News PBOC Gold",
@@ -4577,6 +4570,13 @@
       "source": "Google News PBOC Gold",
       "published": "Wed, 07 Jan 2026 08:00:00 GMT",
       "sentiment": "positive"
+    },
+    {
+      "title": "Central banks buy net 17 tonnes of gold in April, led by Poland and China \u2013 WGC - KITCO",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNVTBXOGFWajJjdXRITTQ2TlFkT3VZdFNuVW9jekNFby10YWtXR3hoaVJVTzZnejJDbkhXYWF1SjFuSEZpVm5xZWhmRXdFaGcya1hCdTVhZnptekx5VllTNE95WVRxWkswQWhxSFpPLU9qUl9KcXJIbDlraVRGaVpxdFJ0aEZfeHNxeVVQXy1ERmIyMmZ2QXpBcjRfNTUwT0YwNkRsWHRyUmhMbE03cmt3WDgzZw?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 03 Jun 2026 07:00:00 GMT",
+      "sentiment": "neutral"
     }
   ],
   "data_quality": {
@@ -4585,5 +4585,5 @@
     "reliability": "estimate",
     "notes": "All live sources unavailable. Data from WGC quarterly reports."
   },
-  "last_updated": "2026-07-27T08:36:26Z"
+  "last_updated": "2026-07-27T12:30:13Z"
 }
