@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4090.6,
+      "price": 4080.0,
       "start_price": 4314.4,
-      "ytd_pct": -5.19,
+      "ytd_pct": -5.43,
       "color": "#ffd700",
       "chart": [
         {
@@ -576,7 +576,7 @@
         },
         {
           "t": "2026-07-29",
-          "v": 94.81
+          "v": 94.57
         }
       ]
     },
@@ -1157,9 +1157,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 64570.16,
+      "price": 64195.11,
       "start_price": 88731.98,
-      "ytd_pct": -27.23,
+      "ytd_pct": -27.65,
       "color": "#ff8800",
       "chart": [
         {
@@ -2000,14 +2000,14 @@
         },
         {
           "t": "2026-07-29",
-          "v": 72.77
+          "v": 72.35
         }
       ]
     },
     "Silver": {
-      "price": 57.78,
+      "price": 57.47,
       "start_price": 70.56,
-      "ytd_pct": -18.11,
+      "ytd_pct": -18.54,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2580,7 +2580,7 @@
         },
         {
           "t": "2026-07-29",
-          "v": 81.89
+          "v": 81.46
         }
       ]
     },
@@ -3161,9 +3161,9 @@
       ]
     },
     "VIX": {
-      "price": 18.24,
+      "price": 18.67,
       "start_price": 14.51,
-      "ytd_pct": 25.71,
+      "ytd_pct": 28.67,
       "color": "#ff4444",
       "chart": [
         {
@@ -3740,14 +3740,14 @@
         },
         {
           "t": "2026-07-29",
-          "v": 125.71
+          "v": 128.67
         }
       ]
     },
     "DXY": {
-      "price": 101.39,
+      "price": 101.46,
       "start_price": 98.42,
-      "ytd_pct": 3.02,
+      "ytd_pct": 3.08,
       "color": "#aa44ff",
       "chart": [
         {
@@ -4316,7 +4316,7 @@
         },
         {
           "t": "2026-07-29",
-          "v": 103.02
+          "v": 103.08
         }
       ]
     }
@@ -4327,5 +4327,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-07-29T10:46:06Z"
+  "last_updated": "2026-07-29T13:05:00Z"
 }
