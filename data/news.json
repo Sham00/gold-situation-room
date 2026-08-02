@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "Google News",
+      "title": "Getchell Gold's 21% Resource Growth at Fondaway Canyon: $265 Million to Build, $1 Billion NPV - Crux Investor",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOV29HMHRKYWptY2gxNzF1UVNwT0k1OU9MVGJwd0tNeVlQVkx2MU5EQmNSdkwxRUhYY21Sb01URml5ZHZvbDl2WnU3MzA1UnEyaUMtdGVtNHotVTZ5b0k4aUhQZVFZMTVyOHVtX3ZOdFlBbFJFMnR5dzE4TGdUNllOX3lnbHRmdEdzN1NveFlhdnVpQnJ2b0s0WG9CZWhDd01SMlE5UUNxaVZMMXlPNkMzdjBFQmdrTEZIRTd4MEIwWQ?oc=5",
+      "published": "Sun, 02 Aug 2026 12:46:10 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "UBS explains what it would take for gold prices to turn higher in 2H26",
       "link": "https://finance.yahoo.com/markets/commodities/articles/ubs-explains-gold-prices-turn-062817019.html?.tsrc=rss",
@@ -57,17 +64,10 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News Gold Investment",
-      "title": "J.P. Morgan Cuts 2026 Gold Outlook, Sees Fresh Highs - Briefs Finance",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPem5iYWtUaTdNZ2FnRTYtQU1EdndMQ0pvSnAycFBNYmRyVjhHdklUaWdmc3c2R3g4ZUxUN05WRHN3VEhEaERkcWRVczJ5R0ROS0oxcUJFaXU1Mno2djlJdmxvMTNTaUVMWXpHXy11SmM3WUh0Y3dVSWxJeVZJeDZlenNtZll0LXdnVm5vRnByaUZpQQ?oc=5",
-      "published": "Sat, 01 Aug 2026 23:17:48 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Google News",
       "title": "Gold Price Forecast: XAU/USD Poised for August Breakout After Six Weeks of Consolidation - FOREX.com",
-      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOMUlMTzBHZllkcnZqTUlhVHh1LUV1eER6aEVRVmQwRllHZ3QyWE1HTF9xSVlyQXAxUnVrTC05OEY0YTJSNmZIQUU3eHZ4aUJNMUlMLUZnQVRUZDRINy1tb0NiYm9XUVRIMHZEak1oUnBYaHlKbTl2XzlMd2ZjUXdNcENEVmRnWnRZZjN0QmVqVzdSMVMyZVZwa2J0XzVTdzM1MFlXc2hKazJOYS1BM3pFYnhpa3dDc0VMclljMW80cnNUZUZReWJKQ1Bad19QMWZob0VvVktPeGhpemM?oc=5",
-      "published": "Sat, 01 Aug 2026 17:21:08 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOczN5TEJmOE11aUtDN2s5MU5fazk0VDlZZkd4dmtxd2hyUUFVWkowbEQwVUFRSzlGWVFQYnA0VkJwbXlGeG5JWV9taXlHTGtieS11cERaSEdJMHlPbXF5MXd4bHpsemo1aDcxejBrRDlaTXg2U19QMk5VTWxIdHkxOTF5Y2ZxLU83M01hbVdxeDA1VFk2VFp0YzBlcEt0ZU16MjZremtaTE1YazlTUXNiZnRTd3dodFNXanc4QTllQzNVUUZGWXNHbThlQ0FTT2xDU3ZfNWdGakFxV0E?oc=5",
+      "published": "Sat, 01 Aug 2026 17:42:31 GMT",
       "sentiment": "positive"
     },
     {
@@ -148,20 +148,6 @@
       "sentiment": "negative"
     },
     {
-      "source": "Yahoo Finance Gold",
-      "title": "TSX Closer: Index Ends Lower as Telecom Weakness Offsets Gains in Battery Metals, Energy",
-      "link": "https://finance.yahoo.com/markets/world-indices/articles/tsx-closer-index-ends-lower-202716291.html?.tsrc=rss",
-      "published": "Fri, 31 Jul 2026 20:27:16 +0000",
-      "sentiment": "negative"
-    },
-    {
-      "source": "Yahoo Finance Gold",
-      "title": "Hawkish Fed Hold Caps Gold's Rally as War Risk Supports $4,050",
-      "link": "https://finance.yahoo.com/markets/commodities/articles/hawkish-fed-hold-caps-golds-195216231.html?.tsrc=rss",
-      "published": "Fri, 31 Jul 2026 19:52:16 +0000",
-      "sentiment": "positive"
-    },
-    {
       "source": "FXStreet",
       "title": "Gold slides as US yields surge, keeping $4,100 out of reach",
       "link": "https://www.fxstreet.com/news/gold-slides-as-us-yields-surge-keeping-4-100-out-of-reach-202607311944",
@@ -174,18 +160,32 @@
       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZ1o0d0t1dG5TVUxJRmtheW5SVkN0V3UxWWJiVGtJU1lUREtqNjhfOFZEbm9Fd3VKbGRVMXF5MWtodTRMTHgtd05NUG5RWmU0YnBxLUJmR3RzRUJvbVdMQ0xiSFVibnEyZU93eExoMEFTSUNSSGg3eTNJb1dLS3M0Vmgwd0tkTHhnRHluTGxLTVZOTDZ2MV9yeFpMRE9uY2JPT3BrRTlSR1JfM3VDUnNzYXpZYkpWcE5sQ2lkZg?oc=5",
       "published": "Fri, 31 Jul 2026 18:57:00 GMT",
       "sentiment": "positive"
+    },
+    {
+      "source": "FXStreet",
+      "title": "Silver Price Forecast: XAG/USD consolidates above $55 as downside momentum eases",
+      "link": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-consolidates-above-55-as-downside-momentum-eases-202607311740",
+      "published": "Fri, 31 Jul 2026 17:40:43 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Google News Gold Investment",
+      "title": "Gold Drops Out of Crowded Trades as Central Banks Extend Buying - Crux Investor",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNMldFODJjU0FIXzE1UElNUmlXU1dhTWZVYXRoR2pZZk45Qk5qMzI2OFlrc3FMeFByTnNQNXQ3aWo2MDZfakxIdzZnODMyTVFzYlI4aGNwZjZlYk1MV2hJb0pxZkRqMzBqVXZmcEZpQ3piV3RxSGRHU1Y0SVU0NUtaaEtzTEwtdm9tdWNQS0cxWkdsV0NfaExpQ1BrZWNkc3c?oc=5",
+      "published": "Fri, 31 Jul 2026 16:59:52 GMT",
+      "sentiment": "negative"
     }
   ],
-  "sentiment_score": 39.2,
-  "bull_count": 43,
-  "bear_count": 12,
-  "neutral_count": 24,
-  "bull_pct": 54.4,
+  "sentiment_score": 33.8,
+  "bull_count": 39,
+  "bear_count": 13,
+  "neutral_count": 25,
+  "bull_pct": 50.6,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-02T12:07:27Z"
+  "last_updated": "2026-08-02T14:39:40Z"
 }
