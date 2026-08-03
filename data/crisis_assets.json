@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4111.6,
+      "price": 4102.9,
       "start_price": 4314.4,
-      "ytd_pct": -4.7,
+      "ytd_pct": -4.9,
       "color": "#ffd700",
       "chart": [
         {
@@ -588,7 +588,7 @@
         },
         {
           "t": "2026-08-03",
-          "v": 95.3
+          "v": 95.1
         }
       ]
     },
@@ -1181,9 +1181,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 62608.78,
+      "price": 62654.92,
       "start_price": 88731.98,
-      "ytd_pct": -29.44,
+      "ytd_pct": -29.39,
       "color": "#ff8800",
       "chart": [
         {
@@ -2039,15 +2039,19 @@
           "v": 70.73
         },
         {
+          "t": "2026-08-02",
+          "v": 71.54
+        },
+        {
           "t": "2026-08-03",
-          "v": 70.56
+          "v": 70.61
         }
       ]
     },
     "Silver": {
-      "price": 58.13,
+      "price": 58.01,
       "start_price": 70.56,
-      "ytd_pct": -17.6,
+      "ytd_pct": -17.78,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2632,7 +2636,7 @@
         },
         {
           "t": "2026-08-03",
-          "v": 82.4
+          "v": 82.22
         }
       ]
     },
@@ -3225,9 +3229,9 @@
       ]
     },
     "VIX": {
-      "price": 16.12,
+      "price": 15.97,
       "start_price": 14.51,
-      "ytd_pct": 11.1,
+      "ytd_pct": 10.06,
       "color": "#ff4444",
       "chart": [
         {
@@ -3816,14 +3820,14 @@
         },
         {
           "t": "2026-08-03",
-          "v": 111.1
+          "v": 110.06
         }
       ]
     },
     "DXY": {
-      "price": 99.78,
+      "price": 99.84,
       "start_price": 98.42,
-      "ytd_pct": 1.38,
+      "ytd_pct": 1.44,
       "color": "#aa44ff",
       "chart": [
         {
@@ -4408,7 +4412,7 @@
         },
         {
           "t": "2026-08-03",
-          "v": 101.38
+          "v": 101.44
         }
       ]
     }
@@ -4419,5 +4423,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-08-03T07:35:19Z"
+  "last_updated": "2026-08-03T11:34:00Z"
 }
