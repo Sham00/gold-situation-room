@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 375.26,
-      "change": 3.39,
-      "change_pct": 0.91,
-      "tonnes_est": 731.8,
+      "price": 374.45,
+      "change": 2.58,
+      "change_pct": 0.69,
+      "tonnes_est": 732.9,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.7,
-      "ytd_pct": -5.78,
-      "week7_pct": 0.9,
-      "week4_pct": -1.8,
+      "daily_change_est": 2.0,
+      "ytd_pct": -5.98,
+      "week7_pct": 0.69,
+      "week4_pct": -2.01,
       "chart_1y": [
         {
           "t": "2025-08-04",
@@ -1018,21 +1018,21 @@
         },
         {
           "t": "2026-08-04",
-          "v": 375.26
+          "v": 374.45
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 76.9,
-      "change": 0.73,
-      "change_pct": 0.96,
-      "tonnes_est": 558.9,
+      "price": 76.74,
+      "change": 0.57,
+      "change_pct": 0.75,
+      "tonnes_est": 559.8,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.2,
-      "ytd_pct": -5.71,
-      "week7_pct": 0.88,
-      "week4_pct": -1.79,
+      "daily_change_est": 1.7,
+      "ytd_pct": -5.91,
+      "week7_pct": 0.67,
+      "week4_pct": -1.99,
       "chart_1y": [
         {
           "t": "2025-08-04",
@@ -2040,21 +2040,21 @@
         },
         {
           "t": "2026-08-04",
-          "v": 76.9
+          "v": 76.74
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 30.98,
-      "change": 0.31,
-      "change_pct": 1.01,
-      "tonnes_est": 110.6,
+      "price": 30.89,
+      "change": 0.22,
+      "change_pct": 0.73,
+      "tonnes_est": 110.7,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.4,
-      "ytd_pct": -6.49,
-      "week7_pct": 1.11,
-      "week4_pct": -1.37,
+      "daily_change_est": 0.3,
+      "ytd_pct": -6.76,
+      "week7_pct": 0.82,
+      "week4_pct": -1.66,
       "chart_1y": [
         {
           "t": "2025-08-04",
@@ -3062,21 +3062,21 @@
         },
         {
           "t": "2026-08-04",
-          "v": 30.98
+          "v": 30.89
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 40.31,
-      "change": 0.34,
-      "change_pct": 0.85,
+      "price": 40.18,
+      "change": 0.21,
+      "change_pct": 0.52,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.1,
-      "ytd_pct": -5.53,
-      "week7_pct": 0.98,
-      "week4_pct": -1.68,
+      "daily_change_est": 0.0,
+      "ytd_pct": -5.84,
+      "week7_pct": 0.65,
+      "week4_pct": -2.0,
       "chart_1y": [
         {
           "t": "2025-08-04",
@@ -4084,21 +4084,21 @@
         },
         {
           "t": "2026-08-04",
-          "v": 40.31
+          "v": 40.18
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 38.95,
-      "change": 0.35,
-      "change_pct": 0.91,
+      "price": 38.87,
+      "change": 0.27,
+      "change_pct": 0.69,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.2,
-      "ytd_pct": -5.64,
-      "week7_pct": 0.93,
-      "week4_pct": -1.77,
+      "daily_change_est": 0.1,
+      "ytd_pct": -5.84,
+      "week7_pct": 0.73,
+      "week4_pct": -1.97,
       "chart_1y": [
         {
           "t": "2025-08-04",
@@ -5106,17 +5106,17 @@
         },
         {
           "t": "2026-08-04",
-          "v": 38.95
+          "v": 38.87
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1461.3,
+  "total_holdings_tonnes_est": 1463.4,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-08-04T17:54:17Z"
+  "last_updated": "2026-08-04T19:44:08Z"
 }
