@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4212.0
+      "price": 4225.0
     }
   ],
   "decade_returns": [
@@ -1263,7 +1263,7 @@
     },
     {
       "t": "2026-08-01",
-      "v": 4212.6
+      "v": 4225.0
     }
   ],
   "real_gold_chart": [
@@ -2754,8 +2754,8 @@
     },
     {
       "t": "2026-08-01",
-      "v": 4212.6,
-      "nominal": 4212.6
+      "v": 4225.0,
+      "nominal": 4225.0
     }
   ],
   "seasonal_monthly": [
@@ -2803,7 +2803,7 @@
     },
     {
       "month": "Aug",
-      "avg_return": 1.88,
+      "avg_return": 1.89,
       "positive_pct": 70.0,
       "n": 23
     },
@@ -2983,5 +2983,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-08-05T05:52:29Z"
+  "last_updated": "2026-08-05T08:44:46Z"
 }
