@@ -134,13 +134,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Google News",
-      "title": "Gold price today: August 7, 2026 - thestreet.com",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBibHJSSGo3Z2VfYmR0R2VYYmtXOXk3T2NfQnk1WUFWc0lkeWNSTWtnSXF6clFiWGNYTm95R0x2Uk9weFZuVnVhMmJwcTVxTEF0N0RHTGFwUFMwWDdSV1VLNlRBYWtRU0g4ZFByaUxOd1V1emJacGVISjBMeGJsdw?oc=5",
-      "published": "Fri, 07 Aug 2026 21:19:02 GMT",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Mogotes Metals Provides Update on Board of Directors",
       "link": "https://finance.yahoo.com/markets/stocks/articles/mogotes-metals-provides-board-directors-211500704.html?.tsrc=rss",
@@ -174,12 +167,19 @@
       "link": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-clears-50-day-sma-eyes-65-202608071904",
       "published": "Fri, 07 Aug 2026 19:04:38 GMT",
       "sentiment": "positive"
+    },
+    {
+      "source": "Google News",
+      "title": "Gold, silver rally as weak payrolls cut Fed hike pressure - Kitco PM Report - KITCO",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPR29NSHltby1Fc0E0bmk5WkFHTnIyXzFrbjczejFyRE50ckx2NzJJWEVUVzlwQ3owQXlIeC05RWM4U3A2dWtWc0FIREhDb1dLQnFxZWNwWm8xOV9FUXdvRVI3bjMxVTFFNmZkWUNpVDY2Y2lrbldpWm8xcFNoTWdtYTFCcFY4RDdMZzlQMDEtUWN2bnkxX0ZsQklmNEJVeDVkT1E0X0xjSThzM2hRV01BMmg5TDlYUQ?oc=5",
+      "published": "Fri, 07 Aug 2026 18:20:00 GMT",
+      "sentiment": "negative"
     }
   ],
-  "sentiment_score": 49.4,
+  "sentiment_score": 48.1,
   "bull_count": 45,
-  "bear_count": 7,
-  "neutral_count": 25,
+  "bear_count": 8,
+  "neutral_count": 24,
   "bull_pct": 58.4,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
@@ -187,5 +187,5 @@
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-08T13:52:27Z"
+  "last_updated": "2026-08-08T14:37:15Z"
 }
