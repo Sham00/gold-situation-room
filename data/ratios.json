@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 67.5258,
-    "gold_oil": 54.0535,
-    "gold_spx": 0.5738,
-    "gold_btc": 0.0696,
-    "gold_copper": 670.4243
+    "gold_silver": 67.5578,
+    "gold_oil": 54.2248,
+    "gold_spx": 0.5743,
+    "gold_btc": 0.0697,
+    "gold_copper": 671.4017
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1010,7 +1010,7 @@
       },
       {
         "t": "2026-08-10",
-        "v": 67.5258
+        "v": 67.5578
       }
     ],
     "gold_oil": [
@@ -2016,7 +2016,7 @@
       },
       {
         "t": "2026-08-10",
-        "v": 54.0535
+        "v": 54.2248
       }
     ],
     "gold_spx": [
@@ -3022,7 +3022,7 @@
       },
       {
         "t": "2026-08-10",
-        "v": 0.5738
+        "v": 0.5743
       }
     ],
     "gold_btc": [
@@ -4028,7 +4028,7 @@
       },
       {
         "t": "2026-08-10",
-        "v": 0.0696
+        "v": 0.0697
       }
     ],
     "gold_copper": [
@@ -5034,7 +5034,7 @@
       },
       {
         "t": "2026-08-10",
-        "v": 670.4242
+        "v": 671.4017
       }
     ]
   },
@@ -5042,20 +5042,20 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.6584,
+      "mean": 80.6585,
       "current_percentile": 7.5
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 32.0622,
+      "mean": 32.0625,
       "current_percentile": 91.2
     },
     "gold_spx": {
       "min": 0.3784,
       "max": 0.7635,
       "mean": 0.494,
-      "current_percentile": 85.9
+      "current_percentile": 86.4
     },
     "gold_btc": {
       "min": 0.0255,
@@ -5066,7 +5066,7 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 538.5679,
+      "mean": 538.5698,
       "current_percentile": 86.2
     }
   },
@@ -7079,7 +7079,7 @@
     },
     {
       "t": "2026-08-10",
-      "v": 4448.6
+      "v": 4452.4
     }
   ],
   "data_quality": {
@@ -7088,5 +7088,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-08-10T21:48:41Z"
+  "last_updated": "2026-08-10T22:43:47Z"
 }
