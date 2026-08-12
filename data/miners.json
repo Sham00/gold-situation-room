@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 85.0,
-      "vs_gold_ytd": 1.7,
+      "vs_gold_ytd": 1.81,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -526,7 +526,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 276.0,
-      "vs_gold_ytd": 1.35,
+      "vs_gold_ytd": 1.46,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -1039,10 +1039,10 @@
       "forward_pe": 12.0,
       "ev_ebitda": 16.2,
       "dividend_yield": 184.0,
-      "vs_gold_ytd": 22.58,
+      "vs_gold_ytd": 22.69,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3412.3,
+      "margin": 3407.3,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -1555,10 +1555,10 @@
       "forward_pe": 11.2,
       "ev_ebitda": 7.0,
       "dividend_yield": 89.0,
-      "vs_gold_ytd": 12.88,
+      "vs_gold_ytd": 12.99,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 3062.3,
+      "margin": 3057.3,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -2067,14 +2067,14 @@
       "ytd_pct": 7.08,
       "week4_pct": 26.65,
       "market_cap": 92031811584,
-      "pe_ratio": 15.6,
+      "pe_ratio": 15.5,
       "forward_pe": 14.5,
       "ev_ebitda": 8.8,
       "dividend_yield": 100.0,
-      "vs_gold_ytd": 3.66,
+      "vs_gold_ytd": 3.77,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3312.3,
+      "margin": 3307.3,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -2587,10 +2587,10 @@
       "forward_pe": 10.9,
       "ev_ebitda": 8.7,
       "dividend_yield": 48.0,
-      "vs_gold_ytd": -16.16,
+      "vs_gold_ytd": -16.05,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3412.3,
+      "margin": 3407.3,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -3103,10 +3103,10 @@
       "forward_pe": 26.4,
       "ev_ebitda": 23.6,
       "dividend_yield": 58.0,
-      "vs_gold_ytd": 10.96,
+      "vs_gold_ytd": 11.07,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 4012.3,
+      "margin": 4007.3,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -3613,16 +3613,16 @@
       "change": -0.16,
       "change_pct": -0.07,
       "ytd_pct": 15.85,
-      "week4_pct": 20.08,
-      "market_cap": 46428041216,
+      "week4_pct": 15.69,
+      "market_cap": null,
       "pe_ratio": 33.9,
       "forward_pe": 26.1,
       "ev_ebitda": 23.9,
       "dividend_yield": 73.0,
-      "vs_gold_ytd": 12.43,
+      "vs_gold_ytd": 12.54,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 4062.3,
+      "margin": 4057.3,
       "sparkline": [
         {
           "t": "2026-02-12",
@@ -4057,10 +4057,6 @@
           "v": 200.17
         },
         {
-          "t": "2026-07-21",
-          "v": 207.4
-        },
-        {
           "t": "2026-07-22",
           "v": 214.11
         },
@@ -4087,10 +4083,6 @@
         {
           "t": "2026-07-30",
           "v": 221.36
-        },
-        {
-          "t": "2026-07-31",
-          "v": 212.92
         },
         {
           "t": "2026-08-03",
@@ -4123,7 +4115,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.020196,
+  "gdx_gold_ratio": 0.020219,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-08-12",
@@ -5127,7 +5119,7 @@
     },
     {
       "t": "2026-08-11",
-      "v": 0.020198
+      "v": 0.020561
     }
   ],
   "mining_production": {
@@ -5231,5 +5223,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-08-12T02:24:56Z"
+  "last_updated": "2026-08-12T04:52:08Z"
 }
