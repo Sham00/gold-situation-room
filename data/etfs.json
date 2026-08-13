@@ -5,7 +5,7 @@
       "price": 398.96,
       "change": -5.7,
       "change_pct": -1.41,
-      "tonnes_est": 733.2,
+      "tonnes_est": 732.9,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -4.1,
       "ytd_pct": 0.17,
@@ -1023,7 +1023,7 @@
       "price": 81.78,
       "change": -1.17,
       "change_pct": -1.41,
-      "tonnes_est": 560.2,
+      "tonnes_est": 559.9,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -3.2,
       "ytd_pct": 0.27,
@@ -2041,9 +2041,9 @@
       "price": 33.0,
       "change": -0.49,
       "change_pct": -1.46,
-      "tonnes_est": 111.1,
+      "tonnes_est": 111.0,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": -0.7,
+      "daily_change_est": -0.6,
       "ytd_pct": -0.39,
       "week7_pct": 6.9,
       "week4_pct": 7.95,
@@ -3063,7 +3063,7 @@
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": -0.1,
       "ytd_pct": 0.3,
-      "week7_pct": 6.6,
+      "week7_pct": 7.27,
       "week4_pct": 7.27,
       "chart_1y": [
         {
@@ -4031,6 +4031,10 @@
           "v": 40.46
         },
         {
+          "t": "2026-07-31",
+          "v": 39.85
+        },
+        {
           "t": "2026-08-03",
           "v": 39.9
         },
@@ -4055,10 +4059,6 @@
           "v": 43.18
         },
         {
-          "t": "2026-08-11",
-          "v": 43.04
-        },
-        {
           "t": "2026-08-12",
           "v": 43.46
         },
@@ -4078,7 +4078,7 @@
       "daily_change_est": -0.2,
       "ytd_pct": 0.29,
       "week7_pct": 6.62,
-      "week4_pct": 8.66,
+      "week4_pct": 7.17,
       "chart_1y": [
         {
           "t": "2025-08-14",
@@ -5013,6 +5013,10 @@
           "v": 38.16
         },
         {
+          "t": "2026-07-21",
+          "v": 38.91
+        },
+        {
           "t": "2026-07-22",
           "v": 39.34
         },
@@ -5039,6 +5043,10 @@
         {
           "t": "2026-07-30",
           "v": 39.14
+        },
+        {
+          "t": "2026-07-31",
+          "v": 38.57
         },
         {
           "t": "2026-08-03",
@@ -5079,12 +5087,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1464.5,
+  "total_holdings_tonnes_est": 1463.8,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-08-13T20:50:20Z"
+  "last_updated": "2026-08-13T21:52:25Z"
 }
