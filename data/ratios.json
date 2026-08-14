@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 68.3556,
-    "gold_oil": 53.7969,
-    "gold_spx": 0.5689,
+    "gold_silver": 68.3687,
+    "gold_oil": 53.7864,
+    "gold_spx": 0.5692,
     "gold_btc": 0.0705,
-    "gold_copper": 670.517
+    "gold_copper": 670.8544
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-08-14",
-        "v": 68.3556
+        "v": 68.3687
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-08-14",
-        "v": 53.7969
+        "v": 53.7864
       }
     ],
     "gold_spx": [
@@ -3030,7 +3030,7 @@
       },
       {
         "t": "2026-08-14",
-        "v": 0.5689
+        "v": 0.5692
       }
     ],
     "gold_btc": [
@@ -5050,7 +5050,7 @@
       },
       {
         "t": "2026-08-14",
-        "v": 670.517
+        "v": 670.8544
       }
     ]
   },
@@ -5059,31 +5059,31 @@
       "min": 49.3059,
       "max": 120.1717,
       "mean": 80.6844,
-      "current_percentile": 9.2
+      "current_percentile": 9.4
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 32.0656,
+      "mean": 32.0655,
       "current_percentile": 90.8
     },
     "gold_spx": {
       "min": 0.3784,
       "max": 0.7635,
       "mean": 0.4938,
-      "current_percentile": 85.4
+      "current_percentile": 85.2
     },
     "gold_btc": {
       "min": 0.0255,
       "max": 2.3058,
       "mean": 0.2184,
-      "current_percentile": 45.2
+      "current_percentile": 45.0
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 538.4043,
-      "current_percentile": 86.2
+      "mean": 538.405,
+      "current_percentile": 86.0
     }
   },
   "dxy_chart": [
@@ -7103,7 +7103,7 @@
     },
     {
       "t": "2026-08-14",
-      "v": 4429.1
+      "v": 4432.0
     }
   ],
   "data_quality": {
@@ -7112,5 +7112,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-08-14T20:35:45Z"
+  "last_updated": "2026-08-14T21:29:33Z"
 }
