@@ -1041,7 +1041,7 @@
       "change": -0.45,
       "change_pct": -1.01,
       "ytd_pct": 27.62,
-      "week4_pct": 13.75,
+      "week4_pct": 11.22,
       "market_cap": 1276192512,
       "pe_ratio": 14.3,
       "forward_pe": 12.1,
@@ -1535,10 +1535,6 @@
         {
           "t": "2026-08-10",
           "v": 43.47
-        },
-        {
-          "t": "2026-08-11",
-          "v": 43.44
         },
         {
           "t": "2026-08-12",
@@ -3561,6 +3557,10 @@
           "v": 109.96
         },
         {
+          "t": "2026-07-22",
+          "v": 111.36
+        },
+        {
           "t": "2026-07-23",
           "v": 110.03
         },
@@ -3583,6 +3583,10 @@
         {
           "t": "2026-07-30",
           "v": 113.38
+        },
+        {
+          "t": "2026-07-31",
+          "v": 109.03
         },
         {
           "t": "2026-08-03",
@@ -3634,7 +3638,7 @@
       "change_pct": 1.17,
       "ytd_pct": 12.71,
       "week4_pct": 18.2,
-      "market_cap": 45172977664,
+      "market_cap": 45168697344,
       "pe_ratio": 30.6,
       "forward_pe": 24.7,
       "ev_ebitda": 21.2,
@@ -5251,5 +5255,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-08-16T16:32:08Z"
+  "last_updated": "2026-08-16T17:24:40Z"
 }
