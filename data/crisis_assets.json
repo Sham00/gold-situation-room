@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4431.9,
+      "price": 4435.3,
       "start_price": 4314.4,
-      "ytd_pct": 2.72,
+      "ytd_pct": 2.8,
       "color": "#ffd700",
       "chart": [
         {
@@ -628,7 +628,7 @@
         },
         {
           "t": "2026-08-16",
-          "v": 102.72
+          "v": 102.8
         }
       ]
     },
@@ -1261,7 +1261,7 @@
       ]
     },
     "Bitcoin": {
-      "price": 62778.21,
+      "price": 62781.16,
       "start_price": 88731.98,
       "ytd_pct": -29.25,
       "color": "#ff8800",
@@ -2181,9 +2181,9 @@
       ]
     },
     "Silver": {
-      "price": 64.97,
+      "price": 65.24,
       "start_price": 70.56,
-      "ytd_pct": -7.91,
+      "ytd_pct": -7.53,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -2808,7 +2808,7 @@
         },
         {
           "t": "2026-08-16",
-          "v": 92.09
+          "v": 92.47
         }
       ]
     },
@@ -3995,6 +3995,14 @@
           "v": 128.53
         },
         {
+          "t": "2026-07-21",
+          "v": 117.51
+        },
+        {
+          "t": "2026-07-22",
+          "v": 114.68
+        },
+        {
           "t": "2026-07-23",
           "v": 128.88
         },
@@ -4017,6 +4025,10 @@
         {
           "t": "2026-07-30",
           "v": 117.78
+        },
+        {
+          "t": "2026-07-31",
+          "v": 110.2
         },
         {
           "t": "2026-08-03",
@@ -4061,9 +4073,9 @@
       ]
     },
     "DXY": {
-      "price": 99.66,
+      "price": 99.59,
       "start_price": 98.42,
-      "ytd_pct": 1.26,
+      "ytd_pct": 1.19,
       "color": "#aa44ff",
       "chart": [
         {
@@ -4688,7 +4700,7 @@
         },
         {
           "t": "2026-08-16",
-          "v": 101.26
+          "v": 101.19
         }
       ]
     }
@@ -4699,5 +4711,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-08-16T22:27:40Z"
+  "last_updated": "2026-08-16T23:26:02Z"
 }
