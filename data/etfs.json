@@ -4082,7 +4082,7 @@
       "daily_change_est": 0.1,
       "ytd_pct": 0.94,
       "week7_pct": 3.04,
-      "week4_pct": 10.01,
+      "week4_pct": 7.93,
       "chart_1y": [
         {
           "t": "2025-08-15",
@@ -5013,10 +5013,6 @@
           "v": 38.16
         },
         {
-          "t": "2026-07-21",
-          "v": 38.91
-        },
-        {
           "t": "2026-07-22",
           "v": 39.34
         },
@@ -5043,10 +5039,6 @@
         {
           "t": "2026-07-30",
           "v": 39.14
-        },
-        {
-          "t": "2026-07-31",
-          "v": 38.57
         },
         {
           "t": "2026-08-03",
@@ -5098,5 +5090,5 @@
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-08-16T08:35:25Z"
+  "last_updated": "2026-08-16T09:32:27Z"
 }
