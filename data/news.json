@@ -29,13 +29,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Google News",
-      "title": "Gold weekly outlook: Elevated yields and oil price pose risk to XAU - FOREX.com",
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVUVmZWhNaWpoVWZPRXhjRmZaZ3YwS2tUR1BRNHhnWkxObWJSQ0V3UFViXzVrZncyWTA5OF83dDRzcVl0Sjd4VmxuMW9LTTJyTHlCR1B1a2JoS1U3OF9OODhtZmFPMHVia1I3UkNHUFhGVFJTdzF5Vk9qTjVSV3R6OVhWYWhpRU9vS1V5UHotczE2ZHFUOWxIWU5TUEU5Um53QUtGOGd1bmlCV0RBWVBQa3Fqcw?oc=5",
-      "published": "Sat, 15 Aug 2026 19:14:42 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Gold's wild 2026 ride might not be over yet",
       "link": "https://www.thestreet.com/investing/golds-wild-2026-ride-might-not-be-over-yet?.tsrc=rss",
@@ -78,6 +71,13 @@
       "sentiment": "positive"
     },
     {
+      "source": "Reuters Gold",
+      "title": "Oil prices rally, US data dents chances of Fed rate hike - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE14MHZSdkQ3TzZONVh4dW9nU1B5RlNOZHJSdzN1eVlQV3Eycm14NGZhb2F0QWdneVhPR2VqLWVVR1Bkb3lqTldGa3JVTXR0eGdFVi12UTJVTi1pTWVNVWhHX2tCUUJ1b21hT0dkampGU0Ric1d2WHAyclRfSQ?oc=5",
+      "published": "Fri, 14 Aug 2026 23:10:58 GMT",
+      "sentiment": "positive"
+    },
+    {
       "source": "FXStreet",
       "title": "Silver Price Forecast: XAG stalls as yields cap recovery",
       "link": "https://www.fxstreet.com/news/silver-price-forecast-xag-stalls-as-yields-cap-recovery-202608142259",
@@ -90,13 +90,6 @@
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONHEyWTNoMHFOdFh0Z0I4d3VERXNET1lTc3pHQXN5elZMVVQ3LUJ1MnlLNV9RLU84VXN0Q0VwdnlTaE9uVUQtSkNqQnhoNVNWc0dnLVlpTlBsREVHaGhudDk5eGdHcVJNZDlyNkN1NXhLMjdkcUlYY0hJMEltczF4Rlc3MXl3amM1V1VPSDRBbWdWdFYwMGhHUWJIdmxuOFFUaGNseC1vdDlCa2c?oc=5",
       "published": "Fri, 14 Aug 2026 22:53:00 GMT",
       "sentiment": "positive"
-    },
-    {
-      "source": "Yahoo Finance Gold",
-      "title": "Balkan Capital Assets Expands Investment Activity in Mining and Natural Resources",
-      "link": "https://finance.yahoo.com/markets/commodities/articles/balkan-capital-assets-expands-investment-211400876.html?.tsrc=rss",
-      "published": "Fri, 14 Aug 2026 21:14:00 +0000",
-      "sentiment": "neutral"
     },
     {
       "source": "Google News",
@@ -174,18 +167,25 @@
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOU0diX0NXMU9LM2thenJRM2g2VTN6OF91b2FieHhmWTVpaUZoaWplalc3RmtfR2tjeExNWmVwdGlrNGJ6VDFhYVBLS2NmRGJwSVVLajIxQlRoTG5qSUphMm45UDZ2d0FGSHdfdUVQNEZWNGtSX2NFWXJnUm5uN3dVZjhscWlNRGJrM3dQd1ZXT1VSQTBfQU9YMDA2OWJCUlhFQmtESUFjOG93SFE?oc=5",
       "published": "Fri, 14 Aug 2026 10:16:49 GMT",
       "sentiment": "positive"
+    },
+    {
+      "source": "Google News Gold Investment",
+      "title": "China gold market update: Strong official sector buying in July | Post by Ray Jia | Insights - World Gold Council",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOU0diX0NXMU9LM2thenJRM2g2VTN6OF91b2FieHhmWTVpaUZoaWplalc3RmtfR2tjeExNWmVwdGlrNGJ6VDFhYVBLS2NmRGJwSVVLajIxQlRoTG5qSUphMm45UDZ2d0FGSHdfdUVQNEZWNGtSX2NFWXJnUm5uN3dVZjhscWlNRGJrM3dQd1ZXT1VSQTBfQU9YMDA2OWJCUlhFQmtESUFjOG93SFE?oc=5",
+      "published": "Fri, 14 Aug 2026 10:16:49 GMT",
+      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 39.1,
-  "bull_count": 37,
-  "bear_count": 10,
-  "neutral_count": 22,
-  "bull_pct": 53.6,
+  "sentiment_score": 42.6,
+  "bull_count": 38,
+  "bear_count": 9,
+  "neutral_count": 21,
+  "bull_pct": 55.9,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-16T09:32:45Z"
+  "last_updated": "2026-08-16T10:28:55Z"
 }
