@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 405.79,
-      "change": 3.95,
-      "change_pct": 0.98,
-      "tonnes_est": 732.7,
+      "price": 404.92,
+      "change": 3.08,
+      "change_pct": 0.77,
+      "tonnes_est": 732.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.9,
-      "ytd_pct": 1.89,
-      "week7_pct": 4.14,
-      "week4_pct": 10.15,
+      "daily_change_est": 2.2,
+      "ytd_pct": 1.67,
+      "week7_pct": 3.91,
+      "week4_pct": 9.91,
       "chart_1y": [
         {
           "t": "2025-08-18",
@@ -1014,21 +1014,21 @@
         },
         {
           "t": "2026-08-17",
-          "v": 405.79
+          "v": 404.92
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 83.18,
-      "change": 0.79,
-      "change_pct": 0.95,
-      "tonnes_est": 559.7,
+      "price": 82.99,
+      "change": 0.6,
+      "change_pct": 0.73,
+      "tonnes_est": 559.4,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.1,
-      "ytd_pct": 1.99,
-      "week7_pct": 4.14,
-      "week4_pct": 10.17,
+      "daily_change_est": 1.6,
+      "ytd_pct": 1.75,
+      "week7_pct": 3.91,
+      "week4_pct": 9.92,
       "chart_1y": [
         {
           "t": "2025-08-18",
@@ -2032,21 +2032,21 @@
         },
         {
           "t": "2026-08-17",
-          "v": 83.18
+          "v": 82.99
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 33.61,
-      "change": 0.36,
-      "change_pct": 1.08,
+      "price": 33.55,
+      "change": 0.3,
+      "change_pct": 0.9,
       "tonnes_est": 111.1,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.5,
-      "ytd_pct": 1.45,
-      "week7_pct": 4.38,
-      "week4_pct": 10.89,
+      "daily_change_est": 0.4,
+      "ytd_pct": 1.27,
+      "week7_pct": 4.19,
+      "week4_pct": 10.69,
       "chart_1y": [
         {
           "t": "2025-08-18",
@@ -3050,21 +3050,21 @@
         },
         {
           "t": "2026-08-17",
-          "v": 33.61
+          "v": 33.55
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 43.54,
-      "change": 0.45,
-      "change_pct": 1.04,
+      "price": 43.46,
+      "change": 0.37,
+      "change_pct": 0.86,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.1,
-      "ytd_pct": 2.04,
-      "week7_pct": 4.14,
-      "week4_pct": 11.16,
+      "ytd_pct": 1.85,
+      "week7_pct": 3.95,
+      "week4_pct": 10.95,
       "chart_1y": [
         {
           "t": "2025-08-18",
@@ -4064,21 +4064,21 @@
         },
         {
           "t": "2026-08-17",
-          "v": 43.54
+          "v": 43.46
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 42.12,
-      "change": 0.4,
-      "change_pct": 0.97,
+      "price": 42.03,
+      "change": 0.31,
+      "change_pct": 0.75,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.2,
-      "ytd_pct": 2.03,
-      "week7_pct": 4.13,
-      "week4_pct": 10.2,
+      "daily_change_est": 0.1,
+      "ytd_pct": 1.82,
+      "week7_pct": 3.91,
+      "week4_pct": 9.97,
       "chart_1y": [
         {
           "t": "2025-08-18",
@@ -5082,17 +5082,17 @@
         },
         {
           "t": "2026-08-17",
-          "v": 42.12
+          "v": 42.03
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1463.5,
+  "total_holdings_tonnes_est": 1462.8,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-08-17T16:33:57Z"
+  "last_updated": "2026-08-17T17:31:26Z"
 }
