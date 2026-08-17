@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 67.7654,
-    "gold_oil": 54.0822,
-    "gold_spx": 0.5714,
-    "gold_btc": 0.0701,
-    "gold_copper": 662.1716
+    "gold_silver": 67.5852,
+    "gold_oil": 54.2401,
+    "gold_spx": 0.5721,
+    "gold_btc": 0.0703,
+    "gold_copper": 661.8425
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1010,7 +1010,7 @@
       },
       {
         "t": "2026-08-17",
-        "v": 67.7654
+        "v": 67.5698
       }
     ],
     "gold_oil": [
@@ -2016,7 +2016,7 @@
       },
       {
         "t": "2026-08-17",
-        "v": 54.0822
+        "v": 54.2401
       }
     ],
     "gold_spx": [
@@ -4024,7 +4024,7 @@
       },
       {
         "t": "2026-08-17",
-        "v": 0.0701
+        "v": 0.0703
       }
     ],
     "gold_copper": [
@@ -5030,7 +5030,7 @@
       },
       {
         "t": "2026-08-17",
-        "v": 662.1716
+        "v": 661.8425
       }
     ]
   },
@@ -5038,13 +5038,13 @@
     "gold_silver": {
       "min": 49.3059,
       "max": 120.1717,
-      "mean": 80.6579,
-      "current_percentile": 8.0
+      "mean": 80.6576,
+      "current_percentile": 7.6
     },
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 32.1064,
+      "mean": 32.1068,
       "current_percentile": 91.2
     },
     "gold_spx": {
@@ -5057,12 +5057,12 @@
       "min": 0.0255,
       "max": 2.3058,
       "mean": 0.2181,
-      "current_percentile": 44.9
+      "current_percentile": 45.1
     },
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 538.6282,
+      "mean": 538.6276,
       "current_percentile": 84.5
     }
   },
@@ -6069,7 +6069,7 @@
     },
     {
       "t": "2026-08-17",
-      "v": 99.49
+      "v": 99.48
     }
   ],
   "gold_1y_chart": [
@@ -7075,7 +7075,7 @@
     },
     {
       "t": "2026-08-17",
-      "v": 4448.8
+      "v": 4454.2
     }
   ],
   "data_quality": {
@@ -7084,5 +7084,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-08-17T04:49:32Z"
+  "last_updated": "2026-08-17T05:38:55Z"
 }
