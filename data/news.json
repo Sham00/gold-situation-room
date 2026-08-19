@@ -9,6 +9,20 @@
     },
     {
       "source": "Yahoo Finance Gold",
+      "title": "American Gold & Copper Inc. (OTC: AGCI) Announces Initiation of Research Coverage by Harbinger Research",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/american-gold-copper-inc-otc-133100628.html?.tsrc=rss",
+      "published": "Wed, 19 Aug 2026 13:31:00 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Google News",
+      "title": "Gold News: Gold Prices Recover as Yields and Dollar Plunge Before Fed Minutes - FXEmpire",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOTmR2LWNyY1k0a196ZkdZT0ZhU2ZlM3BzSmhLM3l1OTNLV0FyLXc0SUtrR1VnTHdhcnBMQWpmRnAtc2dkUUhadU4yTkdGc1c0aTlsME5TWkNEN0U0TmdOX3JNckpiZ05Vd2NITnB4ZGRwSzNybTFtbzJpNjQ2M3F0Ym9LSW84TWhsdzJmZGVDZ0hRc2dOTloxTDdmR3dieDZLdHJnREZxd1FjdElwZVNfaUNrNF9OdXlxYThZekdVMDFMMl8yNUE?oc=5",
+      "published": "Wed, 19 Aug 2026 13:08:00 GMT",
+      "sentiment": "negative"
+    },
+    {
+      "source": "Yahoo Finance Gold",
       "title": "Angkor Resources Drills Initial Program at Andong Bor Copper-Gold Target, Cambodia",
       "link": "https://finance.yahoo.com/markets/commodities/articles/angkor-resources-drills-initial-program-130000395.html?.tsrc=rss",
       "published": "Wed, 19 Aug 2026 13:00:00 +0000",
@@ -43,13 +57,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "FXStreet",
-      "title": "Silver has rebounded to $63, but inflationary risks hold buyers back",
-      "link": "https://www.fxstreet.com/news/silver-has-rebounded-to-63-but-inflationary-risks-hold-buyers-back-202608191131",
-      "published": "Wed, 19 Aug 2026 11:31:24 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Q-Gold Successfully Completes Expansion of Mineral Claim Position at Quartz Mountain Gold Project, Oregon",
       "link": "https://finance.yahoo.com/markets/commodities/articles/q-gold-successfully-completes-expansion-113000427.html?.tsrc=rss",
@@ -62,13 +69,6 @@
       "link": "https://finance.yahoo.com/markets/commodities/articles/altamira-gold-secures-land-access-112900410.html?.tsrc=rss",
       "published": "Wed, 19 Aug 2026 11:29:00 +0000",
       "sentiment": "neutral"
-    },
-    {
-      "source": "Google News",
-      "title": "Gold finds support as US Dollar retreats ahead of Fed Minutes - FXStreet",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxORHBZZDFpLWRETUlDaGhQRHk2VWQ5SExLZGxxY29PWVJqeFhiNjE0TzJwMEhYUWVtOGxWcHl2V1g3T3NZRTRRMG5tZGkwa0N3cXdSbjlhWFNCc2ZOaDExZ2VqTVA1WGpMUC0tRVF3WWRMMkhpU1NNNG5ockk3dko1Q3lDNFdva3hQanM4TjJpdW0ydmRlQ1VBR0t4T1NuLS1iTE91U3BKNA?oc=5",
-      "published": "Wed, 19 Aug 2026 11:09:12 GMT",
-      "sentiment": "negative"
     },
     {
       "source": "FXStreet",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 42.3,
-  "bull_count": 41,
+  "sentiment_score": 41.0,
+  "bull_count": 40,
   "bear_count": 8,
-  "neutral_count": 29,
-  "bull_pct": 52.6,
+  "neutral_count": 30,
+  "bull_pct": 51.3,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-19T13:50:57Z"
+  "last_updated": "2026-08-19T14:39:53Z"
 }
