@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 85.0,
-      "vs_gold_ytd": 7.45,
+      "vs_gold_ytd": 7.93,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -530,7 +530,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 276.0,
-      "vs_gold_ytd": 5.71,
+      "vs_gold_ytd": 6.19,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -1045,12 +1045,12 @@
       "market_cap": 1320569088,
       "pe_ratio": 14.8,
       "forward_pe": 12.5,
-      "ev_ebitda": 15.9,
+      "ev_ebitda": 16.5,
       "dividend_yield": 191.0,
-      "vs_gold_ytd": 25.98,
+      "vs_gold_ytd": 26.46,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3526.7,
+      "margin": 3505.9,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -1558,19 +1558,19 @@
       "name": "Newmont Corp",
       "type": "miner",
       "price": 125.08,
-      "change": 9.27,
-      "change_pct": 8.0,
+      "change": 9.08,
+      "change_pct": 7.83,
       "ytd_pct": 24.11,
       "week4_pct": 35.24,
       "market_cap": 131795836928,
       "pe_ratio": 15.8,
       "forward_pe": 11.8,
-      "ev_ebitda": 7.0,
+      "ev_ebitda": 7.5,
       "dividend_yield": 90.0,
-      "vs_gold_ytd": 18.03,
+      "vs_gold_ytd": 18.51,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 3176.7,
+      "margin": 3155.9,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -2083,14 +2083,14 @@
       "ytd_pct": 22.38,
       "week4_pct": 46.67,
       "market_cap": 105182109696,
-      "pe_ratio": 17.8,
+      "pe_ratio": 16.0,
       "forward_pe": 16.6,
       "ev_ebitda": 10.1,
       "dividend_yield": 96.0,
-      "vs_gold_ytd": 16.3,
+      "vs_gold_ytd": 16.78,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3426.7,
+      "margin": 3405.9,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -2605,12 +2605,12 @@
       "market_cap": 14960924672,
       "pe_ratio": 12.8,
       "forward_pe": 11.7,
-      "ev_ebitda": 8.6,
+      "ev_ebitda": 9.3,
       "dividend_yield": 49.0,
-      "vs_gold_ytd": -12.84,
+      "vs_gold_ytd": -12.36,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3526.7,
+      "margin": 3505.9,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -3125,12 +3125,12 @@
       "market_cap": 66956800000,
       "pe_ratio": 32.7,
       "forward_pe": 29.1,
-      "ev_ebitda": 23.3,
+      "ev_ebitda": 25.8,
       "dividend_yield": 59.0,
-      "vs_gold_ytd": 19.38,
+      "vs_gold_ytd": 19.86,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 4126.7,
+      "margin": 4105.9,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -3637,12 +3637,12 @@
       "market_cap": 48424828928,
       "pe_ratio": 32.9,
       "forward_pe": 26.7,
-      "ev_ebitda": 21.0,
+      "ev_ebitda": 22.7,
       "dividend_yield": 76.0,
-      "vs_gold_ytd": 14.75,
+      "vs_gold_ytd": 15.23,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 4176.7,
+      "margin": 4155.9,
       "sparkline": [
         {
           "t": "2026-02-20",
@@ -4139,7 +4139,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.021266,
+  "gdx_gold_ratio": 0.021364,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-08-20",
@@ -5143,7 +5143,7 @@
     },
     {
       "t": "2026-08-19",
-      "v": 0.021266
+      "v": 0.021364
     }
   ],
   "mining_production": {
@@ -5247,5 +5247,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-08-19T23:28:12Z"
+  "last_updated": "2026-08-20T01:37:17Z"
 }
