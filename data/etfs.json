@@ -3,11 +3,11 @@
     "GLD": {
       "name": "SPDR Gold Shares",
       "price": 413.84,
-      "change": 16.54,
-      "change_pct": 4.16,
-      "tonnes_est": 736.4,
+      "change": 16.37,
+      "change_pct": 4.12,
+      "tonnes_est": 736.9,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 12.3,
+      "daily_change_est": 12.1,
       "ytd_pct": 3.91,
       "week7_pct": 2.81,
       "week4_pct": 10.41,
@@ -1023,7 +1023,7 @@
       "price": 84.84,
       "change": 3.53,
       "change_pct": 4.34,
-      "tonnes_est": 562.6,
+      "tonnes_est": 563.0,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 9.8,
       "ytd_pct": 4.02,
@@ -2041,7 +2041,7 @@
       "price": 34.09,
       "change": 1.15,
       "change_pct": 3.49,
-      "tonnes_est": 110.5,
+      "tonnes_est": 110.6,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 1.5,
       "ytd_pct": 2.9,
@@ -4078,7 +4078,7 @@
       "daily_change_est": 0.7,
       "ytd_pct": 4.05,
       "week7_pct": 2.75,
-      "week4_pct": 12.38,
+      "week4_pct": 10.38,
       "chart_1y": [
         {
           "t": "2025-08-20",
@@ -4997,6 +4997,10 @@
           "v": 38.16
         },
         {
+          "t": "2026-07-21",
+          "v": 38.91
+        },
+        {
           "t": "2026-07-22",
           "v": 39.34
         },
@@ -5023,6 +5027,10 @@
         {
           "t": "2026-07-30",
           "v": 39.14
+        },
+        {
+          "t": "2026-07-31",
+          "v": 38.57
         },
         {
           "t": "2026-08-03",
@@ -5079,12 +5087,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1469.5,
+  "total_holdings_tonnes_est": 1470.5,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-08-20T06:54:41Z"
+  "last_updated": "2026-08-20T07:46:30Z"
 }

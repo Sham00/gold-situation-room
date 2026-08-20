@@ -2,7 +2,7 @@
   "reserves": [
     {
       "country": "United States",
-      "pct_of_reserves": 85.9,
+      "pct_of_reserves": 85.8,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 8133,
@@ -224,7 +224,7 @@
     },
     {
       "country": "Germany",
-      "pct_of_reserves": 85.7,
+      "pct_of_reserves": 85.6,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 3352,
@@ -668,7 +668,7 @@
     },
     {
       "country": "France",
-      "pct_of_reserves": 83.3,
+      "pct_of_reserves": 83.2,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2437,
@@ -2952,7 +2952,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 21.2,
+      "pct_of_reserves": 21.1,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 310,
@@ -3854,7 +3854,7 @@
     },
     {
       "country": "South Africa",
-      "pct_of_reserves": 24.1,
+      "pct_of_reserves": 24.0,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 125,
@@ -4551,13 +4551,6 @@
       "sentiment": "positive"
     },
     {
-      "title": "Gold Sinks on US-Iran Talks as Central Bank Buying and Price Forecasts Revised - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPdHdyUTZQcWwyMnJnQnRoVlZWXzBJZUU0MU1FR1V3bmx6YXVFVzlET2ZGREx6clB6MjBRbkpXdTg1ZkptSmJadHNKSzZ3aHZYc3kweGhRbURETER5T19Zd3FSQlFhNW42S0MxekZBQTRjZnQ3b0lFLVdtSDFaNDNoTlBrd09nZnlKdnc?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 27 May 2026 07:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "title": "China\u2019s Gold Holdings Rise Again as Central Bank Extends Buying Streak - The Jerusalem Post",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSnBtYmNBWkNwZnZMb3Jpd3JaMDQ1WTE1VDVNcTczaGhEcXIxUXd3U0tkR1VJY0drY1FYUUFYa3NhTUZTb2FOR05mRWlUSS11QW81VW43Z2MwcjJVS1MyQ3JHeUJPd0ZEZzdrRm1IRWpLOFBZdWQyX2dZcEpBX29RUlln?oc=5",
       "source": "Google News PBOC Gold",
@@ -4577,6 +4570,13 @@
       "source": "Google News CB",
       "published": "Tue, 30 Jun 2026 07:00:00 GMT",
       "sentiment": "neutral"
+    },
+    {
+      "title": "Central Bank of the Republic of Turkey News and Company Profile - Arabian Gulf Business Insight | AGBI",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBpdkl2cE9vQVQ2YW1acm9qVDRhUXVzNVRnLWsyQ1V4NUN4RnMwSFZQYVZqMlViZGJUcGV6SUhxOGtncFBOT0lKUy04Q2REaThpSVhibi14enBmTllCNTctdHRjWTlhakFCdWQ0ZzB2UTZsVGtTSGVCTU9n?oc=5",
+      "source": "Google News Turkey Gold",
+      "published": "Tue, 28 Jan 2025 00:24:08 GMT",
+      "sentiment": "neutral"
     }
   ],
   "data_quality": {
@@ -4585,5 +4585,5 @@
     "reliability": "estimate",
     "notes": "All live sources unavailable. Data from WGC quarterly reports."
   },
-  "last_updated": "2026-08-20T06:54:34Z"
+  "last_updated": "2026-08-20T07:46:24Z"
 }
