@@ -5059,7 +5059,7 @@
       "v": 4.71
     }
   ],
-  "dxy": 98.71,
+  "dxy": 98.77,
   "dxy_date": "2026-08-20",
   "dxy_chart": [
     {
@@ -5979,14 +5979,6 @@
       "v": 100.99
     },
     {
-      "t": "2026-07-21",
-      "v": 101.18
-    },
-    {
-      "t": "2026-07-22",
-      "v": 101.14
-    },
-    {
       "t": "2026-07-23",
       "v": 101.43
     },
@@ -6009,10 +6001,6 @@
     {
       "t": "2026-07-30",
       "v": 100.01
-    },
-    {
-      "t": "2026-07-31",
-      "v": 99.8
     },
     {
       "t": "2026-08-03",
@@ -6068,10 +6056,10 @@
     },
     {
       "t": "2026-08-20",
-      "v": 98.71
+      "v": 98.77
     }
   ],
-  "vix": 15.18,
+  "vix": 16.01,
   "vix_date": "2026-08-20",
   "vix_chart": [
     {
@@ -6995,14 +6983,6 @@
       "v": 18.65
     },
     {
-      "t": "2026-07-21",
-      "v": 17.05
-    },
-    {
-      "t": "2026-07-22",
-      "v": 16.64
-    },
-    {
       "t": "2026-07-23",
       "v": 18.7
     },
@@ -7025,10 +7005,6 @@
     {
       "t": "2026-07-30",
       "v": 17.09
-    },
-    {
-      "t": "2026-07-31",
-      "v": 15.99
     },
     {
       "t": "2026-08-03",
@@ -7084,7 +7060,7 @@
     },
     {
       "t": "2026-08-20",
-      "v": 15.18
+      "v": 16.01
     }
   ],
   "data_sources": {
@@ -8103,7 +8079,7 @@
     },
     {
       "t": "2026-08-20",
-      "v": 4539.1
+      "v": 4524.8
     }
   ],
   "next_fomc_date": "2026-09-16",
@@ -8114,11 +8090,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": -3.159,
-  "lease_rate_1m": 4.752,
-  "lease_rate_3m": 6.789,
-  "lease_rate_6m": 8.826,
+  "gofo_annualized": -2.234,
+  "lease_rate_1m": 4.105,
+  "lease_rate_3m": 5.864,
+  "lease_rate_6m": 7.623,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-08-20T11:32:09Z"
+  "last_updated": "2026-08-20T12:59:20Z"
 }
