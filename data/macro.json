@@ -1,11 +1,7 @@
 {
   "real_yield_10y": 2.35,
-  "real_yield_10y_date": "2026-08-19",
+  "real_yield_10y_date": "2026-08-20",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-08-18",
-      "v": 1.96
-    },
     {
       "t": "2025-08-19",
       "v": 1.95
@@ -1008,6 +1004,10 @@
     },
     {
       "t": "2026-08-19",
+      "v": 2.35
+    },
+    {
+      "t": "2026-08-20",
       "v": 2.35
     }
   ],
@@ -4047,13 +4047,9 @@
       "v": 23290.1
     }
   ],
-  "us_10y": 4.65,
-  "us_10y_date": "2026-08-19",
+  "us_10y": 4.69,
+  "us_10y_date": "2026-08-20",
   "us_10y_chart": [
-    {
-      "t": "2025-08-18",
-      "v": 4.34
-    },
     {
       "t": "2025-08-19",
       "v": 4.3
@@ -5057,9 +5053,13 @@
     {
       "t": "2026-08-19",
       "v": 4.65
+    },
+    {
+      "t": "2026-08-20",
+      "v": 4.69
     }
   ],
-  "dxy": 98.82,
+  "dxy": 98.83,
   "dxy_date": "2026-08-21",
   "dxy_chart": [
     {
@@ -6068,10 +6068,10 @@
     },
     {
       "t": "2026-08-21",
-      "v": 98.82
+      "v": 98.83
     }
   ],
-  "vix": 15.26,
+  "vix": 15.13,
   "vix_date": "2026-08-21",
   "vix_chart": [
     {
@@ -7084,7 +7084,7 @@
     },
     {
       "t": "2026-08-21",
-      "v": 15.26
+      "v": 15.13
     }
   ],
   "data_sources": {
@@ -8103,7 +8103,7 @@
     },
     {
       "t": "2026-08-21",
-      "v": 4679.8
+      "v": 4670.4
     }
   ],
   "next_fomc_date": "2026-09-16",
@@ -8114,11 +8114,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": -4.154,
-  "lease_rate_1m": 5.449,
-  "lease_rate_3m": 7.784,
-  "lease_rate_6m": 10.119,
+  "gofo_annualized": -3.514,
+  "lease_rate_1m": 5.001,
+  "lease_rate_3m": 7.144,
+  "lease_rate_6m": 9.287,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-08-21T19:29:44Z"
+  "last_updated": "2026-08-21T20:31:31Z"
 }
