@@ -2,7 +2,7 @@
   "reserves": [
     {
       "country": "United States",
-      "pct_of_reserves": 87.7,
+      "pct_of_reserves": 87.9,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 8133,
@@ -224,7 +224,7 @@
     },
     {
       "country": "Germany",
-      "pct_of_reserves": 87.5,
+      "pct_of_reserves": 87.7,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 3352,
@@ -446,7 +446,7 @@
     },
     {
       "country": "Italy",
-      "pct_of_reserves": 84.4,
+      "pct_of_reserves": 84.6,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2452,
@@ -668,7 +668,7 @@
     },
     {
       "country": "France",
-      "pct_of_reserves": 85.0,
+      "pct_of_reserves": 85.2,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2437,
@@ -890,7 +890,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 57.3,
+      "pct_of_reserves": 57.5,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2335,
@@ -1352,7 +1352,7 @@
     },
     {
       "country": "Switzerland",
-      "pct_of_reserves": 14.4,
+      "pct_of_reserves": 14.5,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 1040,
@@ -2027,7 +2027,7 @@
     },
     {
       "country": "Turkey",
-      "pct_of_reserves": 49.3,
+      "pct_of_reserves": 49.5,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 613,
@@ -2270,7 +2270,7 @@
     },
     {
       "country": "Netherlands",
-      "pct_of_reserves": 77.4,
+      "pct_of_reserves": 77.6,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 612,
@@ -2952,7 +2952,7 @@
     },
     {
       "country": "United Kingdom",
-      "pct_of_reserves": 21.6,
+      "pct_of_reserves": 21.7,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 310,
@@ -3174,7 +3174,7 @@
     },
     {
       "country": "Kazakhstan",
-      "pct_of_reserves": 66.7,
+      "pct_of_reserves": 66.9,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 295,
@@ -4544,20 +4544,6 @@
   "source": "hardcoded WGC estimates (all live sources unavailable)",
   "cb_news": [
     {
-      "title": "Gold Sinks Again But Central Banks 'Still Buying Heavily' | Gold News - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNT0tLNFJpOTYyRUtPQnphbGRNUlc3aFBSYkt0UFlVQjdLdEU3VjJQMTJVUVgyNWduVkd0RGFMay1QT09OcFU1WHgtd1BUa3FMajRWSi1ueEZJOGlmNTJXN0RxRkNIYXhrZ3FFWFRubVU3LUtwck5YUGt4cWFZN0xycG1sU1B2eWJwMjNEQjhWcWM?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 29 Apr 2026 07:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
-      "title": "Gold Sinks on US-Iran Talks as Central Bank Buying and Price Forecasts Revised - BullionVault",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPdHdyUTZQcWwyMnJnQnRoVlZWXzBJZUU0MU1FR1V3bmx6YXVFVzlET2ZGREx6clB6MjBRbkpXdTg1ZkptSmJadHNKSzZ3aHZYc3kweGhRbURETER5T19Zd3FSQlFhNW42S0MxekZBQTRjZnQ3b0lFLVdtSDFaNDNoTlBrd09nZnlKdnc?oc=5",
-      "source": "Google News CB",
-      "published": "Wed, 27 May 2026 07:00:00 GMT",
-      "sentiment": "positive"
-    },
-    {
       "title": "China\u2019s Gold Holdings Rise Again as Central Bank Extends Buying Streak - The Jerusalem Post",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSnBtYmNBWkNwZnZMb3Jpd3JaMDQ1WTE1VDVNcTczaGhEcXIxUXd3U0tkR1VJY0drY1FYUUFYa3NhTUZTb2FOR05mRWlUSS11QW81VW43Z2MwcjJVS1MyQ3JHeUJPd0ZEZzdrRm1IRWpLOFBZdWQyX2dZcEpBX29RUlln?oc=5",
       "source": "Google News PBOC Gold",
@@ -4565,18 +4551,32 @@
       "sentiment": "positive"
     },
     {
-      "title": "Central banks buy net 17 tonnes of gold in April, led by Poland and China \u2013 WGC - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNVTBXOGFWajJjdXRITTQ2TlFkT3VZdFNuVW9jekNFby10YWtXR3hoaVJVTzZnejJDbkhXYWF1SjFuSEZpVm5xZWhmRXdFaGcya1hCdTVhZnptekx5VllTNE95WVRxWkswQWhxSFpPLU9qUl9KcXJIbDlraVRGaVpxdFJ0aEZfeHNxeVVQXy1ERmIyMmZ2QXpBcjRfNTUwT0YwNkRsWHRyUmhMbE03cmt3WDgzZw?oc=5",
+      "title": "Central banks are bringing gold reserves home as geopolitical risks rise - CNBC",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONTA2VTc1TnpxMXJMTm1NY0lJVHk4a1ZXOWxqUmZrRTZWT0RLTnBkVGxfYmlOQ05yN2dRb1Y5YXZJaDZHZHdSbnZWMklFU3h6bVZLOG5TSldIOUNSWWtTT2djdlZhR095TzBFV1lrby1RRXoyZzhfY0VDeHRfM3diQXpmUUhaRHhS0gGOAUFVX3lxTFBwajNmWXBVYW5KdHAyRlpkVjlaSGJiSXJIU01fOVhEcEFfTlNfQ0o0bm5PSnU4a1BXQUQzR3l2bW5HU0JSaXNOSEJFUUVnLXVJWU1JUXhSTzdabHp4ZGNKOHAza1FxRzduYUYydnpNX0ZFaXc5eWxqT1lxV1ctTTRzR2s5cVdLR1BrdWZsS0E?oc=5",
       "source": "Google News CB",
-      "published": "Wed, 03 Jun 2026 07:00:00 GMT",
+      "published": "Wed, 17 Jun 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Central Bank Gold Buying - Robin J Brooks | Substack",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85d2thWUdsOThRQldGZHhHT1cwVGZJU2lRb3R5ZzNTM0lUTHBlQTVJaTN1Zm5vREgwY3d4bUo0SWRiZ0txbHhHeC1rTmgzUzFBdGhSZkptRk9jX3Mxd25EZWRrT3hDYU9uVXRacA?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 12 Nov 2025 08:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Central Banks Now Hold More Gold Than U.S. Treasuries - Elements by Visual Capitalist",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPN1dBdm8zQmVWSFdzVDRlM2pCTlV4MW55RlRJVXNDR0UycVBKaGhQdXMtY1lVZUItWW84dHpWcEl0R2pRNE1HVVRiTHg2WHNVVThObDd3OHBCNENTQU15RS1vVVhsSFhiSEhuSThfZG9oY2VZanMwNjg2MzNlRTY2VkQwczctYU9Yb1BSZ3ppajFPcFBSNXc?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 08 Oct 2025 07:00:00 GMT",
       "sentiment": "neutral"
     },
     {
-      "title": "Central banks think the US has become riskier. They plan to sell dollars and buy gold | CNN Business - CNN",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOT0xWQmc0R3luUVJlbkFGcUJDVFpzYnNJeEU0TTg5S3BlTWgyZkllNEx2SjkzQlBGbDRwWDVsa2dVVTJIZmNnUmdyNnduWWRrNUVVTllpdVVCSFRabHR3UTF2Y3FVWUpCc3ZFTE0yd3VkSFU1Z0QtblJsZ3NVa1kwN0xHeWpyOE0?oc=5",
+      "title": "Indian central bank rebuts media report it sold gold reserves - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQcWZvWlJVa3dmRXJDekIxamZ1SkhMZkNCR2FyN0M2NnZBbkc3QjJwLW9FVHUxYlBRcWxkYUhwamVkalpGTlhZX2FWRmwwa2JLazBVckRBampsNHRTMndaQzBCNEFONGR2NjRpNkFObFB2cDlmZ1dOWmwtdDVrZmJfcFd5bkItaHhxMHl0MEFKdndNRk9Bb2dpUFpxRFhlMVlRYnI3dWt1QURzS0JqS1E?oc=5",
       "source": "Google News CB",
-      "published": "Tue, 30 Jun 2026 07:00:00 GMT",
-      "sentiment": "neutral"
+      "published": "Wed, 03 Jun 2026 07:00:00 GMT",
+      "sentiment": "positive"
     }
   ],
   "data_quality": {
@@ -4585,5 +4585,5 @@
     "reliability": "estimate",
     "notes": "All live sources unavailable. Data from WGC quarterly reports."
   },
-  "last_updated": "2026-08-21T13:52:00Z"
+  "last_updated": "2026-08-21T14:40:40Z"
 }
