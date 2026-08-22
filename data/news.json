@@ -64,13 +64,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Google News Gold Investment",
-      "title": "Gold and Silver Surge: Is a 1970s-Style Bull Run on the Horizon? - CryptoRank",
-      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFB5RXhKMnkyeEp6TW5kOG5pWWZCaE0xUlBCelZ5V2szSzNPMEJxRWJMQjRPclpaRm0zc05DWGlXTmtCT0lXUk5rS2JsekgyT1h0NHNBTTF0VGNxdWplQ0lfeGw4MGtFSVVROTNMd3M1ckZydw?oc=5",
-      "published": "Fri, 21 Aug 2026 22:33:21 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "How Bessent\u2019s Efforts to Calm Bond Market Set Gold Prices Ablaze",
       "link": "https://finance.yahoo.com/m/eca903dd-2ba5-319b-b145-41fac305b72b/how-bessent%E2%80%99s-efforts-to-calm.html?.tsrc=rss",
@@ -89,6 +82,13 @@
       "title": "Video - CEO Clips: Metalero Mining Advances District-Scale Exploration Next to a World-Class Silver Mine",
       "link": "https://finance.yahoo.com/markets/commodities/articles/video-ceo-clips-metalero-mining-221200655.html?.tsrc=rss",
       "published": "Fri, 21 Aug 2026 22:12:00 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Google News Gold Investment",
+      "title": "Russian sales bring gold reserves to their lowest since 2020 - Mining.com",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTElYVjNHcGRxSXpMVlRIZlBTM2htWW5mSWNDQXhxWVRBRk5KcUZRNEpIMjc4TlBaVl9mNXcyUERMREFtNm0zeFFqQ1FGLXNYc0xqWmc4LVNUZzlVY0tZR0dhNVhJdVR2TTg2WGVDc1NZYmFKbVdFWDZpVkoybDY1blJEZ1lWWkxzM0habkNNUHdvdw?oc=5",
+      "published": "Fri, 21 Aug 2026 21:25:15 GMT",
       "sentiment": "neutral"
     },
     {
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 43.1,
-  "bull_count": 41,
+  "sentiment_score": 41.7,
+  "bull_count": 40,
   "bear_count": 10,
-  "neutral_count": 21,
-  "bull_pct": 56.9,
+  "neutral_count": 22,
+  "bull_pct": 55.6,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-22T14:27:17Z"
+  "last_updated": "2026-08-22T15:27:24Z"
 }
