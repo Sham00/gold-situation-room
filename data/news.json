@@ -8,17 +8,17 @@
       "sentiment": "positive"
     },
     {
+      "source": "Google News",
+      "title": "How Bessent\u2019s Efforts to Calm Bond Market Set Gold Prices Ablaze - Barron's",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOV9NMWM2ZEJ5TnJLUlh6TmNQWGFHclpBTmtscU13N1dtRXBnd0VSblNQbkhhOEduRl8xZUE3Mkd2bExHUXRtbTlxdTl6c2d3MWx5X2h3bEhmWXR2aDhkaUwtR0JSTE9ueXFoNERWMXJrQjB4WXVDQ3pYc0VMT0FXSk9zLTZsVzJf?oc=5",
+      "published": "Fri, 21 Aug 2026 22:23:37 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "How Bessent\u2019s Efforts to Calm Bond Market Set Gold Prices Ablaze",
       "link": "https://finance.yahoo.com/m/eca903dd-2ba5-319b-b145-41fac305b72b/how-bessent%E2%80%99s-efforts-to-calm.html?.tsrc=rss",
       "published": "Fri, 21 Aug 2026 22:22:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
-      "source": "Google News",
-      "title": "How Bessent\u2019s Efforts to Calm Bond Market Set Gold Prices Ablaze - Barron's",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOV9NMWM2ZEJ5TnJLUlh6TmNQWGFHclpBTmtscU13N1dtRXBnd0VSblNQbkhhOEduRl8xZUE3Mkd2bExHUXRtbTlxdTl6c2d3MWx5X2h3bEhmWXR2aDhkaUwtR0JSTE9ueXFoNERWMXJrQjB4WXVDQ3pYc0VMT0FXSk9zLTZsVzJf?oc=5",
-      "published": "Fri, 21 Aug 2026 22:22:00 GMT",
       "sentiment": "neutral"
     },
     {
@@ -27,6 +27,13 @@
       "link": "https://finance.yahoo.com/markets/commodities/articles/video-ceo-clips-metalero-mining-221200655.html?.tsrc=rss",
       "published": "Fri, 21 Aug 2026 22:12:00 +0000",
       "sentiment": "neutral"
+    },
+    {
+      "source": "Google News Gold Investment",
+      "title": "Gold extends breakout as dollar slides on U.S. debt fears (GLD:NYSEARCA) - Seeking Alpha",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNFRpUmo4ZURBZ2h4UEpMOEF6WkxTbDNyRmZvMlAyNElPSHQ1REVPek1sTS1UaU1GZUcyczM3UzVHWTBPbFVEM1lROGNjdFc0YnQ2bXpRTkVfdFdlVWtRZTAyY0NORVJ4N0VqVmJYNGFGVkk0OFJDVXpaVkxHbWcwR2hsUXpqSjlSUGJMRDNkUERXY29jdXFuZA?oc=5",
+      "published": "Fri, 21 Aug 2026 21:45:21 GMT",
+      "sentiment": "positive"
     },
     {
       "source": "Google News Gold Investment",
@@ -107,13 +114,6 @@
     },
     {
       "source": "Google News",
-      "title": "Gold price headed 10 times higher, and that is \"inevitable,\" Thomas Kaplan says - KITCO",
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdUNIYWNTS0pLN1BxNDR0Vk5hR2NJV1FhdkswNGRBcE9PS0gyYWl5TXR3UHlGbDd6aGU1cEg0dmR3ekRidFdabDRmLUZMbVFyeGl3b2dfSENvQVJWczNVZE4zMWl3OFNxc0NYeWJNTWUzVzlaRXJCRlBaZjdLamJOODVjclhxZkFxbllsemJOUEJaZ3B4OENfbjdnVFByVGM0WUdJZ1ExSEMyVjdhU2x2eHl4SQ?oc=5",
-      "published": "Fri, 21 Aug 2026 17:46:30 GMT",
-      "sentiment": "positive"
-    },
-    {
-      "source": "Google News",
       "title": "Gold Price Hits 3-Month High Amid Bond Market Stress: Is $5,000 Next? - CryptoRank",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOR0o4RHVUYWdSdG5GM2hheVNqWW9TYzBwTWZ0NWVKeG9nY29obXpyb25HcWw0eUhfY29XX19CSU1vM3FXRE9DZFBiS3BCWVpxR0dGcWhUeFgzbFV6VHdlUjhWS3ptdHB0SURCSUtkLTZldnFXT25ndWhOLXhQX09BLTlSVmk4UGllZFJn?oc=5",
       "published": "Fri, 21 Aug 2026 17:36:12 GMT",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 51.4,
-  "bull_count": 46,
-  "bear_count": 8,
-  "neutral_count": 20,
-  "bull_pct": 62.2,
+  "sentiment_score": 47.3,
+  "bull_count": 45,
+  "bear_count": 10,
+  "neutral_count": 19,
+  "bull_pct": 60.8,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-22T01:35:39Z"
+  "last_updated": "2026-08-22T02:59:29Z"
 }
