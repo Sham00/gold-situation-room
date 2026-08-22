@@ -64,13 +64,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Google News",
-      "title": "Gold Update: Can XAU/USD Hold Above $4,500? - FOREX.com",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdUN4cHFwOVI3UjRkeXRkOTR1WE8zWDNnV3poUkk5Z3dERjZhU09zeHlDMm1PUVhVRF9iRWc0ME91RW1nU1h0cWpRYmNkYVhUN3NCUGxEdHFhdXJaa3ZiYkN0cmdTX0hRbGFYdTZXdFhQdTNVRWdRcXZuYTFJTVhzaVNfRmEwcW5aTHZqTjRR?oc=5",
-      "published": "Fri, 21 Aug 2026 20:00:24 GMT",
-      "sentiment": "positive"
-    },
-    {
       "source": "Yahoo Finance Gold",
       "title": "Pinnacle Silver and Gold advances El Potrero drilling \u2013 ICYMI",
       "link": "https://www.proactiveinvestors.com/companies/news/1097431/pinnacle-silver-and-gold-advances-el-potrero-drilling-icymi-1097431.html?.tsrc=rss",
@@ -174,18 +167,25 @@
       "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1tSDF1WDkydC1DNjRENkFoMlVXUDdYNzJHLV9xSUVLbmpDZlJNUUNST1RwWDdwS0IyNTdKcjRkT2ppYnhLMU0weWlvTGZ5ckI5NkpFZlJJZw?oc=5",
       "published": "Fri, 21 Aug 2026 16:04:09 GMT",
       "sentiment": "neutral"
+    },
+    {
+      "source": "Google News",
+      "title": "Gold Price Hits 3-Month High Amid Bond Market Stress: Is $5,000 Next? - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNdTJfYTNMZXotMDlhMm56Z1hCWFZGSUVUZ1FIbGtqZ0hTTV9DQUlMV3htUU5EUEJ6UGhRVVlwZnJwV0VGUWkzNE5nSFdTQjRZclBJY18tWlpuX0RSUnpXUDhSTXpOZmVJNnp4MDI5UmZRQXpoNnpZV1NZdkQ0cnJQWkxXbDhrRXlsRzN4UTc4VjFtOUVnQ2JacQ?oc=5",
+      "published": "Fri, 21 Aug 2026 16:01:22 GMT",
+      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 47.3,
-  "bull_count": 44,
+  "sentiment_score": 48.6,
+  "bull_count": 45,
   "bear_count": 9,
-  "neutral_count": 21,
-  "bull_pct": 59.5,
+  "neutral_count": 20,
+  "bull_pct": 60.8,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-22T06:49:46Z"
+  "last_updated": "2026-08-22T07:36:36Z"
 }
