@@ -15,6 +15,13 @@
       "sentiment": "positive"
     },
     {
+      "source": "Google News",
+      "title": "21-karat gold price reaches 93.2 JOD in local market... - jordannews.jo",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPd1Ewa19GTHFvZTBMY3UyZWttWk9PTmx4NlZSaXByclFEczZacWlEUnFLRmJsTEZ1QkZaSDVUV2syUDQ2S2w3dUZ3MzJFcjljNVA1RDBhYkxHYjVXVjZnQmV5Mzk5LXFQbGwxeXppOGtlRkdQNTg5WFBfdkltYldBMFdjSzA1c05MYXV3ZmxDNXBZQlkyb1RKeGRSUmthVjFUdGM0VUFPUQ?oc=5",
+      "published": "Sat, 22 Aug 2026 11:01:21 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "Why Artemis Gold (TSXV:ARTG) Is Up 8.9% After Deeper Blackwater Drill Hits Hint at Zinc Potential",
       "link": "https://finance.yahoo.com/markets/stocks/articles/why-artemis-gold-tsxv-artg-101002017.html?.tsrc=rss",
@@ -40,6 +47,13 @@
       "title": "Where are central banks keeping their gold? - Investing.com",
       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNakJWcjZSMnNYWjFzS3NqM2wtMWlKUnRkcEZXM2tmeWZKdmRYSzNIRk12TzFsY0steHpYemt6MWhNd3M2QVJXdXB3M3FzVnBFSl9NaHhoazkxeE9vcllWTTU3cXRtWnR3M2dodk95ZmZmTUpSUVB5dFZaNi03aWJiOTVfNXVLM3h6c3l1YlVpRkdhSG02RzlKakpn?oc=5",
       "published": "Sat, 22 Aug 2026 08:07:50 GMT",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Google News Gold Investment",
+      "title": "Central Bank ends physical gold conversion scheme - H\u00fcrriyet Daily News",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQkl2dGlUdUU2UXN1d3plV04yU3pBTE90ZHVPQ3hvWTR0eEc3dkFyZHppTDVncldCZlpDN09WOVhnV2ttUzFIR3JUQy1Ray04bElCQTVQYjQ2Z3dLNi0tZGhaZmRhMlVhaHpMMWNlaE02eGJGY3JYbExYMkNxOWx5TjFURUpDeXVVMm80eEo1SW1HU1g4?oc=5",
+      "published": "Sat, 22 Aug 2026 05:40:15 GMT",
       "sentiment": "neutral"
     },
     {
@@ -75,13 +89,6 @@
       "title": "Video - CEO Clips: Metalero Mining Advances District-Scale Exploration Next to a World-Class Silver Mine",
       "link": "https://finance.yahoo.com/markets/commodities/articles/video-ceo-clips-metalero-mining-221200655.html?.tsrc=rss",
       "published": "Fri, 21 Aug 2026 22:12:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
-      "source": "Google News Gold Investment",
-      "title": "Russian sales bring gold reserves to their lowest since 2020 - Mining.com",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTElYVjNHcGRxSXpMVlRIZlBTM2htWW5mSWNDQXhxWVRBRk5KcUZRNEpIMjc4TlBaVl9mNXcyUERMREFtNm0zeFFqQ1FGLXNYc0xqWmc4LVNUZzlVY0tZR0dhNVhJdVR2TTg2WGVDc1NZYmFKbVdFWDZpVkoybDY1blJEZ1lWWkxzM0habkNNUHdvdw?oc=5",
-      "published": "Fri, 21 Aug 2026 21:25:15 GMT",
       "sentiment": "neutral"
     },
     {
@@ -141,13 +148,6 @@
       "sentiment": "positive"
     },
     {
-      "source": "Yahoo Finance Gold",
-      "title": "Stonegate Capital Partners Updates Coverage on Heliostar Metals Ltd (HSTR) 26Q2",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/stonegate-capital-partners-updates-coverage-174800901.html?.tsrc=rss",
-      "published": "Fri, 21 Aug 2026 17:48:00 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Google News",
       "title": "Gold Price Hits 3-Month High Amid Bond Market Stress: Is $5,000 Next? - CryptoRank",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOR0o4RHVUYWdSdG5GM2hheVNqWW9TYzBwTWZ0NWVKeG9nY29obXpyb25HcWw0eUhfY29XX19CSU1vM3FXRE9DZFBiS3BCWVpxR0dGcWhUeFgzbFV6VHdlUjhWS3ptdHB0SURCSUtkLTZldnFXT25ndWhOLXhQX09BLTlSVmk4UGllZFJn?oc=5",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 43.8,
-  "bull_count": 42,
+  "sentiment_score": 43.1,
+  "bull_count": 41,
   "bear_count": 10,
   "neutral_count": 21,
-  "bull_pct": 57.5,
+  "bull_pct": 56.9,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-22T13:36:31Z"
+  "last_updated": "2026-08-22T14:27:17Z"
 }
