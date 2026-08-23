@@ -15,13 +15,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Investing.com Gold",
-      "title": "Bitcoin slips under $77,000 as rally boosts mining economics",
-      "link": "https://www.investing.com/news/cryptocurrency-news/bitcoin-slips-under-77000-as-rally-boosts-mining-economics-4872436",
-      "published": "2026-08-23 09:58:05",
-      "sentiment": "positive"
-    },
-    {
       "source": "Google News Gold Investment",
       "title": "Why is BOK buying gold again? - The Korea Herald",
       "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9RaFNMUG54UkIyZklxeFdyU3NyMTFRTDR1WEpZcTJJd0I5d0NFYmxVSVJaYzEtNFlrdTZXem1GVWtfbHprUUlLcWk2NDhCZ0EwaDFSYTJGRQ?oc=5",
@@ -174,18 +167,25 @@
       "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNdTJfYTNMZXotMDlhMm56Z1hCWFZGSUVUZ1FIbGtqZ0hTTV9DQUlMV3htUU5EUEJ6UGhRVVlwZnJwV0VGUWkzNE5nSFdTQjRZclBJY18tWlpuX0RSUnpXUDhSTXpOZmVJNnp4MDI5UmZRQXpoNnpZV1NZdkQ0cnJQWkxXbDhrRXlsRzN4UTc4VjFtOUVnQ2JacQ?oc=5",
       "published": "Fri, 21 Aug 2026 16:01:22 GMT",
       "sentiment": "positive"
+    },
+    {
+      "source": "Google News",
+      "title": "Gold Price Hits 3-Month High Amid Bond Market Stress: Is $5,000 Next? - BeInCrypto",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9SLXF1cGxGb1hJZXk3WEk1Z0loZUJUelhCZWhxLTZEMFhfRlMyWWxPVE4zb1lueGdKLUtuZVFDOVo5NW9lTng2MzJ1MzN5R1doZ3BRREZaNTd4ZGVGbjczYjhtSUZHS3JRMW5ieTR4Ylk1aHdDV1A2SQ?oc=5",
+      "published": "Fri, 21 Aug 2026 16:01:00 GMT",
+      "sentiment": "positive"
     }
   ],
-  "sentiment_score": 47.9,
-  "bull_count": 43,
+  "sentiment_score": 47.2,
+  "bull_count": 42,
   "bear_count": 8,
   "neutral_count": 22,
-  "bull_pct": 58.9,
+  "bull_pct": 58.3,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-23T15:28:13Z"
+  "last_updated": "2026-08-23T16:32:11Z"
 }
