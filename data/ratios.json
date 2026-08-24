@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 68.2192,
-    "gold_oil": 55.058,
-    "gold_spx": 0.6125,
-    "gold_btc": 0.0602,
-    "gold_copper": 713.3014
+    "gold_silver": 68.2284,
+    "gold_oil": 55.1431,
+    "gold_spx": 0.615,
+    "gold_btc": 0.0597,
+    "gold_copper": 714.7271
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1010,7 +1010,7 @@
       },
       {
         "t": "2026-08-24",
-        "v": 68.2192
+        "v": 68.2284
       }
     ],
     "gold_oil": [
@@ -2016,7 +2016,7 @@
       },
       {
         "t": "2026-08-24",
-        "v": 55.0451
+        "v": 55.1431
       }
     ],
     "gold_spx": [
@@ -4024,7 +4024,7 @@
       },
       {
         "t": "2026-08-24",
-        "v": 0.0602
+        "v": 0.0597
       }
     ],
     "gold_copper": [
@@ -5030,7 +5030,7 @@
       },
       {
         "t": "2026-08-24",
-        "v": 713.3015
+        "v": 714.7271
       }
     ]
   },
@@ -5044,14 +5044,14 @@
     "gold_oil": {
       "min": 15.5092,
       "max": 101.7414,
-      "mean": 32.157,
-      "current_percentile": 92.0
+      "mean": 32.1572,
+      "current_percentile": 91.8
     },
     "gold_spx": {
       "min": 0.3784,
       "max": 0.7635,
       "mean": 0.4937,
-      "current_percentile": 93.3
+      "current_percentile": 93.7
     },
     "gold_btc": {
       "min": 0.0255,
@@ -5062,8 +5062,8 @@
     "gold_copper": {
       "min": 373.2995,
       "max": 893.8857,
-      "mean": 538.8869,
-      "current_percentile": 89.1
+      "mean": 538.8894,
+      "current_percentile": 89.5
     }
   },
   "dxy_chart": [
@@ -6069,7 +6069,7 @@
     },
     {
       "t": "2026-08-24",
-      "v": 99.0
+      "v": 98.94
     }
   ],
   "gold_1y_chart": [
@@ -7075,7 +7075,7 @@
     },
     {
       "t": "2026-08-24",
-      "v": 4700.3
+      "v": 4719.7
     }
   ],
   "data_quality": {
@@ -7084,5 +7084,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-08-24T11:34:10Z"
+  "last_updated": "2026-08-24T13:00:27Z"
 }
