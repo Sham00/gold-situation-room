@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 427.29,
-      "change": 4.14,
-      "change_pct": 0.98,
-      "tonnes_est": 733.2,
+      "price": 425.37,
+      "change": 2.22,
+      "change_pct": 0.52,
+      "tonnes_est": 733.9,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.9,
-      "ytd_pct": 7.28,
-      "week7_pct": 7.1,
-      "week4_pct": 14.89,
+      "daily_change_est": 1.5,
+      "ytd_pct": 6.8,
+      "week7_pct": 6.62,
+      "week4_pct": 14.38,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -1014,21 +1014,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 427.29
+          "v": 425.37
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 87.58,
-      "change": 0.79,
-      "change_pct": 0.91,
-      "tonnes_est": 560.1,
+      "price": 87.18,
+      "change": 0.39,
+      "change_pct": 0.45,
+      "tonnes_est": 560.6,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.0,
-      "ytd_pct": 7.38,
-      "week7_pct": 7.09,
-      "week4_pct": 14.89,
+      "daily_change_est": 1.0,
+      "ytd_pct": 6.89,
+      "week7_pct": 6.6,
+      "week4_pct": 14.36,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -2032,21 +2032,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 87.58
+          "v": 87.18
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 35.38,
-      "change": 0.28,
-      "change_pct": 0.81,
+      "price": 35.19,
+      "change": 0.1,
+      "change_pct": 0.28,
       "tonnes_est": 110.6,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.4,
-      "ytd_pct": 6.79,
-      "week7_pct": 7.21,
-      "week4_pct": 15.47,
+      "daily_change_est": 0.1,
+      "ytd_pct": 6.22,
+      "week7_pct": 6.64,
+      "week4_pct": 14.85,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -3050,21 +3050,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 35.38
+          "v": 35.19
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 45.87,
-      "change": 0.54,
-      "change_pct": 1.18,
+      "price": 45.65,
+      "change": 0.32,
+      "change_pct": 0.71,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.1,
-      "ytd_pct": 7.5,
-      "week7_pct": 7.17,
-      "week4_pct": 14.9,
+      "ytd_pct": 6.98,
+      "week7_pct": 6.66,
+      "week4_pct": 14.35,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -4068,21 +4068,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 45.87
+          "v": 45.65
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 44.37,
-      "change": 0.14,
-      "change_pct": 0.31,
+      "price": 44.15,
+      "change": -0.08,
+      "change_pct": -0.19,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.1,
-      "ytd_pct": 7.49,
-      "week7_pct": 7.17,
-      "week4_pct": 14.98,
+      "daily_change_est": -0.0,
+      "ytd_pct": 6.95,
+      "week7_pct": 6.64,
+      "week4_pct": 14.41,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -5086,17 +5086,17 @@
         },
         {
           "t": "2026-08-24",
-          "v": 44.37
+          "v": 44.15
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1463.9,
+  "total_holdings_tonnes_est": 1465.1,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-08-24T16:44:47Z"
+  "last_updated": "2026-08-24T17:35:35Z"
 }
