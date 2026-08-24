@@ -2,15 +2,15 @@
   "etfs": {
     "GLD": {
       "name": "SPDR Gold Shares",
-      "price": 427.95,
-      "change": 4.8,
-      "change_pct": 1.13,
-      "tonnes_est": 732.5,
+      "price": 427.35,
+      "change": 4.2,
+      "change_pct": 0.99,
+      "tonnes_est": 730.7,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 3.3,
-      "ytd_pct": 7.45,
-      "week7_pct": 7.27,
-      "week4_pct": 15.07,
+      "daily_change_est": 2.9,
+      "ytd_pct": 7.3,
+      "week7_pct": 7.12,
+      "week4_pct": 14.91,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -1014,21 +1014,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 427.95
+          "v": 427.35
         }
       ]
     },
     "IAU": {
       "name": "iShares Gold Trust",
-      "price": 87.72,
-      "change": 0.93,
-      "change_pct": 1.08,
-      "tonnes_est": 559.6,
+      "price": 87.61,
+      "change": 0.82,
+      "change_pct": 0.94,
+      "tonnes_est": 558.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 2.4,
-      "ytd_pct": 7.55,
-      "week7_pct": 7.26,
-      "week4_pct": 15.07,
+      "daily_change_est": 2.1,
+      "ytd_pct": 7.42,
+      "week7_pct": 7.13,
+      "week4_pct": 14.93,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -2032,21 +2032,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 87.72
+          "v": 87.61
         }
       ]
     },
     "PHYS": {
       "name": "Sprott Physical Gold",
-      "price": 35.4,
-      "change": 0.31,
-      "change_pct": 0.88,
-      "tonnes_est": 110.4,
+      "price": 35.37,
+      "change": 0.28,
+      "change_pct": 0.78,
+      "tonnes_est": 110.2,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.4,
-      "ytd_pct": 6.85,
-      "week7_pct": 7.27,
-      "week4_pct": 15.54,
+      "daily_change_est": 0.3,
+      "ytd_pct": 6.76,
+      "week7_pct": 7.18,
+      "week4_pct": 15.44,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -3050,21 +3050,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 35.4
+          "v": 35.37
         }
       ]
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 45.95,
-      "change": 0.62,
-      "change_pct": 1.37,
+      "price": 45.88,
+      "change": 0.55,
+      "change_pct": 1.21,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.1,
-      "ytd_pct": 7.69,
-      "week7_pct": 7.36,
-      "week4_pct": 15.11,
+      "ytd_pct": 7.52,
+      "week7_pct": 7.2,
+      "week4_pct": 14.93,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -4068,21 +4068,21 @@
         },
         {
           "t": "2026-08-24",
-          "v": 45.95
+          "v": 45.88
         }
       ]
     },
     "SGOL": {
       "name": "Aberdeen Physical Gold",
-      "price": 44.42,
-      "change": 0.19,
-      "change_pct": 0.42,
+      "price": 44.36,
+      "change": 0.13,
+      "change_pct": 0.3,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.1,
-      "ytd_pct": 7.61,
-      "week7_pct": 7.29,
-      "week4_pct": 15.11,
+      "ytd_pct": 7.46,
+      "week7_pct": 7.15,
+      "week4_pct": 14.95,
       "chart_1y": [
         {
           "t": "2025-08-25",
@@ -5086,17 +5086,17 @@
         },
         {
           "t": "2026-08-24",
-          "v": 44.42
+          "v": 44.36
         }
       ]
     }
   },
-  "total_holdings_tonnes_est": 1462.5,
+  "total_holdings_tonnes_est": 1459.2,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-08-24T13:57:52Z"
+  "last_updated": "2026-08-24T14:52:13Z"
 }
