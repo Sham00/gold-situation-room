@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold\u2019s Best Month Since January Comes Courtesy of Scott Bessent",
+      "link": "https://app.moby.co/home/news/news-golds-best-month-since-january-comes-courtesy-of-scott-bessent?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "published": "Tue, 25 Aug 2026 19:17:28 +0000",
+      "sentiment": "neutral"
+    },
+    {
       "source": "FXStreet",
       "title": "Silver Price Forecast: XAG/USD reclaims 100-day SMA, eyes $70",
       "link": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-reclaims-100-day-sma-eyes-70-202608251831",
@@ -13,18 +20,60 @@
       "link": "https://www.fxstreet.com/news/gold-pulls-back-from-4-700-as-hormuz-hopes-cool-haven-demand-202608251814",
       "published": "Tue, 25 Aug 2026 18:14:14 GMT",
       "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "1911 Gold expands San Antonio West discovery with high-grade gold intercepts with resource potential",
+      "link": "https://finance.yahoo.com/video/1911-gold-expands-san-antonio-174427021.html?.tsrc=rss",
+      "published": "Tue, 25 Aug 2026 17:44:27 +0000",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold Hits Three-Month High as Bitcoin Tests $80,000",
+      "link": "https://decrypt.co/376489/gold-price-three-month-high-bitcoin?.tsrc=rss",
+      "published": "Tue, 25 Aug 2026 17:24:54 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Is Gold\u2019s Best Month Since 2008 About to End? One Trader Just Bet $202 Million That It Is",
+      "link": "https://247wallst.com/investing/2026/08/25/is-golds-best-month-since-2008-about-to-end-one-trader-just-bet-202-million-that-it-is/?.tsrc=rss",
+      "published": "Tue, 25 Aug 2026 17:05:15 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold's rally just hit a wall \u2014 how to play a tactical pullback with limited risk: Alpha Options Playbook",
+      "link": "https://finance.yahoo.com/markets/options/article/golds-rally-just-hit-a-wall--how-to-play-a-tactical-pullback-with-limited-risk-alpha-options-playbook-162841841.html?.tsrc=rss",
+      "published": "Tue, 25 Aug 2026 16:28:41 +0000",
+      "sentiment": "positive"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Gold Fields H1 Earnings Call Highlights",
+      "link": "https://www.marketbeat.com/instant-alerts/transcript-gold-fields-h1-earnings-call-highlights-2026-08-25/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "published": "Tue, 25 Aug 2026 16:02:16 +0000",
+      "sentiment": "neutral"
+    },
+    {
+      "source": "Yahoo Finance Gold",
+      "title": "Tintina Mines Completes Strategic Partnership Transaction, Consolidating 100% Ownership of the Dos Amigos (formerly Domeyko Sulfuros) Copper-Gold Project in Chile",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/tintina-mines-completes-strategic-partnership-123000200.html?.tsrc=rss",
+      "published": "Tue, 25 Aug 2026 12:30:00 +0000",
+      "sentiment": "neutral"
     }
   ],
-  "sentiment_score": 100.0,
-  "bull_count": 2,
+  "sentiment_score": 44.4,
+  "bull_count": 4,
   "bear_count": 0,
-  "neutral_count": 0,
-  "bull_pct": 100.0,
+  "neutral_count": 5,
+  "bull_pct": 44.4,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-08-25T20:36:20Z"
+  "last_updated": "2026-08-25T21:35:04Z"
 }
