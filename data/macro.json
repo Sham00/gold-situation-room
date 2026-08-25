@@ -1,11 +1,7 @@
 {
-  "real_yield_10y": 2.4,
-  "real_yield_10y_date": "2026-08-21",
+  "real_yield_10y": 2.38,
+  "real_yield_10y_date": "2026-08-24",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-08-20",
-      "v": 1.94
-    },
     {
       "t": "2025-08-21",
       "v": 1.94
@@ -1009,6 +1005,10 @@
     {
       "t": "2026-08-21",
       "v": 2.4
+    },
+    {
+      "t": "2026-08-24",
+      "v": 2.38
     }
   ],
   "fed_funds": 3.63,
@@ -4047,13 +4047,9 @@
       "v": 23207.7
     }
   ],
-  "us_10y": 4.74,
-  "us_10y_date": "2026-08-21",
+  "us_10y": 4.7,
+  "us_10y_date": "2026-08-24",
   "us_10y_chart": [
-    {
-      "t": "2025-08-20",
-      "v": 4.29
-    },
     {
       "t": "2025-08-21",
       "v": 4.33
@@ -5057,9 +5053,13 @@
     {
       "t": "2026-08-21",
       "v": 4.74
+    },
+    {
+      "t": "2026-08-24",
+      "v": 4.7
     }
   ],
-  "dxy": 98.9,
+  "dxy": 98.88,
   "dxy_date": "2026-08-25",
   "dxy_chart": [
     {
@@ -6068,10 +6068,10 @@
     },
     {
       "t": "2026-08-25",
-      "v": 98.9
+      "v": 98.88
     }
   ],
-  "vix": 15.5,
+  "vix": 15.45,
   "vix_date": "2026-08-25",
   "vix_chart": [
     {
@@ -7084,7 +7084,7 @@
     },
     {
       "t": "2026-08-25",
-      "v": 15.5
+      "v": 15.45
     }
   ],
   "data_sources": {
@@ -8103,7 +8103,7 @@
     },
     {
       "t": "2026-08-25",
-      "v": 4718.4
+      "v": 4721.3
     }
   ],
   "next_fomc_date": "2026-09-16",
@@ -8114,11 +8114,11 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": -5.621,
-  "lease_rate_1m": 6.476,
-  "lease_rate_3m": 9.251,
-  "lease_rate_6m": 12.026,
+  "gofo_annualized": -5.801,
+  "lease_rate_1m": 6.602,
+  "lease_rate_3m": 9.431,
+  "lease_rate_6m": 12.26,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-08-25T19:36:07Z"
+  "last_updated": "2026-08-25T20:35:37Z"
 }
