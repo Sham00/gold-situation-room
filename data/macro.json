@@ -5059,13 +5059,9 @@
       "v": 4.64
     }
   ],
-  "dxy": 99.13,
-  "dxy_date": "2026-08-26",
+  "dxy": 99.17,
+  "dxy_date": "2026-08-27",
   "dxy_chart": [
-    {
-      "t": "2025-08-26",
-      "v": 98.23
-    },
     {
       "t": "2025-08-27",
       "v": 98.23
@@ -6068,16 +6064,16 @@
     },
     {
       "t": "2026-08-26",
-      "v": 99.13
+      "v": 99.17
+    },
+    {
+      "t": "2026-08-27",
+      "v": 99.17
     }
   ],
-  "vix": 15.21,
-  "vix_date": "2026-08-26",
+  "vix": 14.85,
+  "vix_date": "2026-08-27",
   "vix_chart": [
-    {
-      "t": "2025-08-26",
-      "v": 14.62
-    },
     {
       "t": "2025-08-27",
       "v": 14.85
@@ -7085,6 +7081,10 @@
     {
       "t": "2026-08-26",
       "v": 15.21
+    },
+    {
+      "t": "2026-08-27",
+      "v": 14.85
     }
   ],
   "data_sources": {
@@ -7097,10 +7097,6 @@
     "vix": "yfinance"
   },
   "gold_1y_chart": [
-    {
-      "t": "2025-08-26",
-      "v": 3388.6
-    },
     {
       "t": "2025-08-27",
       "v": 3404.6
@@ -8103,22 +8099,26 @@
     },
     {
       "t": "2026-08-26",
-      "v": 4661.9
+      "v": 4598.2
+    },
+    {
+      "t": "2026-08-27",
+      "v": 4655.6
     }
   ],
   "next_fomc_date": "2026-09-16",
-  "days_to_fomc": 21,
+  "days_to_fomc": 20,
   "data_quality": {
     "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
     "freshness": "daily",
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": -3.481,
-  "lease_rate_1m": 4.978,
-  "lease_rate_3m": 7.111,
-  "lease_rate_6m": 9.244,
+  "gofo_annualized": -3.699,
+  "lease_rate_1m": 5.13,
+  "lease_rate_3m": 7.329,
+  "lease_rate_6m": 9.528,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-08-26T23:11:53Z"
+  "last_updated": "2026-08-27T08:39:54Z"
 }
