@@ -1,11 +1,7 @@
 {
-  "real_yield_10y": 2.32,
-  "real_yield_10y_date": "2026-08-25",
+  "real_yield_10y": 2.34,
+  "real_yield_10y_date": "2026-08-26",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-08-22",
-      "v": 1.85
-    },
     {
       "t": "2025-08-25",
       "v": 1.87
@@ -1009,6 +1005,10 @@
     {
       "t": "2026-08-25",
       "v": 2.32
+    },
+    {
+      "t": "2026-08-26",
+      "v": 2.34
     }
   ],
   "fed_funds": 3.63,
@@ -4047,13 +4047,9 @@
       "v": 23207.7
     }
   ],
-  "us_10y": 4.64,
-  "us_10y_date": "2026-08-25",
+  "us_10y": 4.66,
+  "us_10y_date": "2026-08-26",
   "us_10y_chart": [
-    {
-      "t": "2025-08-22",
-      "v": 4.26
-    },
     {
       "t": "2025-08-25",
       "v": 4.28
@@ -5057,15 +5053,15 @@
     {
       "t": "2026-08-25",
       "v": 4.64
+    },
+    {
+      "t": "2026-08-26",
+      "v": 4.66
     }
   ],
   "dxy": 99.16,
-  "dxy_date": "2026-08-27",
+  "dxy_date": "2026-08-28",
   "dxy_chart": [
-    {
-      "t": "2025-08-27",
-      "v": 98.23
-    },
     {
       "t": "2025-08-28",
       "v": 97.81
@@ -6071,8 +6067,8 @@
       "v": 99.16
     }
   ],
-  "vix": 14.57,
-  "vix_date": "2026-08-27",
+  "vix": 14.51,
+  "vix_date": "2026-08-28",
   "vix_chart": [
     {
       "t": "2025-08-27",
@@ -7084,7 +7080,7 @@
     },
     {
       "t": "2026-08-27",
-      "v": 14.57
+      "v": 14.51
     }
   ],
   "data_sources": {
@@ -7097,10 +7093,6 @@
     "vix": "yfinance"
   },
   "gold_1y_chart": [
-    {
-      "t": "2025-08-27",
-      "v": 3404.6
-    },
     {
       "t": "2025-08-28",
       "v": 3431.8
@@ -8103,22 +8095,22 @@
     },
     {
       "t": "2026-08-27",
-      "v": 4660.5
+      "v": 4609.7
     }
   ],
   "next_fomc_date": "2026-09-16",
-  "days_to_fomc": 20,
+  "days_to_fomc": 19,
   "data_quality": {
     "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
     "freshness": "daily",
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": -4.01,
-  "lease_rate_1m": 5.348,
-  "lease_rate_3m": 7.64,
-  "lease_rate_6m": 9.932,
+  "gofo_annualized": 0.0,
+  "lease_rate_1m": 2.541,
+  "lease_rate_3m": 3.63,
+  "lease_rate_6m": 4.719,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": true,
-  "last_updated": "2026-08-27T19:44:13Z"
+  "last_updated": "2026-08-28T04:08:19Z"
 }
