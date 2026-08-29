@@ -1,11 +1,7 @@
 {
   "real_yield_10y": 2.34,
-  "real_yield_10y_date": "2026-08-26",
+  "real_yield_10y_date": "2026-08-27",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-08-25",
-      "v": 1.87
-    },
     {
       "t": "2025-08-26",
       "v": 1.84
@@ -1008,6 +1004,10 @@
     },
     {
       "t": "2026-08-26",
+      "v": 2.34
+    },
+    {
+      "t": "2026-08-27",
       "v": 2.34
     }
   ],
@@ -4047,13 +4047,9 @@
       "v": 23207.7
     }
   ],
-  "us_10y": 4.66,
-  "us_10y_date": "2026-08-26",
+  "us_10y": 4.67,
+  "us_10y_date": "2026-08-27",
   "us_10y_chart": [
-    {
-      "t": "2025-08-25",
-      "v": 4.28
-    },
     {
       "t": "2025-08-26",
       "v": 4.26
@@ -5057,10 +5053,14 @@
     {
       "t": "2026-08-26",
       "v": 4.66
+    },
+    {
+      "t": "2026-08-27",
+      "v": 4.67
     }
   ],
   "dxy": 99.68,
-  "dxy_date": "2026-08-28",
+  "dxy_date": "2026-08-29",
   "dxy_chart": [
     {
       "t": "2025-08-28",
@@ -6071,8 +6071,8 @@
       "v": 99.68
     }
   ],
-  "vix": 14.53,
-  "vix_date": "2026-08-28",
+  "vix": 14.43,
+  "vix_date": "2026-08-29",
   "vix_chart": [
     {
       "t": "2025-08-28",
@@ -7084,7 +7084,7 @@
     },
     {
       "t": "2026-08-28",
-      "v": 14.53
+      "v": 14.43
     }
   ],
   "data_sources": {
@@ -8103,22 +8103,22 @@
     },
     {
       "t": "2026-08-28",
-      "v": 4526.4
+      "v": 4504.1
     }
   ],
   "next_fomc_date": "2026-09-16",
-  "days_to_fomc": 19,
+  "days_to_fomc": 18,
   "data_quality": {
     "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
     "freshness": "daily",
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "gofo_annualized": 5.48,
+  "gofo_annualized": 7.034,
   "lease_rate_1m": 0.0,
   "lease_rate_3m": 0,
   "lease_rate_6m": 0.0,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": false,
-  "last_updated": "2026-08-28T17:15:26Z"
+  "last_updated": "2026-08-29T01:37:27Z"
 }
