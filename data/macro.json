@@ -5059,7 +5059,7 @@
       "v": 4.67
     }
   ],
-  "dxy": 99.16,
+  "dxy": 99.7,
   "dxy_date": "2026-08-29",
   "dxy_chart": [
     {
@@ -6061,9 +6061,13 @@
     {
       "t": "2026-08-27",
       "v": 99.16
+    },
+    {
+      "t": "2026-08-28",
+      "v": 99.7
     }
   ],
-  "vix": 14.51,
+  "vix": 14.43,
   "vix_date": "2026-08-29",
   "vix_chart": [
     {
@@ -7073,6 +7077,10 @@
     {
       "t": "2026-08-27",
       "v": 14.51
+    },
+    {
+      "t": "2026-08-28",
+      "v": 14.43
     }
   ],
   "data_sources": {
@@ -8098,5 +8106,5 @@
     "reliability": "live",
     "notes": "Real yield 10Y from TIP/TNX calculation. Some inflation estimates lag 1 month (BLS release schedule)."
   },
-  "last_updated": "2026-08-29T18:15:50Z"
+  "last_updated": "2026-08-29T21:35:35Z"
 }
