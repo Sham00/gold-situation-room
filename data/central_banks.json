@@ -2,7 +2,7 @@
   "reserves": [
     {
       "country": "United States",
-      "pct_of_reserves": 84.9,
+      "pct_of_reserves": 85.0,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 8133,
@@ -224,7 +224,7 @@
     },
     {
       "country": "Germany",
-      "pct_of_reserves": 84.7,
+      "pct_of_reserves": 84.8,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 3352,
@@ -446,7 +446,7 @@
     },
     {
       "country": "Italy",
-      "pct_of_reserves": 81.7,
+      "pct_of_reserves": 81.8,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2452,
@@ -668,7 +668,7 @@
     },
     {
       "country": "France",
-      "pct_of_reserves": 82.3,
+      "pct_of_reserves": 82.4,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2437,
@@ -890,7 +890,7 @@
     },
     {
       "country": "Russia",
-      "pct_of_reserves": 55.5,
+      "pct_of_reserves": 55.6,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 2335,
@@ -2492,7 +2492,7 @@
     },
     {
       "country": "Poland",
-      "pct_of_reserves": 22.3,
+      "pct_of_reserves": 22.4,
       "data_source": "hardcoded (2025-12)",
       "as_of_date": "2025-12",
       "reserves_tonnes": 420,
@@ -4528,7 +4528,7 @@
       "pct_source": "World Bank API (live)"
     }
   ],
-  "net_monthly_pace_tonnes": 9.1,
+  "net_monthly_pace_tonnes": 8.1,
   "total_cb_buying_ytd": 73,
   "cb_annual": {
     "10Y_average": 500,
@@ -4538,7 +4538,7 @@
     "2023": 1037,
     "2024": 1045,
     "2025": 980,
-    "2026_annualized": 110
+    "2026_annualized": 97
   },
   "pace_vs_avg": 0.2,
   "source": "hardcoded WGC estimates (all live sources unavailable)",
@@ -4565,17 +4565,17 @@
       "sentiment": "positive"
     },
     {
+      "title": "Central Bank Gold Buying Hits Record 289 Tonnes in Q2 2026 - Discovery Alert",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcUVvQWZnVHRhQ2padUgyZThVOGhCSy1JU1VjdVhxNGF5NXRDcTYwSG9yUVFQWmZ0UDBkMnltUHBCRzViblZvalhWR2JXdHVaZnRYQnMwODNSdGdjOWZKaElxcUZURnp1cTdIU3dRNU96RlBjaW1VTC1pNTJkbzZJTm94andlSXA5ay1v?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 26 Aug 2026 05:56:16 GMT",
+      "sentiment": "positive"
+    },
+    {
       "title": "Central banks buy net 17 tonnes of gold in April, led by Poland and China \u2013 WGC - kitco.com",
       "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNVTBXOGFWajJjdXRITTQ2TlFkT3VZdFNuVW9jekNFby10YWtXR3hoaVJVTzZnejJDbkhXYWF1SjFuSEZpVm5xZWhmRXdFaGcya1hCdTVhZnptekx5VllTNE95WVRxWkswQWhxSFpPLU9qUl9KcXJIbDlraVRGaVpxdFJ0aEZfeHNxeVVQXy1ERmIyMmZ2QXpBcjRfNTUwT0YwNkRsWHRyUmhMbE03cmt3WDgzZw?oc=5",
       "source": "Google News CB",
       "published": "Wed, 03 Jun 2026 07:00:00 GMT",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Central banks think the US has become riskier. They plan to sell dollars and buy gold | CNN Business - cnn.com",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOT0xWQmc0R3luUVJlbkFGcUJDVFpzYnNJeEU0TTg5S3BlTWgyZkllNEx2SjkzQlBGbDRwWDVsa2dVVTJIZmNnUmdyNnduWWRrNUVVTllpdVVCSFRabHR3UTF2Y3FVWUpCc3ZFTE0yd3VkSFU1Z0QtblJsZ3NVa1kwN0xHeWpyOE0?oc=5",
-      "source": "Google News CB",
-      "published": "Tue, 30 Jun 2026 07:00:00 GMT",
       "sentiment": "neutral"
     }
   ],
@@ -4585,5 +4585,5 @@
     "reliability": "estimate",
     "notes": "All live sources unavailable. Data from WGC quarterly reports."
   },
-  "last_updated": "2026-08-31T21:52:37Z"
+  "last_updated": "2026-09-01T01:09:32Z"
 }
