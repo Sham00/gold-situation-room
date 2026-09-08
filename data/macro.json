@@ -5059,7 +5059,7 @@
       "v": 4.77
     }
   ],
-  "dxy": 98.87,
+  "dxy": 98.9,
   "dxy_date": "2026-09-08",
   "dxy_chart": [
     {
@@ -6068,10 +6068,10 @@
     },
     {
       "t": "2026-09-08",
-      "v": 98.87
+      "v": 98.9
     }
   ],
-  "vix": 15.3,
+  "vix": 15.6,
   "vix_date": "2026-09-08",
   "vix_chart": [
     {
@@ -7085,6 +7085,10 @@
     {
       "t": "2026-09-07",
       "v": 15.3
+    },
+    {
+      "t": "2026-09-08",
+      "v": 15.6
     }
   ],
   "data_sources": {
@@ -8103,7 +8107,7 @@
     },
     {
       "t": "2026-09-08",
-      "v": 4448.4
+      "v": 4447.6
     }
   ],
   "next_fomc_date": "2026-09-16",
@@ -8119,5 +8123,5 @@
   "lease_rate_6m": 0.544,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": false,
-  "last_updated": "2026-09-08T07:08:21Z"
+  "last_updated": "2026-09-08T12:47:06Z"
 }
