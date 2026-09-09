@@ -4,8 +4,8 @@
       "name": "VanEck Gold Miners ETF",
       "type": "etf",
       "price": 98.41,
-      "change": -0.92,
-      "change_pct": -0.93,
+      "change": -0.02,
+      "change_pct": -0.02,
       "ytd_pct": 14.79,
       "week4_pct": 9.48,
       "market_cap": null,
@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 64.0,
-      "vs_gold_ytd": 12.95,
+      "vs_gold_ytd": 11.8,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -529,8 +529,8 @@
       "name": "VanEck Junior Gold Miners ETF",
       "type": "etf",
       "price": 127.54,
-      "change": -3.67,
-      "change_pct": -2.8,
+      "change": 0.12,
+      "change_pct": 0.09,
       "ytd_pct": 12.67,
       "week4_pct": 8.43,
       "market_cap": null,
@@ -538,7 +538,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 207.0,
-      "vs_gold_ytd": 10.83,
+      "vs_gold_ytd": 9.68,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -1054,19 +1054,19 @@
       "name": "Barrick Gold",
       "type": "miner",
       "price": 47.47,
-      "change": 1.47,
-      "change_pct": 3.2,
+      "change": -0.43,
+      "change_pct": -0.9,
       "ytd_pct": 37.69,
       "week4_pct": 9.1,
       "market_cap": 1382387712,
       "pe_ratio": 15.7,
       "forward_pe": 12.7,
       "ev_ebitda": 9.8,
-      "dividend_yield": 173.0,
-      "vs_gold_ytd": 35.85,
+      "dividend_yield": 169.0,
+      "vs_gold_ytd": 34.7,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3343.9,
+      "margin": 3393.1,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -1582,8 +1582,8 @@
       "name": "Newmont Corp",
       "type": "miner",
       "price": 127.09,
-      "change": -1.08,
-      "change_pct": -0.84,
+      "change": -0.31,
+      "change_pct": -0.24,
       "ytd_pct": 26.37,
       "week4_pct": 12.72,
       "market_cap": 133913747456,
@@ -1591,10 +1591,10 @@
       "forward_pe": 12.6,
       "ev_ebitda": 7.7,
       "dividend_yield": 81.0,
-      "vs_gold_ytd": 24.53,
+      "vs_gold_ytd": 23.38,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2993.9,
+      "margin": 3043.1,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -2119,10 +2119,10 @@
       "forward_pe": 16.2,
       "ev_ebitda": 9.8,
       "dividend_yield": 88.0,
-      "vs_gold_ytd": 17.34,
+      "vs_gold_ytd": 16.19,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3243.9,
+      "margin": 3293.1,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -2647,10 +2647,10 @@
       "forward_pe": 11.9,
       "ev_ebitda": 9.5,
       "dividend_yield": 43.0,
-      "vs_gold_ytd": -6.75,
+      "vs_gold_ytd": -7.9,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3343.9,
+      "margin": 3393.1,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -3166,8 +3166,8 @@
       "name": "Wheaton Precious Metals",
       "type": "miner",
       "price": 155.11,
-      "change": -1.05,
-      "change_pct": -0.67,
+      "change": 0.76,
+      "change_pct": 0.49,
       "ytd_pct": 32.17,
       "week4_pct": 15.73,
       "market_cap": 70444752896,
@@ -3175,10 +3175,10 @@
       "forward_pe": 30.7,
       "ev_ebitda": 27.1,
       "dividend_yield": 50.0,
-      "vs_gold_ytd": 30.33,
+      "vs_gold_ytd": 29.18,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3943.9,
+      "margin": 3993.1,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -3703,10 +3703,10 @@
       "forward_pe": 28.2,
       "ev_ebitda": 23.9,
       "dividend_yield": 66.0,
-      "vs_gold_ytd": 25.36,
+      "vs_gold_ytd": 24.21,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3993.9,
+      "margin": 4043.1,
       "sparkline": [
         {
           "t": "2026-03-09",
@@ -4219,7 +4219,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.022397,
+  "gdx_gold_ratio": 0.022149,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-09-09",
@@ -5327,5 +5327,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-09-09T04:09:17Z"
+  "last_updated": "2026-09-09T09:30:40Z"
 }
