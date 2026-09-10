@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4457.1,
+      "price": 4438.2,
       "start_price": 4314.4,
-      "ytd_pct": 3.31,
+      "ytd_pct": 2.87,
       "color": "#ffd700",
       "chart": [
         {
@@ -696,7 +696,7 @@
         },
         {
           "t": "2026-09-10",
-          "v": 103.31
+          "v": 102.87
         }
       ]
     },
@@ -1397,9 +1397,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 78339.47,
+      "price": 78172.87,
       "start_price": 88731.98,
-      "ytd_pct": -11.71,
+      "ytd_pct": -11.9,
       "color": "#ff8800",
       "chart": [
         {
@@ -2407,15 +2407,19 @@
           "v": 88.4
         },
         {
+          "t": "2026-09-09",
+          "v": 88.2
+        },
+        {
           "t": "2026-09-10",
-          "v": 88.29
+          "v": 88.1
         }
       ]
     },
     "Silver": {
-      "price": 68.14,
+      "price": 67.25,
       "start_price": 70.56,
-      "ytd_pct": -3.43,
+      "ytd_pct": -4.69,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -3108,7 +3112,7 @@
         },
         {
           "t": "2026-09-10",
-          "v": 96.57
+          "v": 95.31
         }
       ]
     },
@@ -4509,13 +4513,17 @@
         {
           "t": "2026-09-09",
           "v": 113.44
+        },
+        {
+          "t": "2026-09-10",
+          "v": 113.44
         }
       ]
     },
     "DXY": {
-      "price": 98.72,
+      "price": 98.76,
       "start_price": 98.42,
-      "ytd_pct": 0.31,
+      "ytd_pct": 0.35,
       "color": "#aa44ff",
       "chart": [
         {
@@ -5208,7 +5216,7 @@
         },
         {
           "t": "2026-09-10",
-          "v": 100.31
+          "v": 100.35
         }
       ]
     }
@@ -5219,5 +5227,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-09-10T04:27:34Z"
+  "last_updated": "2026-09-10T09:30:04Z"
 }
