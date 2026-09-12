@@ -1409,9 +1409,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 77340.65,
+      "price": 77229.9,
       "start_price": 88731.98,
-      "ytd_pct": -12.84,
+      "ytd_pct": -12.96,
       "color": "#ff8800",
       "chart": [
         {
@@ -2427,8 +2427,8 @@
           "v": 86.29
         },
         {
-          "t": "2026-09-11",
-          "v": 87.16
+          "t": "2026-09-12",
+          "v": 87.04
         }
       ]
     },
@@ -3137,9 +3137,9 @@
       ]
     },
     "Long Bonds (TLT)": {
-      "price": 80.87,
+      "price": NaN,
       "start_price": 84.44,
-      "ytd_pct": -4.22,
+      "ytd_pct": NaN,
       "color": "#4488ff",
       "chart": [
         {
@@ -3836,7 +3836,7 @@
         },
         {
           "t": "2026-09-11",
-          "v": 95.78
+          "v": NaN
         }
       ]
     },
@@ -5263,5 +5263,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-09-11T21:38:02Z"
+  "last_updated": "2026-09-12T00:01:35Z"
 }
