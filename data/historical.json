@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4349.0
+      "price": 4321.0
     }
   ],
   "decade_returns": [
@@ -1267,7 +1267,7 @@
     },
     {
       "t": "2026-09-01",
-      "v": 4349.4
+      "v": 4320.9
     }
   ],
   "real_gold_chart": [
@@ -2763,8 +2763,8 @@
     },
     {
       "t": "2026-09-01",
-      "v": 4349.4,
-      "nominal": 4349.4
+      "v": 4320.9,
+      "nominal": 4320.9
     }
   ],
   "seasonal_monthly": [
@@ -2818,7 +2818,7 @@
     },
     {
       "month": "Sep",
-      "avg_return": 1.22,
+      "avg_return": 1.2,
       "positive_pct": 48.0,
       "n": 23
     },
@@ -2869,8 +2869,8 @@
       "trough_date": "2026-07-16",
       "recovery_date": null,
       "peak_price": 5318.4,
-      "trough_price": 3985.6,
-      "drawdown_pct": -25.06,
+      "trough_price": 3992.1,
+      "drawdown_pct": -24.94,
       "days_to_trough": 115,
       "days_to_recovery": null,
       "recovered": false
@@ -2888,13 +2888,13 @@
     },
     {
       "peak_date": "2020-08-06",
-      "trough_date": "2022-09-26",
+      "trough_date": "2022-11-03",
       "recovery_date": "2023-12-01",
-      "peak_price": 2051.5,
-      "trough_price": 1623.3,
-      "drawdown_pct": -20.87,
-      "days_to_trough": 538,
-      "days_to_recovery": 836,
+      "peak_price": 2069.4,
+      "trough_price": 1630.9,
+      "drawdown_pct": -21.19,
+      "days_to_trough": 566,
+      "days_to_recovery": 837,
       "recovered": true
     },
     {
@@ -2978,11 +2978,11 @@
       "peak_date": "2023-05-04",
       "trough_date": "2023-10-05",
       "recovery_date": "2023-12-01",
-      "peak_price": 2048.0,
-      "trough_price": 1816.6,
-      "drawdown_pct": -11.3,
+      "peak_price": 2055.7,
+      "trough_price": 1831.8,
+      "drawdown_pct": -10.89,
       "days_to_trough": 106,
-      "days_to_recovery": 146,
+      "days_to_recovery": 147,
       "recovered": true
     }
   ],
@@ -2992,5 +2992,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-09-15T04:24:41Z"
+  "last_updated": "2026-09-15T14:47:55Z"
 }
