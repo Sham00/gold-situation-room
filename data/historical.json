@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 4324.0
+      "price": 4373.0
     }
   ],
   "decade_returns": [
@@ -69,7 +69,7 @@
     },
     {
       "decade": "2020s (so far)",
-      "avg_annual_return": 19.9
+      "avg_annual_return": 20.1
     }
   ],
   "timeline_chart": [
@@ -1243,31 +1243,31 @@
     },
     {
       "t": "2026-01-01",
-      "v": 4713.9
+      "v": 4745.1
     },
     {
       "t": "2026-04-01",
-      "v": 4614.7
+      "v": 4629.6
     },
     {
       "t": "2026-05-01",
-      "v": 4560.5
+      "v": 4593.0
     },
     {
       "t": "2026-06-01",
-      "v": 4022.9
+      "v": 4038.5
     },
     {
       "t": "2026-07-01",
-      "v": 4049.1
+      "v": 4107.0
     },
     {
       "t": "2026-08-01",
-      "v": 4431.1
+      "v": 4481.5
     },
     {
       "t": "2026-09-01",
-      "v": 4324.1
+      "v": 4372.7
     }
   ],
   "real_gold_chart": [
@@ -2733,44 +2733,44 @@
     },
     {
       "t": "2026-01-01",
-      "v": 4713.9,
-      "nominal": 4713.9
+      "v": 4745.1,
+      "nominal": 4745.1
     },
     {
       "t": "2026-04-01",
-      "v": 4614.7,
-      "nominal": 4614.7
+      "v": 4629.6,
+      "nominal": 4629.6
     },
     {
       "t": "2026-05-01",
-      "v": 4560.5,
-      "nominal": 4560.5
+      "v": 4593.0,
+      "nominal": 4593.0
     },
     {
       "t": "2026-06-01",
-      "v": 4022.9,
-      "nominal": 4022.9
+      "v": 4038.5,
+      "nominal": 4038.5
     },
     {
       "t": "2026-07-01",
-      "v": 4049.1,
-      "nominal": 4049.1
+      "v": 4107.0,
+      "nominal": 4107.0
     },
     {
       "t": "2026-08-01",
-      "v": 4431.1,
-      "nominal": 4431.1
+      "v": 4481.5,
+      "nominal": 4481.5
     },
     {
       "t": "2026-09-01",
-      "v": 4324.1,
-      "nominal": 4324.1
+      "v": 4372.7,
+      "nominal": 4372.7
     }
   ],
   "seasonal_monthly": [
     {
       "month": "Jan",
-      "avg_return": 2.47,
+      "avg_return": 2.51,
       "positive_pct": 55.0,
       "n": 22
     },
@@ -2788,31 +2788,31 @@
     },
     {
       "month": "Apr",
-      "avg_return": 0.88,
+      "avg_return": 0.86,
       "positive_pct": 64.0,
       "n": 22
     },
     {
       "month": "May",
-      "avg_return": 1.19,
+      "avg_return": 1.21,
       "positive_pct": 59.0,
       "n": 22
     },
     {
       "month": "Jun",
-      "avg_return": -2.02,
+      "avg_return": -2.04,
       "positive_pct": 36.0,
       "n": 22
     },
     {
       "month": "Jul",
-      "avg_return": 1.4,
+      "avg_return": 1.45,
       "positive_pct": 68.0,
       "n": 22
     },
     {
       "month": "Aug",
-      "avg_return": 2.12,
+      "avg_return": 2.1,
       "positive_pct": 70.0,
       "n": 23
     },
@@ -2992,5 +2992,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-09-16T01:13:30Z"
+  "last_updated": "2026-09-16T07:30:20Z"
 }
