@@ -3,11 +3,11 @@
     "GLD": {
       "name": "SPDR Gold Shares",
       "price": 394.15,
-      "change": 1.08,
-      "change_pct": 0.28,
-      "tonnes_est": 729.6,
+      "change": 1.52,
+      "change_pct": 0.39,
+      "tonnes_est": 726.9,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.8,
+      "daily_change_est": 1.1,
       "ytd_pct": -1.04,
       "week7_pct": -3.92,
       "week4_pct": -1.83,
@@ -1021,11 +1021,11 @@
     "IAU": {
       "name": "iShares Gold Trust",
       "price": 80.78,
-      "change": 0.12,
-      "change_pct": 0.15,
-      "tonnes_est": 557.3,
+      "change": 0.25,
+      "change_pct": 0.31,
+      "tonnes_est": 555.2,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": 0.3,
+      "daily_change_est": 0.7,
       "ytd_pct": -0.96,
       "week7_pct": -3.95,
       "week4_pct": -1.82,
@@ -2039,9 +2039,9 @@
     "PHYS": {
       "name": "Sprott Physical Gold",
       "price": 32.43,
-      "change": 0.05,
-      "change_pct": 0.14,
-      "tonnes_est": 109.4,
+      "change": 0.1,
+      "change_pct": 0.31,
+      "tonnes_est": 109.0,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 0.1,
       "ytd_pct": -2.11,
@@ -3058,7 +3058,7 @@
       "name": "GraniteShares Gold",
       "price": 42.27,
       "change": 0.05,
-      "change_pct": 0.13,
+      "change_pct": 0.12,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": 0.0,
@@ -5091,12 +5091,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1456.3,
+  "total_holdings_tonnes_est": 1451.1,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-09-16T07:29:57Z"
+  "last_updated": "2026-09-16T13:19:44Z"
 }
