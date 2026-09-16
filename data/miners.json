@@ -3,17 +3,17 @@
     "GDX": {
       "name": "VanEck Gold Miners ETF",
       "type": "etf",
-      "price": 94.13,
-      "change": 0.03,
-      "change_pct": 0.03,
-      "ytd_pct": 9.8,
-      "week4_pct": 4.62,
+      "price": 93.79,
+      "change": -0.31,
+      "change_pct": -0.33,
+      "ytd_pct": 9.4,
+      "week4_pct": 2.06,
       "market_cap": null,
-      "pe_ratio": 12.1,
+      "pe_ratio": 12.0,
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 64.0,
-      "vs_gold_ytd": 8.4,
+      "vs_gold_ytd": 8.01,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -522,23 +522,27 @@
         {
           "t": "2026-09-15",
           "v": 94.13
+        },
+        {
+          "t": "2026-09-16",
+          "v": 93.79
         }
       ]
     },
     "GDXJ": {
       "name": "VanEck Junior Gold Miners ETF",
       "type": "etf",
-      "price": 120.31,
-      "change": -0.02,
-      "change_pct": -0.02,
-      "ytd_pct": 6.28,
-      "week4_pct": 1.88,
+      "price": 120.09,
+      "change": -0.24,
+      "change_pct": -0.2,
+      "ytd_pct": 6.08,
+      "week4_pct": -0.24,
       "market_cap": null,
       "pe_ratio": 11.9,
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 207.0,
-      "vs_gold_ytd": 4.88,
+      "vs_gold_ytd": 4.69,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -1047,26 +1051,30 @@
         {
           "t": "2026-09-15",
           "v": 120.31
+        },
+        {
+          "t": "2026-09-16",
+          "v": 120.09
         }
       ]
     },
     "GOLD": {
       "name": "Barrick Gold",
       "type": "miner",
-      "price": 47.8,
-      "change": -0.21,
-      "change_pct": -0.44,
-      "ytd_pct": 38.64,
-      "week4_pct": 8.64,
-      "market_cap": 1393597312,
-      "pe_ratio": 15.8,
+      "price": 47.93,
+      "change": -0.08,
+      "change_pct": -0.17,
+      "ytd_pct": 39.02,
+      "week4_pct": 5.59,
+      "market_cap": 1397372928,
+      "pe_ratio": 15.9,
       "forward_pe": 12.8,
       "ev_ebitda": 10.0,
       "dividend_yield": 167.0,
-      "vs_gold_ytd": 37.24,
+      "vs_gold_ytd": 37.63,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3340.0,
+      "margin": 3339.5,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -1575,26 +1583,30 @@
         {
           "t": "2026-09-15",
           "v": 47.8
+        },
+        {
+          "t": "2026-09-16",
+          "v": 47.93
         }
       ]
     },
     "NEM": {
       "name": "Newmont Corp",
       "type": "miner",
-      "price": 124.19,
-      "change": 0.09,
-      "change_pct": 0.07,
-      "ytd_pct": 23.49,
-      "week4_pct": 5.68,
-      "market_cap": 130858049536,
-      "pe_ratio": 15.6,
-      "forward_pe": 12.2,
+      "price": 122.68,
+      "change": -1.42,
+      "change_pct": -1.14,
+      "ytd_pct": 21.98,
+      "week4_pct": 2.17,
+      "market_cap": 129266966528,
+      "pe_ratio": 15.5,
+      "forward_pe": 12.0,
       "ev_ebitda": 7.5,
       "dividend_yield": 84.0,
-      "vs_gold_ytd": 22.09,
+      "vs_gold_ytd": 20.59,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2990.0,
+      "margin": 2989.5,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -2103,26 +2115,30 @@
         {
           "t": "2026-09-15",
           "v": 124.19
+        },
+        {
+          "t": "2026-09-16",
+          "v": 122.68
         }
       ]
     },
     "AEM": {
       "name": "Agnico Eagle",
       "type": "miner",
-      "price": 196.9,
-      "change": -0.0,
-      "change_pct": -0.0,
-      "ytd_pct": 16.27,
-      "week4_pct": 5.83,
-      "market_cap": 99703234560,
+      "price": 197.58,
+      "change": 0.68,
+      "change_pct": 0.35,
+      "ytd_pct": 16.67,
+      "week4_pct": 4.89,
+      "market_cap": 100072890368,
       "pe_ratio": 16.9,
       "forward_pe": 15.8,
       "ev_ebitda": 9.5,
       "dividend_yield": 91.0,
-      "vs_gold_ytd": 14.87,
+      "vs_gold_ytd": 15.28,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3240.0,
+      "margin": 3239.5,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -2631,26 +2647,30 @@
         {
           "t": "2026-09-15",
           "v": 196.9
+        },
+        {
+          "t": "2026-09-16",
+          "v": 197.63
         }
       ]
     },
     "AGI": {
       "name": "Alamos Gold",
       "type": "miner",
-      "price": 35.17,
-      "change": -0.09,
-      "change_pct": -0.26,
-      "ytd_pct": -8.15,
-      "week4_pct": 5.54,
-      "market_cap": 14722318336,
+      "price": 35.14,
+      "change": -0.12,
+      "change_pct": -0.34,
+      "ytd_pct": -8.23,
+      "week4_pct": 3.5,
+      "market_cap": 14709761024,
       "pe_ratio": 12.8,
       "forward_pe": 11.5,
       "ev_ebitda": 9.2,
       "dividend_yield": 45.0,
-      "vs_gold_ytd": -9.55,
+      "vs_gold_ytd": -9.62,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3340.0,
+      "margin": 3339.5,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -3159,26 +3179,30 @@
         {
           "t": "2026-09-15",
           "v": 35.17
+        },
+        {
+          "t": "2026-09-16",
+          "v": 35.14
         }
       ]
     },
     "WPM": {
       "name": "Wheaton Precious Metals",
       "type": "miner",
-      "price": 150.02,
-      "change": 0.87,
-      "change_pct": 0.58,
-      "ytd_pct": 27.84,
-      "week4_pct": 11.93,
-      "market_cap": 68133081088,
-      "pe_ratio": 33.3,
-      "forward_pe": 29.9,
+      "price": 148.38,
+      "change": -0.77,
+      "change_pct": -0.52,
+      "ytd_pct": 26.44,
+      "week4_pct": 8.76,
+      "market_cap": 67342839808,
+      "pe_ratio": 33.0,
+      "forward_pe": 29.6,
       "ev_ebitda": 26.2,
       "dividend_yield": 52.0,
-      "vs_gold_ytd": 26.44,
+      "vs_gold_ytd": 25.05,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3940.0,
+      "margin": 3939.5,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -3687,26 +3711,30 @@
         {
           "t": "2026-09-15",
           "v": 150.02
+        },
+        {
+          "t": "2026-09-16",
+          "v": 148.28
         }
       ]
     },
     "FNV": {
       "name": "Franco-Nevada",
       "type": "miner",
-      "price": 263.09,
-      "change": -0.0,
-      "change_pct": -0.0,
-      "ytd_pct": 26.82,
-      "week4_pct": 12.52,
-      "market_cap": 50738360320,
-      "pe_ratio": 34.3,
-      "forward_pe": 28.1,
+      "price": 260.77,
+      "change": -2.32,
+      "change_pct": -0.88,
+      "ytd_pct": 25.7,
+      "week4_pct": 9.49,
+      "market_cap": 50290937856,
+      "pe_ratio": 34.0,
+      "forward_pe": 27.8,
       "ev_ebitda": 23.8,
       "dividend_yield": 67.0,
-      "vs_gold_ytd": 25.42,
+      "vs_gold_ytd": 24.31,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3990.0,
+      "margin": 3989.5,
       "sparkline": [
         {
           "t": "2026-03-16",
@@ -4215,11 +4243,15 @@
         {
           "t": "2026-09-15",
           "v": 263.09
+        },
+        {
+          "t": "2026-09-16",
+          "v": 260.77
         }
       ]
     }
   },
-  "gdx_gold_ratio": 0.021442,
+  "gdx_gold_ratio": 0.021367,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-09-16",
@@ -5224,6 +5256,10 @@
     {
       "t": "2026-09-15",
       "v": 0.021725
+    },
+    {
+      "t": "2026-09-16",
+      "v": 0.021372
     }
   ],
   "mining_production": {
@@ -5327,5 +5363,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-09-16T13:19:57Z"
+  "last_updated": "2026-09-16T18:03:40Z"
 }
