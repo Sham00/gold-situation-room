@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4302.5,
+      "price": 4323.7,
       "start_price": 4329.6,
-      "ytd_pct": -0.63,
+      "ytd_pct": -0.14,
       "color": "#ffd700",
       "chart": [
         {
@@ -712,7 +712,7 @@
         },
         {
           "t": "2026-09-16",
-          "v": 99.37
+          "v": 99.86
         }
       ]
     },
@@ -1433,9 +1433,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 75923.69,
+      "price": 76372.69,
       "start_price": 88731.98,
-      "ytd_pct": -14.43,
+      "ytd_pct": -13.93,
       "color": "#ff8800",
       "chart": [
         {
@@ -2471,15 +2471,15 @@
           "v": 85.21
         },
         {
-          "t": "2026-09-16",
-          "v": 85.57
+          "t": "2026-09-17",
+          "v": 86.07
         }
       ]
     },
     "Silver": {
-      "price": 63.42,
+      "price": 63.83,
       "start_price": 70.56,
-      "ytd_pct": -10.11,
+      "ytd_pct": -9.54,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -3188,14 +3188,14 @@
         },
         {
           "t": "2026-09-16",
-          "v": 89.89
+          "v": 90.46
         }
       ]
     },
     "Long Bonds (TLT)": {
-      "price": 80.88,
+      "price": NaN,
       "start_price": 84.44,
-      "ytd_pct": -4.21,
+      "ytd_pct": NaN,
       "color": "#4488ff",
       "chart": [
         {
@@ -3904,7 +3904,7 @@
         },
         {
           "t": "2026-09-16",
-          "v": 95.79
+          "v": NaN
         }
       ]
     },
@@ -4633,9 +4633,9 @@
       ]
     },
     "DXY": {
-      "price": 100.31,
+      "price": 100.22,
       "start_price": 98.42,
-      "ytd_pct": 1.92,
+      "ytd_pct": 1.83,
       "color": "#aa44ff",
       "chart": [
         {
@@ -5344,7 +5344,7 @@
         },
         {
           "t": "2026-09-16",
-          "v": 101.92
+          "v": 101.83
         }
       ]
     }
@@ -5355,5 +5355,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-09-16T22:00:07Z"
+  "last_updated": "2026-09-17T00:22:11Z"
 }
