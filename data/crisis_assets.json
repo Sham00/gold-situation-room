@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4383.6,
+      "price": 4397.2,
       "start_price": 4329.6,
-      "ytd_pct": 1.25,
+      "ytd_pct": 1.56,
       "color": "#ffd700",
       "chart": [
         {
@@ -716,7 +716,11 @@
         },
         {
           "t": "2026-09-17",
-          "v": 101.25
+          "v": 101.62
+        },
+        {
+          "t": "2026-09-18",
+          "v": 101.56
         }
       ]
     },
@@ -1441,9 +1445,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 76428.69,
+      "price": 77168.47,
       "start_price": 88731.98,
-      "ytd_pct": -13.87,
+      "ytd_pct": -13.03,
       "color": "#ff8800",
       "chart": [
         {
@@ -2483,15 +2487,15 @@
           "v": 85.82
         },
         {
-          "t": "2026-09-17",
-          "v": 86.13
+          "t": "2026-09-18",
+          "v": 86.97
         }
       ]
     },
     "Silver": {
-      "price": 65.84,
+      "price": 66.57,
       "start_price": 70.56,
-      "ytd_pct": -6.68,
+      "ytd_pct": -5.66,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -3204,7 +3208,11 @@
         },
         {
           "t": "2026-09-17",
-          "v": 93.32
+          "v": 92.79
+        },
+        {
+          "t": "2026-09-18",
+          "v": 94.34
         }
       ]
     },
@@ -4657,9 +4665,9 @@
       ]
     },
     "DXY": {
-      "price": 100.24,
+      "price": 100.21,
       "start_price": 98.42,
-      "ytd_pct": 1.85,
+      "ytd_pct": 1.82,
       "color": "#aa44ff",
       "chart": [
         {
@@ -5372,7 +5380,11 @@
         },
         {
           "t": "2026-09-17",
-          "v": 101.85
+          "v": 101.83
+        },
+        {
+          "t": "2026-09-18",
+          "v": 101.82
         }
       ]
     }
@@ -5383,5 +5395,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-09-17T23:28:49Z"
+  "last_updated": "2026-09-18T04:11:34Z"
 }
