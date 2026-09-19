@@ -3,85 +3,85 @@
     {
       "month": 1,
       "name": "Jan",
-      "avg_return": 3.05,
+      "avg_return": 2.93,
       "std_dev": 4.54,
       "years_of_data": 8
     },
     {
       "month": 2,
       "name": "Feb",
-      "avg_return": 0.67,
+      "avg_return": 0.79,
       "std_dev": 4.43,
       "years_of_data": 9
     },
     {
       "month": 3,
       "name": "Mar",
-      "avg_return": 3.32,
-      "std_dev": 4.67,
+      "avg_return": 3.13,
+      "std_dev": 4.45,
       "years_of_data": 8
     },
     {
       "month": 4,
       "name": "Apr",
-      "avg_return": 1.92,
-      "std_dev": 3.44,
+      "avg_return": 2.09,
+      "std_dev": 3.51,
       "years_of_data": 9
     },
     {
       "month": 5,
       "name": "May",
-      "avg_return": 1.12,
-      "std_dev": 2.91,
+      "avg_return": 1.06,
+      "std_dev": 3.08,
       "years_of_data": 9
     },
     {
       "month": 6,
       "name": "Jun",
-      "avg_return": -2.39,
-      "std_dev": 5.82,
+      "avg_return": -2.32,
+      "std_dev": 5.8,
       "years_of_data": 9
     },
     {
       "month": 7,
       "name": "Jul",
-      "avg_return": 2.38,
-      "std_dev": 3.21,
+      "avg_return": 2.2,
+      "std_dev": 3.08,
       "years_of_data": 9
     },
     {
       "month": 8,
       "name": "Aug",
-      "avg_return": 2.17,
-      "std_dev": 4.53,
+      "avg_return": 2.77,
+      "std_dev": 4.43,
       "years_of_data": 9
     },
     {
       "month": 9,
       "name": "Sep",
-      "avg_return": -1.09,
-      "std_dev": 5.29,
+      "avg_return": -1.24,
+      "std_dev": 5.2,
       "years_of_data": 7
     },
     {
       "month": 10,
       "name": "Oct",
-      "avg_return": 2.02,
-      "std_dev": 3.86,
+      "avg_return": 1.72,
+      "std_dev": 3.56,
       "years_of_data": 7
     },
     {
       "month": 11,
       "name": "Nov",
-      "avg_return": 2.05,
-      "std_dev": 4.95,
+      "avg_return": 1.89,
+      "std_dev": 4.79,
       "years_of_data": 8
     },
     {
       "month": 12,
       "name": "Dec",
-      "avg_return": 2.74,
-      "std_dev": 1.44,
+      "avg_return": 2.79,
+      "std_dev": 1.48,
       "years_of_data": 7
     }
   ],
@@ -96,8 +96,8 @@
     "Jun"
   ],
   "current_month": "Sep",
-  "current_month_avg": -1.09,
+  "current_month_avg": -1.24,
   "years_analyzed": 10,
   "source": "yfinance GC=F 10-year monthly returns",
-  "last_updated": "2026-09-19T10:41:20Z"
+  "last_updated": "2026-09-19T14:16:37Z"
 }
