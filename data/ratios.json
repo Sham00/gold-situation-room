@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 66.6415,
-    "gold_oil": 46.6995,
-    "gold_spx": 0.5606,
+    "gold_silver": 66.6466,
+    "gold_oil": 46.9267,
+    "gold_spx": 0.5613,
     "gold_btc": 0.0512,
-    "gold_copper": 638.4894
+    "gold_copper": 637.4917
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1014,7 +1014,7 @@
       },
       {
         "t": "2026-09-23",
-        "v": 66.6363
+        "v": 66.6466
       }
     ],
     "gold_oil": [
@@ -2024,7 +2024,7 @@
       },
       {
         "t": "2026-09-23",
-        "v": 46.6995
+        "v": 46.9267
       }
     ],
     "gold_spx": [
@@ -3026,7 +3026,7 @@
       },
       {
         "t": "2026-09-23",
-        "v": 0.5606
+        "v": 0.5613
       }
     ],
     "gold_btc": [
@@ -5046,7 +5046,7 @@
       },
       {
         "t": "2026-09-23",
-        "v": 638.5366
+        "v": 637.4917
       }
     ]
   },
@@ -5060,7 +5060,7 @@
     "gold_oil": {
       "min": 15.5424,
       "max": 101.7414,
-      "mean": 32.3801,
+      "mean": 32.3806,
       "current_percentile": 82.4
     },
     "gold_spx": {
@@ -5073,13 +5073,13 @@
       "min": 0.0257,
       "max": 2.2256,
       "mean": 0.1975,
-      "current_percentile": 32.5
+      "current_percentile": 32.7
     },
     "gold_copper": {
       "min": 373.5319,
       "max": 896.0743,
-      "mean": 540.6649,
-      "current_percentile": 79.2
+      "mean": 540.663,
+      "current_percentile": 79.0
     }
   },
   "dxy_chart": [
@@ -7095,7 +7095,7 @@
     },
     {
       "t": "2026-09-23",
-      "v": 4319.7
+      "v": 4325.7
     }
   ],
   "data_quality": {
@@ -7104,5 +7104,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-09-23T20:05:09Z"
+  "last_updated": "2026-09-23T23:31:00Z"
 }
