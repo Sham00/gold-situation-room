@@ -3035,10 +3035,6 @@
     ],
     "gold_btc": [
       {
-        "t": "2025-09-25",
-        "v": 0.0346
-      },
-      {
         "t": "2025-09-26",
         "v": 0.0347
       },
@@ -4037,10 +4033,6 @@
       {
         "t": "2026-09-24",
         "v": 0.0509
-      },
-      {
-        "t": "2026-09-25",
-        "v": 0.0515
       }
     ],
     "gold_copper": [
@@ -5077,7 +5069,7 @@
       "min": 0.0257,
       "max": 2.1498,
       "mean": 0.1937,
-      "current_percentile": 32.8
+      "current_percentile": 33.0
     },
     "gold_copper": {
       "min": 373.5319,
@@ -7112,5 +7104,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-09-25T22:08:25Z"
+  "last_updated": "2026-09-26T01:21:17Z"
 }
