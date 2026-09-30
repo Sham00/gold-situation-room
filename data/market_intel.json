@@ -2,37 +2,29 @@
   "alerts": [
     {
       "type": "etf_inflow",
-      "headline": "Gold ETF Trading Jumps 83%, Holdings Climb To Record 4,189 Tonnes - yellow.com",
+      "headline": "Gold ETF Trading Jumps 83%, Holdings Climb To Record 4,189 Tonnes - Yellow.com",
       "detail": "",
       "significance": "medium",
       "ts": "Thu, 10 Sep 2026 07:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBjVEpXV05CRmJaSnAzU2NsQzJYV3pnQno1UzE2M05HdVpUMVNoMXVfNkU0UG1MYXlJQi1QUU5RMDc4MlRVLWktYi1OMUczbE80U19lLUxNV0hfTzRXa2lNRUhpU25lbnowNFE?oc=5"
     },
     {
-      "type": "backwardation",
-      "headline": "GOLD IN BACKWARDATION: Spot $4226.8 > Dec 2026 $4225.9",
-      "detail": "Physical gold in backwardation signals strong immediate demand exceeding near-term supply. Historically bullish.",
+      "type": "rsi_oversold",
+      "headline": "\ud83d\udcc9 RSI DEEPLY OVERSOLD: Gold RSI at 26.9 \u2014 extreme mean-reversion buy signal",
+      "detail": "RSI below 30 is a strong historical buy signal for gold. Current RSI: 26.9",
       "significance": "high",
-      "ts": "2026-09-30T13:31:57Z",
-      "link": ""
-    },
-    {
-      "type": "rsi_approaching_oversold",
-      "headline": "\ud83d\udcc9 RSI APPROACHING OVERSOLD: Gold RSI at 33.0 \u2014 historically precedes mean-reversion bounces",
-      "detail": "RSI in the 30-40 range has historically preceded gold price rebounds. Watch for a reversal signal. Current RSI: 33.0",
-      "significance": "medium",
-      "ts": "2026-09-30T13:31:57Z",
+      "ts": "2026-09-30T19:01:37Z",
       "link": ""
     },
     {
       "type": "ma50_break",
-      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $4,227 trading under 50-DMA ($4,364) \u2014 watch for support",
+      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $4,183 trading under 50-DMA ($4,363) \u2014 watch for support",
       "detail": "Price below 50-day moving average can signal short-term bearish momentum.",
       "significance": "medium",
-      "ts": "2026-09-30T13:31:57Z",
+      "ts": "2026-09-30T19:01:37Z",
       "link": ""
     }
   ],
-  "last_scan": "2026-09-30T13:31:57Z",
-  "last_updated": "2026-09-30T13:32:00Z"
+  "last_scan": "2026-09-30T19:01:37Z",
+  "last_updated": "2026-09-30T19:01:40Z"
 }
