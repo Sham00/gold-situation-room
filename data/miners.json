@@ -9,11 +9,11 @@
       "ytd_pct": 2.9,
       "week4_pct": -11.12,
       "market_cap": null,
-      "pe_ratio": 11.3,
+      "pe_ratio": 14.0,
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 72.0,
-      "vs_gold_ytd": 6.06,
+      "vs_gold_ytd": 6.36,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -534,11 +534,11 @@
       "ytd_pct": 0.31,
       "week4_pct": -12.0,
       "market_cap": null,
-      "pe_ratio": 11.2,
+      "pe_ratio": 14.1,
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 233.0,
-      "vs_gold_ytd": 3.47,
+      "vs_gold_ytd": 3.77,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -1053,20 +1053,20 @@
     "GOLD": {
       "name": "Barrick Gold",
       "type": "miner",
-      "price": 41.57,
-      "change": -0.39,
-      "change_pct": -0.93,
-      "ytd_pct": 23.68,
-      "week4_pct": -7.56,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
+      "ytd_pct": NaN,
+      "week4_pct": NaN,
       "market_cap": 1209539456,
       "pe_ratio": 13.8,
       "forward_pe": 11.1,
       "ev_ebitda": 9.0,
       "dividend_yield": 192.0,
-      "vs_gold_ytd": 26.84,
+      "vs_gold_ytd": NaN,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3142.7,
+      "margin": 3129.9,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -1574,7 +1574,7 @@
         },
         {
           "t": "2026-10-06",
-          "v": 41.57
+          "v": NaN
         }
       ]
     },
@@ -1591,10 +1591,10 @@
       "forward_pe": 11.4,
       "ev_ebitda": 7.0,
       "dividend_yield": 90.0,
-      "vs_gold_ytd": 18.89,
+      "vs_gold_ytd": 19.19,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2792.7,
+      "margin": 2779.9,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -2115,14 +2115,14 @@
       "ytd_pct": 9.85,
       "week4_pct": -9.13,
       "market_cap": 94199054336,
-      "pe_ratio": 15.9,
+      "pe_ratio": 15.7,
       "forward_pe": 15.0,
-      "ev_ebitda": 8.8,
+      "ev_ebitda": 9.0,
       "dividend_yield": 98.0,
-      "vs_gold_ytd": 13.01,
+      "vs_gold_ytd": 13.31,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3042.7,
+      "margin": 3029.9,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -2643,14 +2643,14 @@
       "ytd_pct": -14.52,
       "week4_pct": -11.37,
       "market_cap": 13700924416,
-      "pe_ratio": 11.8,
+      "pe_ratio": 11.6,
       "forward_pe": 10.8,
-      "ev_ebitda": 8.4,
+      "ev_ebitda": 8.5,
       "dividend_yield": 50.0,
-      "vs_gold_ytd": -11.36,
+      "vs_gold_ytd": -11.06,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3142.7,
+      "margin": 3129.9,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -3173,12 +3173,12 @@
       "market_cap": 62515118080,
       "pe_ratio": 30.5,
       "forward_pe": 27.7,
-      "ev_ebitda": 23.9,
+      "ev_ebitda": 24.1,
       "dividend_yield": 57.0,
-      "vs_gold_ytd": 20.46,
+      "vs_gold_ytd": 20.76,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3742.7,
+      "margin": 3729.9,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -3698,15 +3698,15 @@
       "change_pct": 1.33,
       "ytd_pct": 17.61,
       "week4_pct": -8.19,
-      "market_cap": 47052894208,
+      "market_cap": 47057350656,
       "pe_ratio": 31.9,
       "forward_pe": 26.1,
-      "ev_ebitda": 21.8,
+      "ev_ebitda": 22.1,
       "dividend_yield": 73.0,
-      "vs_gold_ytd": 20.77,
+      "vs_gold_ytd": 21.07,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3792.7,
+      "margin": 3779.9,
       "sparkline": [
         {
           "t": "2026-04-07",
@@ -4219,7 +4219,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.021041,
+  "gdx_gold_ratio": 0.021106,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-10-07",
@@ -5223,7 +5223,7 @@
     },
     {
       "t": "2026-10-06",
-      "v": 0.021041
+      "v": 0.021106
     }
   ],
   "mining_production": {
@@ -5327,5 +5327,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-10-06T21:32:09Z"
+  "last_updated": "2026-10-07T01:21:01Z"
 }
