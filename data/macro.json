@@ -5059,8 +5059,8 @@
       "v": 5.28
     }
   ],
-  "dxy": 102.1,
-  "dxy_date": "2026-10-08",
+  "dxy": 101.98,
+  "dxy_date": "2026-10-09",
   "dxy_chart": [
     {
       "t": "2025-10-08",
@@ -6068,11 +6068,11 @@
     },
     {
       "t": "2026-10-08",
-      "v": 102.1
+      "v": 101.98
     }
   ],
   "vix": 15.41,
-  "vix_date": "2026-10-08",
+  "vix_date": "2026-10-09",
   "vix_chart": [
     {
       "t": "2025-10-08",
@@ -8107,11 +8107,11 @@
     },
     {
       "t": "2026-10-08",
-      "v": 4158.3
+      "v": 4195.2
     }
   ],
   "next_fomc_date": "2026-10-28",
-  "days_to_fomc": 20,
+  "days_to_fomc": 19,
   "data_quality": {
     "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
     "freshness": "daily",
@@ -8123,5 +8123,5 @@
   "lease_rate_6m": 0.562,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": false,
-  "last_updated": "2026-10-08T21:56:09Z"
+  "last_updated": "2026-10-09T01:54:35Z"
 }
