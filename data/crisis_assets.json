@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 4165.3,
+      "price": 4158.8,
       "start_price": 4329.6,
-      "ytd_pct": -3.79,
+      "ytd_pct": -3.94,
       "color": "#ffd700",
       "chart": [
         {
@@ -792,7 +792,11 @@
         },
         {
           "t": "2026-10-14",
-          "v": 96.21
+          "v": 94.88
+        },
+        {
+          "t": "2026-10-15",
+          "v": 96.06
         }
       ]
     },
@@ -1593,9 +1597,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 81661.83,
+      "price": 80853.98,
       "start_price": 88731.98,
-      "ytd_pct": -7.97,
+      "ytd_pct": -8.88,
       "color": "#ff8800",
       "chart": [
         {
@@ -2743,15 +2747,19 @@
           "v": 93.65
         },
         {
+          "t": "2026-10-14",
+          "v": 91.92
+        },
+        {
           "t": "2026-10-15",
-          "v": 92.03
+          "v": 91.12
         }
       ]
     },
     "Silver": {
-      "price": 56.22,
+      "price": 56.32,
       "start_price": 70.56,
-      "ytd_pct": -20.31,
+      "ytd_pct": -20.18,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -3540,7 +3548,11 @@
         },
         {
           "t": "2026-10-14",
-          "v": 79.69
+          "v": 78.73
+        },
+        {
+          "t": "2026-10-15",
+          "v": 79.82
         }
       ]
     },
@@ -5145,9 +5157,9 @@
       ]
     },
     "DXY": {
-      "price": 102.08,
+      "price": 102.11,
       "start_price": 98.42,
-      "ytd_pct": 3.72,
+      "ytd_pct": 3.75,
       "color": "#aa44ff",
       "chart": [
         {
@@ -5936,7 +5948,11 @@
         },
         {
           "t": "2026-10-14",
-          "v": 103.72
+          "v": 104.2
+        },
+        {
+          "t": "2026-10-15",
+          "v": 103.75
         }
       ]
     }
@@ -5947,5 +5963,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-10-15T01:20:37Z"
+  "last_updated": "2026-10-15T07:13:28Z"
 }

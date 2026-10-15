@@ -5,7 +5,7 @@
       "price": 375.99,
       "change": -4.82,
       "change_pct": -1.27,
-      "tonnes_est": 730.4,
+      "tonnes_est": 732.0,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -3.7,
       "ytd_pct": -5.6,
@@ -1023,7 +1023,7 @@
       "price": 77.07,
       "change": -1.12,
       "change_pct": -1.43,
-      "tonnes_est": 558.0,
+      "tonnes_est": 559.2,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -3.2,
       "ytd_pct": -5.51,
@@ -2041,7 +2041,7 @@
       "price": 30.96,
       "change": -0.4,
       "change_pct": -1.28,
-      "tonnes_est": 109.6,
+      "tonnes_est": 109.8,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -0.6,
       "ytd_pct": -6.55,
@@ -3056,15 +3056,15 @@
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 40.35,
+      "change": -0.6,
+      "change_pct": -1.47,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": NaN,
-      "ytd_pct": NaN,
-      "week7_pct": NaN,
-      "week4_pct": NaN,
+      "daily_change_est": -0.1,
+      "ytd_pct": -5.44,
+      "week7_pct": -0.96,
+      "week4_pct": -4.54,
       "chart_1y": [
         {
           "t": "2025-10-15",
@@ -4068,7 +4068,7 @@
         },
         {
           "t": "2026-10-14",
-          "v": NaN
+          "v": 40.35
         }
       ]
     },
@@ -5091,12 +5091,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1458.0,
+  "total_holdings_tonnes_est": 1461.0,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-10-15T01:20:09Z"
+  "last_updated": "2026-10-15T07:12:54Z"
 }
