@@ -1,14 +1,14 @@
 {
-  "report_date": "2026-10-06",
-  "gold_managed_money_long": 127101,
-  "gold_managed_money_short": 16114,
-  "gold_managed_money_net": 110987,
-  "gold_commercial_long": 18860,
-  "gold_commercial_short": 38361,
-  "gold_commercial_net": -19501,
-  "gold_open_interest": 396109,
+  "report_date": "2026-10-13",
+  "gold_managed_money_long": 124747,
+  "gold_managed_money_short": 17658,
+  "gold_managed_money_net": 107089,
+  "gold_commercial_long": 18386,
+  "gold_commercial_short": 36823,
+  "gold_commercial_net": -18437,
+  "gold_open_interest": 396345,
   "source": "CFTC Commitments of Traders",
-  "source_status": "Live CFTC data \u2014 145 weeks parsed",
+  "source_status": "Live CFTC data \u2014 146 weeks parsed",
   "history": [
     {
       "t": "2024-01-02",
@@ -589,14 +589,18 @@
     {
       "t": "2026-10-06",
       "v": 110987
+    },
+    {
+      "t": "2026-10-13",
+      "v": 107089
     }
   ],
-  "net_percentile": 41.6,
+  "net_percentile": 39.4,
   "data_quality": {
     "source": "CFTC Commitment of Traders (cftc.gov) \u2014 COMEX Gold Futures disaggregated report",
     "freshness": "weekly (published Fridays for prior Tuesday data)",
     "reliability": "live",
     "notes": "COT data lags 3-4 days. Percentile computed vs trailing 3Y history."
   },
-  "last_updated": "2026-10-16T17:16:38Z"
+  "last_updated": "2026-10-16T20:48:29Z"
 }
