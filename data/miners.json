@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 72.0,
-      "vs_gold_ytd": 5.0,
+      "vs_gold_ytd": 4.51,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -538,7 +538,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 233.0,
-      "vs_gold_ytd": 0.33,
+      "vs_gold_ytd": -0.16,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -1053,20 +1053,20 @@
     "GOLD": {
       "name": "Barrick Gold",
       "type": "miner",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
-      "ytd_pct": NaN,
-      "week4_pct": NaN,
+      "price": 39.63,
+      "change": 0.85,
+      "change_pct": 2.19,
+      "ytd_pct": 17.91,
+      "week4_pct": -15.36,
       "market_cap": 1153092480,
-      "pe_ratio": 13.6,
+      "pe_ratio": 13.1,
       "forward_pe": 10.6,
       "ev_ebitda": 8.6,
-      "dividend_yield": 199.0,
-      "vs_gold_ytd": NaN,
+      "dividend_yield": 202.0,
+      "vs_gold_ytd": 20.92,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3128.3,
+      "margin": 3149.4,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -1574,7 +1574,7 @@
         },
         {
           "t": "2026-10-15",
-          "v": NaN
+          "v": 39.63
         }
       ]
     },
@@ -1587,14 +1587,14 @@
       "ytd_pct": 15.13,
       "week4_pct": -4.9,
       "market_cap": 122007027712,
-      "pe_ratio": 15.1,
+      "pe_ratio": 14.6,
       "forward_pe": 11.6,
       "ev_ebitda": 7.0,
       "dividend_yield": 90.0,
-      "vs_gold_ytd": 18.63,
+      "vs_gold_ytd": 18.14,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2778.3,
+      "margin": 2799.4,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -2115,14 +2115,14 @@
       "ytd_pct": 10.75,
       "week4_pct": -4.1,
       "market_cap": 94973796352,
-      "pe_ratio": 16.8,
+      "pe_ratio": 16.0,
       "forward_pe": 15.1,
       "ev_ebitda": 9.0,
-      "dividend_yield": 97.0,
-      "vs_gold_ytd": 14.25,
+      "dividend_yield": 96.0,
+      "vs_gold_ytd": 13.76,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 3028.3,
+      "margin": 3049.4,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -2643,14 +2643,14 @@
       "ytd_pct": -16.48,
       "week4_pct": -7.17,
       "market_cap": 13386971136,
-      "pe_ratio": 12.0,
+      "pe_ratio": 11.5,
       "forward_pe": 10.6,
       "ev_ebitda": 8.3,
       "dividend_yield": 50.0,
-      "vs_gold_ytd": -12.98,
+      "vs_gold_ytd": -13.47,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3128.3,
+      "margin": 3149.4,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -3174,11 +3174,11 @@
       "pe_ratio": 29.5,
       "forward_pe": 26.8,
       "ev_ebitda": 23.4,
-      "dividend_yield": 57.0,
-      "vs_gold_ytd": 16.97,
+      "dividend_yield": 59.0,
+      "vs_gold_ytd": 16.48,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3728.3,
+      "margin": 3749.4,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -3702,11 +3702,11 @@
       "pe_ratio": 31.6,
       "forward_pe": 25.8,
       "ev_ebitda": 21.8,
-      "dividend_yield": 72.0,
-      "vs_gold_ytd": 19.61,
+      "dividend_yield": 73.0,
+      "vs_gold_ytd": 19.12,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3778.3,
+      "margin": 3799.4,
       "sparkline": [
         {
           "t": "2026-04-16",
@@ -4219,7 +4219,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.020827,
+  "gdx_gold_ratio": 0.020722,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-10-16",
@@ -5223,7 +5223,7 @@
     },
     {
       "t": "2026-10-15",
-      "v": 0.020829
+      "v": 0.020868
     }
   ],
   "mining_production": {
@@ -5327,5 +5327,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-10-16T01:05:38Z"
+  "last_updated": "2026-10-16T06:56:23Z"
 }
