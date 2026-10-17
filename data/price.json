@@ -1,26 +1,26 @@
 {
-  "price": 4186.7,
+  "price": 4181.1,
   "prev_close": 4204.4,
-  "change": -17.7,
-  "change_pct": -0.42,
-  "ytd_change_pct": -3.3,
+  "change": -23.3,
+  "change_pct": -0.55,
+  "ytd_change_pct": -3.43,
   "ath": 5318.4,
   "ath_date": "2026-01-29",
   "days_since_ath": 261,
-  "pct_below_ath": 21.28,
+  "pct_below_ath": 21.38,
   "high_52w": 5318.4,
   "low_52w": 3960.5,
   "high_52w_date": "2026-01-29",
   "low_52w_date": "2025-11-04",
   "currencies": {
-    "USD": 4186.7,
-    "EUR": 3723.65,
-    "GBP": 3140.82,
-    "JPY": 661444.2,
-    "CNY": 27993.12,
-    "AUD": 6024.66,
-    "CHF": 3448.21,
-    "INR": 397569.05
+    "USD": 4181.1,
+    "EUR": 3718.67,
+    "GBP": 3136.62,
+    "JPY": 660559.46,
+    "CNY": 27955.67,
+    "AUD": 6016.6,
+    "CHF": 3443.6,
+    "INR": 397037.26
   },
   "currency_sparklines": {
     "USD": [
@@ -46,7 +46,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 4186.7
+        "v": 4181.1
       }
     ],
     "EUR": [
@@ -72,7 +72,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 3723.65
+        "v": 3718.67
       }
     ],
     "GBP": [
@@ -98,7 +98,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 3140.82
+        "v": 3136.62
       }
     ],
     "JPY": [
@@ -124,7 +124,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 661444.17
+        "v": 660559.44
       }
     ],
     "CNY": [
@@ -150,7 +150,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 27993.11
+        "v": 27955.67
       }
     ],
     "AUD": [
@@ -176,7 +176,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 6024.66
+        "v": 6016.6
       }
     ],
     "CHF": [
@@ -202,7 +202,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 3448.21
+        "v": 3443.6
       }
     ],
     "INR": [
@@ -228,7 +228,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 397569.03
+        "v": 397037.25
       }
     ]
   },
@@ -1040,7 +1040,7 @@
       },
       {
         "t": "2026-10-16 16:55",
-        "v": 4186.7
+        "v": 4181.1
       }
     ],
     "5d": [
@@ -2790,14 +2790,10 @@
       },
       {
         "t": "2026-10-16 16:45",
-        "v": 4186.7
+        "v": 4181.1
       }
     ],
     "1m": [
-      {
-        "t": "2026-09-16 23:00",
-        "v": 4334.2
-      },
       {
         "t": "2026-09-17 00:00",
         "v": 4336.1
@@ -4808,14 +4804,10 @@
       },
       {
         "t": "2026-10-16 16:00",
-        "v": 4186.7
+        "v": 4181.1
       }
     ],
     "3m": [
-      {
-        "t": "2026-07-16",
-        "v": 3992.1
-      },
       {
         "t": "2026-07-17",
         "v": 4018.8
@@ -5074,14 +5066,10 @@
       },
       {
         "t": "2026-10-16",
-        "v": 4186.7
+        "v": 4181.1
       }
     ],
     "1y": [
-      {
-        "t": "2025-10-16",
-        "v": 4304.6
-      },
       {
         "t": "2025-10-17",
         "v": 4213.3
@@ -6084,7 +6072,7 @@
       },
       {
         "t": "2026-10-16",
-        "v": 4186.7
+        "v": 4181.1
       }
     ],
     "5y": [
@@ -7130,7 +7118,7 @@
       },
       {
         "t": "2026-10-12",
-        "v": 4186.7
+        "v": 4181.1
       }
     ],
     "all": [
@@ -8208,13 +8196,13 @@
       },
       {
         "t": "2026-10-01",
-        "v": 4186.7
+        "v": 4181.1
       }
     ]
   },
   "lbma": {
     "am_fix": 4204.4,
-    "pm_fix": 4186.7,
+    "pm_fix": 4181.1,
     "basis": null,
     "source": "COMEX Settlement (proxy)"
   },
@@ -8222,14 +8210,10 @@
     "basis": 0.0,
     "basis_pct": 0.0,
     "curve_state": "BACKWARDATION",
-    "front": 4186.7,
-    "back": 4186.7
+    "front": 4181.1,
+    "back": 4181.1
   },
   "contango_history": [
-    {
-      "t": "2025-10-16",
-      "v": 180.3
-    },
     {
       "t": "2025-10-17",
       "v": 175.6
@@ -9235,13 +9219,13 @@
       "v": 0.0
     }
   ],
-  "ma20": 4214.39,
-  "ma50": 4374.53,
-  "ma200": 4540.73,
+  "ma20": 4214.11,
+  "ma50": 4374.41,
+  "ma200": 4540.7,
   "ma20_signal": "below",
   "ma50_signal": "below",
   "ma200_signal": "below",
-  "rsi": 52.2,
+  "rsi": 51.5,
   "ma50_series": [
     {
       "t": "2025-05-07",
@@ -10701,7 +10685,7 @@
     },
     {
       "t": "2026-10-16",
-      "v": 4374.53
+      "v": 4374.41
     }
   ],
   "ma200_series": [
@@ -12163,7 +12147,7 @@
     },
     {
       "t": "2026-10-16",
-      "v": 4540.73
+      "v": 4540.7
     }
   ],
   "rsi_series": [
@@ -13625,7 +13609,7 @@
     },
     {
       "t": "2026-10-16",
-      "v": 52.2
+      "v": 51.5
     }
   ],
   "fib_levels": {
@@ -13635,49 +13619,49 @@
       {
         "label": "0%",
         "price": 5318.4,
-        "distance_pct": 27.03,
+        "distance_pct": 27.2,
         "is_support": false,
         "is_resistance": true
       },
       {
         "label": "23.6%",
         "price": 4997.94,
-        "distance_pct": 19.38,
+        "distance_pct": 19.54,
         "is_support": false,
         "is_resistance": true
       },
       {
         "label": "38.2%",
         "price": 4799.68,
-        "distance_pct": 14.64,
+        "distance_pct": 14.79,
         "is_support": false,
         "is_resistance": true
       },
       {
         "label": "50%",
         "price": 4639.45,
-        "distance_pct": 10.81,
+        "distance_pct": 10.96,
         "is_support": false,
         "is_resistance": true
       },
       {
         "label": "61.8%",
         "price": 4479.22,
-        "distance_pct": 6.99,
+        "distance_pct": 7.13,
         "is_support": false,
         "is_resistance": true
       },
       {
         "label": "78.6%",
         "price": 4251.09,
-        "distance_pct": 1.54,
+        "distance_pct": 1.67,
         "is_support": false,
         "is_resistance": true
       },
       {
         "label": "100%",
         "price": 3960.5,
-        "distance_pct": -5.4,
+        "distance_pct": -5.28,
         "is_support": true,
         "is_resistance": false
       }
@@ -13685,14 +13669,14 @@
     "nearest_support": {
       "label": "100%",
       "price": 3960.5,
-      "distance_pct": -5.4,
+      "distance_pct": -5.28,
       "is_support": true,
       "is_resistance": false
     },
     "nearest_resistance": {
       "label": "78.6%",
       "price": 4251.09,
-      "distance_pct": 1.54,
+      "distance_pct": 1.67,
       "is_support": false,
       "is_resistance": true
     },
@@ -13704,5 +13688,5 @@
     "reliability": "live",
     "notes": "COMEX front-month continuous contract. LBMA fix is estimated from COMEX settlement."
   },
-  "last_updated": "2026-10-17T03:53:18Z"
+  "last_updated": "2026-10-17T08:26:30Z"
 }
