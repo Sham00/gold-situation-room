@@ -1,10 +1,10 @@
 {
   "ratios": {
-    "gold_silver": 72.5734,
-    "gold_oil": 43.1715,
-    "gold_spx": 0.549,
+    "gold_silver": 72.5783,
+    "gold_oil": 42.7536,
+    "gold_spx": 0.5406,
     "gold_btc": 0.0508,
-    "gold_copper": 634.9894
+    "gold_copper": 636.6191
   },
   "ratio_charts": {
     "gold_silver": [
@@ -1010,7 +1010,7 @@
       },
       {
         "t": "2026-10-19",
-        "v": 72.5734
+        "v": 72.5783
       }
     ],
     "gold_oil": [
@@ -2016,7 +2016,7 @@
       },
       {
         "t": "2026-10-19",
-        "v": 43.167
+        "v": 42.7536
       }
     ],
     "gold_spx": [
@@ -3019,6 +3019,10 @@
       {
         "t": "2026-10-16",
         "v": 0.5459
+      },
+      {
+        "t": "2026-10-19",
+        "v": 0.5406
       }
     ],
     "gold_btc": [
@@ -5030,7 +5034,7 @@
       },
       {
         "t": "2026-10-19",
-        "v": 634.9894
+        "v": 636.6677
       }
     ]
   },
@@ -5038,20 +5042,20 @@
     "gold_silver": {
       "min": 49.3406,
       "max": 120.1717,
-      "mean": 80.8536,
-      "current_percentile": 19.3
+      "mean": 80.8537,
+      "current_percentile": 19.1
     },
     "gold_oil": {
       "min": 15.5424,
       "max": 101.7414,
-      "mean": 32.5117,
-      "current_percentile": 77.2
+      "mean": 32.5109,
+      "current_percentile": 77.1
     },
     "gold_spx": {
       "min": 0.3788,
       "max": 0.7654,
       "mean": 0.4944,
-      "current_percentile": 79.9
+      "current_percentile": 78.0
     },
     "gold_btc": {
       "min": 0.0257,
@@ -5062,7 +5066,7 @@
     "gold_copper": {
       "min": 373.5319,
       "max": 896.0743,
-      "mean": 541.0026,
+      "mean": 541.0061,
       "current_percentile": 78.4
     }
   },
@@ -6069,7 +6073,7 @@
     },
     {
       "t": "2026-10-19",
-      "v": 101.84
+      "v": 101.92
     }
   ],
   "gold_1y_chart": [
@@ -7075,7 +7079,7 @@
     },
     {
       "t": "2026-10-19",
-      "v": 4204.9
+      "v": 4168.9
     }
   ],
   "data_quality": {
@@ -7084,5 +7088,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-10-19T06:03:18Z"
+  "last_updated": "2026-10-19T14:30:45Z"
 }
