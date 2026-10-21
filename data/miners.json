@@ -13,7 +13,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 72.0,
-      "vs_gold_ytd": 4.9,
+      "vs_gold_ytd": 4.87,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -538,7 +538,7 @@
       "forward_pe": null,
       "ev_ebitda": null,
       "dividend_yield": 233.0,
-      "vs_gold_ytd": -0.26,
+      "vs_gold_ytd": -0.29,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -1062,11 +1062,11 @@
       "pe_ratio": 12.6,
       "forward_pe": 10.2,
       "ev_ebitda": 8.4,
-      "dividend_yield": 210.0,
-      "vs_gold_ytd": 18.09,
+      "dividend_yield": 209.0,
+      "vs_gold_ytd": 18.06,
       "aisc": 1050,
       "production_koz": 4100,
-      "margin": 3086.5,
+      "margin": 3087.5,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -1587,14 +1587,14 @@
       "ytd_pct": 16.15,
       "week4_pct": -5.07,
       "market_cap": 123081793536,
-      "pe_ratio": 14.7,
+      "pe_ratio": 14.9,
       "forward_pe": 11.5,
       "ev_ebitda": 7.0,
       "dividend_yield": 88.0,
-      "vs_gold_ytd": 20.62,
+      "vs_gold_ytd": 20.59,
       "aisc": 1400,
       "production_koz": 5500,
-      "margin": 2736.5,
+      "margin": 2737.5,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -2110,19 +2110,19 @@
       "name": "Agnico Eagle",
       "type": "miner",
       "price": 186.25,
-      "change": -0.95,
-      "change_pct": -0.51,
+      "change": -0.75,
+      "change_pct": -0.4,
       "ytd_pct": 9.98,
       "week4_pct": -5.69,
       "market_cap": 94310457344,
-      "pe_ratio": 15.9,
+      "pe_ratio": 16.0,
       "forward_pe": 15.5,
       "ev_ebitda": 9.0,
       "dividend_yield": 96.0,
-      "vs_gold_ytd": 14.45,
+      "vs_gold_ytd": 14.42,
       "aisc": 1150,
       "production_koz": 3500,
-      "margin": 2986.5,
+      "margin": 2987.5,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -2643,14 +2643,14 @@
       "ytd_pct": -16.87,
       "week4_pct": -9.6,
       "market_cap": 13324180480,
-      "pe_ratio": 11.4,
+      "pe_ratio": 11.5,
       "forward_pe": 11.1,
       "ev_ebitda": 8.3,
       "dividend_yield": 50.0,
-      "vs_gold_ytd": -12.4,
+      "vs_gold_ytd": -12.43,
       "aisc": 1050,
       "production_koz": 550,
-      "margin": 3086.5,
+      "margin": 3087.5,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -3172,13 +3172,13 @@
       "week4_pct": -11.13,
       "market_cap": 59599409152,
       "pe_ratio": 29.1,
-      "forward_pe": 25.8,
+      "forward_pe": 26.7,
       "ev_ebitda": 23.0,
       "dividend_yield": 59.0,
-      "vs_gold_ytd": 16.3,
+      "vs_gold_ytd": 16.27,
       "aisc": 450,
       "production_koz": 800,
-      "margin": 3686.5,
+      "margin": 3687.5,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -3698,15 +3698,15 @@
       "change_pct": -0.19,
       "ytd_pct": 16.23,
       "week4_pct": -7.86,
-      "market_cap": 46501326848,
-      "pe_ratio": 31.5,
+      "market_cap": 46505730048,
+      "pe_ratio": 31.6,
       "forward_pe": 27.2,
       "ev_ebitda": 21.8,
       "dividend_yield": 73.0,
-      "vs_gold_ytd": 20.7,
+      "vs_gold_ytd": 20.67,
       "aisc": 400,
       "production_koz": 720,
-      "margin": 3736.5,
+      "margin": 3737.5,
       "sparkline": [
         {
           "t": "2026-04-21",
@@ -4219,7 +4219,7 @@
       ]
     }
   },
-  "gdx_gold_ratio": 0.020815,
+  "gdx_gold_ratio": 0.02081,
   "gdx_gold_ratio_chart": [
     {
       "t": "2025-10-21",
@@ -5223,7 +5223,7 @@
     },
     {
       "t": "2026-10-20",
-      "v": 0.02082
+      "v": 0.020784
     }
   ],
   "mining_production": {
@@ -5327,5 +5327,5 @@
     "reliability": "live (prices) / estimate (AISC, production)",
     "notes": "AISC and production data sourced from company annual reports / consensus estimates. Updated manually quarterly."
   },
-  "last_updated": "2026-10-20T23:43:44Z"
+  "last_updated": "2026-10-21T04:11:24Z"
 }
