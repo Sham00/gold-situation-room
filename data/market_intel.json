@@ -1,6 +1,14 @@
 {
   "alerts": [
     {
+      "type": "cb_buying",
+      "headline": "China extends gold purchases for 23rd straight month in September - Global Times",
+      "detail": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTE5vTVIyRjdwdU45dXBJMC01UTVVaFVLNVVFMmQ3OUhwYlB6bW52ZnBYczVBYVl0ZE5aeW5NbF9TNGVNMlBBZ1JaYk5lWjVsZGYtUnZVWXBublZFNXdFRExHOXBB?oc=5\" target=\"_bl",
+      "significance": "high",
+      "ts": "Wed, 07 Oct 2026 07:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5vTVIyRjdwdU45dXBJMC01UTVVaFVLNVVFMmQ3OUhwYlB6bW52ZnBYczVBYVl0ZE5aeW5NbF9TNGVNMlBBZ1JaYk5lWjVsZGYtUnZVWXBublZFNXdFRExHOXBB?oc=5"
+    },
+    {
       "type": "bearish_macro",
       "headline": "Gold prices could fall to $3,900, silver to $50 as Fed tightening pressures precious metals \u2013 Sucden Financial - Kitco",
       "detail": "",
@@ -9,30 +17,22 @@
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWnF0bG92emZOM0VGZEhBbjRnLXkwTGpvbm9mU3ZHcXBqeVpkUmMxb2cxcVd6UWc1dENEMUtXaGphakxjTmtQY3lBVUFsZDdRY3E0UHBna1BYdl9QajFQLXJndzl5ZUttaWtISTZIbGhORE1kMGJ4UVZfQ19Ya1FHZVkxTU1rRXZiVEdvMUtBdGl5Q0ZMWFZRcEQwTGRkT09VbmQ5MjI0TEs1V0NXZUZ5eldURXBpenpr?oc=5"
     },
     {
-      "type": "backwardation",
-      "headline": "GOLD IN BACKWARDATION: Spot $4038.7 > Dec 2026 $4038.3",
-      "detail": "Physical gold in backwardation signals strong immediate demand exceeding near-term supply. Historically bullish.",
-      "significance": "high",
-      "ts": "2026-10-29T12:42:13Z",
-      "link": ""
-    },
-    {
       "type": "rsi_approaching_oversold",
-      "headline": "\ud83d\udcc9 RSI APPROACHING OVERSOLD: Gold RSI at 31.2 \u2014 historically precedes mean-reversion bounces",
-      "detail": "RSI in the 30-40 range has historically preceded gold price rebounds. Watch for a reversal signal. Current RSI: 31.2",
+      "headline": "\ud83d\udcc9 RSI APPROACHING OVERSOLD: Gold RSI at 30.0 \u2014 historically precedes mean-reversion bounces",
+      "detail": "RSI in the 30-40 range has historically preceded gold price rebounds. Watch for a reversal signal. Current RSI: 30.0",
       "significance": "medium",
-      "ts": "2026-10-29T12:42:13Z",
+      "ts": "2026-10-29T18:54:11Z",
       "link": ""
     },
     {
       "type": "ma50_break",
-      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $4,039 trading under 50-DMA ($4,308) \u2014 watch for support",
+      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $4,020 trading under 50-DMA ($4,308) \u2014 watch for support",
       "detail": "Price below 50-day moving average can signal short-term bearish momentum.",
       "significance": "medium",
-      "ts": "2026-10-29T12:42:13Z",
+      "ts": "2026-10-29T18:54:11Z",
       "link": ""
     }
   ],
-  "last_scan": "2026-10-29T12:42:13Z",
-  "last_updated": "2026-10-29T12:42:16Z"
+  "last_scan": "2026-10-29T18:54:11Z",
+  "last_updated": "2026-10-29T18:54:13Z"
 }
