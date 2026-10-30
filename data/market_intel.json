@@ -2,29 +2,37 @@
   "alerts": [
     {
       "type": "backwardation",
-      "headline": "GOLD IN BACKWARDATION: Spot $3970.6 > Dec 2026 $3970.4",
+      "headline": "GOLD IN BACKWARDATION: Spot $3888.8 > Dec 2026 $3888.8",
       "detail": "Physical gold in backwardation signals strong immediate demand exceeding near-term supply. Historically bullish.",
       "significance": "high",
-      "ts": "2026-10-30T12:33:35Z",
+      "ts": "2026-10-30T18:31:02Z",
       "link": ""
     },
     {
       "type": "rsi_oversold",
-      "headline": "\ud83d\udcc9 RSI DEEPLY OVERSOLD: Gold RSI at 28.6 \u2014 extreme mean-reversion buy signal",
-      "detail": "RSI below 30 is a strong historical buy signal for gold. Current RSI: 28.6",
+      "headline": "\ud83d\udcc9 RSI DEEPLY OVERSOLD: Gold RSI at 24.7 \u2014 extreme mean-reversion buy signal",
+      "detail": "RSI below 30 is a strong historical buy signal for gold. Current RSI: 24.7",
       "significance": "high",
-      "ts": "2026-10-30T12:33:35Z",
+      "ts": "2026-10-30T18:31:02Z",
       "link": ""
     },
     {
       "type": "ma50_break",
-      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $3,971 trading under 50-DMA ($4,296) \u2014 watch for support",
+      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $3,889 trading under 50-DMA ($4,295) \u2014 watch for support",
       "detail": "Price below 50-day moving average can signal short-term bearish momentum.",
       "significance": "medium",
-      "ts": "2026-10-30T12:33:35Z",
+      "ts": "2026-10-30T18:31:02Z",
+      "link": ""
+    },
+    {
+      "type": "ytd_correction",
+      "headline": "\ud83d\udcca YTD CORRECTION: Gold down 10.2% YTD \u2014 positioning for potential reversal",
+      "detail": "Gold has corrected 10.2% YTD. Historical corrections of this magnitude have often preceded renewed buying.",
+      "significance": "high",
+      "ts": "2026-10-30T18:31:02Z",
       "link": ""
     }
   ],
-  "last_scan": "2026-10-30T12:33:35Z",
-  "last_updated": "2026-10-30T12:33:38Z"
+  "last_scan": "2026-10-30T18:31:02Z",
+  "last_updated": "2026-10-30T18:31:06Z"
 }
