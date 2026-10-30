@@ -1,38 +1,46 @@
 {
   "alerts": [
     {
+      "type": "bearish_macro",
+      "headline": "Gold Drops Below $4,000 as US Inflation and Interest Rate Concerns Weigh on Precious Metals - Yahoo Finance",
+      "detail": "",
+      "significance": "medium",
+      "ts": "Fri, 30 Oct 2026 10:04:43 GMT",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNaFM1eFNJRjBhakpQWnEwY2U1Z1B3UzBFMVVlM0xGZWpaUFZpR2FneTVOR0NXM04taUx3TWFTR3JPcE1CRkM0N0lFTk5nNFkxdWNFTFA2Zjh5aEpIS05YeWFXV1BxalpvaGY0cHVzVHQ0YmVXYzktYXhCcHU1OFJfbk5DUlNaUURKcnBOZGRuOFdYZUk5WHgw?oc=5"
+    },
+    {
       "type": "backwardation",
-      "headline": "GOLD IN BACKWARDATION: Spot $3888.8 > Dec 2026 $3888.8",
+      "headline": "GOLD IN BACKWARDATION: Spot $3884.9 > Dec 2026 $3884.9",
       "detail": "Physical gold in backwardation signals strong immediate demand exceeding near-term supply. Historically bullish.",
       "significance": "high",
-      "ts": "2026-10-30T18:31:02Z",
+      "ts": "2026-10-30T22:54:07Z",
       "link": ""
     },
     {
       "type": "rsi_oversold",
-      "headline": "\ud83d\udcc9 RSI DEEPLY OVERSOLD: Gold RSI at 24.7 \u2014 extreme mean-reversion buy signal",
-      "detail": "RSI below 30 is a strong historical buy signal for gold. Current RSI: 24.7",
+      "headline": "\ud83d\udcc9 RSI DEEPLY OVERSOLD: Gold RSI at 24.5 \u2014 extreme mean-reversion buy signal",
+      "detail": "RSI below 30 is a strong historical buy signal for gold. Current RSI: 24.5",
       "significance": "high",
-      "ts": "2026-10-30T18:31:02Z",
+      "ts": "2026-10-30T22:54:07Z",
       "link": ""
     },
     {
       "type": "ma50_break",
-      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $3,889 trading under 50-DMA ($4,295) \u2014 watch for support",
+      "headline": "\u26a0\ufe0f BELOW 50-DAY MA: Gold at $3,885 trading under 50-DMA ($4,295) \u2014 watch for support",
       "detail": "Price below 50-day moving average can signal short-term bearish momentum.",
       "significance": "medium",
-      "ts": "2026-10-30T18:31:02Z",
+      "ts": "2026-10-30T22:54:07Z",
       "link": ""
     },
     {
       "type": "ytd_correction",
-      "headline": "\ud83d\udcca YTD CORRECTION: Gold down 10.2% YTD \u2014 positioning for potential reversal",
-      "detail": "Gold has corrected 10.2% YTD. Historical corrections of this magnitude have often preceded renewed buying.",
+      "headline": "\ud83d\udcca YTD CORRECTION: Gold down 10.3% YTD \u2014 positioning for potential reversal",
+      "detail": "Gold has corrected 10.3% YTD. Historical corrections of this magnitude have often preceded renewed buying.",
       "significance": "high",
-      "ts": "2026-10-30T18:31:02Z",
+      "ts": "2026-10-30T22:54:07Z",
       "link": ""
     }
   ],
-  "last_scan": "2026-10-30T18:31:02Z",
-  "last_updated": "2026-10-30T18:31:06Z"
+  "last_scan": "2026-10-30T22:54:07Z",
+  "last_updated": "2026-10-30T22:54:10Z"
 }
