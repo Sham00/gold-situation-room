@@ -66,9 +66,9 @@
     {
       "month": 10,
       "name": "Oct",
-      "avg_return": 1.72,
-      "std_dev": 3.56,
-      "years_of_data": 7
+      "avg_return": 0.64,
+      "std_dev": 4.49,
+      "years_of_data": 8
     },
     {
       "month": 11,
@@ -91,13 +91,13 @@
     "Dec"
   ],
   "worst_months": [
-    "Feb",
+    "Oct",
     "Sep",
     "Jun"
   ],
-  "current_month": "Oct",
-  "current_month_avg": 1.72,
+  "current_month": "Nov",
+  "current_month_avg": 1.89,
   "years_analyzed": 10,
   "source": "yfinance GC=F 10-year monthly returns",
-  "last_updated": "2026-10-31T23:15:42Z"
+  "last_updated": "2026-11-01T05:30:11Z"
 }
