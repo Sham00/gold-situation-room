@@ -8,6 +8,13 @@
       "sentiment": "negative"
     },
     {
+      "source": "Google News",
+      "title": "Gold Price Canada Today | Live Gold Price in CAD - Kitco",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBVMHM0YXN3UkRUdlVZXzdrUjJmSHh5eFZ6Q0pSOVhYV1pLU0VzSXNhWGRVREpJbm9uX3pvSkZsMDNVRmg4a3JPYXlTY2N3OEF5Wm00MA?oc=5",
+      "published": "Sun, 01 Nov 2026 00:00:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
       "source": "Yahoo Finance Gold",
       "title": "3 Gold Stocks With Net Margins Over 30%",
       "link": "https://finance.yahoo.com/markets/commodities/articles/3-gold-stocks-net-margins-211325757.html?.tsrc=rss",
@@ -127,13 +134,6 @@
       "sentiment": "neutral"
     },
     {
-      "source": "Yahoo Finance Gold",
-      "title": "Gold Price Just Hit a Yearly Low. What Are Analysts Saying?",
-      "link": "https://beincrypto.com/gold-price-lowest-point-2026-analysts/?.tsrc=rss",
-      "published": "Fri, 30 Oct 2026 19:54:53 +0000",
-      "sentiment": "neutral"
-    },
-    {
       "source": "Google News",
       "title": "Gold Price Just Hit a Yearly Low. What Are Analysts Saying? - Yahoo Finance",
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPU0pPZHhycWdjRDdEQ3NfYlRNbXhlTGEtSHRfQlcwWWFxdl9KU1VZOGdvNHA0RnJ3WTVlaTNYZ0ctQUdUODJWSlhOOC1RT25LZXhPZW5oV2JaMk85aWxmR0FZaHhIVXl3cGt4cnA4MXJfWl8td244TGdoNGhfMEdUZVN3aWdsTVdRYWU5QW1mNVM2TDR6Z3d6Qlc1NVE?oc=5",
@@ -176,16 +176,16 @@
       "sentiment": "positive"
     }
   ],
-  "sentiment_score": 19.7,
-  "bull_count": 34,
+  "sentiment_score": 17.4,
+  "bull_count": 32,
   "bear_count": 20,
   "neutral_count": 17,
-  "bull_pct": 47.9,
+  "bull_pct": 46.4,
   "data_quality": {
     "source": "RSS feeds: Yahoo Finance Gold, Google News, Reuters Gold, FXStreet, Mining.com, Reuters, Investing.com",
     "freshness": "hourly",
     "reliability": "live",
     "notes": "Sentiment scoring is keyword-based heuristic. Not a substitute for full NLP sentiment analysis."
   },
-  "last_updated": "2026-11-01T05:29:49Z"
+  "last_updated": "2026-11-01T13:00:10Z"
 }
