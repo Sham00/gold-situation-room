@@ -1,19 +1,18 @@
 {
-  "registered_oz": 76670000.0,
-  "eligible_oz": 15180000.0,
-  "total_oz": 91850000.0,
-  "registered_tonnes": 2384.7,
-  "eligible_tonnes": 472.2,
-  "total_tonnes": 2856.9,
-  "open_interest_contracts": null,
-  "coverage_ratio": 2.0,
-  "registered_coverage_pct": 42.2,
-  "cover_pct": 212.1,
-  "source": "silveroftruth.com (updated every 4h from CME Group)",
+  "registered_tonnes": 509,
+  "eligible_tonnes": 461,
+  "total_tonnes": 970,
+  "registered_oz": 16370000,
+  "eligible_oz": 14810000,
+  "total_oz": 31180000,
+  "cover_pct": 45.3,
+  "registered_coverage_pct": 45.3,
+  "open_interest_contracts": 361409,
+  "source": "Static estimate (scrape failed) \u2014 silveroftruth.com",
   "data_quality": {
-    "freshness": "4-hourly",
-    "reliability": "scraped",
-    "notes": "Registered = warrantable gold deliverable vs futures. Eligible = meets COMEX standards but not currently warranted."
+    "freshness": "stale",
+    "reliability": "fallback",
+    "notes": "Live scrape failed; using last known values."
   },
-  "last_updated": "2026-11-03T18:20:21Z"
+  "last_updated": "2026-11-03T23:56:27Z"
 }
