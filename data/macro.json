@@ -1,11 +1,7 @@
 {
-  "real_yield_10y": 2.65,
-  "real_yield_10y_date": "2026-11-03",
+  "real_yield_10y": 2.64,
+  "real_yield_10y_date": "2026-11-04",
   "real_yield_10y_chart": [
-    {
-      "t": "2025-10-31",
-      "v": 1.81
-    },
     {
       "t": "2025-11-03",
       "v": 1.82
@@ -1009,6 +1005,10 @@
     {
       "t": "2026-11-03",
       "v": 2.65
+    },
+    {
+      "t": "2026-11-04",
+      "v": 2.64
     }
   ],
   "fed_funds": 3.88,
@@ -4047,13 +4047,9 @@
       "v": 23508.0
     }
   ],
-  "us_10y": 4.95,
-  "us_10y_date": "2026-11-03",
+  "us_10y": 4.9,
+  "us_10y_date": "2026-11-04",
   "us_10y_chart": [
-    {
-      "t": "2025-10-31",
-      "v": 4.11
-    },
     {
       "t": "2025-11-03",
       "v": 4.13
@@ -5057,10 +5053,14 @@
     {
       "t": "2026-11-03",
       "v": 4.95
+    },
+    {
+      "t": "2026-11-04",
+      "v": 4.9
     }
   ],
-  "dxy": 101.46,
-  "dxy_date": "2026-11-05",
+  "dxy": 101.57,
+  "dxy_date": "2026-11-06",
   "dxy_chart": [
     {
       "t": "2025-11-05",
@@ -6068,11 +6068,11 @@
     },
     {
       "t": "2026-11-05",
-      "v": 101.46
+      "v": 101.57
     }
   ],
-  "vix": 27.1,
-  "vix_date": "2026-11-05",
+  "vix": 28.18,
+  "vix_date": "2026-11-06",
   "vix_chart": [
     {
       "t": "2025-11-05",
@@ -7088,7 +7088,7 @@
     },
     {
       "t": "2026-11-05",
-      "v": 27.1
+      "v": 28.18
     }
   ],
   "data_sources": {
@@ -8107,11 +8107,11 @@
     },
     {
       "t": "2026-11-05",
-      "v": 4113.2
+      "v": 4099.0
     }
   ],
   "next_fomc_date": "2026-12-09",
-  "days_to_fomc": 34,
+  "days_to_fomc": 33,
   "data_quality": {
     "source": "yfinance (TNX, RINF, TIP, DX-Y.NYB, ^VIX, ^GSPC, BTC-USD, CL=F) + FRED-proxy estimates",
     "freshness": "daily",
@@ -8123,5 +8123,5 @@
   "lease_rate_6m": 0.582,
   "lease_rate_source": "Estimated from futures basis (GOFO proxy). GOFO discontinued by LBMA in 2015; this uses GC=F term structure.",
   "backwardation": false,
-  "last_updated": "2026-11-05T18:38:01Z"
+  "last_updated": "2026-11-06T00:00:16Z"
 }
