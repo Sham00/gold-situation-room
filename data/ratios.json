@@ -4025,6 +4025,10 @@
       {
         "t": "2026-11-05",
         "v": 0.0542
+      },
+      {
+        "t": "2026-11-06",
+        "v": 0.0538
       }
     ],
     "gold_copper": [
@@ -5057,7 +5061,7 @@
       "min": 0.0257,
       "max": 1.7428,
       "mean": 0.1718,
-      "current_percentile": 35.8
+      "current_percentile": 35.6
     },
     "gold_copper": {
       "min": 373.5319,
@@ -7084,5 +7088,5 @@
     "reliability": "live",
     "notes": "All ratios computed from daily closing prices via yfinance."
   },
-  "last_updated": "2026-11-07T06:56:58Z"
+  "last_updated": "2026-11-07T13:53:03Z"
 }
