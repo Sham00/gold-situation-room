@@ -3,11 +3,11 @@
     "GLD": {
       "name": "SPDR Gold Shares",
       "price": 372.52,
-      "change": -1.75,
-      "change_pct": -0.47,
-      "tonnes_est": 732.8,
+      "change": -0.85,
+      "change_pct": -0.23,
+      "tonnes_est": 734.9,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": -1.4,
+      "daily_change_est": -0.7,
       "ytd_pct": -6.47,
       "week7_pct": -0.27,
       "week4_pct": -1.61,
@@ -1021,11 +1021,11 @@
     "IAU": {
       "name": "iShares Gold Trust",
       "price": 76.38,
-      "change": -0.35,
-      "change_pct": -0.46,
-      "tonnes_est": 560.0,
+      "change": -0.29,
+      "change_pct": -0.37,
+      "tonnes_est": 561.6,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": -1.0,
+      "daily_change_est": -0.8,
       "ytd_pct": -6.35,
       "week7_pct": -0.25,
       "week4_pct": -1.65,
@@ -2041,7 +2041,7 @@
       "price": 30.72,
       "change": -0.11,
       "change_pct": -0.36,
-      "tonnes_est": 110.1,
+      "tonnes_est": 110.4,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -0.2,
       "ytd_pct": -7.27,
@@ -4075,8 +4075,8 @@
     "SGOL": {
       "name": "Aberdeen Physical Gold",
       "price": 38.7,
-      "change": -0.18,
-      "change_pct": -0.46,
+      "change": -0.24,
+      "change_pct": -0.61,
       "tonnes_est": 42,
       "tonnes_source": "hardcoded estimate",
       "daily_change_est": -0.1,
@@ -5091,12 +5091,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1462.9,
+  "total_holdings_tonnes_est": 1466.9,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-11-09T01:33:39Z"
+  "last_updated": "2026-11-09T09:29:52Z"
 }
