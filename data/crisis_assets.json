@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 3882.1,
+      "price": 3899.7,
       "start_price": 4329.6,
-      "ytd_pct": -10.34,
+      "ytd_pct": -9.93,
       "color": "#ffd700",
       "chart": [
         {
@@ -876,7 +876,11 @@
         },
         {
           "t": "2026-11-12",
-          "v": 89.66
+          "v": 89.74
+        },
+        {
+          "t": "2026-11-13",
+          "v": 90.07
         }
       ]
     },
@@ -1761,9 +1765,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 71202.49,
+      "price": 67954.97,
       "start_price": 88731.98,
-      "ytd_pct": -19.76,
+      "ytd_pct": -23.42,
       "color": "#ff8800",
       "chart": [
         {
@@ -3027,15 +3031,15 @@
           "v": 83.36
         },
         {
-          "t": "2026-11-12",
-          "v": 80.24
+          "t": "2026-11-13",
+          "v": 76.58
         }
       ]
     },
     "Silver": {
-      "price": 49.94,
+      "price": 49.58,
       "start_price": 70.56,
-      "ytd_pct": -29.23,
+      "ytd_pct": -29.73,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -3908,7 +3912,11 @@
         },
         {
           "t": "2026-11-12",
-          "v": 70.77
+          "v": 70.83
+        },
+        {
+          "t": "2026-11-13",
+          "v": 70.27
         }
       ]
     },
@@ -5681,9 +5689,9 @@
       ]
     },
     "DXY": {
-      "price": 103.17,
+      "price": 103.18,
       "start_price": 98.42,
-      "ytd_pct": 4.83,
+      "ytd_pct": 4.84,
       "color": "#aa44ff",
       "chart": [
         {
@@ -6557,6 +6565,10 @@
         {
           "t": "2026-11-12",
           "v": 104.83
+        },
+        {
+          "t": "2026-11-13",
+          "v": 104.84
         }
       ]
     }
@@ -6567,5 +6579,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-11-12T23:25:55Z"
+  "last_updated": "2026-11-13T06:01:44Z"
 }
