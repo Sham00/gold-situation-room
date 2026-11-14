@@ -5,7 +5,7 @@
       "price": 355.45,
       "change": 0.05,
       "change_pct": 0.01,
-      "tonnes_est": 742.0,
+      "tonnes_est": 740.3,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": 0.0,
       "ytd_pct": -10.75,
@@ -1023,7 +1023,7 @@
       "price": 72.88,
       "change": -0.07,
       "change_pct": -0.1,
-      "tonnes_est": 567.0,
+      "tonnes_est": 565.7,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -0.2,
       "ytd_pct": -10.64,
@@ -2041,7 +2041,7 @@
       "price": 29.3,
       "change": -0.02,
       "change_pct": -0.07,
-      "tonnes_est": 111.4,
+      "tonnes_est": 111.2,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
       "daily_change_est": -0.0,
       "ytd_pct": -11.56,
@@ -3056,15 +3056,15 @@
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 38.18,
-      "change": 0.06,
-      "change_pct": 0.16,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": 0.0,
-      "ytd_pct": -10.52,
-      "week7_pct": -4.53,
-      "week4_pct": -7.08,
+      "daily_change_est": NaN,
+      "ytd_pct": NaN,
+      "week7_pct": NaN,
+      "week4_pct": NaN,
       "chart_1y": [
         {
           "t": "2025-11-14",
@@ -4068,7 +4068,7 @@
         },
         {
           "t": "2026-11-13",
-          "v": 38.18
+          "v": NaN
         }
       ]
     },
@@ -5091,12 +5091,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1480.4,
+  "total_holdings_tonnes_est": 1477.2,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-11-13T21:52:22Z"
+  "last_updated": "2026-11-14T02:08:26Z"
 }
