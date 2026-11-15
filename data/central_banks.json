@@ -4537,18 +4537,54 @@
     "2021": 450,
     "2022": 1082,
     "2023": 1037,
-    "2024": 1045,
+    "2024": 1000,
     "2025": 980,
     "2026_annualized": 80
   },
   "pace_vs_avg": 0.2,
   "source": "hardcoded WGC estimates (all live sources unavailable)",
-  "cb_news": [],
+  "cb_news": [
+    {
+      "title": "Turkish central bank deploys $16.1B from reserves after fund scandal: Report - T\u00fcrkiye Today",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNbVVLckR3LUZxR01iNDM0QVBpajh1MnVsTVdLejRMeVl0bExOajZURXFJem5uWTBfaVpOb2lyeGQ5WlhGcnpNQlM3ZVI2cGxMQ2xoTzIzVG5yNTRCdU43anFxZkFvQUV5aDVIREZWbGI0U045T3F3a2FWR1lYNGtMOEpCMlFiVGNHRDVFa3RHeVNnUGszc3Bkdk1JRmZyTzVzUVkzVnRXMXhpZ3phdFNGVUMwTlBaM3hOVUFN?oc=5",
+      "source": "Google News Turkey Gold",
+      "published": "Wed, 28 Oct 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Central banks are bringing gold reserves home as geopolitical risks rise - CNBC",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONTA2VTc1TnpxMXJMTm1NY0lJVHk4a1ZXOWxqUmZrRTZWT0RLTnBkVGxfYmlOQ05yN2dRb1Y5YXZJaDZHZHdSbnZWMklFU3h6bVZLOG5TSldIOUNSWWtTT2djdlZhR095TzBFV1lrby1RRXoyZzhfY0VDeHRfM3diQXpmUUhaRHhS0gGOAUFVX3lxTFBwajNmWXBVYW5KdHAyRlpkVjlaSGJiSXJIU01fOVhEcEFfTlNfQ0o0bm5PSnU4a1BXQUQzR3l2bW5HU0JSaXNOSEJFUUVnLXVJWU1JUXhSTzdabHp4ZGNKOHAza1FxRzduYUYydnpNX0ZFaXc5eWxqT1lxV1ctTTRzR2s5cVdLR1BrdWZsS0E?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 17 Jun 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "China\u2019s central bank buys 21 tonnes of gold in September, largest monthly purchase in 3 years - Kitco",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQVVBNT0VBTXh2QTBwcVMxX3RMMTdjY0hJX1h2R1EtU3BIZHN4WV9GUldTRktqZlpWQTc0RUlQV1JETnVkWW1KUFpSaERvb0VvV212Q2xuYzhJeC1VSWJ2RWJsOHpkWGJnbUxxRFdmUWpIVENrLTBiTXBBOUtmZGVzREFENHFrVEZ0NUpGWkFaLWRtVThvdVd6R0thLUhKV3YyOTlFV2JJR0N5SUZaUW1nWDFjb1JDVk91QVZybg?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Wed, 07 Oct 2026 07:00:00 GMT",
+      "sentiment": "positive"
+    },
+    {
+      "title": "Central banks buy net 17 tonnes of gold in April, led by Poland and China \u2013 WGC - Kitco",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNVTBXOGFWajJjdXRITTQ2TlFkT3VZdFNuVW9jekNFby10YWtXR3hoaVJVTzZnejJDbkhXYWF1SjFuSEZpVm5xZWhmRXdFaGcya1hCdTVhZnptekx5VllTNE95WVRxWkswQWhxSFpPLU9qUl9KcXJIbDlraVRGaVpxdFJ0aEZfeHNxeVVQXy1ERmIyMmZ2QXpBcjRfNTUwT0YwNkRsWHRyUmhMbE03cmt3WDgzZw?oc=5",
+      "source": "Google News CB",
+      "published": "Wed, 03 Jun 2026 07:00:00 GMT",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "China\u2019s gold chase to gain pace in an uncertain world - S&P Global",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdFZEX1E2WjBCZjV6Nll1UnVFYmU1MldQdXl1blBQT0I5TGpFWnhTdlRNNnNwTzVteHY5RXN2blIzZWtlUW9SQ3RDU0RyamRFQ3EtVkVrZXR2T3Nsa2xHTktfUFlNX2d0eEZiYWJ1NUF1Vy0yMV9nV01BbnFXZk1yTjlkWHYtT2RsT2lVUGNEaDBabjdWZndLdXlSMA?oc=5",
+      "source": "Google News PBOC Gold",
+      "published": "Tue, 25 Aug 2026 07:00:00 GMT",
+      "sentiment": "neutral"
+    }
+  ],
   "data_quality": {
     "source": "hardcoded estimates based on WGC quarterly reports",
     "freshness": "quarterly",
     "reliability": "estimate",
     "notes": "All live sources unavailable. Data from WGC quarterly reports."
   },
-  "last_updated": "2026-11-15T16:54:05Z"
+  "last_updated": "2026-11-15T21:35:16Z"
 }
