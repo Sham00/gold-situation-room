@@ -43,7 +43,7 @@
     {
       "event": "Current",
       "year": 2026,
-      "price": 3874.0
+      "price": 3868.0
     }
   ],
   "decade_returns": [
@@ -1274,8 +1274,8 @@
       "v": 3898.9
     },
     {
-      "t": "2026-11-15",
-      "v": 3874.3
+      "t": "2026-11-16",
+      "v": 3867.5
     }
   ],
   "real_gold_chart": [
@@ -2780,9 +2780,9 @@
       "nominal": 3898.9
     },
     {
-      "t": "2026-11-15",
-      "v": 3874.3,
-      "nominal": 3874.3
+      "t": "2026-11-16",
+      "v": 3867.5,
+      "nominal": 3867.5
     }
   ],
   "seasonal_monthly": [
@@ -2848,7 +2848,7 @@
     },
     {
       "month": "Nov",
-      "avg_return": 1.51,
+      "avg_return": 1.5,
       "positive_pct": 50.0,
       "n": 24
     },
@@ -2884,11 +2884,11 @@
     },
     {
       "peak_date": "2026-01-29",
-      "trough_date": "2026-11-15",
+      "trough_date": "2026-11-16",
       "recovery_date": null,
       "peak_price": 5318.4,
-      "trough_price": 3874.3,
-      "drawdown_pct": -27.15,
+      "trough_price": 3867.5,
+      "drawdown_pct": -27.28,
       "days_to_trough": 201,
       "days_to_recovery": null,
       "recovered": false
@@ -3010,5 +3010,5 @@
     "reliability": "live (recent) / hardcoded (pre-2000)",
     "notes": "Pre-2000 data from London PM Fix annual averages. Seasonality uses full available history. Real price uses BLS CPI-U annual averages. Drawdown history uses daily data post-2000."
   },
-  "last_updated": "2026-11-16T01:43:37Z"
+  "last_updated": "2026-11-16T09:19:48Z"
 }
