@@ -94,15 +94,10 @@
   "consensus_low": 4500,
   "consensus_high": 6350,
   "consensus_mid": 5547,
-  "upside_pct": 43.0,
+  "upside_pct": 43.7,
   "most_bullish": "BMO Capital Markets",
-  "current_price": 3879.8,
+  "current_price": 3859.3,
   "news_snippets": [
-    {
-      "title": "Goldman Sachs just slashed its 2027 gold forecast. Here are the new numbers - Yahoo Finance",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZnFQQkkyc2Z2cVhKV0EyamJKbGZ3TmhZbkNDSWl1WDdnY3M2dHlvaGE1UnM5cHdoSTRHQ21BS190bk1FTWY5TDFuMFhqekVITHM4MmUzakJQV3lrLUNScllyUDBzWWR3Q3htOGRUb3BJaHZESW03QmtxZ0dmVVJYY1EwR0NGUk5aOXpYQzF0MWxVVEwza0xLa19zODZOeEt0SFRB?oc=5",
-      "published": "Sat, 14 Nov 2026 12:38:40 GMT"
-    },
     {
       "title": "Goldman Forecasts Gold to Take Two Years to Recapture All-Time Highs - Bloomberg.com",
       "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNczF1RXhsRmNwczFILVk5SGZNMVhVeERCSHJkOS1OdDFNcndMcHk0ZTUxVVc0QXNUd0lCZEVqYmxfOGV5eGpsMEhnMGpRWUhLVEJqdWQ1MExqZUxMcjQ1S1h1LWx5QzBDVzkyY3BYQVk1Y2VkSnIyOWxMOV9tcTdYOU1lSUxCMHVfNFJkTm5vbDFpLUItZnFWMlhfamdvdHZoak9RRG9Xakl6RFBIb29JSkRWRENVM1dlWU1v?oc=5",
@@ -111,7 +106,12 @@
     {
       "title": "Goldman\u2019s second gold forecast downgrade in a month turns its bear case into the base case - investingLive",
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOWmxwY0V2OXVfUHROLVFuWFNCYTROS1hTS2VwOG16djhFdWxfWG9qbkp5cGpTMlVRZWY4VFFRb0ozQmQ1WmloczlXODdOWHVDUFNkUExxeTJNRHROcWVVR2J2X1MwSGxRQ3pFSTdNUTJael9JS09zUUdLZDJvRWEzZFBGWGwxYi1jM1BDNFVBdDUyVzJtbF95OTJtaEY0N0xCR0ZTcVRVd0RCekxiaTNCZTlaYy1tVzNwcERocnZoUWhWanVXNVNfTg?oc=5",
-      "published": "Mon, 16 Nov 2026 01:15:58 GMT"
+      "published": "Mon, 16 Nov 2026 01:15:00 GMT"
+    },
+    {
+      "title": "Goldman Sachs just slashed its 2027 gold forecast. Here are the new numbers - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZnFQQkkyc2Z2cVhKV0EyamJKbGZ3TmhZbkNDSWl1WDdnY3M2dHlvaGE1UnM5cHdoSTRHQ21BS190bk1FTWY5TDFuMFhqekVITHM4MmUzakJQV3lrLUNScllyUDBzWWR3Q3htOGRUb3BJaHZESW03QmtxZ0dmVVJYY1EwR0NGUk5aOXpYQzF0MWxVVEwza0xLa19zODZOeEt0SFRB?oc=5",
+      "published": "Sat, 14 Nov 2026 12:38:40 GMT"
     },
     {
       "title": "Goldman Sachs just revamped its 2027 gold target for the second time - TheStreet",
@@ -125,10 +125,10 @@
     }
   ],
   "data_quality": {
-    "source": "hardcoded published analyst targets (Q1-Q2 2026, post-Liberation Day II revisions) + 5 Google News RSS headlines",
+    "source": "hardcoded published analyst targets (Q1-Q2 2026, post-Liberation Day II revisions) + 10 Google News RSS headlines",
     "freshness": "quarterly (price target revisions)",
     "reliability": "published analyst estimates",
     "notes": "Targets from major bank research notes (2025-2026). Updated when banks revise publicly. News snippets from Google News RSS."
   },
-  "last_updated": "2026-11-17T03:35:40Z"
+  "last_updated": "2026-11-17T12:58:46Z"
 }
