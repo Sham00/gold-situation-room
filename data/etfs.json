@@ -5,9 +5,9 @@
       "price": 335.18,
       "change": -7.37,
       "change_pct": -2.15,
-      "tonnes_est": 741.1,
+      "tonnes_est": 764.0,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": -6.4,
+      "daily_change_est": -6.6,
       "ytd_pct": -15.84,
       "week7_pct": -9.25,
       "week4_pct": -11.55,
@@ -1023,9 +1023,9 @@
       "price": 68.72,
       "change": -1.49,
       "change_pct": -2.12,
-      "tonnes_est": 566.3,
+      "tonnes_est": 583.8,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": -4.8,
+      "daily_change_est": -5.0,
       "ytd_pct": -15.74,
       "week7_pct": -9.27,
       "week4_pct": -11.57,
@@ -2041,9 +2041,9 @@
       "price": 27.51,
       "change": -0.65,
       "change_pct": -2.3,
-      "tonnes_est": 110.8,
+      "tonnes_est": 114.2,
       "tonnes_source": "yfinance AUM\u00f7gold_price",
-      "daily_change_est": -1.0,
+      "daily_change_est": -1.1,
       "ytd_pct": -16.96,
       "week7_pct": -9.71,
       "week4_pct": -11.94,
@@ -3056,15 +3056,15 @@
     },
     "BAR": {
       "name": "GraniteShares Gold",
-      "price": 35.98,
-      "change": -0.66,
-      "change_pct": -1.8,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "tonnes_est": 18,
       "tonnes_source": "hardcoded estimate",
-      "daily_change_est": -0.1,
-      "ytd_pct": -15.68,
-      "week7_pct": -9.23,
-      "week4_pct": -11.55,
+      "daily_change_est": NaN,
+      "ytd_pct": NaN,
+      "week7_pct": NaN,
+      "week4_pct": NaN,
       "chart_1y": [
         {
           "t": "2025-11-20",
@@ -4068,7 +4068,7 @@
         },
         {
           "t": "2026-11-19",
-          "v": 35.98
+          "v": NaN
         }
       ]
     },
@@ -5091,12 +5091,12 @@
       ]
     }
   },
-  "total_holdings_tonnes_est": 1478.2,
+  "total_holdings_tonnes_est": 1522.0,
   "data_quality": {
     "source": "yfinance ETF prices + shares_outstanding (GLD, IAU, PHYS, BAR, SGOL). Tonnes from AUM\u00f7gold_price.",
     "freshness": "daily",
     "reliability": "estimate",
     "notes": "Tonnes = shares_outstanding \u00d7 ETF_price \u00f7 (gold_price \u00d7 32150.7). Falls back to hardcoded if shares unavailable."
   },
-  "last_updated": "2026-11-19T21:16:45Z"
+  "last_updated": "2026-11-20T02:55:09Z"
 }
