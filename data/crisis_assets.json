@@ -1,9 +1,9 @@
 {
   "assets": {
     "Gold": {
-      "price": 3594.1,
+      "price": 3689.1,
       "start_price": 4329.6,
-      "ytd_pct": -16.99,
+      "ytd_pct": -14.79,
       "color": "#ffd700",
       "chart": [
         {
@@ -915,8 +915,8 @@
           "v": 81.67
         },
         {
-          "t": "2026-11-26",
-          "v": 83.01
+          "t": "2026-11-27",
+          "v": 85.21
         }
       ]
     },
@@ -1837,9 +1837,9 @@
       ]
     },
     "Bitcoin": {
-      "price": 60374.76,
+      "price": 61510.32,
       "start_price": 88731.98,
-      "ytd_pct": -31.96,
+      "ytd_pct": -30.68,
       "color": "#ff8800",
       "chart": [
         {
@@ -3160,14 +3160,18 @@
         },
         {
           "t": "2026-11-26",
-          "v": 68.04
+          "v": 68.18
+        },
+        {
+          "t": "2026-11-27",
+          "v": 69.32
         }
       ]
     },
     "Silver": {
-      "price": 41.72,
+      "price": 44.44,
       "start_price": 70.56,
-      "ytd_pct": -40.86,
+      "ytd_pct": -37.02,
       "color": "#aaaaaa",
       "chart": [
         {
@@ -4079,8 +4083,8 @@
           "v": 56.77
         },
         {
-          "t": "2026-11-26",
-          "v": 59.14
+          "t": "2026-11-27",
+          "v": 62.98
         }
       ]
     },
@@ -5929,9 +5933,9 @@
       ]
     },
     "DXY": {
-      "price": 103.78,
+      "price": 103.76,
       "start_price": 98.42,
-      "ytd_pct": 5.44,
+      "ytd_pct": 5.43,
       "color": "#aa44ff",
       "chart": [
         {
@@ -6843,8 +6847,8 @@
           "v": 105.33
         },
         {
-          "t": "2026-11-26",
-          "v": 105.44
+          "t": "2026-11-27",
+          "v": 105.43
         }
       ]
     }
@@ -6855,5 +6859,5 @@
     "reliability": "live",
     "notes": "All assets rebased to 100 at Jan 1 of current year for YTD comparison. S&P 500 added Apr 2026 to show gold/stocks divergence during Liberation Day tariff event."
   },
-  "last_updated": "2026-11-26T23:38:52Z"
+  "last_updated": "2026-11-27T07:46:42Z"
 }
